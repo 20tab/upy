@@ -1,0 +1,12 @@
+{%if use_alias%}
+	<{{tag_header}} class = "{{class_header}}">
+        <{{tag_alias}}>
+            {{staticelement.alias}}
+        </{{tag_alias}}>
+   	</{{tag_header}}>
+{%endif%}
+{%if use_html%}
+    <{{tag_content}} class = "{{class_content}}">
+        {{staticelement.html|safe}}
+    </{{tag_content}}>
+{%endif%}

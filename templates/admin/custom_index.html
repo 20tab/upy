@@ -1,0 +1,154 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+{% load customadmin %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+{% if app_list %}
+
+	
+	{% if CUSTOM_ADMIN.view_mode == "use_app_icons" and app_list|length > 1 %}
+	<div id="content-main-icon">
+	    {% for app in app_list|add_app_icons:CUSTOM_ADMIN.autocomplete_app_list %}
+	        <div class="app_icon_box">
+	        	<a href="{{ app.app_url }}" class="section"><img src="{% if app.image %}{{ app.image.url }}{% else %}/upy_static/images/default_app_icon.png{% endif %}" alt="{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}" /></a>
+	        	<p><a href="{{ app.app_url }}" class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</a></p>
+	        </div> <!-- /module -->
+	    {% endfor %}
+	</div> <!-- /content-main-icon -->	
+	
+		{% if CUSTOM_LINK_LIST %}
+		<div id="content-main-icon-link">
+		    {% for link in CUSTOM_LINK_LIST %}
+		     <div class="app_icon_box">
+	     		<a href="{{ link.link_url }}" class="section"><img src="{% if link.image %}{{ link.image.url }}{% else %}/upy_static/images/default_app_icon.png{% endif %}" alt="{% blocktrans with link.verbose_url_name as name %}{{ name }}{% endblocktrans %}" /></a>
+		        <p><a href="{{ link.link_url }}" class="section">{% blocktrans with link.verbose_url_name as name %}{{ name }}{% endblocktrans %}</a></p>
+		      </div> <!-- /module -->
+		    {% endfor %}
+		</div> <!-- /content-main-icon -->	
+		
+		{% endif %}
+
+	{% else %}
+
+	<div id="content-main">
+		{% if CUSTOM_ADMIN.view_mode == "use_custom_app" and app_list|length > 1 %}
+		    {% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list %}
+		        <div class="module">
+		        <table summary="{% blocktrans with app.verbose_app_name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+		        <caption><a href="{{ app.app_url }}" class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</a></caption>
+		        {% if app.show_models or app_list|length <= 1  %}
+			        {% for model in app.models %}
+			            {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
+				            <tr>
+				            {% if model.perms.change %}
+				                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+				            {% else %}
+				                <th scope="row">{{ model.name }}</th>
+				            {% endif %}
+				
+				            {% if model.perms.add %}
+				                <td><a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a></td>
+				            {% else %}
+				                <td>&nbsp;</td>
+				            {% endif %}
+				
+				            {% if model.perms.change %}
+				                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+				            {% else %}
+				                <td>&nbsp;</td>
+				            {% endif %}
+				            </tr>
+			            {% endif %}
+			        {% endfor %}
+		        {% endif %}
+		        </table>
+		        </div> <!-- /module -->
+		    {% endfor %}
+		  {% else %}
+		    {% for app in app_list %}
+		        <div class="module">
+		        <table summary="{% blocktrans with app.name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+		        <caption><a href="{{ app.app_url }}" class="section">{% blocktrans with app.name as name %}{{ name }}{% endblocktrans %}</a></caption>
+		        {% for model in app.models %}
+		        	{% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
+			            <tr>
+			            {% if model.perms.change %}
+			                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+			            {% else %}
+			                <th scope="row">{{ model.name }}</th>
+			            {% endif %}
+			
+			            {% if model.perms.add %}
+			                <td><a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a></td>
+			            {% else %}
+			                <td>&nbsp;</td>
+			            {% endif %}
+			
+			            {% if model.perms.change %}
+			                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+			            {% else %}
+			                <td>&nbsp;</td>
+			            {% endif %}
+			            </tr>
+			         {% endif %}
+		        {% endfor %}
+		        </table>
+		        </div> <!-- /module -->
+		    {% endfor %}
+		  {% endif %}
+	</div> <!-- /content-main -->
+	{% endif %}    
+
+{% else %}
+	<div id="content-main">
+	    <p>{% trans "You don't have permission to edit anything." %}</p>
+	</div> <!-- /content-main -->
+{% endif %}
+		
+	    
+
+{% endblock %}
+
+{% block sidebar %}
+{% if not CUSTOM_ADMIN.view_mode == "use_app_icons" or app_list|length <= 1 %}
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>{% trans 'Recent Actions' %}</h2>
+        <h3>{% trans 'My Actions' %}</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>{% trans 'None available' %}</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                {% if entry.is_deletion %}
+                    {{ entry.object_repr }}
+                {% else %}
+                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                <br/>
+                {% if entry.content_type %}
+                    <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+                {% else %}
+                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div> <!-- /module /recent-actions-module -->
+</div> <!-- /content-related -->
+{% endif %}
+{% endblock %}
+
