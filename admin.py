@@ -7,7 +7,7 @@ class ButtonLink(object):
     """
     It defines a button that you can locate near the history button in change_form.html as a link
     """
-    def __init__(self, short_descritpion, link, css_id=None, css_class=None):
+    def __init__(self, short_description, link, css_id=None, css_class=None):
         """
         Use it to create a ButtonableLink. It takes following parameters:
         'short_description' is what you want display in this link,
@@ -15,7 +15,7 @@ class ButtonLink(object):
         'css_id' is the id selector,
         'css_class' is the class selector
         """
-        self.short_description = short_descritpion
+        self.short_description = short_description
         self.link = link
         self.css_id = css_id
         self.css_class = css_class
