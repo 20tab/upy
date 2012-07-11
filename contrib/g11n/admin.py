@@ -5,6 +5,9 @@ from django.conf import settings
 
 
 class G11nAdmin(admin.ModelAdmin):
+    """
+    Base Admin for G11n Models
+    """
     fieldsets = ((_(u"Globalization"),{
                     'fields':(('publication','language'),),
                     'classes': ('collapse',)}),)
@@ -121,7 +124,7 @@ class PublicationOption(admin.ModelAdmin):
         
 class PublicationG11nOption(G11nAdmin): 
     """
-    This is the option class for PublicationMetaContent Admin
+    This is the option class for PublicationG11n Admin
     """
     list_display = ('title', 'author','enabled','publication','language') 
     list_filter = ('author', 'enabled',)
