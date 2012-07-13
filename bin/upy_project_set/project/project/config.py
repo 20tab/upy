@@ -2,7 +2,7 @@ import os
 
 UWSGI_INI = "../uwsgi.ini" 
 """ The file's name that define the uwsgi configuration. If you don't want use uwsgi define this var with None value """
-UWSGI_COMMAND = "/home/rafleze/uwsgi/uwsgi"
+UWSGI_COMMAND = "uwsgi"
 """ uWSGI command location. On unbit's servers usually located to /proc/unbit/uwsgi/uwsgi. """
 HANDLER_404 = None 
 """ The name of the view for handler404 """
@@ -43,7 +43,7 @@ USE_TAGGING = False
 """ If True django tagging module will be installed. """
 DEBUG = True
 """ True only in development to debug your application"""
-ADMINS = (("20tab","errors@20tab.com"),)
+ADMINS = (("errors","errors@email.com"),)
 """ It's important set administrators to monitor how application works """
 STATIC_ROOT_NAME = '../../static'
 """ It's the directory's name for static files """
@@ -51,7 +51,7 @@ TIME_ZONE = 'Europe/Rome'
 """ See the TIME_ZONE's details on django settings documentation """
 LANGUAGE_CODE = 'it-It'
 """ See the LANGUAGE_CODE's details on django settings documentation """
-SECRET_KEY = '%&_eyukg9(@m5)ne4s$o)yt$2d3o)9x4g$ct!ct_do1b9dx%co'
+SECRET_KEY = 'secret_key_example'
 """ Make this unique, and don't share it with anybody. """
 PROJ_LOCALE_PATHS = [
 ]
@@ -101,11 +101,11 @@ UPY_SECRET_KEY = "test_secret_key"
 """ It contributes to hashing contact secret key """
 USE_LOCAL_SMTP_SERVER = False
 """ If True there is no need to set smtp parameters """
-EMAIL_USER = "info@20tab.com"
+EMAIL_USER = "info@email.com"
 """ Default user's e-mail """ 
 SERVER_EMAIL = EMAIL_USER
 """ Default server's e-mail """ 
-DEFAULT_FROM_EMAIL = "info@20tab.com"
+DEFAULT_FROM_EMAIL = "info@email.com"
 """ Default sender's e-mail """ 
 if USE_LOCAL_SMTP_SERVER:
     EMAIL_HOST_USER = EMAIL_USER
