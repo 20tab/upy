@@ -1,13 +1,22 @@
+"""
+Contains the script that create a upy project 
+"""
 import os
 import shutil
 
 
 def search_set():
+    """
+    Return path's name that contains all necessary files for upy project initialization
+    """
     THIS_PATH = os.path.realpath(os.path.dirname(__file__)) 
     dirname = os.path.abspath(os.path.join(THIS_PATH, '../../upy/bin/upy_project_set'))
     return dirname
 
 def q_venv():
+    """
+    It asks to user if he want create virtualenv
+    """
     q = raw_input("Do you want install a virtualenv? (y/n): ")
     if q == "y":
         return True
@@ -18,6 +27,9 @@ def q_venv():
         return q_venv()
 
 def venv_location():
+    """
+    It asks to user to tap the virtualenv destination as relative path from current position
+    """
     q = raw_input("Tap venv's location (also with relative position): ")
     if not os.path.exists("%s" % q):
         return q
@@ -27,6 +39,9 @@ def venv_location():
 
 
 def create_project():
+    """
+    It creates upy project
+    """
     name = raw_input("Insert project name: ")
     dirname = search_set()
     listing = []
