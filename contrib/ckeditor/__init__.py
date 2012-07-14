@@ -1,3 +1,8 @@
+"""
+You can find complete documentation to: `cke documentation`_
+
+.. _cke documentation: https://github.com/dwaiter/django-ckeditor
+"""
 import os
 
 from django.conf import settings

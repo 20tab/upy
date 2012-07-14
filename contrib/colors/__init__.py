@@ -1,3 +1,8 @@
+"""
+You can find complete documentation to: `color documentation`_
+
+.. _color documentation: http://code.google.com/p/django-colors/
+"""
 VERSION = (0, 0, 2, 'alpha', 0)
 
 # Most of this code is taken form from the Django project

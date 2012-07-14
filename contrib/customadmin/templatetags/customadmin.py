@@ -5,7 +5,6 @@ register = Library()
 
 @register.filter
 def add_app_icons(app_list, autocomplete):
-    
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
     
