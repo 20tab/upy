@@ -1,3 +1,6 @@
+"""
+Admin's option for all model defined in customadmin app.
+"""
 from django.contrib import admin
 from django import forms
 from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps
@@ -7,6 +10,9 @@ from upy.utils import upy_re_match
 
 
 def cleaning_color_picker(form, fields):
+    """
+    It cleans all color fields defined in CustomAdmin model
+    """
     chk = True
     for field in fields:
         
@@ -18,7 +24,10 @@ def cleaning_color_picker(form, fields):
             form._errors[field] = form.error_class([_(u'You must compile this field with six hexadecimal characters')])
     return form, chk
 
-class CustomAdminForm(forms.ModelForm):          
+class CustomAdminForm(forms.ModelForm): 
+    """
+    It ovverrides CustomAdmin modelform
+    """
     def clean(self): 
         view_mode = self.cleaned_data['view_mode']
         autocomplete_app_list = self.cleaned_data['autocomplete_app_list']
@@ -46,6 +55,9 @@ class CustomAdminForm(forms.ModelForm):
         return self.cleaned_data 
 
 class CustomAdminOption(admin.ModelAdmin):
+    """
+    Admin's option for CustomAdmin model
+    """
     list_display = ('customization','branding','branding_link','is_default','view_mode','autocomplete_app_list')
     list_editable = ('branding','branding_link','is_default')
     fieldsets = ((_('Branding'), {'fields':
