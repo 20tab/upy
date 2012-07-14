@@ -22,7 +22,7 @@ USE_UPY_ADMIN = True
 """ If True, upy admin templates will be used """
 #USE_UPY_ROUTING non funziona. Guardare bene upy.contrib.tree.views.render_page
 USE_UPY_ROUTING = False 
-""" It needs USE_UPY_TREE = True. This is a useful option to create dynamic routing without server restarting """ 
+""" TODO: It needs USE_UPY_TREE = True. This is a useful option to create dynamic routing without server restarting """ 
 USE_CUSTOM_ADMIN = True
 """ If True CustomAdmin app will be installed and you can customize your admin """
 USE_UPY_COLOR = True
