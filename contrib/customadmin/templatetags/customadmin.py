@@ -5,6 +5,10 @@ register = Library()
 
 @register.filter
 def add_app_icons(app_list, autocomplete):
+    """
+    It returns a list of applications to view in admin's interface (index.html). This filter is called only if you want view
+    icons mode.
+    """
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
     
@@ -37,6 +41,9 @@ def add_app_icons(app_list, autocomplete):
 
 @register.filter
 def custom_app_list(app_list, autocomplete):
+    """
+    It returns a list of applications chosen to view in admin's interface (index.html).
+    """
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
     
