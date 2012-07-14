@@ -57,8 +57,7 @@ def filter_files(path, string):
     """
     try:
         listing = os.listdir(path)
-        res = [f for f in listing if string in f]
-        return res
+        return [f for f in listing if string in f]
     except:
         raise ValueError("Error in upy.contrib.tree.menu @ filter_files()")
     
