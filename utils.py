@@ -44,12 +44,10 @@ def compare_dicts(dict1, dict2):
     """
     Checks if dict1 equals dict2
     """
-    chk = True
     for k,v in dict2.items():
         if v != dict1[k]:
-            chk = False
-            break
-    return chk
+            return False
+    return return True
 
 def filter_files(path, string):
     """
