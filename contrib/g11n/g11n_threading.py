@@ -19,7 +19,9 @@ def deactivate():
         del th_active.value
         
 def get_publication():
-    """Returns the currently selected publication."""
+    """
+    Returns the currently selected publication.
+    """
     try:
         return getattr(th_active,'value',None)
     except Exception, e:
