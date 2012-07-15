@@ -1,3 +1,6 @@
+"""
+It contains customadmin's models. It's used to customize admin's interface
+"""
 from upy.contrib.tree.models import _
 from django.db import models
 from upy.contrib.colors.fields import ColorField
@@ -8,6 +11,9 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
 
 def list_apps():
+    """
+    it returns a list of tuples with the name of all installed apps with admin's registration.
+    """
     list_apps = []
     for app in settings.INSTALLED_APPS:
         if app not in ['django.contrib.contenttypes',
@@ -56,6 +62,9 @@ class CustomAdmin(models.Model):
     autocomplete_app_list = models.BooleanField(default = True, help_text = _(u"Check it if you want complete the custom app list with the default app list."), verbose_name = _(u"Autocomplete App list"))
     
     def customization(self):
+        """
+        It returns branding if defined, else image, else only his primary key.
+        """
         if self.branding:
             return self.branding
         elif self.branding_image:
@@ -88,7 +97,7 @@ class CustomAdmin(models.Model):
         
 class CustomApp(PositionImage):
     """
-    This object link the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
+    This object links the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
     """
     application = models.CharField(max_length = 250, unique=True, help_text = _(u"Select the application"), verbose_name = _(u"Application"))
     verbose_app_name = models.CharField(max_length = 250, unique=True, help_text = _(u"Write the verbose name to show"), verbose_name = _(u"Verbose app name")) 
@@ -131,7 +140,7 @@ class CustomApp(PositionImage):
         
 class CustomLink(PositionImage):
     """
-    This object link the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
+    This object links the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
     """
     link_url = models.CharField(max_length = 250, default="/admin/", help_text = _(u"Select the url you want to link"), verbose_name = _(u"Link Url"))
     verbose_url_name = models.CharField(max_length = 250, unique=True, help_text = _(u"Write the verbose name to show"), verbose_name = _(u"Verbose url name")) 
