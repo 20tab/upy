@@ -6,6 +6,9 @@ from upy.contrib.g11n.models import Publication
 
 
 class SetCurrentPublicationMiddleware(object):
+    """
+    This middleware activates current publication in current thread. In process_response it deactivates current publication.
+    """
     def process_request(self, request):
         try:
             match = resolve(request.path)
