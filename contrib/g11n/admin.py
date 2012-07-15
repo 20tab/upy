@@ -23,6 +23,10 @@ class G11nAdmin(admin.ModelAdmin):
       
 
 class CyclePublication(object):
+    """
+    It returns a list of tuples with all combinations made with languages and publications. All G11nModel classes inherit
+    an admin's form with prepopulated language and publications.
+    """
     positions = {}
     
     def __init__(self, is_publication = False):
@@ -39,7 +43,9 @@ class CyclePublication(object):
         
 
 class G11nInlineFormset(BaseInlineFormSet):
-    
+    """
+    This is the formset inherited in G11nInlineModel classes
+    """
     def __init__(self, data=None, files=None, instance=None,
                  save_as_new=False, prefix=None, queryset=None):
         
@@ -59,6 +65,9 @@ class G11nInlineFormset(BaseInlineFormSet):
                      
             
 class G11nStackedInlineAdmin(admin.StackedInline):
+    """
+    It defines a StackedInlineAdmin for all G11nModelInline
+    """
     def __init__(self, parent_model, admin_site):
         super(G11nStackedInlineAdmin,self).__init__(parent_model, admin_site)
         if self.parent_model._meta.object_name == "Publication":
@@ -81,6 +90,9 @@ class G11nStackedInlineAdmin(admin.StackedInline):
               )
         
 class G11nTabularInlineAdmin(admin.TabularInline):
+    """
+    It defines a TabularInlineAdmin for all G11nModelInline
+    """
     def __init__(self, parent_model, admin_site):
         super(G11nTabularInlineAdmin,self).__init__(parent_model, admin_site)
         if self.parent_model._meta.object_name == "Publication":
@@ -97,6 +109,9 @@ class G11nTabularInlineAdmin(admin.TabularInline):
         js = ('/upy_static/js/upy-admin-g11ninline.js',)
     
 class PublicationG11nInline(G11nStackedInlineAdmin):
+    """
+    It's admin's options for inline PublicationG11nModel 
+    """
     model = PublicationG11n
     fieldsets = (('', {'fields': 
                        (('title', 'description'),('keywords','author'),('content_type','enabled'),('disabled_message',),
