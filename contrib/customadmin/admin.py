@@ -56,7 +56,7 @@ class CustomAdminForm(forms.ModelForm):
 
 class CustomAdminOption(admin.ModelAdmin):
     """
-    Admin's option for CustomAdmin model
+    Admin's options for CustomAdmin model
     """
     list_display = ('customization','branding','branding_link','is_default','view_mode','autocomplete_app_list')
     list_editable = ('branding','branding_link','is_default')
@@ -84,6 +84,9 @@ class CustomAdminOption(admin.ModelAdmin):
 
  
 class CustomAppForm(forms.ModelForm):
+    """
+    It overrides admin form for CustomApp model
+    """
     def __init__(self,*args, **kwargs):
         super(CustomAppForm, self).__init__(*args, **kwargs)
         listapps = list_apps()
@@ -96,6 +99,9 @@ class CustomAppForm(forms.ModelForm):
         model = CustomApp
         
 class CustomAppOption(PositionImageOption):
+    """
+    Admin's options for CustomApp model
+    """
     list_display = ('position','application','verbose_app_name','show_models','admin_thumbnail_view',)
     list_editable = ['position','verbose_app_name',]
     list_display_links = ['application',]
@@ -111,6 +117,9 @@ class CustomAppOption(PositionImageOption):
         model = CustomApp
         
 class CustomLinkOption(PositionImageOption):
+    """
+    Admin's options for CustomLink model
+    """
     list_display = ('position','link_url','verbose_url_name','admin_thumbnail_view',)
     list_editable = ['position','verbose_url_name',]
     list_display_links = ['link_url',]
