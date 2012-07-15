@@ -5,6 +5,9 @@ from django.db import models
 from django.conf import settings
 
 class Command(NoArgsCommand):
+    """
+    It validates all models that are G11nBase subclass.
+    """
     help="Validates all models that are G11nBase subclass."
         
     def handle(self, *args, **options):
