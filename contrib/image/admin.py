@@ -18,7 +18,7 @@ from django.forms.fields import ImageField
 
 def clean_image(obj,field_name):       
     """
-    function for the Image Form to check the filesize, according to UPYIMAGE settings
+    Function for the Image Form to check the filesize, according to UPYIMAGE settings
     """
     img_temp = obj.cleaned_data[field_name]
     if img_temp:
@@ -37,7 +37,7 @@ def clean_image(obj,field_name):
 
 class UPYImageForm(forms.ModelForm):
     """
-    abstract form to use for UPYImage
+    Abstract form to use for UPYImage
     """ 
     def __init__(self,*args, **kwargs):
         super(UPYImageForm, self).__init__(*args, **kwargs)
@@ -45,6 +45,9 @@ class UPYImageForm(forms.ModelForm):
               
     
     def clean(self):
+        """
+        It cleans all ImageField in this form
+        """
         for name,field in self.fields.items():
             print name, " - ", field.__class__
             if issubclass(field.__class__,ImageField):
