@@ -47,7 +47,7 @@ def compare_dicts(dict1, dict2):
     for k,v in dict2.items():
         if v != dict1[k]:
             return False
-    return return True
+    return True
 
 def filter_files(path, string):
     """
