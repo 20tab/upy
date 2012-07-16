@@ -17,7 +17,7 @@ if not USE_UPY_G11N:
     LANGUAGES = DEFAULT_LANGUAGES
 STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, '%s' % STATIC_ROOT_NAME))
 MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, '%s' % STATIC_ROOT_NAME))
-STATIC_URL = '/%s/' % STATIC_ROOT_NAME
+STATIC_URL = '/static/'
 MEDIA_URL = STATIC_URL
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
