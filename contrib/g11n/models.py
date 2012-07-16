@@ -95,8 +95,7 @@ class G11nBaseManager(models.Manager):
     def g11nsearch(self, language_code = None, publication_url = None, depth = None):
         try:
             g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
-            all_pks = [getattr(x,self.model.G11nMeta.fieldname).pk for x in g11nmodel.g11nFilter.g11nsearch(language_code, publication_url, depth)]
-            return super(self.__class__, self).get_query_set().filter(pk__in = all_pks)
+            return super(self.__class__, self).get_query_set().filter(pk__in = [getattr(x,self.model.G11nMeta.fieldname).pk for x in g11nmodel.g11nFilter.g11nsearch(language_code, publication_url, depth)])
             
         except Exception, e:
             raise ValueError("Raised in %s. Error in %s.%s: %s" % (os.path.dirname(__file__),self.__module__,self.__class__.__name__,e))
@@ -130,6 +129,9 @@ class G11nBase(models.Model):
     objects = models.Manager()
     
     def get_g11n(self):
+        """
+        It returns the related G11nModel instance with the current language and publication
+        """
         try:
             g11nmodel = models.get_model(self.__class__._meta.app_label,self.__class__.G11nMeta.g11n)
             kwargs = {
@@ -149,6 +151,9 @@ class G11nBase(models.Model):
             return "%s %s" % (self.__class__.__name__, self.pk)
         
     class G11nMeta:
+        """
+        This is a class Meta that define which model is the related G11nModel and which field in the related model refers to this G11nBase model
+        """
         g11n = None  # Must be a string that define the G11nModel class name that refers to sel as foreign key
         fieldname = None
     class Meta:
@@ -216,6 +221,9 @@ class Publication(G11nBase):
 
     @staticmethod
     def getCurrent(request):
+        """
+        It returns current publication. It's not used because current publication is saved in current thread
+        """
         if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
             publication_url = request.get_full_path()
             publication_url = publication_url.split('/')[1]                
@@ -232,6 +240,9 @@ class Publication(G11nBase):
     
     @staticmethod    
     def get_default():
+        """
+        It returns default publication
+        """
         try:
             return Publication.objects.get(is_default="default")
         except: 
@@ -272,6 +283,9 @@ class PublicationG11n(G11nModel):
     g11n_last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
     def get_fields(self):
+        """
+        It returns all fields of this model
+        """
         return [(field.name, field.value_to_string(self)) for field in PublicationG11n._meta.fields]
     
     def save(self, *args, **kwargs):
@@ -316,12 +330,17 @@ class Language(models.Model):
 
     @staticmethod
     def get_default():
+        """
+        It returns default language for default publication
+        """
+        
         try:
             return Publication.objects.get(is_default="default").default_language
         except: 
             return None
     
 def get_current_publication():
+    """
+    It returns current publication saved in current thread
+    """
     return get_publication()
-    
-
