@@ -8,6 +8,9 @@ from django.db.models.base import ModelBase
 import os
 
 class G11nBaseCurrentManager(models.Manager):
+    """
+    It's a special manager for G11nBase model that filter queryset with current language and publication
+    """
     def get_query_set(self):
         try:
             g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
@@ -20,6 +23,9 @@ class G11nBaseCurrentManager(models.Manager):
             return super(G11nBaseCurrentManager, self).get_empty_query_set()
 
 class G11nCurrentManager(models.Manager):
+    """
+    It's the manager for all G11nModel model filtering queryset with current language and publication
+    """
     def get_query_set(self):
         try:
             return super(self.__class__, self).get_query_set().filter(publication=get_publication(),language__code__iexact=translation.get_language())
