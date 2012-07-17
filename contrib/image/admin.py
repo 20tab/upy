@@ -56,7 +56,7 @@ class UPYImageForm(forms.ModelForm):
     
 class UPYImageOption(admin.ModelAdmin):
     """
-    abstract admin option class for UPYImage
+    Abstract admin option class for UPYImage
     """
     list_display = ('original_image','admin_thumbnail_view',)
     form = UPYImageForm
@@ -74,7 +74,7 @@ class UPYImageOption(admin.ModelAdmin):
     
 class PositionImageOption(UPYImageOption):
     """
-    concrete admin option class for UPYImage
+    Abstract admin option class for PositionImage
     """
     list_display = ('position','original_image','admin_thumbnail_view',)
     list_editable = ['position',]
@@ -94,7 +94,7 @@ if config.USE_UPY_G11N:
 
     class UPYImageG11nInline(G11nTabularInlineAdmin):
         """
-        abstract admin option class for g11n inline
+        Abstract admin option class for UPYImageG11n inline
         """
         fieldsets = (('', {'fields': 
                            ('title','alt'),
@@ -106,7 +106,7 @@ if config.USE_UPY_G11N:
 if config.USE_UPY_IMAGE and config.USE_UPY_G11N:
     class ImageRepositoryG11nInline(G11nTabularInlineAdmin):
         """
-        abstract admin option class for g11n inline
+        Admin option class for ImageRepositoryG11n inline
         """
         fieldsets = (('', {'fields': 
                            ('title','alt','description'),
@@ -115,7 +115,7 @@ if config.USE_UPY_IMAGE and config.USE_UPY_G11N:
     
     class ImageRepositoryG11nOption(G11nAdmin):
         """
-        concrete admin option class for UPYImage g11n
+        Concrete admin option class for ImageRepositoryG11n
         """
         list_display = ('id','title', 'alt', 'language')
         list_display_links = ['id']
@@ -127,7 +127,7 @@ if config.USE_UPY_IMAGE and config.USE_UPY_G11N:
             
     class ImageRepositoryOption(PositionImageOption):
         """
-        concrete admin option class for UPYImage
+        Concrete admin option class for ImageRepository
         """
         list_display = ('position','name','date','original_image','admin_thumbnail_view',)
         list_editable = ['position','date',]
@@ -145,7 +145,7 @@ if config.USE_UPY_IMAGE and config.USE_UPY_G11N:
 elif config.USE_UPY_IMAGE:
     class ImageRepositoryOption(PositionImageOption):
         """
-        concrete admin option class for UPYImage
+        Concrete admin option class for ImageRepository
         """
         list_display = ('position','name','date','title','alt','original_image','admin_thumbnail_view',)
         list_editable = ['position','date','title','alt']
