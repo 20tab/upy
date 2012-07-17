@@ -9,7 +9,7 @@ from upy.contrib.g11n.models import G11nModel
 
 def _choose_preprocessor():
     """
-    function to define the preprocessor on original_image field. It crop the original image, so user
+    Function to define the preprocessor on original_image field. It crops the original image, so user
     cannot save on server too big images. (in order to prevent disk space wasting)
     """
     if settings.USE_FULLHD_SUPPORT:
@@ -20,8 +20,8 @@ def _choose_preprocessor():
     
 class UPYImage(models.Model):
     """
-    this abstract class only provide original_image and admin_thumbnail field, with the 
-    admin_thumbnail_view function. Inherit this class in you models.py AND import imagekit ImageSpec
+    This abstract class only provide original_image and admin_thumbnail field, with the 
+    admin_thumbnail_view function. Inherit this class in you models.py and import imagekit ImageSpec
     to create other thumbnail or display field with any processor you need.
     """
     original_image = ProcessedImageField(null = True, blank = True, upload_to='upyimage', processors=[_choose_preprocessor(),])
@@ -29,6 +29,10 @@ class UPYImage(models.Model):
             SmartResize(25, 25)], image_field='original_image', options={'quality': 90})  #format='JPEG', 
 
     def admin_thumbnail_view(self):
+        """
+        It's a property used in admin interface. It decorates list_display items with a thumbnail 
+        and with prettyPhoto jQuery plugin to open images in a lightbox.
+        """
         if self.original_image:
             return u'<a href="%s" data-rel="prettyPhoto" title="%s"><img src="%s" class="upy_admin_thumb" alt="%s"/></a>' % (self.original_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
         else:
@@ -46,8 +50,8 @@ class UPYImage(models.Model):
                 
 class PositionImage(UPYImage):
     """
-    Class for Images with position. It add position field and manage position
-    on the admin.
+    Class for Images with position. It adds position field and manages position
+    on admin interface.
     """
     position = models.PositiveSmallIntegerField(u'Position', default=0)
 
@@ -60,7 +64,7 @@ if config.USE_UPY_G11N:
         
     class UPYImageG11n(G11nModel):
         """
-        abstract class for G11nModel to inherit if you need localized content for your UPYImage model
+        Abstract class for G11nModel to inherit if you need localized contents for your UPYImage model
         """
         title = models.CharField(max_length = 150, help_text = _(u"Set the image title."))
         alt = models.CharField(max_length = 150, help_text = _(u"Set the image alternative field."))
@@ -74,7 +78,7 @@ if config.USE_UPY_G11N:
 if config.USE_UPY_IMAGE:            
     class ImageRepositoryBase(PositionImage):
         """
-        Concrete class for Images. It add usefull fields like position, name, date... and manage position
+        Concrete class for Images. It add useful fields like position, name, date... and manage position
         on the admin.
         """
         name = models.CharField(max_length=100)
@@ -83,6 +87,10 @@ if config.USE_UPY_IMAGE:
         creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), 
                                              verbose_name = _(u"Creation date"))
         def admin_thumbnail_view(self):
+            """
+            It's a property used in admin interface. It decorates list_display items with a thumbnail 
+            and with prettyPhoto jQuery plugin to open images in a lightbox.
+            """
             if self.original_image:
                 return u'<a href="%s" data-rel="prettyPhoto" title="%s"><img src="%s" alt="%s"/></a>' % (self.display_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
             else:
@@ -107,10 +115,16 @@ if config.USE_UPY_IMAGE:
         
                 
         class ImageRepositoryG11n(UPYImageG11n):
+            """
+            It defines image's repository g11n model if G11n is used in this project
+            """
             description = models.TextField(null = True, blank = True, help_text = _(u"Image description."))
             image_repository = models.ForeignKey(u"ImageRepository", help_text = _(u"Choose an Image Repository element to associate."), verbose_name = _(u"Image Repository element"))
     
         class ImageRepository(ImageRepositoryBase):
+            """
+            It defines image's repository model if G11n is used in this project
+            """
             class G11nMeta:
                 g11n = 'ImageRepositoryG11n'
                 fieldname = 'image_repository'
@@ -118,7 +132,9 @@ if config.USE_UPY_IMAGE:
     else:
         
         class ImageRepository(ImageRepositoryBase):
+            """
+            It defines image's repository model if G11n is not used in this project
+            """
             title = models.CharField(max_length = 150, help_text = _(u"Set the image title."))
             alt = models.CharField(max_length = 150, help_text = _(u"Set the image alternative field."))
             description = models.TextField(null = True, blank = True, help_text = _(u"Image description."))
-    
