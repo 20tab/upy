@@ -16,12 +16,15 @@ def cleaning_color_picker(form, fields):
     chk = True
     for field in fields:
         
-        if form.cleaned_data[field] and not upy_re_match(r'^[0-9a-fA-F]+$',"%s" % form.cleaned_data[field]):
+        if form.cleaned_data[field] and not upy_re_match(r'^[0-9a-fA-F]+$',
+                                            "%s" % form.cleaned_data[field]):
             chk = False
-            form._errors[field] = form.error_class([_(u'You must compile this field with hexadecimal characters')])
+            form._errors[field] = form.error_class(
+                [_(u'You must compile this field with hexadecimal characters')])
         if form.cleaned_data[field] and len(form.cleaned_data[field]) != 6:
             chk = False
-            form._errors[field] = form.error_class([_(u'You must compile this field with six hexadecimal characters')])
+            form._errors[field] = form.error_class(
+                [_(u'You must compile this field with six hexadecimal characters')])
     return form, chk
 
 class CustomAdminForm(forms.ModelForm): 
@@ -45,9 +48,13 @@ class CustomAdminForm(forms.ModelForm):
                 # cleaned data.
                 del self.cleaned_data["view_mode"]
                 del self.cleaned_data["autocomplete_app_list"]
-                #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp if you use a custom view_mode without autocomplete_app_list"))
+                #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
+                #if you use a custom view_mode without autocomplete_app_list"))
         
-        self, chk = cleaning_color_picker(self, ['bg_header','table_title_bg','table_title_color','h2_color','h3_color','link_color','link_hover_color'])
+        self, chk = cleaning_color_picker(self, ['bg_header','table_title_bg',
+                                                 'table_title_color','h2_color',
+                                                 'h3_color','link_color',
+                                                 'link_hover_color'])
         
         if not chk:
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
@@ -58,10 +65,12 @@ class CustomAdminOption(admin.ModelAdmin):
     """
     Admin's options for CustomAdmin model
     """
-    list_display = ('customization','branding','branding_link','is_default','view_mode','autocomplete_app_list')
+    list_display = ('customization','branding','branding_link',
+                    'is_default','view_mode','autocomplete_app_list')
     list_editable = ('branding','branding_link','is_default')
     fieldsets = ((_('Branding'), {'fields':
-                                (('branding', 'branding_link'),('branding_image','is_default')),
+                                (('branding', 'branding_link'),
+                                 ('branding_image','is_default')),
                     },),
                  (_('View Option'), {'fields':
                                 (('view_mode', 'autocomplete_app_list'),),
@@ -102,13 +111,15 @@ class CustomAppOption(PositionImageOption):
     """
     Admin's options for CustomApp model
     """
-    list_display = ('position','application','verbose_app_name','show_models','admin_thumbnail_view',)
+    list_display = ('position','application','verbose_app_name',
+                    'show_models','admin_thumbnail_view',)
     list_editable = ['position','verbose_app_name',]
     list_display_links = ['application',]
     prepopulated_fields = {'verbose_app_name': ('application',)}    
     
     fieldsets = ((_('Icons'), {'fields':
-                                (('application', 'verbose_app_name'),('original_image'),('show_models',),),
+                                (('application', 'verbose_app_name'),
+                                 ('original_image'),('show_models',),),
                     },),
                  )
     save_on_top = True

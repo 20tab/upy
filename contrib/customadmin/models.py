@@ -37,29 +37,66 @@ class CustomAdmin(models.Model):
     This object define parameters to customize admin layout. It has sense if you use only a record 
     of this class. Infact base template use the first occurence find in the database
     """
-    branding = models.CharField(max_length = 200, null = True, blank = True, default = u"upyproject.com", help_text = _(u"Set branding"), verbose_name = _(u"Branding"))
-    branding_link = models.CharField(max_length = 200, null = True, blank = True, default = u"www.upyproject.com", help_text = _(u"Set branding's link"), verbose_name = _(u"Branding link"))
-    branding_image = models.FilePathField(path="static/", null = True, blank = True, match="\.jpg|\.jpeg|.png|\.gif", recursive=True, help_text = _(u"Set brand's image."), verbose_name = _(u"Branding image"))
+    branding = models.CharField(max_length = 200, null = True, blank = True, 
+                                default = u"upyproject.com", 
+                                help_text = _(u"Set branding"), 
+                                verbose_name = _(u"Branding"))
+    branding_link = models.CharField(max_length = 200, null = True, blank = True, 
+                                     default = u"www.upyproject.com", 
+                                     help_text = _(u"Set branding's link"), 
+                                     verbose_name = _(u"Branding link"))
+    branding_image = models.FilePathField(path="static/", null = True, blank = True, 
+                                          match="\.jpg|\.jpeg|.png|\.gif", recursive=True, 
+                                          help_text = _(u"Set brand's image."), 
+                                          verbose_name = _(u"Branding image"))
     is_default = models.CharField(max_length = 50, choices = (("default","Default"),), null = True, blank = True, unique = True, help_text = _(u"Select it if you want use this as default customization."), verbose_name = _(u"Is default"))
     
-    bg_header = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set header's background color."), verbose_name = _(u"BG Header"))
-    sitename_font = models.CharField(max_length = 200, null = True, blank = True, help_text = _(u"Set sitename font."), verbose_name = _(u"Sitename font"))
-    sitename_font_size = models.CharField(max_length = 200, null = True, blank = True, help_text = _(u"Set sitename font size."), verbose_name = _(u"Sitename font size"))
-    sitename_font_weight = models.CharField(max_length = 200, null = True, blank = True, help_text = _(u"Set sitename font weight."), verbose_name = _(u"Sitename font weight"))
-    table_title_bg = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set the background of title in tables."), verbose_name = _(u"BG table title "))
-    table_title_color = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set the color of title in tables."), verbose_name = _(u"Table title color"))
-    h2_color = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set h2 color."), verbose_name = _(u"H2 color"))
-    h2_size = models.CharField(max_length = 200, null = True, blank = True, help_text = _(u"Set h2 size."), verbose_name = _(u"H2 size"))
-    h3_color = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set h3 color."), verbose_name = _(u"H3 color"))
-    h3_size = models.CharField(max_length = 200, null = True, blank = True, help_text = _(u"Set h3 size."), verbose_name = _(u"H3 size"))
-    link_color = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set link's color"), verbose_name = _(u"Link color"))
-    link_hover_color = ColorField(max_length = 200, null = True, blank = True, help_text = _(u"Set link's color when hover"), verbose_name = _(u"Link hover color"))
+    bg_header = ColorField(max_length = 200, null = True, blank = True, 
+                           help_text = _(u"Set header's background color."), 
+                           verbose_name = _(u"BG Header"))
+    sitename_font = models.CharField(max_length = 200, null = True, blank = True, 
+                                     help_text = _(u"Set sitename font."), 
+                                     verbose_name = _(u"Sitename font"))
+    sitename_font_size = models.CharField(max_length = 200, null = True, blank = True, 
+                                          help_text = _(u"Set sitename font size."), 
+                                          verbose_name = _(u"Sitename font size"))
+    sitename_font_weight = models.CharField(max_length = 200, null = True, blank = True, 
+                                            help_text = _(u"Set sitename font weight."), 
+                                            verbose_name = _(u"Sitename font weight"))
+    table_title_bg = ColorField(max_length = 200, null = True, blank = True, 
+                                help_text = _(u"Set the background of title in tables."), 
+                                verbose_name = _(u"BG table title "))
+    table_title_color = ColorField(max_length = 200, null = True, blank = True, 
+                                   help_text = _(u"Set the color of title in tables."), 
+                                   verbose_name = _(u"Table title color"))
+    h2_color = ColorField(max_length = 200, null = True, blank = True, 
+                          help_text = _(u"Set h2 color."), verbose_name = _(u"H2 color"))
+    h2_size = models.CharField(max_length = 200, null = True, blank = True, 
+                               help_text = _(u"Set h2 size."), verbose_name = _(u"H2 size"))
+    h3_color = ColorField(max_length = 200, null = True, blank = True, 
+                          help_text = _(u"Set h3 color."), verbose_name = _(u"H3 color"))
+    h3_size = models.CharField(max_length = 200, null = True, blank = True, 
+                               help_text = _(u"Set h3 size."), verbose_name = _(u"H3 size"))
+    link_color = ColorField(max_length = 200, null = True, blank = True, 
+                            help_text = _(u"Set link's color"), verbose_name = _(u"Link color"))
+    link_hover_color = ColorField(max_length = 200, null = True, blank = True, 
+                                  help_text = _(u"Set link's color when hover"), 
+                                  verbose_name = _(u"Link hover color"))
 
-    css_code = models.TextField(null = True, blank = True, help_text = _(u"Set the css code. "), verbose_name = _(u"Css code"))
-    use_css_code = models.BooleanField(help_text = _(u"Check it if you want use css code to extends style."), verbose_name = _(u"Use css code"))
+    css_code = models.TextField(null = True, blank = True, 
+                                help_text = _(u"Set the css code. "), 
+                                verbose_name = _(u"Css code"))
+    use_css_code = models.BooleanField(help_text = _(u"Check it if you want use css code to extends style."), 
+                                       verbose_name = _(u"Use css code"))
     
-    view_mode = models.CharField(max_length = 250, null = True, blank = True, choices = (('use_custom_app',_('use_custom_app')),('use_app_icons',_('use_app_icons'))), help_text = _(u"Choose the view mode"), verbose_name = _(u"View mode"))
-    autocomplete_app_list = models.BooleanField(default = True, help_text = _(u"Check it if you want complete the custom app list with the default app list."), verbose_name = _(u"Autocomplete App list"))
+    view_mode = models.CharField(max_length = 250, null = True, blank = True, 
+                                 choices = (('use_custom_app',_('use_custom_app')),
+                                            ('use_app_icons',_('use_app_icons'))), 
+                                 help_text = _(u"Choose the view mode"), 
+                                 verbose_name = _(u"View mode"))
+    autocomplete_app_list = models.BooleanField(default = True, 
+        help_text = _(u"Check it if you want complete the custom app list with the default app list."), 
+        verbose_name = _(u"Autocomplete App list"))
     
     def customization(self):
         """
@@ -99,10 +136,18 @@ class CustomApp(PositionImage):
     """
     This object links the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
     """
-    application = models.CharField(max_length = 250, unique=True, help_text = _(u"Select the application"), verbose_name = _(u"Application"))
-    verbose_app_name = models.CharField(max_length = 250, unique=True, help_text = _(u"Write the verbose name to show"), verbose_name = _(u"Verbose app name")) 
-    image = ImageSpecField([ResizeToFit(128, 128)], image_field='original_image', format='png')
-    show_models = models.BooleanField(default=True, help_text = _(u"If use_app_icons is False in Customadmin, you can choose wheter or not show the model list."), verbose_name = _(u"Show models"))
+    application = models.CharField(max_length = 250, 
+                                   unique=True, help_text = _(u"Select the application"), 
+                                   verbose_name = _(u"Application"))
+    verbose_app_name = models.CharField(max_length = 250, unique=True, 
+                                        help_text = _(u"Write the verbose name to show"), 
+                                        verbose_name = _(u"Verbose app name")) 
+    image = ImageSpecField([ResizeToFit(128, 128)], 
+                           image_field='original_image', 
+                           format='png')
+    show_models = models.BooleanField(default=True, 
+        help_text = _(u"If use_app_icons is False in Customadmin, you can choose wheter or not show the model list."), 
+        verbose_name = _(u"Show models"))
     '''
     tengo questo commento in attesa di sviluppare il resize dinamico
         
@@ -140,10 +185,15 @@ class CustomApp(PositionImage):
         
 class CustomLink(PositionImage):
     """
-    This object links the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
+    This object links the installed_apps with an icon to use 
+    if CustomAdmin.use_app_icons is True
     """
-    link_url = models.CharField(max_length = 250, default="/admin/", help_text = _(u"Select the url you want to link"), verbose_name = _(u"Link Url"))
-    verbose_url_name = models.CharField(max_length = 250, unique=True, help_text = _(u"Write the verbose name to show"), verbose_name = _(u"Verbose url name")) 
+    link_url = models.CharField(max_length = 250, default="/admin/", 
+                                help_text = _(u"Select the url you want to link"), 
+                                verbose_name = _(u"Link Url"))
+    verbose_url_name = models.CharField(max_length = 250, unique=True, 
+                                        help_text = _(u"Write the verbose name to show"), 
+                                        verbose_name = _(u"Verbose url name")) 
     image = ImageSpecField([ResizeToFit(128, 128)], image_field='original_image', format='png')
 
     

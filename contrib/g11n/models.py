@@ -9,7 +9,8 @@ import os
 
 class G11nBaseCurrentManager(models.Manager):
     """
-    It's a special manager for G11nBase model that filter queryset with current language and publication
+    It's a special manager for G11nBase model that filter queryset 
+    with current language and publication
     """
     def get_query_set(self):
         try:
@@ -24,7 +25,8 @@ class G11nBaseCurrentManager(models.Manager):
 
 class G11nCurrentManager(models.Manager):
     """
-    It's the manager for all G11nModel model filtering queryset with current language and publication
+    It's the manager for all G11nModel model filtering queryset 
+    with current language and publication
     """
     def get_query_set(self):
         try:

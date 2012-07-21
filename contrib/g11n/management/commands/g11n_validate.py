@@ -41,9 +41,11 @@ class Command(NoArgsCommand):
                         else: #se G11nBase passa la validazione e siamo in un G11nModel allora controlla le sue configurazioni
                             foreign_keys = []
                             for field in g11nmodel._meta.fields: #per ogni field del g11nmodel
-                                if field.get_internal_type() == "ForeignKey" and m.__name__ == field.rel.to.__name__: # se il field e' una FK il nome del modello G11nBase == al nome del modello al quale g11nmodel si riferisce per uesto field
+                                if field.get_internal_type() == "ForeignKey" and m.__name__ == field.rel.to.__name__: 
+                                    # se il field e' una FK il nome del modello G11nBase == al nome del modello al quale g11nmodel si riferisce per uesto field
                                     foreign_keys.append(field)# aggiunge alla lista questo campo   
-                                    if m.G11nMeta.fieldname != field.name: #se il nome del field definito nella meta class G11nMeta != dal nome di questo campo allora lancia eccezione
+                                    if m.G11nMeta.fieldname != field.name: 
+                                        #se il nome del field definito nella meta class G11nMeta != dal nome di questo campo allora lancia eccezione
                                         raise CommandError("Error in %s.%s . G11nMeta.fieldname must be like a field's name in %s." % (m.__module__,m.__name__,g11nmodel.__name__))
                             if not foreign_keys:# se la lista e' vuota, significa che il g11nmodel non ha una FK verso il G11nBase
                                 raise CommandError("Error in %s . %s has not a field related to %s." % (m.__module__,g11nmodel.__name__,m.__name__))

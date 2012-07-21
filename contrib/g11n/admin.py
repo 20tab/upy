@@ -24,8 +24,8 @@ class G11nAdmin(admin.ModelAdmin):
 
 class CyclePublication(object):
     """
-    It returns a list of tuples with all combinations made with languages and publications. All G11nModel classes inherit
-    an admin's form with prepopulated language and publications.
+    It returns a list of tuples with all combinations made with languages and publications. 
+    All G11nModel classes inherit an admin's form with prepopulated language and publications.
     """
     positions = {}
     
@@ -114,7 +114,10 @@ class PublicationG11nInline(G11nStackedInlineAdmin):
     """
     model = PublicationG11n
     fieldsets = (('', {'fields': 
-                       (('title', 'description'),('keywords','author'),('content_type','enabled'),('disabled_message',),
+                       (('title', 'description'),
+                        ('keywords','author'),
+                        ('content_type','enabled'),
+                        ('disabled_message',),
                        ('robots','generator')),
         },),) + G11nAdmin.fieldsets
         
@@ -145,7 +148,9 @@ class PublicationG11nOption(G11nAdmin):
     list_filter = ('author', 'enabled',)
     save_on_top = True
     fieldsets = (('', {'fields': 
-                       ('title', 'description','keywords','author','content_type','enabled','disabled_message','robots','generator',),
+                       ('title', 'description','keywords','author',
+                        'content_type','enabled','disabled_message',
+                        'robots','generator',),
         },),) + G11nAdmin.fieldsets
     
     class Meta: 

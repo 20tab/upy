@@ -3,7 +3,8 @@ from django.conf import settings
 
 def customadmin_context(request):
     """
-    This context processor adds to request context CustomAdmin default instance and all CustoLink to customize django's admin
+    This context processor adds to request context CustomAdmin default instance
+    and all CustoLink to customize django's admin
     """
     context_extras = {}
     try:

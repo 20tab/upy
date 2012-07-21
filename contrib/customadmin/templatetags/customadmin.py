@@ -6,8 +6,8 @@ register = Library()
 @register.filter
 def add_app_icons(app_list, autocomplete):
     """
-    It returns a list of applications to view in admin's interface (index.html). This filter is called only if you want view
-    icons mode.
+    It returns a list of applications to view in admin's interface (index.html). 
+    This filter is called only if you want view icons mode.
     """
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
@@ -20,9 +20,11 @@ def add_app_icons(app_list, autocomplete):
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
         except IndexError, e:
-            print "Error in customadmin.templatetags.add_app_icons: ", e, "; application: ", appicon.application
-            pass # probabilmente e' stata inserita nella lista di applicazioni con icona una applicazione
-                    # che non e' tra quelle registrate nell'admin, quindi poco male...
+            print ("Error in customadmin.templatetags.add_app_icons: ", 
+                   e, "; application: ", appicon.application)
+            pass # probabilmente e' stata inserita nella lista di applicazioni con icona 
+                # una applicazione che non e' tra quelle registrate nell'admin, 
+                # quindi poco male...
       
     if autocomplete:  
         app_list_ok_name = [x.get('name') for x in app_list_ok]
@@ -55,7 +57,8 @@ def custom_app_list(app_list, autocomplete):
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
         except IndexError, e:
-            print "Error in customadmin.templatetags.add_app_icons: ", e, "; application: ", appicon.application
+            print ("Error in customadmin.templatetags.add_app_icons: ", e, 
+                   "; application: ", appicon.application)
             pass # probabilmente e' stata inserita nella lista di applicazioni con icona una applicazione
             # che non e' tra quelle registrate nell'admin, quindi poco male...
     

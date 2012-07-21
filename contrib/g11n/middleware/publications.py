@@ -7,7 +7,8 @@ from upy.contrib.g11n.models import Publication
 
 class SetCurrentPublicationMiddleware(object):
     """
-    This middleware activates current publication in current thread. In process_response it deactivates current publication.
+    This middleware activates current publication in current thread. 
+    In process_response it deactivates current publication.
     """
     def process_request(self, request):
         try:
@@ -19,7 +20,8 @@ class SetCurrentPublicationMiddleware(object):
             except:
                 pass
         if match and 'upy_context' in match.kwargs:
-            current_publication = match.kwargs['upy_context']['PUB_EXTENDED'].publication #Se la richiesta arriva da un nodo di tree allora prendo la corrente
+            current_publication = match.kwargs['upy_context']['PUB_EXTENDED'].publication 
+            #Se la richiesta arriva da un nodo di tree allora prendo la corrente
             activate(current_publication)
             request.upy_context = match.kwargs['upy_context']
         elif match:
