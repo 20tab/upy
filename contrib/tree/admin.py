@@ -62,7 +62,7 @@ class NodeG11nInline(G11nTabularInlineAdmin):
         
 class NodeForm(forms.ModelForm):
     """
-    Admin's form for Node model. It cleans slug field
+    Admin's form for Node model. It cleans slug, parent and page fields
     """
     class Meta:
         model = Node
@@ -97,6 +97,9 @@ class NodeOption(TreeEditor):
     This is the option class for Node Admin
     """
     def page_info(self):
+        """
+        It's renders an html to show through jQuery with page informations
+        """
         html = render_to_string("page_info.html",{'node':self})
         return html
     page_info.short_description = _(u"Info page")
@@ -118,10 +121,16 @@ class NodeOption(TreeEditor):
         return obj.parent and obj.parent.id or '0' 
     
     def hide_selected(self, request, queryset):
+        """
+        It marks as hidden all selected nodes
+        """
         queryset.update(hide_in_navigation=True)
     hide_selected.short_description = _("Mark selected nodes as hidden")     
     
     def protect_selected(self, request, queryset):
+        """
+        It marks as protected all selected nodes
+        """
         queryset.update(protected=True)
     protect_selected.short_description = _("Mark selected nodes as protected")     
     
@@ -164,11 +173,17 @@ class PageG11nOption(G11nAdmin):
         model = PageG11n 
 
 class PageG11nInline(G11nStackedInlineAdmin):
+    """
+    Admin's options for PageG11n model used as inline
+    """
     model = PageG11n
     fieldsets = (('',{
         'fields': (('title', 'description'),('keywords','author'),('content_type','enabled'),('disabled_message',),('robots',),),
         },),) + G11nAdmin.fieldsets
 class PageAdminForm(forms.ModelForm):
+    """
+    Admin's Page form. It cleans regex field
+    """
     def clean_regex(self): 
         regex = self.cleaned_data['regex']
         match_list = re.findall(r"\<(.*?)\>",regex)
@@ -204,13 +219,22 @@ class PageOption(admin.ModelAdmin):
         model = Page
 
 class TemplateAdminForm(forms.ModelForm):
+    """
+    Admin's form for Template
+    """
     input_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\w*(,)?|(, )?)*$', help_text = _(u"Set the variables required by template (separated with ,)."))
     class Meta:
         model = Template
 class CssTemplatePositionInline(admin.TabularInline):
+    """
+    Admin's options for CssTemplatePosition model used as inline
+    """
     model = CssTemplatePosition
     extra = 3    
 class JsTemplatePositionInline(admin.TabularInline):
+    """
+    Admin's options for JsTemplatePosition model used as inline
+    """
     model = JsTemplatePosition
     extra = 3    
     
@@ -233,6 +257,9 @@ class TemplateOption(admin.ModelAdmin):
 
 
 class ViewAdminForm(forms.ModelForm):
+    """
+    Admin's form for View model
+    """
     func_name = forms.RegexField(required = True, regex = '^(\w*)$', help_text = _(u"Set the func_name in a regular format."))
     output_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\{((?:"\w+"|\'\w+\'):\s?\w+,?\s?)+\})*$', help_text = _(u"Set the dictionary of output variables of the view required by template in a regular format: {\"param1\":value1, \"param2\":value2}."))
     input_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\w*,*)*$', help_text = _(u"Set the input variables for the view (separated with ,)."))
@@ -266,6 +293,9 @@ class CssOption(admin.ModelAdmin):
         model = Css
 
 class UrlAjaxInline(admin.StackedInline):
+    """
+    Admin's options for UrlAjax model used as inline
+    """
     prepopulated_fields = {'slug': ('name',)}
     model = UrlAjax
     extra = 1
@@ -292,6 +322,9 @@ class RobotOption(admin.ModelAdmin):
         model = Robot        
 
 class UrlAjaxAdminForm(forms.ModelForm):
+    """
+    Admin's form for UrlAjax model
+    """
     class Meta:
         model = UrlAjax
     slug = forms.RegexField(required = True,  regex = '^[-\w/]+$', help_text = _(u"Identifying UrlAjax's url."))
