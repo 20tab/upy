@@ -6,6 +6,9 @@ from upy.utils import now
 from upy.contrib.ckeditor.widgets import CKEditorWidget
 
 class SendDateForm(forms.ModelForm):
+    """
+    This form clean a dispatcher and set send_date parameter to now() if it doesn't exists
+    """
     class Meta:
         model = Dispatcher
 
@@ -17,6 +20,9 @@ class SendDateForm(forms.ModelForm):
         return send_date
 
 class ContactOption(admin.ModelAdmin):
+    """
+    Admin's options for Contact model
+    """
     list_display = ('email','name','surname','confirmed','subscribed')
     fieldsets = (('', {'fields': 
                        (('name', 'surname',),('email', 'secret_key',),('confirmed','subscribed'),),
@@ -28,6 +34,9 @@ class ContactOption(admin.ModelAdmin):
         model = Contact  
     
 class ListOption(admin.ModelAdmin):
+    """
+    Admin's options for List model
+    """
     list_display = ('name','priority','test','description')
     list_editable = ('priority','description','test')
     fieldsets = (('', {'fields': 
@@ -41,6 +50,9 @@ class ListOption(admin.ModelAdmin):
         model = List  
         
 class AttachmentOption(admin.ModelAdmin):
+    """
+    Admin's options for Attachment model
+    """
     list_display = ('name','attached_file')
     fieldsets = (('', {'fields': 
                        (('name', 'attached_file',),),
@@ -51,13 +63,18 @@ class AttachmentOption(admin.ModelAdmin):
         model = Attachment 
         
 class NLForm(forms.ModelForm):
+    """
+    This form change default widget to textarea input with CKEditor widget
+    """
     body_text = forms.CharField(label = _(u"Body text"),widget=forms.Textarea(attrs={'cols': 80, 'rows': 15}), required = False, help_text = _(u"Set body in text format"))
     body_html = forms.CharField(widget=CKEditorWidget(config={'height': 300,'width': 800,}))
     class Meta:
         model = Newsletter
-    
-    
+       
 class NewsletterOption(admin.ModelAdmin):
+    """
+    Admin's options for Newsletter model
+    """
     list_display = ('subject','sent','body_text')
     fieldsets = (('', {'fields': 
                        (('subject', 'sent',),('body_text','body_html'),('attachments',)),
@@ -70,6 +87,9 @@ class NewsletterOption(admin.ModelAdmin):
         model = Newsletter
         
 class DispatcherOption(admin.ModelAdmin):
+    """
+    Admin's options for Dispatcher model
+    """
     list_display = ('newsletter','send_date', 'sent_date', 'contact_list', 'priority', 'status',)
     #list_editable = ('send_date',)
     fieldsets = (('', {'fields': 
@@ -87,34 +107,37 @@ class DispatcherOption(admin.ModelAdmin):
     actions = ['stop_selected','revoke_selected','restart_selected','continue_selected']
     
     def stop_selected(self, request, queryset):
+        """
+        Stop all processing selected dispatchers
+        """
         queryset.update(status='stopped')
     stop_selected.short_description = _("Stop selected dispatchers")     
     
     def revoke_selected(self, request, queryset):
+        """
+        Revoke all selected dispatchers
+        """
         queryset.update(status='deleted')
     revoke_selected.short_description = _("Revoke selected dispatchers") 
     
     def restart_selected(self, request, queryset):
+        """
+        Restart all selected dispatchers
+        """
         for q in queryset:
             q.status = 'waiting'
             q.save()
     restart_selected.short_description = _("Restart selected dispatchers now") 
     
     def continue_selected(self, request, queryset):
+        """
+        Continue all selected dispatchers
+        """
         queryset.update(status='processing')
     continue_selected.short_description = _("Continue selected dispatchers")   
-
-
-                
+            
 admin.site.register(Contact, ContactOption)
 admin.site.register(List, ListOption)
 admin.site.register(Attachment, AttachmentOption)
 admin.site.register(Newsletter, NewsletterOption)
 admin.site.register(Dispatcher, DispatcherOption)
-
-
-
-
-
-
-
