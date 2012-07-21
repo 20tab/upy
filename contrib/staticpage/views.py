@@ -4,6 +4,9 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 
 def render_staticpage(request, upy_context, use_alias = False, use_html = True, tag_header = u'div', class_header = u'section_head',tag_alias = u'h2', tag_content = u'div', class_content = u'section_content'):
+    """
+    It renders staticpage included in upy_context and returns a html string
+    """
     try:
         staticpage = StaticPageG11n.g11nobjects.get(staticpage__page=upy_context['PAGE']) 
         return render_to_string("upy_staticpage.html", {"staticpage": staticpage,

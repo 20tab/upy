@@ -6,6 +6,10 @@ from django.conf import settings
 from django.template.defaultfilters import slugify            
 
 class EnabledMiddleware(object):
+    """
+    This middleware checks if the page requested is enabled. If it's disabled then
+    return a disabled view
+    """
     def process_request(self,request):
         if not request.is_ajax() and hasattr(request,'upy_context'):
             publication = request.upy_context['PUB_EXTENDED'].publication

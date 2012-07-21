@@ -11,6 +11,9 @@ if settings.STATICPAGE_CKE_CONFIG:
 
 
 class CKEditorForm(forms.ModelForm):
+    """
+    It's add a CKEditor widget to textarea fields
+    """
     html = forms.CharField(
         widget=CKEditorWidget(config=STATICPAGE_CKE_CONFIG)
     )
@@ -18,6 +21,9 @@ class CKEditorForm(forms.ModelForm):
         model = StaticPageG11n
 
 class StaticPageG11nOption(G11nAdmin):
+    """
+    Admin's options for StaticPageG11n model
+    """
     list_display = ('id','alias', 'staticpage', 'language')
     list_display_links = ['id']
     list_editable = ('alias','language',)
@@ -30,6 +36,9 @@ class StaticPageG11nOption(G11nAdmin):
         model = StaticPageG11n
 
 class StaticPageG11nInline(G11nStackedInlineAdmin):
+    """
+    Admin's options for StaticPageG11n model used inline
+    """
     fieldsets = (('', {'fields': 
                        ('alias', 'html'),
         },),) + G11nAdmin.fieldsets
@@ -37,6 +46,10 @@ class StaticPageG11nInline(G11nStackedInlineAdmin):
     form = CKEditorForm
 
 class StaticPageOption(admin.ModelAdmin):
+    """
+    Admin's options for StaticPage model
+    """
+    
     list_display = ('page','category',)
     list_display_link = ('page',)
     list_editable = ('category',)
@@ -47,6 +60,9 @@ class StaticPageOption(admin.ModelAdmin):
         model = StaticPage
 
 class StaticPageCategoryOption(admin.ModelAdmin):
+    """
+    Admin's options for StaticPageCategory model
+    """
     list_display = ('name',)
     class Meta:
         model = StaticPageCategory 

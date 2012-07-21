@@ -9,6 +9,9 @@ from django.template.loader import render_to_string
 import re
 
 class PublicationExtendedInline(admin.TabularInline):
+    """
+    Inline admin for PublicationExtended model
+    """
     model = PublicationExtended
     fk_name = 'publication'
     can_delete = False 
@@ -16,15 +19,24 @@ class PublicationExtendedInline(admin.TabularInline):
 
 
 class PublicationAdmin(PublicationOption):
+    """
+    Admin's options for Publication model
+    """
     list_display = PublicationOption.list_display
     inlines = [PublicationExtendedInline,] + PublicationOption.inlines
     save_on_top = True
 
  
 class CssTreeStructurePositionInline(admin.TabularInline):
+    """
+    Inline admin for CssTreeStructurePosition model
+    """
     model = CssTreeStructurePosition
     extra = 3    
 class JsTreeStructurePositionInline(admin.TabularInline):
+    """
+    Inline admin for JsTreeStructurePosition model
+    """
     model = JsTreeStructurePosition
     extra = 3    
 
@@ -42,10 +54,16 @@ class TreeStructureOption(admin.ModelAdmin):
         model = TreeStructure
 
 class NodeG11nInline(G11nTabularInlineAdmin):
+    """
+    Admin's options for NodeG11n model used as inline
+    """
     model = NodeG11n
     fieldsets = (('', {'fields':('alias','title','node')}),) + G11nAdmin.fieldsets
         
 class NodeForm(forms.ModelForm):
+    """
+    Admin's form for Node model. It cleans slug field
+    """
     class Meta:
         model = Node
 

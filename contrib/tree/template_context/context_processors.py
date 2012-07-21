@@ -5,8 +5,8 @@ import os
 
 class MetaContent(object): 
     """
-    MetaContent class define an object that contain informations about page or publication. These informations
-    are included in template.
+    MetaContent class define an object that contain informations about page or publication. 
+    These informations are included in template.
     """
     def __init__(self):
         self.title = ""
@@ -34,19 +34,25 @@ class MetaContent(object):
     
     
     def check_attr(self,item):
+        """
+        It checks if item is defined in self object
+        """
         if hasattr(self,item):
             if not getattr(self, item) or getattr(self, item) == "":
                 return False
         return True
          
     def jsonToMeta(self,json):
+        """
+        It sets all item in a json to self
+        """
         for k,v in json.items():
             setattr(self,k,v)
     
          
     def get_fields(self):
         """
-        Returns this object as a dictionary
+        It returns this object as a dictionary
         """
         return self.__dict__
     
@@ -56,8 +62,8 @@ class MetaContent(object):
 
 def g11n(request):
     """
-    This context processor return meta informations contained in cached files. If there aren't cache
-    it calculates dictionary to return
+    This context processor returns meta informations contained in cached files. 
+    If there aren't cache it calculates dictionary to return
     """
     context_extras = {}
     if not request.is_ajax() and hasattr(request ,'upy_context') and request.upy_context['PAGE']:

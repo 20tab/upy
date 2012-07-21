@@ -2,6 +2,9 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 
 def render_staticelement(request, staticelement, use_alias = False, use_html = True, tag_header = u'div', class_header = u'section_head',tag_alias = u'h2', tag_content = u'div', class_content = u'section_content'):
+    """
+    It renders staticelement passed in arguments and returns a html string
+    """
     try:
         staticelement = staticelement.g11n
         return render_to_string("upy_staticelement.html", {"staticelement": staticelement,
