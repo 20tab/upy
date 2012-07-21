@@ -9,6 +9,9 @@ def upy_nl_confirm(request,secret_key,
                          message_ok = _(u"Hi %s, your account is succesfully confirmed"), 
                          message_error = _(u"Some problems are occurred during confirmation. Please, contact %s"),
                          use_contact = True, email_host = settings.EMAIL_USER):
+    """
+    This view is used to confirm a registered Contact to a newsletter
+    """
     try:
         contact = Contact.objects.get(secret_key = secret_key)
         contact.confirmed = True
@@ -24,6 +27,10 @@ def upy_nl_confirm(request,secret_key,
     return message
 
 class UPYNewsletterForm(ModelForm):
+    """
+    It's represents a form with all fields if only_mail is True
+    else it shows only email field
+    """
     def __init__(self,only_email,*args, **kwargs):
         super(UPYNewsletterForm, self).__init__(*args, **kwargs)
         if only_email:
@@ -37,6 +44,9 @@ class UPYNewsletterForm(ModelForm):
         model = Contact
      
     def send_confirm_mail(self,request):
+        """
+        It sends a mail to a contact with confirmation link
+        """
         current_publication = get_current_publication()
         try:
             contact = Contact.objects.get(email = request.POST.get("email"))
