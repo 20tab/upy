@@ -7,7 +7,17 @@ from upy.utils import compare_dicts,filter_files
 import time
 
 class Menu(object):
-    
+    """
+    This class provides some tools to create and render tree structure menu in according to nodes' structure
+    created for your application.
+    It takes some arguments:
+    - request: simply http request
+    - upy_context: it contains informations about current language, publication, page and node
+    - root: the root of menu (it's hidden in menu string)
+    - menu_depth: it's depth level for menu introspection
+    - view_hidden: if True then hidden nodes will be show
+    - g11n_depth: check g11n_depth in contrib.g11n.models documentation
+    """
     def __init__(self, request, root, upy_context, menu_depth = 0, view_hidden = False, g11n_depth = "publication_default"):
         self.request = request
         self.upy_context = upy_context 
@@ -16,7 +26,13 @@ class Menu(object):
         self.view_hidden = view_hidden
         self.g11n_depth = g11n_depth
         
-    def __do_menu(self, menu_as, current_linkable = False, class_current = "", chars = "", before_1 = "", after_1 = "", before_all = "", after_all = "", render = True):
+    def __do_menu(self, menu_as, current_linkable = False, class_current = "", 
+                chars = "", before_1 = "", after_1 = "", before_all = "", 
+                after_all = "", render = True):
+        """
+        If there is a file in cache for current node's menu it returns this file, 
+        else it calculates it and save file in cache
+        """
         dict_cache = {'current_linkable':current_linkable, 
                     'class_current':class_current, 
                     'chars':chars, 
@@ -35,7 +51,11 @@ class Menu(object):
         else:
             str_groups = "-nouser"
         
-        for filename in filter_files(settings.UPYCACHE_DIR,u"menu-%s-%s-%s%s-%s" % (self.root.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE)):
+        for filename in filter_files(settings.UPYCACHE_DIR,
+                                    u"menu-%s-%s-%s%s-%s" % (self.root.pk,
+                                                        self.upy_context['NODE'].pk,
+                                                        menu_as,str_groups,
+                                                        self.request.LANGUAGE_CODE)):
             tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
             json = simplejson.loads(tempfile.read())
             if filename and compare_dicts(json,dict_cache):
@@ -99,24 +119,45 @@ class Menu(object):
         return menutpl
         
 
-    def as_ul(self, current_linkable = False, class_current = "active_link", before_1 = "", after_1 = "", before_all = "", after_all = ""):
-        return self.__do_menu("as_ul", current_linkable, class_current, before_1 = before_1, after_1 = after_1, before_all = before_all, after_all = after_all)
+    def as_ul(self, current_linkable = False, class_current = "active_link", 
+                before_1 = "", after_1 = "", before_all = "", after_all = ""):
+        """
+        It returns menu as ul
+        """
+        return self.__do_menu("as_ul", current_linkable, class_current, 
+                            before_1 = before_1, after_1 = after_1, before_all = before_all, after_all = after_all)
     
     def as_p(self, current_linkable = False, class_current = "active_link"):
+        """
+        It returns menu as p
+        """
         return self.__do_menu("as_p", current_linkable, class_current)
 
     def as_string(self, chars, current_linkable = False, class_current = "active_link"):
+        """
+        It returns menu as string
+        """
         return self.__do_menu("as_string", current_linkable, class_current, chars)
 
     def as_tree(self):
         """
-        Return a menu not cached
+        It returns a menu not cached as tree
         """
         return self.__do_menu("", render = False)
 
 
 class Breadcrumb(object):
-    def __init__(self, request, root, upy_context, view_hidden = False, g11n_depth = "publication_default"):
+    """
+    This class provides some tools to create and render tree structure breadcrumb in according to nodes' structure
+    created for your application.
+    It takes some arguments:
+    - request: simply http request
+    - upy_context: it contains informations about current language, publication, page and node
+    - root: the root of menu (it's hidden in menu string)
+    - view_hidden: if True then hidden nodes will be show
+    - g11n_depth: check g11n_depth in contrib.g11n.models documentation
+    """
+    def __init__(self, request, upy_context, root, view_hidden = False, g11n_depth = "publication_default"):
         self.request = request
         self.upy_context = upy_context
         self.root = root
@@ -124,6 +165,10 @@ class Breadcrumb(object):
         self.g11n_depth = g11n_depth
         
     def __do_menu(self, menu_as, show_root, current_linkable, class_current, chars = ""):
+        """
+        If there is a file in cache for current node's breadcrumb it returns this file, 
+        else it calculates it and save file in cache
+        """
         dict_cache = {'current_linkable':current_linkable, 
                 'class_current':class_current, 
                 'chars':chars, 
@@ -194,10 +239,19 @@ class Breadcrumb(object):
         
 
     def as_ul(self, show_root = True, current_linkable = False, class_current = "active_link"):
+        """
+        It returns breadcrumb as ul
+        """
         return self.__do_menu("as_ul", show_root, current_linkable, class_current)
     
     def as_p(self, show_root = True, current_linkable = False, class_current = "active_link"):
+        """
+        It returns breadcrumb as p
+        """
         return self.__do_menu("as_p", show_root, current_linkable, class_current)
 
     def as_string(self, chars, show_root = True, current_linkable = False, class_current = "active_link"):
+        """
+        It returns breadcrumb as string
+        """
         return self.__do_menu("as_string", show_root, current_linkable, class_current, chars)
