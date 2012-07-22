@@ -22,6 +22,9 @@ def formatExceptionInfo(maxTBlevel=5):
     return (excName, excArgs, excTb)
 
 class PublicationExtended(models.Model):
+    """
+    It's extends g11n.model.Publication model adding references to nodes and tree's structure.
+    """
     tree_structure = models.ForeignKey(u"TreeStructure", help_text = _(u"Structure to use in the website."), 
                                        verbose_name = _(u"Tree structure"))
     index_node = models.ForeignKey(u"Node", null = True, blank = True, 
@@ -29,6 +32,9 @@ class PublicationExtended(models.Model):
     publication = models.OneToOneField(Publication)
     
     def getRoot(self):
+        """
+        It returns the root of this publication
+        """
         return self.tree_structure.tree_root
 
     root = property(getRoot)
@@ -79,7 +85,7 @@ class TreeStructure(models.Model):
 
 class Node(MPTTModel, G11nBase):
     """
-    This is the class that defines the node of a tree.
+    This is the class that defines tree's nodes.
     """
     name = models.CharField(max_length = 50, help_text = _(u"Identifying name of the associated page."),
                             verbose_name = _(u"Name"))
@@ -142,54 +148,73 @@ class Node(MPTTModel, G11nBase):
         clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
         super(Node,self).delete()
     
-    def getPageName(self):
+    def page_name(self):
+        """
+        It returns page's name of this node
+        """
         try:
             return self.page.name
         except:
             return None
     
-    page_name = property(getPageName)
+    page_name = property(page_name)
     
-    def getViewPath(self):
+    def view_path(self):
+        """
+        It returns page's view_path
+        """
         return "%s" % self.page.view_path
         
-    view_path = property(getViewPath)
+    view_path = property(view_path)
 
-    def getSlug(self):
+    def slug(self):
+        """
+        It returns page's slug
+        """
         try:
             return self.page.slug
         except:
             return self.name
 
-    slug = property(getSlug)
+    slug = property(slug)
 
-    def getCompleteSlug(self):
-        complete_slug = self.getTreeslug()
+    def complete_slug(self):
+        """
+        It returns complete slug for this node
+        """
+        compl_slug = self.treeslug
         if self.page:
-            complete_slug += "%s" % self.page.slug
-        return complete_slug
-    complete_slug = property(getCompleteSlug)
+            compl_slug += "%s" % self.page.slug
+        return compl_slug
+    complete_slug = property(complete_slug)
     
-    def getTreeslug(self):
+    def treeslug(self):
+        """
+        It returns tree's slug including all ancestors
+        """
         ancestors = self.get_ancestors()
-        treeslug = ""
+        tree_slug = ""
         for node in ancestors[1:]:
-            treeslug += "%s/" % node.slug
+            tree_slug += "%s/" % node.slug
         
-        return treeslug
+        return tree_slug
+    treeslug = property(treeslug)
 
-    treeslug = property(getTreeslug)
-
-    def getBaseNode(self):
+    def basenode(self):
+        """
+        It returns self's base node
+        """
         ancestors = self.get_ancestors()
         try:
             return ancestors[1]
         except:
             return self
-
-    basenode = property(getBaseNode)
+    basenode = property(basenode)
    
     def absolute_url(self,pub_extended,node):
+        """
+        It calculates absolute url and it returns link as string and the relative url pattern
+        """
         if self.page:
             page = self.page
             view = page.view
@@ -206,17 +231,23 @@ class Node(MPTTModel, G11nBase):
         return False
     
     def get_absolute_url(self,upy_context = None):
+        """
+        It returns simply a link as string
+        """
         if upy_context:
             link, x =  self.absolute_url(upy_context['PUB_EXTENDED'], upy_context['NODE'])
         else:
             link = "%s" % self.pk
         return link
     
-    def get_presentation_type(self):
+    def presentation_type(self):
+        """
+        It returns page's presentation_type
+        """
         if self.page and self.page.presentation_type:
             return self.page.presentation_type
         return ""
-    presentation_type = property(get_presentation_type)
+    presentation_type = property(presentation_type)
     
     
     def __unicode__(self):
@@ -239,6 +270,9 @@ class Node(MPTTModel, G11nBase):
     
     @staticmethod
     def getCurrent(publication, page):
+        """
+        DEPRECATED: It returns the current node, calculating it. But the current node is in the upy_context dictionary
+        """
         tree_structure_root = publication.tree_structure.tree_root
         nodes = tree_structure_root.get_descendants()
         for node in nodes:
@@ -249,6 +283,9 @@ class Node(MPTTModel, G11nBase):
     
     @staticmethod
     def rebuild():
+        """
+        DEPRECATED: It rebuilds mptt structure in database
+        """
         def rebuild_tree(node, tree_id, lft=0, level=1):
             rght = lft + 1
             print "%s%s (%s)" % ("    " * (level - 1), node.name, unicode(node.parent))
@@ -322,15 +359,21 @@ class Page(G11nBase):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
-    def getViewPath(self):
+    def view_path(self):
+        """
+        It returns view's view path
+        """
         if self.scheme_name is None or self.scheme_name == "":
             return "%s" % self.view.view_path
         else:
             return "%s" % self.scheme_name
     
-    view_path = property(getViewPath)
+    view_path = property(view_path)
     
     def get_absolute_url(self,upy_context):
+        """
+        It returns absolute url defined by node related to this page
+        """
         try:    
             node = Node.objects.filter(page = self)[0]
             return node.get_absolute_url(upy_context)
@@ -373,6 +416,9 @@ class Page(G11nBase):
 
     @staticmethod
     def getCurrent(request, publication):
+        """
+        DEPRECATED: It calculates current page but it's in upy_context dictionary
+        """
         if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
             page_url = request.get_full_path()
             page_url = page_url.split('/')[2:]
@@ -428,6 +474,9 @@ class PageG11n(G11nModel):
     g11n_last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
     def get_fields(self):
+        """
+        It returns all fields as key, value in a dictionary
+        """
         return [(field.name, field.value_to_string(self)) for field in PageG11n._meta.fields]
         
     def save(self, *args, **kwargs):
@@ -447,6 +496,9 @@ class PageG11n(G11nModel):
         ordering = ['page']
 
 def list_apps():
+    """
+    It returns a list of application contained in PROJECT_APPS
+    """
     list_apps = []
     for app in config.PROJECT_APPS:
         list_apps.append([app.split(".")[-1]]*2)
@@ -523,10 +575,12 @@ class AbsView(models.Model):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
-    def getViewPath(self):
+    def view_path(self):
+        """
+        It returns view_path as string like: 'app_name.module_mane.func_name'
+        """
         return "%s.%s.%s" % (self.app_name, self.module_name, self.func_name)
-    
-    view_path = property(getViewPath)
+    view_path = property(view_path)
     
     def __unicode__(self):
         return u"%s" % (self.name)
@@ -575,6 +629,9 @@ class AbsView(models.Model):
         abstract = True
         
 class View(AbsView):
+    """
+    It defines view object and it's used to write view definition in views.py module 
+    """
     module_name = models.CharField(max_length = 100, default = u"views", help_text = _(u"Set the module's name of the view."),
                                    verbose_name = _(u"Module name"))
     class Meta:
@@ -583,6 +640,10 @@ class View(AbsView):
         ordering = ['name']
         
 class ViewAjax(AbsView):
+    """
+    It defines view object for views called by jQuery through ajax calls 
+    and it's used to write view definition in viewsajax.py module 
+    """
     module_name = models.CharField(max_length = 100, default = u"viewsajax", help_text = _(u"Set the module's name of the view."),
                                    verbose_name = _(u"Module name"))
     class Meta:
@@ -592,6 +653,9 @@ class ViewAjax(AbsView):
 
 
 class Robot(models.Model):
+    """
+    It defines robots definition for search engines
+    """
     name_id = models.CharField(max_length = 250, help_text = _(u"Short name for the robot. Check the robots' list at <a target='_blank' href='http://www.robotstxt.org/db.html'>All Robots</a>"),
                             verbose_name = _(u"Name id"))
     name = models.CharField(max_length = 250, help_text = _(u"Full name for the robot"),
@@ -607,6 +671,9 @@ class Robot(models.Model):
     
 
 class CssTemplatePosition(models.Model):
+    """
+    It's used to order css files in templates
+    """
     css = models.ForeignKey(u"Css", help_text = _(u"Css associated"), verbose_name = _(u"Css"))
     template = models.ForeignKey(u"Template", help_text = _(u"Template associated"), verbose_name = _(u"Template"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
@@ -634,6 +701,9 @@ class CssTemplatePosition(models.Model):
         verbose_name_plural = _(u"Css/Template Positions")
 
 class CssTreeStructurePosition(models.Model):
+    """
+    It's used to order css files in treestructure objects
+    """
     css = models.ForeignKey(u"Css", help_text = _(u"Css associated"), verbose_name = _(u"Css"))
     tree_structure = models.ForeignKey(u"TreeStructure", help_text = _(u"TreeStructure associated"), verbose_name = _(u"TreeStructure"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
@@ -658,6 +728,9 @@ class CssTreeStructurePosition(models.Model):
         verbose_name_plural = _(u"Css/TreeStructure Positions")
     
 class Css(models.Model):
+    """
+    It defines the css file location
+    """
     name = models.CharField(max_length = 100, help_text = _(u"Set the css's name."),verbose_name = _(u"Name"))
     description = models.TextField(null = True, blank = True, help_text = _(u"Set the css's description."),
                                    verbose_name = _(u"Description"))
@@ -680,6 +753,9 @@ class Css(models.Model):
         verbose_name_plural = _(u"Css")
 
 class JsTemplatePosition(models.Model):
+    """
+    It's used to order js files in templates 
+    """
     js = models.ForeignKey(u"Js", help_text = _(u"Js associated"), verbose_name = _(u"Js"))
     template = models.ForeignKey(u"Template", help_text = _(u"Template associated"), verbose_name = _(u"Template"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
@@ -707,6 +783,9 @@ class JsTemplatePosition(models.Model):
         verbose_name_plural = _(u"Js/Template Positions")
     
 class JsTreeStructurePosition(models.Model):
+    """
+    It's used to order js files in treestructure objects
+    """
     js = models.ForeignKey(u"Js", help_text = _(u"Js associated"), verbose_name = _(u"Js"))
     tree_structure = models.ForeignKey(u"TreeStructure", help_text = _(u"TreeStructure associated"), verbose_name = _(u"TreeStructure"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
@@ -734,6 +813,9 @@ class JsTreeStructurePosition(models.Model):
         verbose_name_plural = _(u"Js/TreeStructure Positions")
     
 class Js(models.Model):
+    """
+    It defines the js file location
+    """
     name = models.CharField(max_length = 100, help_text = _(u"Set the js's name."),verbose_name = _(u"Name"))
     description = models.TextField(null = True, blank = True, help_text = _(u"Set the js's description."),
                                    verbose_name = _(u"Description"))
@@ -785,13 +867,15 @@ class UrlAjax(models.Model):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
-    def getViewPath(self):
+    def view_path(self):
+        """
+        It returns view's view_path
+        """
         if self.scheme_name is None or self.scheme_name == "":
             return "%s" % self.view.view_path
         else:
             return "%s" % self.scheme_name
-    
-    view_path = property(getViewPath)
+    view_path = property(view_path)
     
     def __unicode__(self):
         return u"%s" % (self.name)
