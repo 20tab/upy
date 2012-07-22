@@ -84,6 +84,9 @@ def getUrlList():
     return set_to_return, set_login_required, set_url
 
 class UrlSitemap():
+    """
+    It defines sitemap url's structure to make sitemap.xml file
+    """
     def __init__(self, loc, lastmod = None, changefreq = None, priority = None):
         self.loc = loc
         self.lastmod = lastmod
@@ -92,7 +95,9 @@ class UrlSitemap():
         
 
 class UPYSitemap():
-    
+    """
+    It creates sitemap.xml
+    """
     def __init__(self,request):
         self.request = request
         
@@ -139,7 +144,9 @@ class UPYSitemap():
         return tpl_str
     
 class UPYRobotTXT():
-    
+    """
+    It creates robots.txt
+    """
     def __init__(self,request):
         self.request = request
         
