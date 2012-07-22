@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 19:11+0200\n"
-"PO-Revision-Date: 2011-06-16 13:18+0100\n"
-"Last-Translator: Raffaele <giuscanto@gmail.com>\n"
+"POT-Creation-Date: 2012-07-22 19:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: upy/fields.py:10
 msgid "United Kingdom"
@@ -854,9 +855,8 @@ msgid "Sudan"
 msgstr ""
 
 #: upy/fields.py:219
-#, fuzzy
 msgid "Suriname"
-msgstr "Nom de la fonction"
+msgstr ""
 
 #: upy/fields.py:220
 msgid "Svalbard and Jan Mayen"
@@ -1040,7 +1040,7 @@ msgstr ""
 
 #: upy/contrib/customadmin/admin.py:85 upy/contrib/g11n/models.py:317
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 #: upy/contrib/customadmin/admin.py:120 upy/contrib/customadmin/admin.py:139
 msgid "Icons"
@@ -1072,30 +1072,27 @@ msgstr ""
 
 #: upy/contrib/customadmin/models.py:52 upy/contrib/g11n/models.py:192
 msgid "Is default"
-msgstr "Défaut"
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:55
-#, fuzzy
 msgid "Set header's background color."
-msgstr "Définir auteur de la page."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:56
 msgid "BG Header"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:58
-#, fuzzy
 msgid "Set sitename font."
-msgstr "Définir le nom de la JS."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:59
 msgid "Sitename font"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:61
-#, fuzzy
 msgid "Set sitename font size."
-msgstr "Réglez le titre de l'image."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:62
 msgid "Sitename font size"
@@ -1110,18 +1107,16 @@ msgid "Sitename font weight"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:67
-#, fuzzy
 msgid "Set the background of title in tables."
-msgstr "Réglez le nœud du titre (dans la balise <a>)."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:68
 msgid "BG table title "
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:70
-#, fuzzy
 msgid "Set the color of title in tables."
-msgstr "Réglez le nom de fichier CSS."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:71
 msgid "Table title color"
@@ -1136,9 +1131,8 @@ msgid "H2 color"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:75
-#, fuzzy
 msgid "Set h2 size."
-msgstr "Définir le titre de la page."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:75
 msgid "H2 size"
@@ -1153,9 +1147,8 @@ msgid "H3 color"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:79
-#, fuzzy
 msgid "Set h3 size."
-msgstr "Définir le titre de la page."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:79
 msgid "H3 size"
@@ -1178,9 +1171,8 @@ msgid "Link hover color"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:87
-#, fuzzy
 msgid "Set the css code. "
-msgstr "Ecrire le code HTML"
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:88
 msgid "Css code"
@@ -1203,14 +1195,12 @@ msgid "use_app_icons"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:95
-#, fuzzy
 msgid "Choose the view mode"
-msgstr "Définir le nom de la vue."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:96
-#, fuzzy
 msgid "View mode"
-msgstr "Vue"
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:98
 msgid ""
@@ -1226,14 +1216,12 @@ msgid "Custom Admin"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:140
-#, fuzzy
 msgid "Select the application"
-msgstr "Réglez le nom de l'application de la vue."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:141
-#, fuzzy
 msgid "Application"
-msgstr "Publication"
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:143 upy/contrib/customadmin/models.py:195
 msgid "Write the verbose name to show"
@@ -1262,9 +1250,8 @@ msgid "Custom Apps"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:192
-#, fuzzy
 msgid "Select the url you want to link"
-msgstr "Sélectionnez la valeur de la balise meta robots si nécessaire."
+msgstr ""
 
 #: upy/contrib/customadmin/models.py:193
 msgid "Link Url"
@@ -1280,37 +1267,37 @@ msgstr ""
 
 #: upy/contrib/g11n/admin.py:11
 msgid "Globalization"
-msgstr "Globalisation"
+msgstr ""
 
 #: upy/contrib/g11n/admin.py:132
 msgid "Checking"
-msgstr "Vérification"
+msgstr ""
 
 #: upy/contrib/g11n/admin.py:133 upy/contrib/g11n/models.py:184
 #: upy/contrib/g11n/models.py:330
 msgid "Languages"
-msgstr "Langues"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:169
 msgid "Set the Publication for Globalization."
-msgstr "Réglez la publication de la globalisation"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:169 upy/contrib/g11n/models.py:220
 #: upy/contrib/newsletter/models.py:79 upy/contrib/tree/models.py:46
 msgid "Publication"
-msgstr "Publication"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:170
 msgid "Set the Language for Globalization."
-msgstr "Définir la langue de la globalisation. "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:170 upy/contrib/g11n/models.py:329
 msgid "Language"
-msgstr "Langue"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:181
 msgid "Identifying name of the website."
-msgstr "Identifier le nom du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:182 upy/contrib/g11n/models.py:314
 #: upy/contrib/newsletter/models.py:38 upy/contrib/newsletter/models.py:71
@@ -1323,11 +1310,11 @@ msgstr "Identifier le nom du site."
 #: upy/contrib/tree/models.py:734 upy/contrib/tree/models.py:819
 #: upy/contrib/tree/models.py:852
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:183
 msgid "List of languages to be made available on the website."
-msgstr "Liste des langues disponibles pour le site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:186
 msgid ""
@@ -1335,39 +1322,35 @@ msgid ""
 "servername', in monodomain project just a slugfield with the unique name of "
 "the Publication.)"
 msgstr ""
-"Identifiant Url du site. (Ce sera dans le projet multidomaine  \"http://"
-"nomserveur»,  et dans le projet monodomaine juste un slugfield avec le nom "
-"unique de la publication.) "
 
 #: upy/contrib/g11n/models.py:187
 msgid "Url"
-msgstr "Url"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:188
 msgid "Uncheck it to disable the website."
-msgstr "Décocher pour désactiver le site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:189 upy/contrib/g11n/models.py:272
 #: upy/contrib/tree/models.py:460
 msgid "Enabled"
-msgstr "Activé"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:191
-#, fuzzy
 msgid "Select it if it's the default publication for the website."
-msgstr "Cliquer si c'est la publication par défaut pour le site. "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:194
 msgid "Default language to use in this publication."
-msgstr "Langue par défaut à utiliser dans cette publication. "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:195
 msgid "Default language"
-msgstr "Langue par défaut "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:196
 msgid "Upload the favicon file. (25x25 px / .ico extension)"
-msgstr "Téléchargez le fichier favicon. (25x25 px / extension. Ico) "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:197 upy/contrib/g11n/models.py:284
 #: upy/contrib/g11n/models.py:322 upy/contrib/image/models.py:87
@@ -1377,7 +1360,7 @@ msgstr "Téléchargez le fichier favicon. (25x25 px / extension. Ico) "
 #: upy/contrib/tree/models.py:521 upy/contrib/tree/models.py:575
 #: upy/contrib/tree/models.py:867
 msgid "Establishment date"
-msgstr "Date d'établissement "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:198 upy/contrib/g11n/models.py:284
 #: upy/contrib/g11n/models.py:322 upy/contrib/image/models.py:88
@@ -1387,7 +1370,7 @@ msgstr "Date d'établissement "
 #: upy/contrib/tree/models.py:521 upy/contrib/tree/models.py:575
 #: upy/contrib/tree/models.py:867
 msgid "Creation date"
-msgstr "Date de création"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:199 upy/contrib/g11n/models.py:200
 #: upy/contrib/g11n/models.py:285 upy/contrib/g11n/models.py:323
@@ -1398,127 +1381,120 @@ msgstr "Date de création"
 #: upy/contrib/tree/models.py:522 upy/contrib/tree/models.py:576
 #: upy/contrib/tree/models.py:868
 msgid "Last update"
-msgstr "Dernière mise à jour"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:221 upy/contrib/tree/models.py:47
 msgid "Publications"
-msgstr "Publications"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:260
 msgid "Set the website's title."
-msgstr "Définir le titre du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:261 upy/contrib/tree/models.py:311
 #: upy/contrib/tree/models.py:449
 msgid "Title"
-msgstr "Titre"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:262 upy/contrib/tree/models.py:450
 msgid "Set the website's description."
-msgstr "Définir la description du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:263 upy/contrib/newsletter/models.py:73
 #: upy/contrib/tree/models.py:57 upy/contrib/tree/models.py:451
 #: upy/contrib/tree/models.py:736 upy/contrib/tree/models.py:821
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:265
 msgid ""
 "Set the list of website keywords. Don't use more than 10 words approximately."
 msgstr ""
-"Définir la liste des mots-clés site. Ne pas utiliser plus de 10 mots environ."
 
 #: upy/contrib/g11n/models.py:266 upy/contrib/tree/models.py:454
 msgid "Keywords"
-msgstr "Keywords"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:267
 msgid "Set the website's author."
-msgstr "Définir auteur du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:268 upy/contrib/tree/models.py:456
 msgid "Author"
-msgstr "Auterur"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:269
 msgid "Set the website's content type."
-msgstr "Définir le content type du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:270 upy/contrib/tree/models.py:458
 msgid "Content type"
-msgstr "Content type"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:271
-#, fuzzy
 msgid "Uncheck it to enable the website."
-msgstr "Décocher pour désactiver le site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:273
 msgid "Text or html code to use if the website is disabled."
-msgstr "Texte ou code HTML à utiliser si le site est désactivé."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:274 upy/contrib/tree/models.py:462
 msgid "Disabled message"
-msgstr "Message de désactivation"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:280 upy/contrib/tree/models.py:469
 msgid "Select the value of meta tag robots if you want set it."
-msgstr "Sélectionnez la valeur de la balise meta robots si nécessaire."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:281 upy/contrib/tree/models.py:134
 #: upy/contrib/tree/models.py:470 upy/contrib/tree/models.py:669
 msgid "Robots"
-msgstr "Robots"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:282
 msgid "Set the website's generator."
-msgstr "Définir le générateur du site."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:283
 msgid "Generator"
-msgstr "Générateur"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:305
-#, fuzzy
 msgid "Publication's g11n elements"
-msgstr "Contenu meta de la publication"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:306
-#, fuzzy
 msgid "Publications' g11n elements"
-msgstr "Contenu meta des publications"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:313
 msgid "Set the language's name."
-msgstr "Définir nom de la langue."
+msgstr ""
 
 #: upy/contrib/g11n/models.py:316
 msgid ""
 "Set the language's code. <a target='_blank' href='http://www.i18nguy.com/"
 "unicode/language-identifiers.html'>Open the language identifiers.</a>"
 msgstr ""
-"Régler le code de la langue. <a target='_blank' href='http://www.i18nguy.com/"
-"unicode/language-identifiers.html'> Ouvrir les identificateurs de langue. </ "
-"a>"
 
 #: upy/contrib/g11n/models.py:318
 msgid "Set the language's alias."
-msgstr "Définir l'alias de la langue. "
+msgstr ""
 
 #: upy/contrib/g11n/models.py:319 upy/contrib/staticelement/models.py:34
 #: upy/contrib/staticelement/models.py:53 upy/contrib/staticpage/models.py:35
 #: upy/contrib/tree/models.py:309
 msgid "Alias"
-msgstr "Alias"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:320
 msgid "Upload the flag file"
-msgstr "Téléchargez le fichier du drapeau"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:320
 msgid "Flag"
-msgstr "Drapeau"
+msgstr ""
 
 #: upy/contrib/image/admin.py:29
 #, python-format
@@ -1535,7 +1511,7 @@ msgstr ""
 
 #: upy/contrib/image/models.py:40
 msgid "Thumbnail"
-msgstr "Vignette"
+msgstr ""
 
 #: upy/contrib/image/models.py:43
 msgid "Original image"
@@ -1543,37 +1519,35 @@ msgstr ""
 
 #: upy/contrib/image/models.py:69 upy/contrib/image/models.py:138
 msgid "Set the image title."
-msgstr "Réglez le titre de l'image."
+msgstr ""
 
 #: upy/contrib/image/models.py:70 upy/contrib/image/models.py:139
 msgid "Set the image alternative field."
-msgstr "Définissez le champ de remplacement de l'image."
+msgstr ""
 
 #: upy/contrib/image/models.py:86
 msgid "Set the date you want to display for this image."
-msgstr "Régler la date que vous souhaitez afficher pour cette image"
+msgstr ""
 
 #: upy/contrib/image/models.py:98
-#, fuzzy
 msgid "Thumbnail Display"
-msgstr "Vignette"
+msgstr ""
 
 #: upy/contrib/image/models.py:108
 msgid "Image"
-msgstr "Image"
+msgstr ""
 
 #: upy/contrib/image/models.py:109
 msgid "Images"
-msgstr "Images"
+msgstr ""
 
 #: upy/contrib/image/models.py:121 upy/contrib/image/models.py:140
 msgid "Image description."
-msgstr "Description de l'image."
+msgstr ""
 
 #: upy/contrib/image/models.py:122
-#, fuzzy
 msgid "Choose an Image Repository element to associate."
-msgstr "Choisissez l'image à associer."
+msgstr ""
 
 #: upy/contrib/image/models.py:122
 msgid "Image Repository element"
@@ -1582,7 +1556,7 @@ msgstr ""
 #: upy/contrib/language/templates/language_as_select.html:10
 #: upy/templates/admin/base.html:52
 msgid "Go"
-msgstr "Go"
+msgstr ""
 
 #: upy/contrib/newsletter/admin.py:69 upy/contrib/newsletter/models.py:113
 msgid "Body text"
@@ -1625,9 +1599,8 @@ msgid "Insert you surname"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:40
-#, fuzzy
 msgid "Surname"
-msgstr "Nom de la fonction"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:41
 msgid "Set secret key"
@@ -1662,14 +1635,12 @@ msgid "Contacts"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:71
-#, fuzzy
 msgid "Insert list's name"
-msgstr "Définir le nom de la JS."
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:72
-#, fuzzy
 msgid "Set list's description"
-msgstr "Définir la description de JS."
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:74
 msgid "Set list's priority"
@@ -1677,16 +1648,15 @@ msgstr ""
 
 #: upy/contrib/newsletter/models.py:75 upy/contrib/tree/models.py:132
 msgid "Priority"
-msgstr "Priorité"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:76
 msgid "A list of contacts to associate"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:78
-#, fuzzy
 msgid "Set the Publication for this list"
-msgstr "Réglez la publication de la globalisation"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:80
 msgid "Check if this list is a test list"
@@ -1705,19 +1675,16 @@ msgid "Lists"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:95
-#, fuzzy
 msgid "Attachment's name"
-msgstr "Nom de schéma"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:98
-#, fuzzy
 msgid "Upload the attachment's file."
-msgstr "Téléchargez le fichier du drapeau"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:98
-#, fuzzy
 msgid "File"
-msgstr "Nom de fichier"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:105
 msgid "Attachment"
@@ -1775,9 +1742,8 @@ msgid "Set a newsletter"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:136
-#, fuzzy
 msgid "Set the last mail sent"
-msgstr "Définir le titre de la page."
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:136
 msgid "Last mail sent"
@@ -1816,18 +1782,16 @@ msgid "Choose when to send the newsletter. Empty field means now"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:143
-#, fuzzy
 msgid "Send date"
-msgstr "Date de création"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:144
 msgid "Process complete date"
 msgstr ""
 
 #: upy/contrib/newsletter/models.py:144
-#, fuzzy
 msgid "Sent date"
-msgstr "Date de création"
+msgstr ""
 
 #: upy/contrib/newsletter/models.py:145
 msgid "Set who create this dispatcher"
@@ -1900,9 +1864,8 @@ msgstr ""
 
 #: upy/contrib/staticelement/models.py:16
 #: upy/contrib/staticelement/models.py:51
-#, fuzzy
 msgid "Set the element's name."
-msgstr "Définir le nom du modèle."
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:17
 #: upy/contrib/staticelement/models.py:52 upy/contrib/staticpage/models.py:16
@@ -1918,36 +1881,31 @@ msgstr ""
 
 #: upy/contrib/staticelement/models.py:26
 #: upy/contrib/staticelement/models.py:60
-#, fuzzy
 msgid "Static Element"
-msgstr "Page Statique"
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:27
 #: upy/contrib/staticelement/models.py:61
-#, fuzzy
 msgid "Static Elements"
-msgstr "Pages Statiques"
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:34
 #: upy/contrib/staticelement/models.py:53
-#, fuzzy
 msgid "Set the element's alias."
-msgstr "Définir l'alias de la page."
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:35
 #: upy/contrib/staticelement/models.py:54 upy/contrib/staticpage/models.py:36
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:36
-#, fuzzy
 msgid "Choose a Static element to associate."
-msgstr "Choisissez une page statique à associer."
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:36
-#, fuzzy
 msgid "Static element"
-msgstr "Page Statique"
+msgstr ""
 
 #: upy/contrib/staticelement/models.py:42
 #: upy/contrib/staticelement/models.py:43
@@ -1963,59 +1921,52 @@ msgid "Categories"
 msgstr ""
 
 #: upy/contrib/staticelement/views.py:20
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The static element with the name '%s' don't have a g11n instance. Add it."
 msgstr ""
-"La page statique avec le nom '% s'  ne figure pas dans la base de "
-"données. Ajouter."
 
 #: upy/contrib/staticpage/models.py:15
-#, fuzzy
 msgid "Choose a page."
-msgstr "Choisissez l'image à associer."
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:15 upy/contrib/tree/models.py:93
 #: upy/contrib/tree/models.py:413 upy/contrib/tree/models.py:472
 msgid "Page"
-msgstr "Pages"
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:27
 msgid "Static Page"
-msgstr "Page Statique"
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:28
 msgid "Static Pages"
-msgstr "Pages Statiques"
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:35
 msgid "Set the page's alias."
-msgstr "Définir l'alias de la page."
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:37
 msgid "Choose a Static page to associate."
-msgstr "Choisissez une page statique à associer."
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:37
 msgid "Static page"
-msgstr "Page Statique"
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:43
-#, fuzzy
 msgid "Static Page G11n Content"
-msgstr "Contenu Meta de la Page Statique"
+msgstr ""
 
 #: upy/contrib/staticpage/models.py:44
-#, fuzzy
 msgid "Static Page G11n Contents"
-msgstr "Contenu Meta des Pages Statiques"
+msgstr ""
 
 #: upy/contrib/staticpage/views.py:22
 #, python-format
 msgid "Static page with the name '%s' not found in database. Add it."
 msgstr ""
-"La page statique avec le nom '% s'  ne figure pas dans la base de "
-"données. Ajouter."
 
 #: upy/contrib/tree/admin.py:83
 msgid "A node may not be made a child of itself."
@@ -2030,17 +1981,16 @@ msgid "You can use page only in one node of the same structure"
 msgstr ""
 
 #: upy/contrib/tree/admin.py:105
-#, fuzzy
 msgid "Info page"
-msgstr "Info"
+msgstr ""
 
 #: upy/contrib/tree/admin.py:112
 msgid "Sitemap configuration"
-msgstr "Configuration site map"
+msgstr ""
 
 #: upy/contrib/tree/admin.py:113
 msgid "Robots configuration"
-msgstr "Configuration Robots"
+msgstr ""
 
 #: upy/contrib/tree/admin.py:128
 msgid "Mark selected nodes as hidden"
@@ -2060,133 +2010,125 @@ msgid ""
 "Set the dictionary of static parameters of the page in a regular format: "
 "{\"param1\":\"value1\", \"param2\":\"value2\"}."
 msgstr ""
-"Réglez le dictionnaire de paramètres statiques de la page dans un format "
-"régulier: {\"param1 \": \"valeur1\", \"param2 \": \"valeur2\"}. "
 
 #: upy/contrib/tree/admin.py:225 upy/contrib/tree/models.py:515
 msgid "Set the variables required by template (separated with ,)."
-msgstr "Définissez les variables requises par modèle (séparés par des,)."
+msgstr ""
 
 #: upy/contrib/tree/admin.py:263
 msgid "Set the func_name in a regular format."
-msgstr "Réglez le func_name dans un format habituel."
+msgstr ""
 
 #: upy/contrib/tree/admin.py:264
 msgid ""
 "Set the dictionary of output variables of the view required by template in a "
 "regular format: {\"param1\":value1, \"param2\":value2}."
 msgstr ""
-"Réglez le Dictionnaire de variables de sortie de la vue requise par modèle "
-"dans un format régulier: {\"param1 \": valeur1,\"param2 \": valeur2}. "
 
 #: upy/contrib/tree/admin.py:265
 msgid "Set the input variables for the view (separated with ,)."
-msgstr "Définissez les variables d'entrée pour la vue (séparés par des,)."
+msgstr ""
 
 #: upy/contrib/tree/admin.py:330 upy/contrib/tree/models.py:853
 msgid "Identifying UrlAjax's url."
-msgstr "Identifier les url UrlAjax."
+msgstr ""
 
 #: upy/contrib/tree/admin.py:331 upy/contrib/tree/models.py:347
 msgid ""
 "Set the dictionary of static parameters of the page in a regular format: "
 "{\"param1\":value1, \"param2\":value2}."
 msgstr ""
-"Réglez le dictionnaire de paramètres statiques de la page dans un format "
-"régulier: {\"param1\": valeur1, \"param2\": valeur2}. "
 
 #: upy/contrib/tree/models.py:28
 msgid "Structure to use in the website."
-msgstr "Structure à utiliser dans le site."
+msgstr ""
 
 #: upy/contrib/tree/models.py:29
 msgid "Tree structure"
-msgstr "Arborescence "
+msgstr ""
 
 #: upy/contrib/tree/models.py:31
 msgid "Default node/page to display if path/slug is Blank."
-msgstr "Noeud par défaut / page à afficher selon le path / slug vide. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:54
 msgid "Identifying structure's name."
-msgstr "Nom d'identification de la structure. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:56
 msgid "Structure's description."
-msgstr "Description de la structure"
+msgstr ""
 
 #: upy/contrib/tree/models.py:58
 msgid "Set the root node for the referenced tree."
-msgstr "Réglez le nœud racine de l'arbre de référence. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:60
 msgid "Tree root"
-msgstr "Racine de l'arbre "
+msgstr ""
 
 #: upy/contrib/tree/models.py:61 upy/contrib/tree/models.py:517
 msgid "TreeStructure's css"
-msgstr "Css de la structure"
+msgstr ""
 
 #: upy/contrib/tree/models.py:61 upy/contrib/tree/models.py:517
 #: upy/contrib/tree/models.py:677 upy/contrib/tree/models.py:707
 #: upy/contrib/tree/models.py:752 upy/contrib/tree/models.py:753
 msgid "Css"
-msgstr "Css"
+msgstr ""
 
 #: upy/contrib/tree/models.py:63 upy/contrib/tree/models.py:519
 msgid "TreeStructure's js"
-msgstr "Js de la structure"
+msgstr ""
 
 #: upy/contrib/tree/models.py:63 upy/contrib/tree/models.py:519
 #: upy/contrib/tree/models.py:759 upy/contrib/tree/models.py:789
 #: upy/contrib/tree/models.py:843 upy/contrib/tree/models.py:844
 #: upy/contrib/tree/models.py:864
 msgid "Js"
-msgstr "Js"
+msgstr ""
 
 #: upy/contrib/tree/models.py:82
 msgid "Structure"
-msgstr "Structure"
+msgstr ""
 
 #: upy/contrib/tree/models.py:83
 msgid "Structures"
-msgstr "Structures"
+msgstr ""
 
 #: upy/contrib/tree/models.py:90
 msgid "Identifying name of the associated page."
-msgstr "Nom d'identification de la page associée. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:92
 msgid "Set the page for the referenced node."
-msgstr "Définir la page pour le noeud référencé. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:95
 msgid "Set the parent node for this node if it isn't root."
-msgstr "Réglez le nœud parent de ce nœud si il n'est pas la racine."
+msgstr ""
 
 #: upy/contrib/tree/models.py:96
 msgid "Parent"
-msgstr "Parent"
+msgstr ""
 
 #: upy/contrib/tree/models.py:98
 msgid "Check it to hide the page in this node in the navigation."
-msgstr "cliquer pour cacher la page dans ce noeud dans la navigation."
+msgstr ""
 
 #: upy/contrib/tree/models.py:99
 msgid "Hide in navigation"
-msgstr "Cacher in navigation"
+msgstr ""
 
 #: upy/contrib/tree/models.py:100
 msgid ""
 "Check it if the page related to this node should be protected from "
 "unauthorized access."
 msgstr ""
-"Cliquer si la page liée à ce nœud doit être protégée contre tout accès non "
-"autorisé. "
 
 #: upy/contrib/tree/models.py:101
 msgid "Protected"
-msgstr "Protégé"
+msgstr ""
 
 #: upy/contrib/tree/models.py:103
 msgid "Check it if this node must be showed only for logged user or group."
@@ -2206,396 +2148,382 @@ msgstr ""
 
 #: upy/contrib/tree/models.py:109
 msgid "Set the value to respect the regex of the associated page."
-msgstr "Réglez la valeur à respecter pour les regex de la page associée."
+msgstr ""
 
 #: upy/contrib/tree/models.py:110
 msgid "Value regex"
-msgstr "Valeur regex"
+msgstr ""
 
 #: upy/contrib/tree/models.py:118
 msgid "The chengefreq attribute for sitemap.xml"
-msgstr "L'attribut chengefreq pour sitemap.xml"
+msgstr ""
 
 #: upy/contrib/tree/models.py:119
 msgid "Changefreq"
-msgstr "Changefreq"
+msgstr ""
 
 #: upy/contrib/tree/models.py:131
 msgid "The priority attribute for sitemap.xml"
-msgstr "L'attribut priorité pour le sitemap.xml"
+msgstr ""
 
 #: upy/contrib/tree/models.py:133
 msgid "List of robots to communicate that this node is disallowed."
-msgstr "Liste des robots qui communiquent que ce noeud est rejeté."
+msgstr ""
 
 #: upy/contrib/tree/models.py:135
 msgid "Check it to disallow the page in this node in the file robots.txt."
-msgstr "Cliquer pour refuser la page dans ce noeud dans le fichier robots.txt."
+msgstr ""
 
 #: upy/contrib/tree/models.py:136
 msgid "Disallow"
-msgstr "Rejeter"
+msgstr ""
 
 #: upy/contrib/tree/models.py:267 upy/contrib/tree/models.py:313
 msgid "Node"
-msgstr "Noeud"
+msgstr ""
 
 #: upy/contrib/tree/models.py:268
 msgid "Nodes"
-msgstr "Nœuds"
+msgstr ""
 
 #: upy/contrib/tree/models.py:308
 msgid "Set the node's display name."
-msgstr "Définir le nom d'affichage du nœud. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:310
 msgid "Set the node's title (in <a> tag)."
-msgstr "Réglez le nœud du titre (dans la balise <a>)."
+msgstr ""
 
 #: upy/contrib/tree/models.py:312
 msgid "Set the node to associate with the Node's Meta Content."
-msgstr "Définir le nœud à associer avec le contenu du nœud Meta."
+msgstr ""
 
 #: upy/contrib/tree/models.py:331
-#, fuzzy
 msgid "Node's G11n Content"
-msgstr "Contenu Meta du Nœud"
+msgstr ""
 
 #: upy/contrib/tree/models.py:332
-#, fuzzy
 msgid "Node's G11n Contents"
-msgstr "Contenu Meta du Nœud"
+msgstr ""
 
 #: upy/contrib/tree/models.py:340
 msgid "Identifying page's name."
-msgstr "Identifier le nom de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:342
 msgid "Identifying page's url."
-msgstr "Identifier url page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:343 upy/contrib/tree/models.py:854
 #: upy/contrib/tree/templates/page_info.html:7
 msgid "Slug"
-msgstr "Slug"
+msgstr ""
 
 #: upy/contrib/tree/models.py:344 upy/contrib/tree/models.py:855
 msgid "Set the regular expression that completes the url."
-msgstr "Définir l'expression régulière qui complète l'url."
+msgstr ""
 
 #: upy/contrib/tree/models.py:345 upy/contrib/tree/models.py:856
 msgid "Regex"
-msgstr "Regex"
+msgstr ""
 
 #: upy/contrib/tree/models.py:348 upy/contrib/tree/models.py:859
 msgid "Static vars"
-msgstr "Variables statiques"
+msgstr ""
 
 #: upy/contrib/tree/models.py:350 upy/contrib/tree/models.py:861
 msgid "Set the unique name to associate the view of a callback url."
-msgstr "Définissez le nom unique à associer à la vue d'une url de rappel."
+msgstr ""
 
 #: upy/contrib/tree/models.py:351 upy/contrib/tree/models.py:862
 msgid "Scheme name"
-msgstr "Nom de schéma"
+msgstr ""
 
 #: upy/contrib/tree/models.py:352
 msgid "Set the template to associate with the page."
-msgstr "Définir le modèle à associer à la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:353 upy/contrib/tree/models.py:556
 #: upy/contrib/tree/models.py:678 upy/contrib/tree/models.py:760
 #: upy/contrib/tree/templates/page_info.html:15
 msgid "Template"
-msgstr "Modèle"
+msgstr ""
 
 #: upy/contrib/tree/models.py:354
 msgid "Set the view to associate with the page."
-msgstr "Définir la vue à associer à la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:355 upy/contrib/tree/models.py:638
 #: upy/contrib/tree/models.py:866 upy/contrib/tree/templates/page_info.html:19
 msgid "View"
-msgstr "Vue"
+msgstr ""
 
 #: upy/contrib/tree/models.py:357
-#, fuzzy
 msgid "Select the presentation type."
-msgstr "Définir le content type de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:358
-#, fuzzy
 msgid "Presentation type"
-msgstr "Date de création"
+msgstr ""
 
 #: upy/contrib/tree/models.py:414
 msgid "Pages"
-msgstr "Pages"
+msgstr ""
 
 #: upy/contrib/tree/models.py:448
 msgid "Set the page's title."
-msgstr "Définir le titre de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:453
 msgid ""
 "Set the list of page's keywords. Don't use more than 10 words approximately."
 msgstr ""
-"Définir la liste des mots-clés de la page. Ne pas utiliser plus de 10 mots "
-"environ."
 
 #: upy/contrib/tree/models.py:455
 msgid "Set the page's author."
-msgstr "Définir auteur de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:457
 msgid "Set the page's content type."
-msgstr "Définir le content type de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:459
 msgid "Uncheck it to disable the page."
-msgstr "Décocher pour désactiver la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:461
 msgid "Text or html code to use if the page is disabled."
-msgstr "Texte ou code HTML à utiliser si la page est désactivée."
+msgstr ""
 
 #: upy/contrib/tree/models.py:471
 msgid "Set the page to associate with the Page's Meta Content."
-msgstr "Définir la page à associer au contenu meta de la page."
+msgstr ""
 
 #: upy/contrib/tree/models.py:494
-#, fuzzy
 msgid "Page's G11n Content"
-msgstr "Contenu meta de l page"
+msgstr ""
 
 #: upy/contrib/tree/models.py:495
-#, fuzzy
 msgid "Page's G11n Contents"
-msgstr "Contenu meta de la page"
+msgstr ""
 
 #: upy/contrib/tree/models.py:511
 msgid "Set the template's name."
-msgstr "Définir le nom du modèle."
+msgstr ""
 
 #: upy/contrib/tree/models.py:512 upy/contrib/tree/models.py:566
 msgid "Set the application's name of the view."
-msgstr "Réglez le nom de l'application de la vue."
+msgstr ""
 
 #: upy/contrib/tree/models.py:513 upy/contrib/tree/models.py:567
 msgid "App name"
-msgstr "Nom de l'application"
+msgstr ""
 
 #: upy/contrib/tree/models.py:514
 msgid "Set the template's file name."
-msgstr "Définir le nom de fichier du modèle."
+msgstr ""
 
 #: upy/contrib/tree/models.py:514 upy/contrib/tree/models.py:737
 #: upy/contrib/tree/models.py:822
 msgid "File name"
-msgstr "Nom de fichier"
+msgstr ""
 
 #: upy/contrib/tree/models.py:516 upy/contrib/tree/models.py:571
 msgid "Input vars"
-msgstr "Variables d'entrée"
+msgstr ""
 
 #: upy/contrib/tree/models.py:557
 msgid "Templates"
-msgstr "Modèles"
+msgstr ""
 
 #: upy/contrib/tree/models.py:565
 msgid "Set the view's name."
-msgstr "Définir le nom de la vue."
+msgstr ""
 
 #: upy/contrib/tree/models.py:568
 msgid "Set the view's function name."
-msgstr "Définir le nom de la fonction de la vue."
+msgstr ""
 
 #: upy/contrib/tree/models.py:569
 msgid "Func name"
-msgstr "Nom de la fonction"
+msgstr ""
 
 #: upy/contrib/tree/models.py:570
 msgid "Set the input variables required by view."
-msgstr "Définissez les variables d'entrées requises par la vue."
+msgstr ""
 
 #: upy/contrib/tree/models.py:573
 msgid "Set the json list of output variables required by template."
 msgstr ""
-"Définir la liste des variables de sortie json requises par le template."
 
 #: upy/contrib/tree/models.py:574
 msgid "Output vars"
-msgstr "Variables de sortie"
+msgstr ""
 
 #: upy/contrib/tree/models.py:635 upy/contrib/tree/models.py:647
 msgid "Set the module's name of the view."
-msgstr "Réglez le module du nom de la vue."
+msgstr ""
 
 #: upy/contrib/tree/models.py:636 upy/contrib/tree/models.py:648
 msgid "Module name"
-msgstr "Nom du module"
+msgstr ""
 
 #: upy/contrib/tree/models.py:639
 msgid "Views"
-msgstr "Vues"
+msgstr ""
 
 #: upy/contrib/tree/models.py:650 upy/contrib/tree/models.py:651
 msgid "ViewAjax"
-msgstr "Vues Ajax"
+msgstr ""
 
 #: upy/contrib/tree/models.py:659
 msgid ""
 "Short name for the robot. Check the robots' list at <a target='_blank' "
 "href='http://www.robotstxt.org/db.html'>All Robots</a>"
 msgstr ""
-"Nom court pour le robot. Contrôler des robots à l'adresse <a target='_blank' "
-"href='http://www.robotstxt.org/db.html'> tous les robots </ a>"
 
 #: upy/contrib/tree/models.py:660
 msgid "Name id"
-msgstr "Nom Identifiant"
+msgstr ""
 
 #: upy/contrib/tree/models.py:661
 msgid "Full name for the robot"
-msgstr "Nom complet pour le robot"
+msgstr ""
 
 #: upy/contrib/tree/models.py:668
 msgid "Robot"
-msgstr "Robot"
+msgstr ""
 
 #: upy/contrib/tree/models.py:677 upy/contrib/tree/models.py:707
 msgid "Css associated"
-msgstr "Css associés"
+msgstr ""
 
 #: upy/contrib/tree/models.py:678 upy/contrib/tree/models.py:760
 msgid "Template associated"
-msgstr "Modèle associés"
+msgstr ""
 
 #: upy/contrib/tree/models.py:700
 msgid "Css/Template Position"
-msgstr "Css/Modèle Position"
+msgstr ""
 
 #: upy/contrib/tree/models.py:701
 msgid "Css/Template Positions"
-msgstr "Css/Modèle Positions"
+msgstr ""
 
 #: upy/contrib/tree/models.py:708 upy/contrib/tree/models.py:790
 msgid "TreeStructure associated"
-msgstr "TreeStructure associés"
+msgstr ""
 
 #: upy/contrib/tree/models.py:708 upy/contrib/tree/models.py:790
 msgid "TreeStructure"
-msgstr "TreeStructure"
+msgstr ""
 
 #: upy/contrib/tree/models.py:727
 msgid "Css/TreeStructure Position"
-msgstr "Css/TreeStructure Position"
+msgstr ""
 
 #: upy/contrib/tree/models.py:728
 msgid "Css/TreeStructure Positions"
-msgstr "Css/TreeStructure Positions"
+msgstr ""
 
 #: upy/contrib/tree/models.py:734
 msgid "Set the css's name."
-msgstr "Définir le nom de la CSS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:735
 msgid "Set the css's description."
-msgstr "Définir la description du CSS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:737
 msgid "Set the css's file name."
-msgstr "Réglez le nom de fichier CSS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:759 upy/contrib/tree/models.py:789
 msgid "Js associated"
-msgstr "Js associés"
+msgstr ""
 
 #: upy/contrib/tree/models.py:782
 msgid "Js/Template Position"
-msgstr "Js/Modèle Position"
+msgstr ""
 
 #: upy/contrib/tree/models.py:783
 msgid "Js/Template Positions"
-msgstr "Js/Modèle Positions"
+msgstr ""
 
 #: upy/contrib/tree/models.py:812
 msgid "Js/TreeStructure Position"
-msgstr "Js/TreeStructure Position"
+msgstr ""
 
 #: upy/contrib/tree/models.py:813
 msgid "Js/TreeStructure Positions"
-msgstr "Js/TreeStructure Positions"
+msgstr ""
 
 #: upy/contrib/tree/models.py:819
 msgid "Set the js's name."
-msgstr "Définir le nom de la JS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:820
 msgid "Set the js's description."
-msgstr "Définir la description de JS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:822
 msgid "Set the js's file name."
-msgstr "Définir le nom du fichier de la JS."
+msgstr ""
 
 #: upy/contrib/tree/models.py:827
 msgid "Select the position in the html file."
-msgstr "Sélectionnez la position dans le fichier html."
+msgstr ""
 
 #: upy/contrib/tree/models.py:828
 msgid "Html position"
-msgstr "Position Html"
+msgstr ""
 
 #: upy/contrib/tree/models.py:851
 msgid "Identifying UrlAjax's name."
-msgstr "Identifier le nom de UrlAjax."
+msgstr ""
 
 #: upy/contrib/tree/models.py:858
 msgid ""
 "Set the dictionary of static parameters of the UrlAjax in a regular format: "
 "{\"param1\":value1, \"param2\":value2}."
 msgstr ""
-"Réglez le dictionnaire de paramètres statiques de la UrlAjax dans un format "
-"regulèr: {\"param1\": valeur1, \"param2\": valeur2}. "
 
 #: upy/contrib/tree/models.py:863
 msgid "Set the Js to associate with the UrlAjax."
-msgstr "Réglez le Js à associer à l'UrlAjax. "
+msgstr ""
 
 #: upy/contrib/tree/models.py:865
 msgid "Set the view to associate with the UrlAjax."
-msgstr "Définir la vue à associer à l'UrlAjax."
+msgstr ""
 
 #: upy/contrib/tree/models.py:897 upy/contrib/tree/models.py:898
 msgid "UrlAjax"
-msgstr "UrlAjax"
+msgstr ""
 
 #: upy/contrib/tree/tree_admin.py:210
 msgid "title"
-msgstr "titre"
+msgstr ""
 
 #: upy/contrib/tree/tree_admin.py:388
 #, python-format
 msgid "%s has been moved to a new position."
-msgstr "%s a été déplacé vers une nouvelle position."
+msgstr ""
 
 #: upy/contrib/tree/tree_admin.py:392
 msgid "Did not understand moving instruction."
-msgstr "Instruction de mouvement non valide."
+msgstr ""
 
 #: upy/contrib/tree/tree_admin.py:401
 msgid "actions"
-msgstr "actions"
+msgstr ""
 
 #: upy/contrib/tree/templates/page_info.html:11
 msgid "Complete slug"
 msgstr ""
 
 #: upy/contrib/tree/templates/page_info.html:23
-#, fuzzy
 msgid "Template file"
-msgstr "Modèle"
+msgstr ""
 
 #: upy/contrib/tree/templates/page_info.html:27
 msgid "View function"
@@ -2608,25 +2536,23 @@ msgstr ""
 #: upy/templates/login.html:11
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
-"Votre nom d'utilisateur et mot de passe ne correspondent pas. S'il vous "
-"plaît essayez de nouveau. "
 
 #: upy/templates/login.html:15
 msgid "Set your username and password"
-msgstr "Définissez votre nom d'utilisateur et mot de passe "
+msgstr ""
 
 #: upy/templates/logout.html:9
 msgid "Logout completed"
-msgstr "Déconnexion complétée"
+msgstr ""
 
 #: upy/templates/logout.html:11
 msgid "Back in home page"
-msgstr "Retour à la page d'accueil"
+msgstr ""
 
 #: upy/templates/admin/app_index.html:8 upy/templates/admin/base.html:62
 #: upy/templates/admin/change_form.html:21
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
 #: upy/templates/admin/app_index.html:11
 #: upy/templates/admin/custom_index.html:22
@@ -2637,23 +2563,23 @@ msgstr "Home"
 #: upy/templates/admin/custom_index.html:80
 #, python-format
 msgid "%(name)s"
-msgstr "%(name)s"
+msgstr ""
 
 #: upy/templates/admin/base.html:33
 msgid "Welcome,"
-msgstr "Bienvenue, "
+msgstr ""
 
 #: upy/templates/admin/base.html:38
 msgid "Documentation"
-msgstr "Documentation"
+msgstr ""
 
 #: upy/templates/admin/base.html:40
 msgid "Change password"
-msgstr "Changer le mot de passe"
+msgstr ""
 
 #: upy/templates/admin/base.html:41
 msgid "Log out"
-msgstr "Déconnectez-vous"
+msgstr ""
 
 #: upy/templates/admin/base_site.html:18
 msgid "UPY - upyproject.com "
@@ -2661,17 +2587,17 @@ msgstr ""
 
 #: upy/templates/admin/base_site.html:29
 msgid "Website home"
-msgstr "Website home"
+msgstr ""
 
 #: upy/templates/admin/base_site.html:30
 msgid "Admin home"
-msgstr "Admin home"
+msgstr ""
 
 #: upy/templates/admin/change_form.html:24
 #: upy/templates/admin/custom_index.html:59
 #: upy/templates/admin/custom_index.html:91
 msgid "Add"
-msgstr "Ajouter"
+msgstr ""
 
 #: upy/templates/admin/change_form.html:48
 msgid "History"
@@ -2692,32 +2618,32 @@ msgstr[1] ""
 #: upy/templates/admin/custom_index.html:79
 #, python-format
 msgid "Models available in the %(name)s application."
-msgstr "Modèles disponibles dans la %(name)s application."
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:65
 #: upy/templates/admin/custom_index.html:97
 msgid "Change"
-msgstr "Changer"
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:113
 msgid "You don't have permission to edit anything."
-msgstr "Vous n'avez pas l'autorisation de modifier le contenu"
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:125
 msgid "Recent Actions"
-msgstr "Actions récentes"
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:126
 msgid "My Actions"
-msgstr "Mes actions"
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:130
 msgid "None available"
-msgstr "None available"
+msgstr ""
 
 #: upy/templates/admin/custom_index.html:144
 msgid "Unknown content"
-msgstr "Contenu inconnu"
+msgstr ""
 
 #: upy/templates/admin/g11n_tabs_stacked.html:67
 #, python-format
@@ -2730,42 +2656,16 @@ msgstr ""
 
 #: upy/templates/admin/upy/tree_editor.html:28
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr ""
 
 #: upy/templates/admin/upy/tree_editor.html:30
 msgid "Collapse tree"
-msgstr "Réduire l'arbre"
+msgstr ""
 
 #: upy/templates/admin/upy/tree_editor.html:31
 msgid "Expand tree"
-msgstr "Développez l'arbre"
+msgstr ""
 
 #: upy/templates/admin/upy/tree_editor.html:34
 msgid "Filter"
-msgstr "Filter"
-
-#~ msgid "Upload the image file. (less than 1 MB)"
-#~ msgstr "Téléchargez le fichier image. (Moins de 1 Mo)"
-
-#~ msgid "Image Meta Content"
-#~ msgstr "Contenu Meta Image"
-
-#~ msgid "Image Meta Contents"
-#~ msgstr "Contenu Meta Images"
-
-#~ msgid "Set the page's name. MUST be the slug of the related page."
-#~ msgstr ""
-#~ "Définir le nom de la page. Ce doit être impérativement le slug de la page "
-#~ "relative."
-
-#~ msgid "Set the html code."
-#~ msgstr "Ecrire le code HTML"
-
-#~ msgid "List of Js that define dipendencies for this Js."
-#~ msgstr "Liste des Js qui définissent dipendencies pour ce Js."
-
-#~ msgid "Dependencies"
-#~ msgstr "Dépendances"
-
-#~ msgid "ThedusK / django-admin"
-#~ msgstr "ThedusK / django-admin"
+msgstr ""
