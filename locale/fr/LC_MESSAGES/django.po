@@ -19,7 +19,7 @@ msgstr ""
 
 #: upy/fields.py:10
 msgid "United Kingdom"
-msgstr ""
+msgstr "United Kingdom"
 
 #: upy/fields.py:11
 msgid "Afghanistan"
