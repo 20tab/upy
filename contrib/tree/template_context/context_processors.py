@@ -111,15 +111,15 @@ def g11n(request):
                 all_js_footer = []
                 for js in struct_js:
                     if js.html_position == "header":
-                        all_js_header.append(js.file_name)
+                        all_js_header.append(js.url)
                     else:
-                        all_js_footer.append(js.file_name)
+                        all_js_footer.append(js.url)
     
                 for js in page_js:
                     if js.html_position == "header":
-                        all_js_header.append(js.file_name)
+                        all_js_header.append(js.url)
                     else:
-                        all_js_footer.append(js.file_name)
+                        all_js_footer.append(js.url)
                 
                 
                 all_js_header_set = []
@@ -145,7 +145,7 @@ def g11n(request):
                 all_css_set.extend(struct_css)
                 for css in all_css_set:
                     if not css in all_css_set_res:
-                        all_css_set_res.append(css.file_name)
+                        all_css_set_res.append(css.url)
                 context_extras['MEDIA_CSS'] = all_css_set_res
                 cache_json['MEDIA_CSS'] = all_css_set_res
                 

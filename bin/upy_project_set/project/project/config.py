@@ -45,8 +45,6 @@ DEBUG = True
 """ True only in development to debug your application"""
 ADMINS = (("errors","errors@email.com"),)
 """ It's important set administrators to monitor how application works """
-STATIC_ROOT_NAME = '../../static'
-""" It's the directory's name for static files """
 TIME_ZONE = 'Europe/Rome'
 """ See the TIME_ZONE's details on django settings documentation """
 LANGUAGE_CODE = 'it-It'

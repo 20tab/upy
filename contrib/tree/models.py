@@ -736,6 +736,10 @@ class Css(models.Model):
                                    verbose_name = _(u"Description"))
     file_name = models.FilePathField(path=settings.STATIC_ROOT, match=".css", recursive=True, help_text = _(u"Set the css's file name."), verbose_name = _(u"File name"))
     
+    @property
+    def url(self):
+        return self.file_name.replace(settings.STATIC_ROOT,settings.STATIC_URL).replace("//","/")
+        
     def save(self, *args, **kwargs):
         clean_cache(settings.UPYCACHE_DIR,"meta")
         super(Css,self).save( *args, **kwargs)
@@ -826,6 +830,10 @@ class Js(models.Model):
                                     default = 'header',
                                     help_text = _(u"Select the position in the html file."),
                                     verbose_name = _(u"Html position"))
+    
+    @property
+    def url(self):
+        return self.file_name.replace(settings.STATIC_ROOT,settings.STATIC_URL).replace("//","/")
     
     def save(self, *args, **kwargs):
         clean_cache(settings.UPYCACHE_DIR,"meta")

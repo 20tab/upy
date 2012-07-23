@@ -19,11 +19,11 @@
 <link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />
 {# <style type="text/css"></style> #}
  	{% for css in MEDIA_CSS %}
-		<link rel="stylesheet" type="text/css" href="/{{ css }}" />	
+		<link rel="stylesheet" type="text/css" href="{{ css }}" />	
 	{% endfor %}
 	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
 	{% for js in MEDIA_JS_HEADER %}
-		<script type="text/javascript" src="/{{ js }}"></script> 	
+		<script type="text/javascript" src="{{ js }}"></script> 	
 	{% endfor %}
 {% endblock head_media %}
 {% block extra_head_media %}{% endblock %}
@@ -35,7 +35,7 @@
 
 {% block foot_media %}
 	{% for js in MEDIA_JS_FOOTER %}
-		<script type="text/javascript" src="/{{ js }}"></script> 	
+		<script type="text/javascript" src="{{ js }}"></script> 	
 	{% endfor %}
 {% endblock foot_media %}
 </body> 

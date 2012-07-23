@@ -5,7 +5,7 @@ from upy.upy_conf import upy_static, upy_templates,upy_tpl, validate_config, upy
 
 validate_config(project.config)
 
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__)) 
+PROJECT_PATH = os.path.realpath(os.path.dirname("../"))
 TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = "project.urls"
 MANAGERS = ADMINS
@@ -15,8 +15,8 @@ USE_L10N = True
 LANGUAGES = []
 if not USE_UPY_G11N:
     LANGUAGES = DEFAULT_LANGUAGES
-STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, '%s' % STATIC_ROOT_NAME))
-MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, '%s' % STATIC_ROOT_NAME))
+STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, 'static'))
+MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, 'static'))
 STATIC_URL = '/static/'
 MEDIA_URL = STATIC_URL
 # List of callables that know how to import templates from various sources.
