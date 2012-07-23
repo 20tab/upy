@@ -8,7 +8,7 @@ def render_staticpage(request, upy_context, use_alias = False, use_html = True, 
     It renders staticpage included in upy_context and returns a html string
     """
     try:
-        staticpage = StaticPageG11n.g11nobjects.get(staticpage__page=upy_context['PAGE']) 
+        staticpage = StaticPage.g11nobjects.get(page=upy_context['PAGE']) 
         return render_to_string("upy_staticpage.html", {"staticpage": staticpage,
                                             "use_alias": use_alias,
                                             "use_html": use_html,
