@@ -1394,7 +1394,7 @@ msgstr ""
 #: upy/contrib/g11n/models.py:261 upy/contrib/tree/models.py:311
 #: upy/contrib/tree/models.py:449
 msgid "Title"
-msgstr ""
+msgstr "Titulo"
 
 #: upy/contrib/g11n/models.py:262 upy/contrib/tree/models.py:450
 msgid "Set the website's description."
