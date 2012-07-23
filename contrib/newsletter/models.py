@@ -144,14 +144,14 @@ class Dispatcher(UPYNL):
     sent_date = models.DateTimeField(null = True, blank = True, help_text = _(u"Process complete date"), verbose_name = _(u"Sent date"))
     user_create = models.ForeignKey(User, null = True, blank = True, help_text = _(u"Set who create this dispatcher"), verbose_name = _(u"User create"))
     
+    @property
     def priority(self):
         return self.contact_list.priority
-    priority = property(priority)
     
-    def getCurrentStatus(self):
+    @property
+    def current_status(self):
         disp = Dispatcher.objects.get(pk=self.pk)
         return disp.status
-    current_status = property(getCurrentStatus)
     
     def __unicode__(self):
         return u"%s - %s" % (self.newsletter, self.contact_list)

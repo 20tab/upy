@@ -130,7 +130,8 @@ class G11nBase(models.Model):
     g11nobjects = G11nBaseCurrentManager()
     objects = models.Manager()
     
-    def get_g11n(self):
+    @property
+    def g11n(self):
         """
         It returns the related G11nModel instance with the current language and publication
         """
@@ -143,8 +144,6 @@ class G11nBase(models.Model):
         except Exception,e:
             print ValueError("Raised in %s/models.py Error in %s.%s: %s. Function called by %s" % (os.path.dirname(__file__),self.__module__,self.__class__.__name__,e,self.__class__.G11nMeta.g11n))
             return None
-    
-    g11n = property(get_g11n)
     
     def __unicode__(self):
         if self.g11n:

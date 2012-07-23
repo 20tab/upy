@@ -31,13 +31,13 @@ class PublicationExtended(models.Model):
                                    help_text = _(u"Default node/page to display if path/slug is Blank."),limit_choices_to = {'page__view__isnull': False})
     publication = models.OneToOneField(Publication)
     
-    def getRoot(self):
+    @property
+    def root(self):
         """
         It returns the root of this publication
         """
         return self.tree_structure.tree_root
 
-    root = property(getRoot)
     
     def __unicode__(self):
         return u"%s - %s" % (self.publication, self.tree_structure)
@@ -148,6 +148,7 @@ class Node(MPTTModel, G11nBase):
         clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
         super(Node,self).delete()
     
+    @property
     def page_name(self):
         """
         It returns page's name of this node
@@ -157,16 +158,15 @@ class Node(MPTTModel, G11nBase):
         except:
             return None
     
-    page_name = property(page_name)
-    
+    @property
     def view_path(self):
         """
         It returns page's view_path
         """
         return "%s" % self.page.view_path
         
-    view_path = property(view_path)
-
+    
+    @property
     def slug(self):
         """
         It returns page's slug
@@ -176,8 +176,7 @@ class Node(MPTTModel, G11nBase):
         except:
             return self.name
 
-    slug = property(slug)
-
+    @property
     def complete_slug(self):
         """
         It returns complete slug for this node
@@ -186,8 +185,8 @@ class Node(MPTTModel, G11nBase):
         if self.page:
             compl_slug += "%s" % self.page.slug
         return compl_slug
-    complete_slug = property(complete_slug)
     
+    @property
     def treeslug(self):
         """
         It returns tree's slug including all ancestors
@@ -198,8 +197,8 @@ class Node(MPTTModel, G11nBase):
             tree_slug += "%s/" % node.slug
         
         return tree_slug
-    treeslug = property(treeslug)
-
+    
+    @property
     def basenode(self):
         """
         It returns self's base node
@@ -209,8 +208,7 @@ class Node(MPTTModel, G11nBase):
             return ancestors[1]
         except:
             return self
-    basenode = property(basenode)
-   
+    
     def absolute_url(self,pub_extended,node):
         """
         It calculates absolute url and it returns link as string and the relative url pattern
@@ -240,6 +238,7 @@ class Node(MPTTModel, G11nBase):
             link = "%s" % self.pk
         return link
     
+    @property
     def presentation_type(self):
         """
         It returns page's presentation_type
@@ -247,9 +246,7 @@ class Node(MPTTModel, G11nBase):
         if self.page and self.page.presentation_type:
             return self.page.presentation_type
         return ""
-    presentation_type = property(presentation_type)
-    
-    
+        
     def __unicode__(self):
         if self.page_name is None:
             page_name = "-"
@@ -359,6 +356,7 @@ class Page(G11nBase):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
+    @property
     def view_path(self):
         """
         It returns view's view path
@@ -367,8 +365,6 @@ class Page(G11nBase):
             return "%s" % self.view.view_path
         else:
             return "%s" % self.scheme_name
-    
-    view_path = property(view_path)
     
     def get_absolute_url(self,upy_context):
         """
@@ -575,12 +571,12 @@ class AbsView(models.Model):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
+    @property
     def view_path(self):
         """
         It returns view_path as string like: 'app_name.module_mane.func_name'
         """
         return "%s.%s.%s" % (self.app_name, self.module_name, self.func_name)
-    view_path = property(view_path)
     
     def __unicode__(self):
         return u"%s" % (self.name)
@@ -875,6 +871,7 @@ class UrlAjax(models.Model):
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
+    @property
     def view_path(self):
         """
         It returns view's view_path
@@ -883,7 +880,6 @@ class UrlAjax(models.Model):
             return "%s" % self.view.view_path
         else:
             return "%s" % self.scheme_name
-    view_path = property(view_path)
     
     def __unicode__(self):
         return u"%s" % (self.name)

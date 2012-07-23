@@ -98,6 +98,7 @@ class CustomAdmin(models.Model):
         help_text = _(u"Check it if you want complete the custom app list with the default app list."), 
         verbose_name = _(u"Autocomplete App list"))
     
+    @property
     def customization(self):
         """
         It returns branding if defined, else image, else only his primary key.
@@ -109,7 +110,6 @@ class CustomAdmin(models.Model):
             return res
         else:
             return self.pk
-    customization = property(customization)
      
     def save(self, *args, **kwargs):
         appicons = CustomApp.objects.all()
