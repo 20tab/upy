@@ -112,8 +112,8 @@ class CustomAppOption(PositionImageOption):
     Admin's options for CustomApp model
     """
     list_display = ('position','application','verbose_app_name',
-                    'show_models','admin_thumbnail_view',)
-    list_editable = ['position','verbose_app_name',]
+                    'show_models','original_image','admin_thumbnail_view',)
+    list_editable = ['position','verbose_app_name','original_image']
     list_display_links = ['application',]
     prepopulated_fields = {'verbose_app_name': ('application',)}    
     
