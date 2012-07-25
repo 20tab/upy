@@ -45,7 +45,7 @@ class CustomAdmin(models.Model):
                                      default = u"www.upyproject.com", 
                                      help_text = _(u"Set branding's link"), 
                                      verbose_name = _(u"Branding link"))
-    branding_image = models.FilePathField(path="static/", null = True, blank = True, 
+    branding_image = models.FilePathField(path=settings.STATIC_ROOT, null = True, blank = True, 
                                           match="\.jpg|\.jpeg|.png|\.gif", recursive=True, 
                                           help_text = _(u"Set brand's image."), 
                                           verbose_name = _(u"Branding image"))
