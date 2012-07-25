@@ -10,7 +10,7 @@
 <h1 id="site-name">
 	{% if CUSTOM_ADMIN %}
 		{% if CUSTOM_ADMIN.branding_link %}<a href="http://{{CUSTOM_ADMIN.branding_link}}" title="{{CUSTOM_ADMIN.branding}}">{% endif %}
-		{% if CUSTOM_ADMIN.branding_image %}<img src = "/{{CUSTOM_ADMIN.branding_image}}" alt = "{{CUSTOM_ADMIN.branding}}" />{{CUSTOM_ADMIN.branding}}
+		{% if CUSTOM_ADMIN.branding_image %}<img src = "{{CUSTOM_ADMIN.branding_image_url}}" alt = "{{CUSTOM_ADMIN.branding}}" />{{CUSTOM_ADMIN.branding}}
 		{% else %}{{CUSTOM_ADMIN.branding}}
 		{% endif %}
 		{% if CUSTOM_ADMIN.branding_link %}</a>{% endif %}

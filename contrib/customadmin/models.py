@@ -110,7 +110,11 @@ class CustomAdmin(models.Model):
             return res
         else:
             return self.pk
-     
+    
+    @property
+    def branding_image_url(self):
+        return self.branding_image.replace(settings.STATIC_ROOT,settings.STATIC_URL).replace("//","/") 
+    
     def save(self, *args, **kwargs):
         appicons = CustomApp.objects.all()
         if self.view_mode == "use_app_icons" and not appicons:
