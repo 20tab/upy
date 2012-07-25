@@ -146,7 +146,7 @@ class G11nBase(models.Model):
             return None
     
     def __unicode__(self):
-        if self.g11n:
+        if self.g11n and hasattr(self.g11n,'__unicode__'):
             return self.g11n.__unicode__()
         else:
             return "%s %s" % (self.__class__.__name__, self.pk)
