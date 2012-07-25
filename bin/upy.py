@@ -37,6 +37,18 @@ def venv_location():
         print "The directory with the name '%s' exists." % q
         return venv_location()
 
+def overwrite_proj():
+    """
+    It asks to user if he want overwrite existing project
+    """
+    q = raw_input("Do you want overwrite it? (y/n): ")
+    if q == "y":
+        return True
+    elif q == "n":
+        return False
+    else:
+        print "Tap y or n"
+        return q_venv()
 
 def create_project():
     """
@@ -48,11 +60,15 @@ def create_project():
     if os.path.exists(dirname):
         listing = os.listdir(dirname)
     
+    create_proj = False
     if os.path.exists("%s" %(name)):
         print "Project already exists!"
+        if overwrite_proj():
+            create_proj = True
     else:
+        os.mkdir(name)
+    if create_proj:
         try:
-            os.mkdir(name)
             os.makedirs("%s/templates/admin" % name)
             print "Configuring project!"
             print "Copying files: "
