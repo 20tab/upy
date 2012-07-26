@@ -730,11 +730,11 @@ class Css(models.Model):
     name = models.CharField(max_length = 100, help_text = _(u"Set the css's name."),verbose_name = _(u"Name"))
     description = models.TextField(null = True, blank = True, help_text = _(u"Set the css's description."),
                                    verbose_name = _(u"Description"))
-    file_name = models.FilePathField(path=settings.STATIC_ROOT, match=".css", recursive=True, help_text = _(u"Set the css's file name."), verbose_name = _(u"File name"))
+    file_name = models.FilePathField(path=settings.RELATIVE_STATIC_ROOT, match=".css", recursive=True, help_text = _(u"Set the css's file name."), verbose_name = _(u"File name"))
     
     @property
     def url(self):
-        return self.file_name.replace(settings.STATIC_ROOT,settings.STATIC_URL).replace("//","/")
+        return self.file_name.replace(settings.RELATIVE_STATIC_ROOT,settings.STATIC_URL).replace("//","/")
         
     def save(self, *args, **kwargs):
         clean_cache(settings.UPYCACHE_DIR,"meta")
@@ -819,7 +819,7 @@ class Js(models.Model):
     name = models.CharField(max_length = 100, help_text = _(u"Set the js's name."),verbose_name = _(u"Name"))
     description = models.TextField(null = True, blank = True, help_text = _(u"Set the js's description."),
                                    verbose_name = _(u"Description"))
-    file_name = models.FilePathField(path=settings.STATIC_ROOT, match=".js", recursive=True, help_text = _(u"Set the js's file name."), verbose_name = _(u"File name"))
+    file_name = models.FilePathField(path=settings.RELATIVE_STATIC_ROOT, match=".js", recursive=True, help_text = _(u"Set the js's file name."), verbose_name = _(u"File name"))
     html_position = models.CharField(max_length = 50, choices = (("header","Header"),
                                                            ("footer","Footer"),
                                                            ),
@@ -829,7 +829,7 @@ class Js(models.Model):
     
     @property
     def url(self):
-        return self.file_name.replace(settings.STATIC_ROOT,settings.STATIC_URL).replace("//","/")
+        return self.file_name.replace(settings.RELATIVE_STATIC_ROOT,settings.STATIC_URL).replace("//","/")
     
     def save(self, *args, **kwargs):
         clean_cache(settings.UPYCACHE_DIR,"meta")

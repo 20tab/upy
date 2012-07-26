@@ -6,6 +6,7 @@ from upy.upy_conf import upy_static, upy_templates,upy_tpl, validate_config, upy
 validate_config(project.config)
 
 PROJECT_PATH = os.path.realpath(os.path.dirname("../"))
+
 TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = "project.urls"
 MANAGERS = ADMINS
@@ -15,9 +16,12 @@ USE_L10N = True
 LANGUAGES = []
 if not USE_UPY_G11N:
     LANGUAGES = DEFAULT_LANGUAGES
-STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, 'static'))
-MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, 'static'))
-STATIC_URL = '/static/'
+    
+STATIC_ROOT_NAME = 'static'
+STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, STATIC_ROOT_NAME))
+RELATIVE_STATIC_ROOT = '../%s/' % STATIC_ROOT_NAME
+MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, STATIC_ROOT_NAME))
+STATIC_URL = '/%s/' % STATIC_ROOT_NAME
 MEDIA_URL = STATIC_URL
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -160,6 +164,6 @@ CONFIG CKEditor
 if not os.path.exists(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)):
     os.makedirs(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)) 
 
-CKEDITOR_MEDIA_URL = '/static'
+CKEDITOR_MEDIA_URL = '/%s' % STATIC_ROOT_NAME
 CKEDITOR_MEDIA_PREFIX = '/ckeditor/'
 CKEDITOR_UPLOAD_PATH = os.path.join(STATIC_ROOT, 'uploads')
