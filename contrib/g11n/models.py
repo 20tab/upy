@@ -21,7 +21,8 @@ class G11nBaseCurrentManager(models.Manager):
                            "%s__publication" % self.model.G11nMeta.g11n.lower(): get_publication()}
             return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict)
         except:
-            return super(G11nBaseCurrentManager, self).get_empty_query_set()
+            raise
+            #return super(G11nBaseCurrentManager, self).get_empty_query_set()
 
 class G11nCurrentManager(models.Manager):
     """

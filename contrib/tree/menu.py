@@ -153,18 +153,18 @@ class Breadcrumb(object):
     It takes some arguments:
     - request: simply http request
     - upy_context: it contains informations about current language, publication, page and node
-    - root: the root of menu (it's hidden in menu string)
+    - leaf: the the leaf of breadcrumb (it's hidden in menu string)
     - view_hidden: if True then hidden nodes will be show
     - g11n_depth: check g11n_depth in contrib.g11n.models documentation
     """
-    def __init__(self, request, upy_context, root, view_hidden = False, g11n_depth = "publication_default"):
+    def __init__(self, request, upy_context, leaf, view_hidden = False, g11n_depth = "publication_default"):
         self.request = request
         self.upy_context = upy_context
-        self.root = root
+        self.leaf = leaf
         self.view_hidden = view_hidden
         self.g11n_depth = g11n_depth
         
-    def __do_menu(self, menu_as, show_root, current_linkable, class_current, chars = ""):
+    def __do_menu(self, menu_as, show_leaf, current_linkable, class_current, chars = ""):
         """
         If there is a file in cache for current node's breadcrumb it returns this file, 
         else it calculates it and save file in cache
@@ -172,7 +172,7 @@ class Breadcrumb(object):
         dict_cache = {'current_linkable':current_linkable, 
                 'class_current':class_current, 
                 'chars':chars, 
-                'show_root':show_root,
+                'show_leaf':show_leaf,
                 'view_hidden': self.view_hidden,
                 'g11n_depth': self.g11n_depth
                 }
@@ -184,15 +184,15 @@ class Breadcrumb(object):
         else:
             str_groups = "-nouser"
         
-        for filename in filter_files(settings.UPYCACHE_DIR,u"breadcrumb-%s-%s-%s%s-%s" % (self.root.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE)):
+        for filename in filter_files(settings.UPYCACHE_DIR,u"breadcrumb-%s-%s-%s%s-%s" % (self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE)):
             tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
             json = simplejson.loads(tempfile.read())
             if filename and compare_dicts(json,dict_cache):
                 return mark_safe(json['breadcrumb'])
-        nodes = self.root.get_ancestors()[1:]
+        nodes = self.leaf.get_ancestors()[1:]
         list_nodes = list(nodes)
-        if show_root:
-            list_nodes.append(self.root)
+        if show_leaf:
+            list_nodes.append(self.leaf)
 
         if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
             full_path = self.request.get_full_path()
@@ -231,27 +231,27 @@ class Breadcrumb(object):
                                'class_current' : class_current,
                                'view_hidden' : self.view_hidden}, context_instance=RequestContext(self.request))
                 
-        with open(u'%sbreadcrumb-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.root.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
+        with open(u'%sbreadcrumb-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
             dict_cache['breadcrumb'] = menutpl
             data = simplejson.dumps(dict_cache)
             file_menu.write(data)
         return mark_safe(menutpl)
         
 
-    def as_ul(self, show_root = True, current_linkable = False, class_current = "active_link"):
+    def as_ul(self, show_leaf = True, current_linkable = False, class_current = "active_link"):
         """
         It returns breadcrumb as ul
         """
-        return self.__do_menu("as_ul", show_root, current_linkable, class_current)
+        return self.__do_menu("as_ul", show_leaf, current_linkable, class_current)
     
-    def as_p(self, show_root = True, current_linkable = False, class_current = "active_link"):
+    def as_p(self, show_leaf = True, current_linkable = False, class_current = "active_link"):
         """
         It returns breadcrumb as p
         """
-        return self.__do_menu("as_p", show_root, current_linkable, class_current)
+        return self.__do_menu("as_p", show_leaf, current_linkable, class_current)
 
-    def as_string(self, chars, show_root = True, current_linkable = False, class_current = "active_link"):
+    def as_string(self, chars, show_leaf = True, current_linkable = False, class_current = "active_link"):
         """
         It returns breadcrumb as string
         """
-        return self.__do_menu("as_string", show_root, current_linkable, class_current, chars)
+        return self.__do_menu("as_string", show_leaf, current_linkable, class_current, chars)
