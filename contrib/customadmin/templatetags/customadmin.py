@@ -20,7 +20,7 @@ def add_app_icons(app_list, autocomplete):
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
         except IndexError, e:
-            print ("Error in customadmin.templatetags.add_app_icons: ", 
+            print ("Warning! In customadmin.templatetags.add_app_icons: ", 
                    e, "; application: ", appicon.application)
             pass # probabilmente e' stata inserita nella lista di applicazioni con icona 
                 # una applicazione che non e' tra quelle registrate nell'admin, 
