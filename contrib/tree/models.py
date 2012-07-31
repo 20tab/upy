@@ -597,7 +597,10 @@ class AbsView(models.Model):
             file_view.close()
         if not found:
             file_view = open(file_view_name,"a")
-            str_to_write = u"\ndef %s(request,upy_context" % self.func_name
+            upy_context_string = ", upy_context"
+            if self.__class__.__name__ == "ViewAjax":
+                upy_context_string = ""
+            str_to_write = u"\ndef %s(request%s" % (self.func_name,upy_context_string)
             if self.input_vars != "" and self.input_vars:
                 if self.input_vars[0:1] == ",":
                     self.input_vars = self.input_vars[1:]
@@ -608,10 +611,10 @@ class AbsView(models.Model):
             if self.output_vars != "" and self.output_vars:
                 outputvars = self.output_vars[1:-1]
                 for item in outputvars.split(','):
-                    tuple = item.split(':')
-                    str_to_write += "    %s = \"%s to initialize\"\n" % (tuple[1],tuple[1])
+                    obj_tuple = item.split(':')
+                    str_to_write += "    %s = \"%s to initialize\"\n" % (obj_tuple[1],obj_tuple[1])
             
-            str_to_write += "    return main_render(request, upy_context"
+            str_to_write += "    return main_render(request%s" % upy_context_string
             if self.output_vars != "" and self.output_vars:
                 str_to_write += ", %s" % self.output_vars
             else:
