@@ -76,3 +76,20 @@ def clean_path(source):
     """
     source.file_name = source.file_name.replace('\\','/')
     return source
+
+def getAccentedVocal(vocal,acc_type="g"):
+    """
+    It returns given vocal with grave or acute accent 
+    """
+    vocals = {'a':{'g':u'\xe0','a':u'\xe1'},
+              'e':{'g':u'\xe8','a':u'\xe9'},
+              'i':{'g':u'\xec','a':u'\xed'},
+              'o':{'g':u'\xf2','a':u'\xf3'},
+              'u':{'g':u'\xf9','a':u'\xfa'}}
+    return vocals[vocal][acc_type]
+
+def _av(vocal,acc_type="g"):
+    """
+    It's a shortcut to getAccentedVocal function
+    """
+    return getAccentedVocal(vocal,acc_type)
