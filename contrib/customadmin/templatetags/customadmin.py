@@ -11,7 +11,6 @@ def add_app_icons(app_list, autocomplete):
     """
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
-    
     for appicon in app_icon_list:
         try:
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
