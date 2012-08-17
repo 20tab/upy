@@ -67,6 +67,7 @@ def create_project():
             create_proj = True
     else:
         os.mkdir(name)
+        create_proj = True
     if create_proj:
         try:
             os.makedirs("%s/templates/admin" % name)
