@@ -2,11 +2,9 @@ from django.conf.urls.defaults import url
 from django.conf import settings
 from django.template import RequestContext
 from django.template.loader import render_to_string
-from upy.contrib.tree.models import PublicationExtended
+from upy.contrib.tree.models import PublicationExtended,UrlAjax
 from upy.utils import today
-from upy.contrib.tree.models import UrlAjax
 from django.template.defaultfilters import slugify
-
    
 def getUrlList():
     """

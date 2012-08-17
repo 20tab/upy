@@ -83,7 +83,7 @@ class TreeStructure(models.Model):
         verbose_name_plural = _(u"Structures")
         ordering = ['name']
 
-class Node(MPTTModel, G11nBase):
+class Node(G11nBase,MPTTModel):
     """
     This is the class that defines tree's nodes.
     """

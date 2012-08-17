@@ -58,7 +58,7 @@ class NodeG11nInline(G11nTabularInlineAdmin):
     Admin's options for NodeG11n model used as inline
     """
     model = NodeG11n
-    fieldsets = (('', {'fields':('alias','title','node')}),) + G11nAdmin.fieldsets
+    fieldsets = (('', {'fields':('alias','title')}),) + G11nAdmin.fieldsets
         
 class NodeForm(forms.ModelForm):
     """

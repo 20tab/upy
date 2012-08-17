@@ -3,9 +3,10 @@ staticpage contrib depends by g11n module.
 If it's in installed app then StaticPage has e G11n model related.
 """
 from upy.contrib.g11n.models import G11nBase,G11nModel 
-from upy.contrib.tree.models import _, Page
 from django.db import models
 from upy.contrib.ckeditor.fields import RichTextField
+from upy.contrib.tree.models import Page
+from django.utils.translation import ugettext_lazy as _
 
 
 class StaticPage(G11nBase):

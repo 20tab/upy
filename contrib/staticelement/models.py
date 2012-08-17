@@ -2,10 +2,10 @@
 staticelement contrib depends by g11n module. 
 If it's in installed app then StaticElement has e G11n model related.
 """
-from upy.contrib.tree.models import _
 from django.db import models
 from upy.contrib.ckeditor.fields import RichTextField
 from project import config
+from upy.contrib.tree.models import _
 
 if config.USE_UPY_G11N:
     from upy.contrib.g11n.models import G11nBase,G11nModel 
