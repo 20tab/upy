@@ -1,5 +1,5 @@
 from django.core.management.base import NoArgsCommand, CommandError
-from upy.contrib.g11n.models import G11nModel, G11nBase
+from upy.contrib.g11n.models import *
 from django.utils.importlib import  import_module
 from django.db import models
 from django.conf import settings
@@ -58,5 +58,3 @@ class Command(NoArgsCommand):
                             if not foreign_keys:# se la lista e' vuota, significa che il g11nmodel non ha una FK verso il G11nBase
                                 raise CommandError("Error in %s . %s has not a field related to %s." % (m.__module__,g11nmodel.__name__,m.__name__))
         print "0 errors found in all G11nBase models"
-        
-

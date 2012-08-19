@@ -9,7 +9,6 @@ from ast import literal_eval
 import os,sys,traceback
 from upy.contrib.g11n.models import G11nBase,G11nModel,Publication
 from upy.multiple_meta import classmaker
-from project import config
 
 def formatExceptionInfo(maxTBlevel=5):
     cla, exc, trbk = sys.exc_info()
@@ -103,7 +102,7 @@ class Node(G11nBase,MPTTModel):
     show_if_logged = models.BooleanField(help_text = _(u"Check it if this node must be showed only for logged user or group."),
                                     verbose_name = _(u"Show if logged"))
     groups = models.ManyToManyField(Group, null = True, blank = True, help_text = _(u"List of groups to use with 'show if logged' parameter."), 
-                                       verbose_name = _(u"Groups"))
+                                       verbose_name = _(u"Groups"),related_name = 'node_groups')
     
     value_regex = models.CharField(max_length = 50, null = True, blank = True, 
                                    help_text = _(u"Set the value to respect the regex of the associated page."),
@@ -496,7 +495,7 @@ def list_apps():
     It returns a list of application contained in PROJECT_APPS
     """
     list_apps = []
-    for app in config.PROJECT_APPS:
+    for app in settings.PROJECT_APPS:
         list_apps.append([app.split(".")[-1]]*2)
     return list_apps  
 
@@ -506,7 +505,7 @@ class Template(models.Model):
     """
     name = models.CharField(max_length = 100, help_text = _(u"Set the template's name."),verbose_name = _(u"Name"))
     app_name = models.CharField(max_length = 100, help_text = _(u"Set the application's name of the view."),
-                                default = config.PROJECT_APP_DEFAULT,choices = list_apps(),verbose_name = _(u"App name"))
+                                default = settings.PROJECT_APP_DEFAULT,choices = list_apps(),verbose_name = _(u"App name"))
     file_name = models.CharField(max_length = 150, help_text = _(u"Set the template's file name."), verbose_name = _(u"File name"))
     input_vars = models.TextField(null = True, blank = True, help_text = _(u"Set the variables required by template (separated with ,)."),
                                   verbose_name = _(u"Input vars"))
@@ -560,7 +559,7 @@ class AbsView(models.Model):
     """
     name = models.CharField(max_length = 100, help_text = _(u"Set the view's name."),verbose_name = _(u"Name"))
     app_name = models.CharField(max_length = 100, help_text = _(u"Set the application's name of the view."),
-                                default = config.PROJECT_APP_DEFAULT,choices = list_apps(),verbose_name = _(u"App name"))
+                                default = settings.PROJECT_APP_DEFAULT,choices = list_apps(),verbose_name = _(u"App name"))
     func_name = models.CharField(max_length = 100, help_text = _(u"Set the view's function name."),
                                  verbose_name = _(u"Func name"))
     input_vars = models.TextField(null = True, blank = True, help_text = _(u"Set the input variables required by view."),

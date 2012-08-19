@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from upy.contrib.tree.utility import *
+from upy.contrib.tree.utility import getUrlList
 
 
 
