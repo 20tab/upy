@@ -30,7 +30,7 @@ else:
     
 urlpatterns = patterns('',
     (r'^admin/', include(contrib_admin.site.urls)),
-    (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'admin/login.html'}),
     (r'^accounts/logout/$','django.contrib.auth.views.logout', {'template_name': 'logout.html'}),
     (r'^i18n/', include('django.conf.urls.i18n')),
     (r'', include('upy.contrib.ckeditor.urls')),
