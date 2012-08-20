@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
 
-{% block title %}{{ title }} | Upcode.it{% endblock %}
+{% block title %}{{ title }}{% if CUSTOM_ADMIN.branding %} | {{CUSTOM_ADMIN.branding}}{% endif %}{% endblock %}
 {% block extrahead %}
 	{% if USE_CUSTOM_ADMIN %}<link rel="stylesheet" type="text/css" href="/upy_custom_admin_layout.css" />{% endif %}
 {% endblock extrahead %}
