@@ -85,7 +85,7 @@ class NodeForm(forms.ModelForm):
             basenode = parent.basenode
             all_nodes = basenode.get_descendants(include_self=True) 
             for node in all_nodes:
-                if slug == node.complete_slug and node.pk != self.instance.pk:
+                if page and slug == node.complete_slug and node.pk != self.instance.pk:
                     raise forms.ValidationError(_("You cannot use two same slugs in same nodes of the same structure"))
                 if node.page and node.page == page and node.pk != self.instance.pk:
                     raise forms.ValidationError(_("You can use page only in one node of the same structure"))
