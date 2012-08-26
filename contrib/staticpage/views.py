@@ -1,4 +1,4 @@
-from upy.contrib.staticpage.models import StaticPageG11n
+from upy.contrib.staticpage.models import StaticPage
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
