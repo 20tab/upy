@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.utils import simplejson
 from django.utils.safestring import mark_safe
-from upy.utils import compare_dicts,filter_files
+from upy.utils import compare_dicts,filter_files,clean_cache
 import time
 
 class Menu(object):
@@ -60,6 +60,9 @@ class Menu(object):
             json = simplejson.loads(tempfile.read())
             if filename and compare_dicts(json,dict_cache):
                 return mark_safe(json['menu'])
+            else:
+                clean_cache(settings.UPYCACHE_DIR,"menu")
+                clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
 
         nodes = self.root.get_descendants()
         if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
