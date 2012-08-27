@@ -12,8 +12,8 @@ class Menu(object):
     created for your application.
     It takes some arguments:
     - request: simply http request
-    - upy_context: it contains informations about current language, publication, page and node
     - root: the root of menu (it's hidden in menu string)
+    - upy_context: it contains informations about current language, publication, page and node
     - menu_depth: it's depth level for menu introspection
     - view_hidden: if True then hidden nodes will be show
     - g11n_depth: check g11n_depth in contrib.g11n.models documentation
@@ -155,15 +155,15 @@ class Breadcrumb(object):
     created for your application.
     It takes some arguments:
     - request: simply http request
-    - upy_context: it contains informations about current language, publication, page and node
     - leaf: the the leaf of breadcrumb (it's hidden in menu string)
+    - upy_context: it contains informations about current language, publication, page and node
     - view_hidden: if True then hidden nodes will be show
     - g11n_depth: check g11n_depth in contrib.g11n.models documentation
     """
-    def __init__(self, request, upy_context, leaf, view_hidden = False, g11n_depth = "publication_default"):
+    def __init__(self, request, leaf, upy_context, view_hidden = False, g11n_depth = "publication_default"):
         self.request = request
-        self.upy_context = upy_context
         self.leaf = leaf
+        self.upy_context = upy_context
         self.view_hidden = view_hidden
         self.g11n_depth = g11n_depth
         
@@ -192,6 +192,9 @@ class Breadcrumb(object):
             json = simplejson.loads(tempfile.read())
             if filename and compare_dicts(json,dict_cache):
                 return mark_safe(json['breadcrumb'])
+            else:
+                clean_cache(settings.UPYCACHE_DIR,"menu")
+                clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
         nodes = self.leaf.get_ancestors()[1:]
         list_nodes = list(nodes)
         if show_leaf:
