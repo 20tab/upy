@@ -270,3 +270,9 @@ class CountryField(models.CharField):
         Returns internal type of this field: CharField as string
         """
         return "CharField"
+        
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^upy\.fields\.CountryField"])
+except ImportError:
+    pass
