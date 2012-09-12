@@ -337,7 +337,7 @@ class Page(G11nBase):
                             verbose_name = _(u"Name"))
     slug = models.SlugField(max_length = 50, help_text = _(u"Identifying page's url."),
                             verbose_name = _(u"Slug"))
-    regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url."),
+    regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url (e.g. \"(?P<element_id>\d+)\")."),
                              verbose_name = _(u"Regex"))
     static_vars = models.TextField(null = True, blank = True, 
                                    help_text = _(u"Set the dictionary of static parameters of the page in a regular format: {\"param1\":value1, \"param2\":value2}."),
@@ -858,7 +858,7 @@ class UrlAjax(models.Model):
                             verbose_name = _(u"Name"))
     slug = models.CharField(max_length = 50, unique = True, help_text = _(u"Identifying UrlAjax's url."),
                             verbose_name = _(u"Slug"))
-    regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url."),
+    regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url (e.g. \"(?P<element_id>\d+)\")."),
                              verbose_name = _(u"Regex"))
     static_vars = models.TextField(null = True, blank = True, 
                                    help_text = _(u"Set the dictionary of static parameters of the UrlAjax in a regular format: {\"param1\":value1, \"param2\":value2}."),
