@@ -43,6 +43,8 @@ USE_TAGGING = False
 """ If True django tagging module will be installed. """
 DEBUG = True
 """ True only in development to debug your application"""
+USE_UPY_JQUERY_LIB = True
+""" If True standard upy jquery library will be included in base template """
 ADMINS = (("errors","errors@email.com"),)
 """ It's important set administrators to monitor how application works """
 TIME_ZONE = 'Europe/Rome'
