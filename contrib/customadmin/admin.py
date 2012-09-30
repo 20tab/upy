@@ -73,7 +73,7 @@ class CustomAdminOption(admin.ModelAdmin):
                                  ('branding_image','is_default')),
                     },),
                  (_('View Option'), {'fields':
-                                (('view_mode', 'autocomplete_app_list'),),
+                                (('view_mode', 'autocomplete_app_list','use_log_sidebar'),),
                     },),
                  (_('Style'), {'fields':
                                 (('bg_header',), ('sitename_font','sitename_font_size',

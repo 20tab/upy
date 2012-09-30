@@ -113,13 +113,11 @@
 	    <p>{% trans "You don't have permission to edit anything." %}</p>
 	</div> <!-- /content-main -->
 {% endif %}
-		
-	    
 
 {% endblock %}
 
 {% block sidebar %}
-{% if not CUSTOM_ADMIN.view_mode == "use_app_icons" or app_list|length <= 1 %}
+{% if CUSTOM_ADMIN.use_log_sidebar %}
 <div id="content-related">
     <div class="module" id="recent-actions-module">
         <h2>{% trans 'Recent Actions' %}</h2>
@@ -149,6 +147,7 @@
             {% endif %}
     </div> <!-- /module /recent-actions-module -->
 </div> <!-- /content-related -->
+<div class="fixfloat"></div>
 {% endif %}
 {% endblock %}
 

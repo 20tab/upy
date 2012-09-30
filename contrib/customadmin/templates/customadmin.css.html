@@ -1,4 +1,8 @@
 {% if custom %}
+	{% if custom.use_log_sidebar %}
+	#content-main-icon{float:left;width:80%;}
+	#content-related{margin-right:0;width:20%;}
+	{% endif %}
 	{% if custom.bg_header %}div#header{background-color: #{{custom.bg_header}};}{%endif%}
 	div#header h1#site-name{
 		{% if custom.sitename_font %}font-family: "{{custom.sitename_font}}";{%endif%} 
@@ -26,4 +30,5 @@
 	{% if custom.use_css_code %}
 		{{custom.css_code}}
 	{% endif %}
+	.fixfloat{height:0;width:100%; clear:both;}
 {% endif %}

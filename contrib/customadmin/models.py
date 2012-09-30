@@ -88,7 +88,8 @@ class CustomAdmin(models.Model):
                                 verbose_name = _(u"Css code"))
     use_css_code = models.BooleanField(help_text = _(u"Check it if you want use css code to extends style."), 
                                        verbose_name = _(u"Use css code"))
-    
+    use_log_sidebar = models.BooleanField(default = False, help_text = _(u"Check it if you want use log sidebar in index template."), 
+                                       verbose_name = _(u"Use log sidebar"))
     view_mode = models.CharField(max_length = 250, null = True, blank = True, 
                                  choices = (('use_custom_app',_('use_custom_app')),
                                             ('use_app_icons',_('use_app_icons'))), 
