@@ -55,3 +55,8 @@ class ButtonableModelAdmin(admin.ModelAdmin):
         extra_context['button_object_id']=object_id  
         return super(ButtonableModelAdmin, self).change_view(request, object_id, form_url,extra_context)
     
+class HiddenModelAdmin(admin.ModelAdmin):
+     def get_model_perms(self, *args, **kwargs):
+        perms = admin.ModelAdmin.get_model_perms(self, *args, **kwargs)
+        perms['list_hide'] = True
+        return perms
