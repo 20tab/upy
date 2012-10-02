@@ -13,7 +13,7 @@ class EnabledMiddleware(object):
     def process_request(self,request):
         if not request.is_ajax() and hasattr(request,'upy_context'):
             publication = request.upy_context['PUB_EXTENDED'].publication
-            if not publication.enabled or not publication.g11n.enabled:
+            if (publication and not publication.enabled) or (publication and publication.g11n and not publication.g11n.enabled):
                 return view_publication_disable(request,publication.g11n.disabled_message)
             page = request.upy_context['PAGE']
             if page and page.g11n and not page.g11n.enabled:
