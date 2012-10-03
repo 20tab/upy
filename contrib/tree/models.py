@@ -349,7 +349,7 @@ class Page(G11nBase):
                                  verbose_name = _(u"Template"))
     view = models.ForeignKey(u"View", help_text = _(u"Set the view to associate with the page."),
                              verbose_name = _(u"View"))
-    presentation_type = models.CharField(max_length = 150, null = True, blank = True, choices = (("StaticPage","StaticPage"),),
+    presentation_type = models.CharField(max_length = 150, null = True, blank = True, choices = (("StaticPage","StaticPage"),("Custom","Custom"),),
                                     help_text = _(u"Select the presentation type."),
                                     verbose_name = _(u"Presentation type"))
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
