@@ -39,8 +39,6 @@ RGBA_FILTER = True
 """ Allow only RGB and RGBa images' modes """
 USE_UPY_NEWSLETTER = False 
 """ If True upy newsletter module will be installed. It needs USE_UPY_G11N = True """
-USE_TAGGING = False
-""" If True django tagging module will be installed. """
 DEBUG = True
 """ True only in development to debug your application"""
 USE_UPY_JQUERY_LIB = True
