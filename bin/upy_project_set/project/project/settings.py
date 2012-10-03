@@ -113,9 +113,6 @@ else:
             
 if USE_UPY_NEWSLETTER:
     INSTALLED_APPS.append('upy.contrib.newsletter')
-    
-if USE_TAGGING:
-    INSTALLED_APPS.append('tagging')
 
 if USE_UPY_COLOR:
     INSTALLED_APPS.append('upy.contrib.colors')
