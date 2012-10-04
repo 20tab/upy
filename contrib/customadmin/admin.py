@@ -83,7 +83,7 @@ class CustomAdminOption(admin.ModelAdmin):
                                  ),
                     },),
                  (_('Code'), {'fields':
-                                (('use_css_code',),('css_code',)),
+                                (('html_head',),('use_css_code',),('css_code',)),
                     },),
                  )
     form = CustomAdminForm

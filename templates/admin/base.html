@@ -12,6 +12,7 @@
 {% block extrahead %}{% endblock %}
 {% if USE_UPY_ADMIN %}
 	<script type="text/javascript" src="/upy_static/js/upy_global_admin.js"></script>
+	{{CUSTOM_ADMIN.html_head|safe}}
 {% endif %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>

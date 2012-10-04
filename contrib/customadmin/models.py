@@ -82,7 +82,9 @@ class CustomAdmin(models.Model):
     link_hover_color = ColorField(max_length = 200, null = True, blank = True, 
                                   help_text = _(u"Set link's color when hover"), 
                                   verbose_name = _(u"Link hover color"))
-
+    html_head = models.TextField(null = True, blank = True, 
+                                help_text = _(u"Set other html code to put in HEAD section. "), 
+                                verbose_name = _(u"Html head"))
     css_code = models.TextField(null = True, blank = True, 
                                 help_text = _(u"Set the css code. "), 
                                 verbose_name = _(u"Css code"))
