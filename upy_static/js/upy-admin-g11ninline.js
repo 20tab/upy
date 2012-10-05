@@ -6,13 +6,13 @@ $(document).ready(function(){
 	var button_another = "input[name='_addanother']";
 	var button_continue = "input[name='_continue']";
 	
-	$(button_save).click(function(){
+	$(button_save).live('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
-	$(button_another).click(function(){
+	$(button_another).live('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
-	$(button_continue).click(function(){
+	$(button_continue).live('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
 	
@@ -28,16 +28,21 @@ function checkG11nCompiled(inline_len,id_group){
 	for(var i = 0; i < inline_len; i++){
 		var chech = true;
 		$("#"+id_group+i+" input[type=text]").each(function(){//per ogni input
-			if($(this).val() != ""){						  //controllo se il value è diverso da ""
+			//controllo se il value è diverso da ""
+			if($(this).val() != ""){	
 				chech = false;								  //dico che almeno un campo è stato compilato
 			}
 		});
 		$("#"+id_group+i+" textarea").each(function(){
+			//controllo se il value è diverso da ""
 			if($(this).val() != ""){
 				chech = false;
 			}
+			if(!$(this).is(":visible") && $(this).siblings('#cke_'+$(this).attr('id')) != undefined){
+				chech = false;
+			}
+			
 		});
-		
 		if(chech){//se nessun campo è stato compilato allora disabilito publication e language
 			$("#id_"+id_group+i+"-publication").val("");
 			$("#id_"+id_group+i+"-language").val("");
