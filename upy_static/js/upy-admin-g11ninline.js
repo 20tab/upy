@@ -38,8 +38,10 @@ function checkG11nCompiled(inline_len,id_group){
 			if($(this).val() != ""){
 				chech = false;
 			}
-			if(!$(this).is(":visible") && $(this).siblings('#cke_'+$(this).attr('id')) != undefined){
-				chech = false;
+			else if(!$(this).is(":visible") && $(this).siblings('#cke_'+$(this).attr('id')) != undefined){
+				if($(this).siblings('#cke_'+$(this).attr('id')).find('iframe').contents().find('body').html() != ""){
+					chech = false;
+				}
 			}
 			
 		});
