@@ -2,6 +2,7 @@ include upy/locale/es/LC_MESSAGES/*
 include upy/locale/fr/LC_MESSAGES/*
 include upy/locale/it/LC_MESSAGES/*
 include upy/contrib/tree/tpl/*
+include upy/contrib/tree/templates/*
 include upy/templates/*
 include upy/templates/admin/*
 include upy/templates/admin/upy/*
