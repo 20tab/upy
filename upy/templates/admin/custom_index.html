@@ -117,7 +117,7 @@
 {% endblock %}
 
 {% block sidebar %}
-{% if CUSTOM_ADMIN.use_log_sidebar %}
+{% if not CUSTOM_ADMIN or CUSTOM_ADMIN.use_log_sidebar %}
 <div id="content-related">
     <div class="module" id="recent-actions-module">
         <h2>{% trans 'Recent Actions' %}</h2>
