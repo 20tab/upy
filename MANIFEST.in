@@ -1,8 +1,15 @@
+include upy/locale/*
 include upy/locale/es/LC_MESSAGES/*
 include upy/locale/fr/LC_MESSAGES/*
 include upy/locale/it/LC_MESSAGES/*
+include upy/contrib/tree/tpl/*
+include upy/templates/*
 include upy/templates/admin/*
 include upy/templates/admin/upy/*
+include upy/contrib/language/templates/*
+include upy/contrib/staticpage/templates/*
+include upy/contrib/newsletter/templates/*
+include upy/upy_static/*
 include upy/upy_static/colors/*
 include upy/upy_static/colors/css/*
 include upy/upy_static/colors/images/*
@@ -62,6 +69,11 @@ include upy/upy_static/js/lib/ckeditor/ckeditor/skins/office2003/images/*
 include upy/upy_static/js/lib/ckeditor/ckeditor/themes/default/*
 include upy/upy_static/js/lib/ckeditor/galleriffic/css/*
 include upy/upy_static/js/lib/ckeditor/galleriffic/js/*
+include upy/contrib/customadmin/templates/*
+include upy/contrib/colors/templates/*
+include upy/bin/*
 include upy/bin/upy_project_set/*
 include upy/bin/upy_project_set/project/*
 include upy/bin/upy_project_set/project/project/*
+include upy/contrib/ckeditor/templates/*
+include upy/contrib/staticelement/templates/*
