@@ -1,4 +1,3 @@
-include upy/locale/*
 include upy/locale/es/LC_MESSAGES/*
 include upy/locale/fr/LC_MESSAGES/*
 include upy/locale/it/LC_MESSAGES/*
@@ -9,7 +8,6 @@ include upy/templates/admin/upy/*
 include upy/contrib/language/templates/*
 include upy/contrib/staticpage/templates/*
 include upy/contrib/newsletter/templates/*
-include upy/upy_static/*
 include upy/upy_static/colors/*
 include upy/upy_static/colors/css/*
 include upy/upy_static/colors/images/*
