@@ -67,7 +67,7 @@ class CustomAdminOption(admin.ModelAdmin):
     """
     list_display = ('customization','branding','branding_link',
                     'is_default','view_mode','autocomplete_app_list')
-    list_editable = ('branding','branding_link','is_default')
+    list_editable = ('branding','branding_link','is_default','view_mode')
     fieldsets = ((_('Branding'), {'fields':
                                 (('branding', 'branding_link'),
                                  ('branding_image','is_default')),

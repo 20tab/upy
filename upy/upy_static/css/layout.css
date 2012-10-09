@@ -81,7 +81,7 @@ h3 a:hover{}
 #content-main{/*background-color:yellow;*/}
 #content-main-icon{/*background-color:green; */}
 #content-main-icon-link{/*background-color:red; */}
-
+#content-main-custom-app{width:50%;float:left;}
 /*******************************************************/
 /* classi per rendere i button_form come i button_link */
 .object-tools input[type='submit']{

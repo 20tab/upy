@@ -93,8 +93,10 @@ class CustomAdmin(models.Model):
     use_log_sidebar = models.BooleanField(default = False, help_text = _(u"Check it if you want use log sidebar in index template."), 
                                        verbose_name = _(u"Use log sidebar"))
     view_mode = models.CharField(max_length = 250, null = True, blank = True, 
-                                 choices = (('use_custom_app',_('use_custom_app')),
-                                            ('use_app_icons',_('use_app_icons'))), 
+                                 choices = (('use_custom_app',_('Use custom app system')),
+                                            ('use_app_icons',_("Use apps' icons system")),
+                                            ('use_model_icons',_("Use models' icons system in index")),
+                                            ('use_inner_model_icons',_("Use models' icons system in app template"))), 
                                  help_text = _(u"Choose the view mode"), 
                                  verbose_name = _(u"View mode"))
     autocomplete_app_list = models.BooleanField(default = True, 
