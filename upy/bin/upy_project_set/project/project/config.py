@@ -43,6 +43,8 @@ DEBUG = True
 """ True only in development to debug your application"""
 USE_UPY_JQUERY_LIB = True
 """ If True standard upy jquery library will be included in base template """
+USE_GLOBAL_TEMPLATES_DIR = True
+""" If True upy.contrib.tree.Template saves templates in the global directory else in the application templates directory """
 ADMINS = (("errors","errors@email.com"),)
 """ It's important set administrators to monitor how application works """
 TIME_ZONE = 'Europe/Rome'

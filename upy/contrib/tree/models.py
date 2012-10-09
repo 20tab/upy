@@ -520,10 +520,13 @@ class Template(models.Model):
         return u"%s" % (self.name)
     
     def save(self, *args, **kwargs):
-        if not os.path.exists(u'%s/templates/' % self.app_name):
-            os.makedirs(u'%s/templates/' % (self.app_name))
-        index_tpl_name = u"%s/templates/index.html" % self.app_name
-        file_tpl_name = u'%s/templates/%s' % (self.app_name, self.file_name)
+        tmpl_path = u'%s/templates/' % self.app_name
+        if settings.USE_GLOBAL_TEMPLATES_DIR:
+            tmpl_path = u'%s/templates/%s/' % (settings.PROJECT_PATH,self.app_name)
+        if not os.path.exists(tmpl_path):
+            os.makedirs(tmpl_path)
+        index_tpl_name = u"%sindex.html" % tmpl_path
+        file_tpl_name = u'%s%s' % (tmpl_path, self.file_name)
         
         if not os.path.exists(index_tpl_name): #non sovrascrivo l'index se gia esiste
             file_tpl = open(index_tpl_name,"w")

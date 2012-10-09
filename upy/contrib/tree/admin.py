@@ -201,8 +201,8 @@ class PageOption(admin.ModelAdmin):
     """
     This is the option class for Page Admin
     """
-    list_display = ('name', 'slug','presentation_type','template','view') 
-    list_editable= ('slug','presentation_type','template','view') 
+    list_display = ('name', 'slug','regex','presentation_type','template','view') 
+    list_editable= ('slug','regex','presentation_type','template','view') 
     prepopulated_fields = {'slug': ('name',)}
     inlines = [PageG11nInline,]
     search_fields = ('name', 'template__name', 'view__name')
