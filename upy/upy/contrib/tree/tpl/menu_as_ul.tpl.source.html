@@ -1,0 +1,43 @@
+{% load mptt_tags %}
+	{% recursetree nodes %}
+    	{% if not node.hide_in_navigation or view_hidden%}
+   			<li>
+        		{% if not node.page %}
+        			{# ------ node.alias ------- #}
+        			{% if node.level <= 2 %}{{before_1|safe}}{{ node.alias }}{{after_1|safe}}
+        			{% else %}{{before_all|safe}}{{ node.alias }}{{after_all|safe}}
+        			{% endif %}
+        			{# ------ /node.alias ------ #}
+        		{% else %}
+					{% if not current_linkable and node == NODE %}
+					
+        			{# ------ node.alias ------- #}
+        			{% if node.level <= 2 %}{{before_1|safe}}<span class="{{ class_current }}">{{ node.alias }}</span>{{after_1|safe}}
+        			{% else %}{{before_all|safe}}<span class="{{ class_current }}">{{ node.alias }}</span>{{after_all|safe}}
+        			{% endif %}
+        			{# ------ /node.alias ------ #}
+					
+					{% else %}
+					
+        			{# ------ node.alias ------- #}
+        			{% if node.level <= 2 %}{{before_1|safe}}
+                        <{% if node.url %}a{% else %}span{% endif %}{% if node == NODE %} class="{{ class_current }}"{% endif %} href="{{ node.url }}">{{ node.alias }}</{% if node.url %}a{% else %}span{% endif %}>
+                        {{after_1|safe}}
+        			{% else %}{{before_all|safe}}
+        				<{% if node.url %}a{% else %}span{% endif %}{% if node == NODE %} class="{{ class_current }}"{% endif %} href="{{ node.url }}">{{ node.alias }}</{% if node.url %}a{% else %}span{% endif %}>
+        				{{after_all|safe}}
+        			{% endif %}
+        			{# ------ /node.alias ------ #}
+					
+					{% endif %}
+	    		{% endif %}
+	    		{% if not node.is_leaf_node %}
+	    			{% if menu_depth > node.level or menu_depth == 0 %}
+    	    			<ul>
+    	        			{{ children }}
+    	        		</ul>
+        		    {% endif %}
+        		{% endif %}
+      		</li>
+	    {% endif %}
+  	{% endrecursetree %}

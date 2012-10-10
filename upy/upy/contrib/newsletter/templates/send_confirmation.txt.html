@@ -1,0 +1,16 @@
+{% load i18n %}
+{% blocktrans with user=user confirm_url=confirm_url website=website %}
+Hi {{user}},
+
+your subscription on our Newsletter is succesfully completed.
+
+Thanks!
+
+To confirm your subscription, please click following url or copy it and paste on your browser:
+
+{{confirm_url}}
+_________________________
+
+{{website}}
+{% endblocktrans %}
+

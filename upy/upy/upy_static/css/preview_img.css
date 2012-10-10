@@ -1,0 +1,7 @@
+.preview_img div, .preview_img p, .preview_img, .preview_img select, .preview_img a
+	{float: left !important; display:block !important;}
+	
+.preview_img>p {margin-left: 5px;}
+.preview_img>div.box_now {width: 120px; height: 120px;}
+.preview_img>div.box_now>img {margin-left: 10px; border: 2px red solid;}
+.preview_img>div.box_preview>img {margin-left: 10px; border: 2px #ccc solid;}

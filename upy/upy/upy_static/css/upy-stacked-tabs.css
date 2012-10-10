@@ -1,0 +1,33 @@
+.upy_stacked_tabs{
+	background: #ccc;
+	margin: 0 0 5px 0;
+	padding: 10px 0 5px 0;
+}
+.upy_stacked_tabs a{
+	background: #333;
+	color: #fff;
+	margin: 5px;
+	padding: 5px;
+	cursor:pointer;
+	font-size: 13px;
+	font-weight: bold;
+	
+	-webkit-border-radius: 7px;
+    border-radius: 7px; 
+    -moz-border-radius: 7px;
+	
+	-webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+	
+}
+.upy_stacked_tabs a.selected{
+	background: #fff;
+	color: #333;
+	border: 1px solid #333;
+	border-bottom:0;
+
+}

@@ -1,0 +1,46 @@
+{% load i18n admin_static %}
+{% load customadmin %}
+
+<div id="content-main-icon">
+{% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list %}
+    <div class="module">
+    <table summary="{% blocktrans with app.verbose_app_name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+    <caption><span class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</span></caption>
+	</table>
+    {% if app.show_models or app_list|length <= 1  %}
+        {% for model in app.models %}
+            {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
+	            <div class = "box_model">
+					<div class = "box_model_row">
+						<div>IMMAGINE</div>
+						<div>
+							{% if model.perms.change %}
+	                			<a href="{{ model.admin_url }}">{{ model.name }}</a>
+				            {% else %}
+	                			{{ model.name }}
+				            {% endif %}		
+						</div>
+						<div class="fixfloat"></div>
+					</div>
+					<div class = "box_model_row">
+						<div>
+							{% if model.perms.add %}
+	                			<a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a>
+							{% endif %}
+						</div>
+						<div>
+							{% if model.perms.change %}
+	               				<a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a>
+							{% endif %}
+						</div>
+						<div class="fixfloat"></div>
+					</div>
+				</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+	<div class="fixfloat"></div>
+    <!-- </table> -->
+    </div> <!-- /module -->
+{% endfor %}
+</div>

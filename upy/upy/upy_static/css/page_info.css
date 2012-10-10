@@ -1,0 +1,29 @@
+.page_info{
+	position:relative;
+	min-width: 200px;
+}
+.page_info_img{
+	cursor:pointer;
+}
+
+.page_info_text{
+	position:absolute;
+	top:0;
+	left:20px;
+	display:none;
+	z-index: 1000;
+	padding: 10px;
+	border: 2px groove #ccc;
+	background:#fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.page_info_key{
+	font-weight: bold;
+}
+
+.page_info_value{
+	font-style: italic;
+}
