@@ -43,6 +43,10 @@ def getUrlList():
         if pub_extended.index_node:
             regex = r'^%s$' % publication_url
             regex_path = '%s' % publication_url
+            
+            if pub_extended.index_node.page:
+                regex = r'^%s%s$' % (publication_url, pub_extended.index_node.page.regex)
+                regex_path = '%s%s' % (publication_url, pub_extended.index_node.page.regex)
             page = pub_extended.index_node.page
             view = page.view
             view = u'%s.%s.%s' % (view.app_name,view.module_name,view.func_name)
