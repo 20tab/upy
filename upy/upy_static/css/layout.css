@@ -89,17 +89,49 @@ h3 a:hover{}
 #content-main-icon .module .box_model{
 	float:left;
 	margin:5px;
-	width:200px;
+}
+#content-main-icon .module .box_model .box_model_row{
+	display:block;
+	position:relative;
+}
+#content-main-icon .module .box_model .box_model_row div{
+	position:relative;
 	text-align:center;
 	
 }
-#content-main-icon .module .box_model .box_model_row div{
-	float:left;
-	width:50%;
-	height:30px;
-	line-height:30px;
+#content-main-icon .module .box_model .box_model_row .box_model_row_image a{
+	display:block;
+	height:50px;
 }
-
+#content-main-icon .module .box_model .box_model_row .box_model_row_image{
+	min-height:50px;
+	float:left;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_name{
+	min-height:50px;
+	width:160px;
+	line-height:50px;
+	float:right;
+}
+#content-main-icon .module .box_model .box_model_row div{
+	text-align:center;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_add{
+	float:left;
+	background-color:orange;
+	width:104px;
+	background-color:#CCCCCC;
+	height:35px;
+	line-height:35px;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_change{
+	float:right;
+	width:104px;
+	margin-left:2px;
+	background-color:#CCCCCC;
+	height:35px;
+	line-height:35px;
+}
 /*******************************************************/
 /* classi per rendere i button_form come i button_link */
 .object-tools input[type='submit']{

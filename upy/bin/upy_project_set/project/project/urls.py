@@ -6,7 +6,7 @@ if config.USE_UPY_TREE:
     from upy.contrib.tree.urls import LOGIN_REQUIRED_URLS
 contrib_admin.autodiscover()
 from django.contrib.admin.sites import site
-if settings.USE_CUSTOM_ADMIN:
+if settings.USE_UPY_ADMIN and settings.USE_CUSTOM_ADMIN:
     site.index_template = "admin/custom_index.html"
     
 from upy.contrib.tree.utility import *

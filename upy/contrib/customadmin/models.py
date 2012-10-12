@@ -49,7 +49,7 @@ def list_models():
                 try:
                     CustomModel.objects.get(model=m.__name__)
                 except:
-                    list_models_app.append([m.__name__]*2)
+                    list_models_app.append([m._meta.verbose_name_plural]*2)
             list_models.append((app.split(".")[-1].title(),list_models_app))
     return list_models
 
@@ -123,7 +123,9 @@ class CustomAdmin(models.Model):
     autocomplete_app_list = models.BooleanField(default = True, 
         help_text = _(u"Check it if you want complete the custom app list with the default app list."), 
         verbose_name = _(u"Autocomplete App list"))
-    
+    autocomplete_models_list = models.BooleanField(default = True, 
+        help_text = _(u"Check it if you want complete the custom models list with the default models list."), 
+        verbose_name = _(u"Autocomplete model list"))
     @property
     def customization(self):
         """
@@ -216,7 +218,7 @@ class CustomModel(PositionImage):
     model = models.CharField(max_length = 250, 
                                    unique=True, help_text = _(u"Select a model"), 
                                    verbose_name = _(u"Model"))
-    image = ImageSpecField([ResizeToFit(128, 128)], 
+    image = ImageSpecField([ResizeToFit(50, 50)], 
                            image_field='original_image', 
                            format='png')
     
