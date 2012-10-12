@@ -10,13 +10,8 @@ from upy.utils import clean_cache
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
 
-def list_apps():
-    """
-    it returns a list of tuples with the name of all installed apps with admin's registration.
-    """
-    list_apps = []
-    for app in settings.INSTALLED_APPS:
-        if app not in ['django.contrib.contenttypes',
+def verifyApp(app):
+    return app in ['django.contrib.contenttypes',
                         'django.contrib.sessions',
                         'django.contrib.messages',
                         'django.contrib.admin',
@@ -26,12 +21,38 @@ def list_apps():
                         'upy',
                         'upy.contrib.ckeditor',
                         'upy.contrib.colors',
-                        'upy.contrib.language']:
+                        'upy.contrib.language']
+        
+
+def list_apps():
+    """
+    it returns a list of tuples with the name of all installed apps with admin's registration.
+    """
+    list_apps = []
+    for app in settings.INSTALLED_APPS:
+        if not verifyApp(app): 
             try:
                 CustomApp.objects.get(application=app.split(".")[-1].title())
             except:
                 list_apps.append([app.split(".")[-1].title()]*2)
     return list_apps 
+
+def list_models():
+    """
+    It returns a list of tuple with the name of all models in installed apps
+    """
+    list_models = []
+    for app in settings.INSTALLED_APPS:
+        if not verifyApp(app):
+            list_models_app = []
+            for m in models.get_models(models.get_app(app.split(".")[-1])):
+                try:
+                    CustomModel.objects.get(model=m.__name__)
+                except:
+                    list_models_app.append([m.__name__]*2)
+            list_models.append((app.split(".")[-1].title(),list_models_app))
+    return list_models
+
 class CustomAdmin(models.Model):
     """
     This object define parameters to customize admin layout. It has sense if you use only a record 
@@ -157,32 +178,6 @@ class CustomApp(PositionImage):
     show_models = models.BooleanField(default=True, 
         help_text = _(u"If use_app_icons is False in Customadmin, you can choose wheter or not show the model list."), 
         verbose_name = _(u"Show models"))
-    '''
-    tengo questo commento in attesa di sviluppare il resize dinamico
-        
-    display_width = models.PositiveIntegerField(default = 0)
-    display_height = models.PositiveIntegerField(default = 0)
-    #app_group = ManyToMany to a group. Future feature to regroup apps in different boxes.
-       
-    
-    def save(self, *args, **kwargs):
-        
-        print "QQQQQQQQQQQQQQQQQQQQQq sono in customadmin.models.AppIcon.save - prima"
-        print "111", dir(self.display_image)
-        #print self.display_image.height
-        #print self.display_image.width
-        print "222", self.display_image._process_content
-        print "333", dir(self.display_image._process_content)
-        print "444", self.display_image._process_content.im_class
-        print "555", self.display_image._process_content.im_func
-        print "666", self.display_image._process_content.im_self
-        print "777", dir(self.display_image._process_content.im_func)
-        print "888", self.display_image._process_content.im_func.func_code
-        print "999", self.display_image._process_content.im_func.func_name
-        #if self.display_width > 0 : self.display_image.processors[0].width = self.display_width
-        #if self.display_height > 0: self.display_image.processors[0].height = self.display_height
-        super(AppIcon,self).save( *args, **kwargs)
-    '''
     
     def __unicode__(self):
         return u"%s" % (self.application)
@@ -213,3 +208,23 @@ class CustomLink(PositionImage):
         verbose_name = _(u"Custom Link")
         verbose_name_plural = _(u"Custom Link")
         ordering = ['position']
+
+class CustomModel(PositionImage):
+    """
+    This object links models in  installed_apps with an icon to use if CustomAdmin.view_mode == "use_model_icons" or CustomAdmin.view_mode == "use_inner_model_icons"
+    """
+    model = models.CharField(max_length = 250, 
+                                   unique=True, help_text = _(u"Select a model"), 
+                                   verbose_name = _(u"Model"))
+    image = ImageSpecField([ResizeToFit(128, 128)], 
+                           image_field='original_image', 
+                           format='png')
+    
+    def __unicode__(self):
+        return u"%s" % (self.model)
+    
+    class Meta:
+        verbose_name = _(u"Custom Model")
+        verbose_name_plural = _(u"Custom Models")
+        ordering = ['position']
+ 

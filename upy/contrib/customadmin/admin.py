@@ -3,7 +3,7 @@ Admin's option for all model defined in customadmin app.
 """
 from django.contrib import admin
 from django import forms
-from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps
+from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps,list_models,CustomModel
 from upy.contrib.image.admin import PositionImageOption
 from upy.utils import upy_re_match
 
@@ -101,7 +101,6 @@ class CustomAppForm(forms.ModelForm):
         listapps = list_apps()
         if self.instance:
             listapps.append([self.instance.application]*2)
-        print listapps
         self.fields['application'].widget = forms.Select(choices=listapps)
         
     class Meta:
@@ -144,8 +143,39 @@ class CustomLinkOption(PositionImageOption):
     class Meta:
         model = CustomLink
 
+class CustomModelForm(forms.ModelForm):
+    """
+    It overrides admin form for CustomModel model
+    """
+    def __init__(self,*args, **kwargs):
+        super(CustomModelForm, self).__init__(*args, **kwargs)
+        listmodels = list_models()
+        if self.instance.pk:
+            listmodels.append([self.instance.model]*2)
+        self.fields['model'].widget = forms.Select(choices=listmodels)
+        
+    class Meta:
+        model = CustomModel
+        
+class CustomModelOption(PositionImageOption):
+    """
+    Admin's options for CustomModel model
+    """
+    list_display = ('position','model','original_image','admin_thumbnail_view',)
+    list_editable = ['position','original_image']
+    list_display_links = ['model',]
+    
+    fieldsets = ((_('Icons'), {'fields':
+                                (('model',),
+                                 ('original_image'),),
+                    },),
+                 )
+    save_on_top = True
+    form = CustomModelForm
+    class Meta:
+        model = CustomModel
     
 admin.site.register(CustomAdmin, CustomAdminOption)
 admin.site.register(CustomApp, CustomAppOption)
 admin.site.register(CustomLink, CustomLinkOption)
-
+admin.site.register(CustomModel, CustomModelOption)
