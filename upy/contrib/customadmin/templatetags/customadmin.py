@@ -56,8 +56,8 @@ def custom_app_list(app_list, autocomplete):
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
         except IndexError, e:
-            print ("Error in customadmin.templatetags.add_app_icons: ", e, 
-                   "; application: ", appicon.application)
+            #print ("Error in customadmin.templatetags.add_app_icons: ", e, 
+            #       "; application: ", appicon.application)
             pass # probabilmente e' stata inserita nella lista di applicazioni con icona una applicazione
             # che non e' tra quelle registrate nell'admin, quindi poco male...
     
@@ -85,20 +85,14 @@ def add_model_icons(models_list,autocomplete):
     """
     models_icon_list = CustomModel.objects.all()
     models_list_ok = []
-    
     for cmodel in models_icon_list:
         try:
-            app_temp_l = []
-            for x in models_list:
-                if u"%s" % x.get('name').lower() == u"%s" % cmodel._meta.verbose_name_plural.lower():
-                    app_temp_l.append(x)
-            app_temp = app_temp_l[0]
-            
+            app_temp = [x for x in models_list if u"%s" % x.get('name').lower() == u"%s" % cmodel.model.lower()][0]
             app_temp['image'] = cmodel.image
             models_list_ok.append(app_temp)
         except IndexError, e:
-            print ("Warning! In customadmin.templatetags.add_model_icons: ", 
-                   e, "; application: ", cmodel.model)
+            #print ("Warning! In customadmin.templatetags.add_model_icons: ", 
+            #       e, "; application: ", cmodel.model)
             pass # probabilmente e' stato inserito nella lista di models con icona 
                 # un model che non e' tra quelli registrate nell'admin, 
                 # quindi poco male...

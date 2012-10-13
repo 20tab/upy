@@ -34,7 +34,7 @@ class CustomAdminForm(forms.ModelForm):
     def clean(self): 
         view_mode = self.cleaned_data['view_mode']
         autocomplete_app_list = self.cleaned_data['autocomplete_app_list']
-
+        autocomplete_models_list = self.cleaned_data['autocomplete_models_list']
         if view_mode and not autocomplete_app_list:
             try:
                 CustomApp.objects.get(application__iexact="Customadmin")
@@ -51,10 +51,26 @@ class CustomAdminForm(forms.ModelForm):
                 #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
                 #if you use a custom view_mode without autocomplete_app_list"))
         
+        elif view_mode and not autocomplete_models_list:
+            try:
+                CustomModel.objects.get(model__iexact=CustomAdmin._meta.verbose_name_plural)
+            except CustomModel.DoesNotExist:
+                msg_view_mode = _(u"You have to define Customadmin in your CustomModel if you use a custom view_mode...")
+                msg_autocomplete_models_list= _(u"...or at least enable autocomplete_models_list which will include Customadmin too.")
+                self._errors["view_mode"] = self.error_class([msg_view_mode])
+                self._errors["autocomplete_models_list"] = self.error_class([msg_autocomplete_models_list])
+    
+                # These fields are no longer valid. Remove them from the
+                # cleaned data.
+                del self.cleaned_data["view_mode"]
+                del self.cleaned_data["autocomplete_models_list"]
+                #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
+                #if you use a custom view_mode without autocomplete_app_list"))
         self, chk = cleaning_color_picker(self, ['bg_header','table_title_bg',
                                                  'table_title_color','h2_color',
                                                  'h3_color','link_color',
                                                  'link_hover_color'])
+        
         
         if not chk:
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
