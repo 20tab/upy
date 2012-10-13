@@ -1,0 +1,15 @@
+{% load i18n %}
+{% blocktrans with user=user confirm_url=confirm_url website=website %}
+Hi {{user}},<br/>
+<br/>
+your subscription on our Newsletter is succesfully completed.<br/>
+<br/>
+Thanks!<br/>
+<br/>
+To confirm your subscription, please click following url or copy it and paste on your browser:
+<br/><br/>
+<a href = "{{confirm_url}}" target = "_blanck">{{confirm_url}}</a><br/><br/>
+_________________________<br/>
+<br/>
+<a href = "{{website}}" target = "_blanck">{{website}}</a>
+{% endblocktrans %}

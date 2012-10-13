@@ -13,5 +13,8 @@ def customadmin_context(request):
     
     except CustomAdmin.DoesNotExist:
         context_extras['CUSTOM_ADMIN'] = None
-    context_extras['USE_CUSTOM_ADMIN'] = settings.USE_CUSTOM_ADMIN
+    if settings.USE_UPY_ADMIN:
+        context_extras['USE_CUSTOM_ADMIN'] = settings.USE_CUSTOM_ADMIN
+    else:
+        context_extras['USE_CUSTOM_ADMIN'] = False
     return context_extras

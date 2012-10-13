@@ -1,0 +1,6 @@
+{% load mptt_tags %}{% recursetree nodes %}{% if not node.hide_in_navigation or view_hidden%}
+<p>{% if not node.page %}
+	{{ node.alias }}{% else %}{% if not current_linkable and node == NODE %}
+		<span class="{{ class_current }}">{{ node.alias}}</span>{% else %}<{% if node.url %}a{% else %}span{% endif %}{% if node == NODE %} class="{{ class_current }}"{% endif %} href="{{ node.url }}">{{ node.alias}}</{% if node.url %}a{% else %}span{% endif %}>{% endif %}{% endif %}
+</p>{% if not node.is_leaf_node %}{% if menu_depth > node.level or menu_depth == 0 %}
+	{{ children }}{% endif %}{% endif %}{% endif %}{% endrecursetree %}

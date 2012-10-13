@@ -1,0 +1,125 @@
+{% load colors %}
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <title>Django Colors Test</title>
+<style>
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 1.2em;
+    font-family:sans-serif;
+    margin:0;
+    padding:10px 0;
+    border-bottom:1px solid #ccc;
+}
+
+h1 b {
+    float: left;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    margin-right:10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+}
+
+h2 {
+    font-size: 0.8em;
+    font-family: sans-serif;
+    margin: 10px 0 0 0;
+}
+
+#hd {
+    background: #000;
+    color: #ccc;
+    padding: 40px;
+    border-bottom: 2px solid #ccc;
+}
+
+#hd strong {
+    color: #fff;
+    font-size: 1.9em;
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+    margin: 0 10px 0 0;
+}
+
+#bd {
+    padding: 40px;
+}
+
+.color-test {
+    margin: 0;
+    padding: 0;
+    height: 85px;
+}
+
+.color-test li {
+    list-style: none;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-align:center;
+    height:80px;
+    width:72px;
+    font-size:0.8em;
+    float: left;
+    border:1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 1px 1px 4px #999;
+    -webkit-box-shadow: 1px 1px 4px #999;
+}
+
+.color-test li b {
+    background: #000;
+    color: #fff;
+    font-family:sans-serif;
+    font-size:0.8em;
+    padding: 4px;
+    line-height:80px;
+    -moz-border-radius: 5px;
+    opacity: .8;
+}
+  </style>
+</head>
+<body>
+<div id="hd">
+    <strong>Django Colors</strong> {{ version }}
+</div>
+<div id="bd">
+    {% for color in colors_tests %}
+    <h1><b style="background-color:#{{ color }};"></b>#{{ color }} / <b style="background-color:#{{ color|opposite }};"></b>#{{ color|opposite }}</h1>
+    <h2>Lightness</h2>
+    <ul class="color-test">
+        {% for l in lightness_range %}
+        <li style="background-color:#{{ color|lightness:l }};"><b>{{ l }}%</b></li>
+        {% endfor %}
+    </ul>
+    <h2>Saturation</h2>
+    <ul class="color-test">
+        {% for s in saturation_range %}
+        <li style="background-color:#{{ color|saturation:s }};"><b>{{ s }}%</b></li>
+        {% endfor %}
+    </ul>
+    <h2>Hue</h2>
+    <ul class="color-test">
+        {% for h in hue_range %}
+        <li style="background-color:#{{ color|hue:h }};"><b>{{ h }}&deg;</b></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>
+</body>
+</html>
+
