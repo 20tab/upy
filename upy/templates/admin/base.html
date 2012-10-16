@@ -75,7 +75,7 @@
     {% endblock messages %}
 
     <!-- Content -->
-    <div id="content" class="{% block coltype %}colM{% endblock %}{% if CUSTOM_ADMIN and app_list|length > 1 %} appicon-content{% endif %}">
+    <div id="content" class="{% block coltype %}colM{% endblock %}{% if CUSTOM_ADMIN_CSS_ICONS and USE_CUSTOM_ADMIN %} appicon-content{% endif %}">
         {% block pretitle %}{% endblock %}
         {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
         {% block content %}

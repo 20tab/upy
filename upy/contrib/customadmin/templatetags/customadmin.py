@@ -47,7 +47,6 @@ def custom_app_list(app_list, autocomplete):
     """
     app_icon_list = CustomApp.objects.all()
     app_list_ok = []
-    
     for appicon in app_icon_list:
         try:
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
@@ -75,36 +74,36 @@ def custom_app_list(app_list, autocomplete):
        
     return app_list_ok
 
-
-
 @register.filter
-def add_model_icons(models_list,autocomplete):
+def add_model_icons(app_list,custom_admin):
     """
     It returns a list of models to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode for models.
     """
-    models_icon_list = CustomModel.objects.all()
-    models_list_ok = []
-    for cmodel in models_icon_list:
-        try:
-            app_temp = [x for x in models_list if u"%s" % x.get('name').lower() == u"%s" % cmodel.model.lower()][0]
-            app_temp['image'] = cmodel.image
-            models_list_ok.append(app_temp)
-        except IndexError, e:
-            #print ("Warning! In customadmin.templatetags.add_model_icons: ", 
-            #       e, "; application: ", cmodel.model)
-            pass # probabilmente e' stato inserito nella lista di models con icona 
-                # un model che non e' tra quelli registrate nell'admin, 
-                # quindi poco male...
-    
-    if autocomplete:  
-        models_list_ok_name = [x.get('name') for x in models_list_ok]
-        models_list_name = [x.get('name') for x in models_list]
-        models_out_name = list(set(models_list_name)-set(models_list_ok_name)) 
-        models_out_list = [x for x in models_list if x.get('name') in models_out_name]
+    custommodels = CustomModel.objects.all()
+    app_res = []
+    for app in app_list:
+        names = []
+        models_temp = []
+        models_list = app['models']
         
-        for model_out in models_out_list:
-            model_out['image'] = None
+        for m in custommodels:
+            names.append(m.model.lower())
+            try:
+                model_temp = [x for x in models_list if u"%s" % x['name'].lower() == u"%s" % m.model.lower()][0]
+                model_temp['image'] = m.image
+                models_temp.append(model_temp)
+            except IndexError:
+                pass
+        
+        if custom_admin.autocomplete_models_list:
+            for m in models_list:
+                if m['name'].lower() not in names:
+                    models_temp.append(m)
+        
+
+        if models_temp:
+            app['models'] = models_temp
+            app_res.append(app)
             
-        models_list_ok.extend(models_out_list)   
-    return models_list_ok
+    return app_res

@@ -2,14 +2,14 @@
 {% load customadmin %}
 
 <div id="content-main-icon">
-{% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list %}
-    {% if app.models|add_model_icons:CUSTOM_ADMIN.autocomplete_models_list %}
+{% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list|add_model_icons:CUSTOM_ADMIN %}
+    {% if app.models %}
     <div class="module">
     <table summary="{% blocktrans with app.verbose_app_name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
     <caption><span class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</span></caption>
 	</table>
-    {% if app.show_models or app_list|length <= 1  %}
-        {% for model in app.models|add_model_icons:CUSTOM_ADMIN.autocomplete_models_list %}
+    
+        {% for model in app.models %}
             {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
 	            <div class = "box_model">
 					<div class = "box_model_row">
@@ -43,6 +43,6 @@
 	<div class="fixfloat"></div>
     <!-- </table> -->
     </div> <!-- /module -->
-    {% endif %}
+
 {% endfor %}
 </div>

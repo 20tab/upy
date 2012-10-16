@@ -10,9 +10,10 @@ def customadmin_context(request):
     try:
         context_extras['CUSTOM_ADMIN'] = CustomAdmin.objects.get(is_default = "default")
         context_extras['CUSTOM_LINK_LIST'] = CustomLink.objects.all()
-    
+        context_extras['CUSTOM_ADMIN_CSS_ICONS'] = True
     except CustomAdmin.DoesNotExist:
         context_extras['CUSTOM_ADMIN'] = None
+        context_extras['CUSTOM_ADMIN_CSS_ICONS'] = False
     if settings.USE_UPY_ADMIN:
         context_extras['USE_CUSTOM_ADMIN'] = settings.USE_CUSTOM_ADMIN
     else:

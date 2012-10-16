@@ -116,16 +116,16 @@ class CustomAdmin(models.Model):
     view_mode = models.CharField(max_length = 250, null = True, blank = True, 
                                  choices = (('use_custom_app',_('Use custom app system')),
                                             ('use_app_icons',_("Use apps' icons system")),
-                                            ('use_model_icons',_("Use models' icons system in index")),
-                                            ('use_inner_model_icons',_("Use models' icons system in app template"))), 
+                                            ('use_model_icons',_("Use models' icons system in index group models by app")),
+                                            ('use_total_model_icons',_("Use models' icons system in index ungroup models by app"))), 
                                  help_text = _(u"Choose the view mode"), 
                                  verbose_name = _(u"View mode"))
     autocomplete_app_list = models.BooleanField(default = True, 
         help_text = _(u"Check it if you want complete the custom app list with the default app list."), 
-        verbose_name = _(u"Autocomplete App list"))
+        verbose_name = _(u"Autocomplete App"))
     autocomplete_models_list = models.BooleanField(default = True, 
         help_text = _(u"Check it if you want complete the custom models list with the default models list."), 
-        verbose_name = _(u"Autocomplete model list"))
+        verbose_name = _(u"Autocomplete model"))
     @property
     def customization(self):
         """

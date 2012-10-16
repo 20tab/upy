@@ -23,8 +23,8 @@
 	{% if CUSTOM_ADMIN.view_mode == "use_model_icons" %}
 	    {% include "admin/use_model_icons.html" %}
 	{% else %}
-	{% if CUSTOM_ADMIN.view_mode == "use_inner_model_icons" and app_list|length > 1 %}
-	    {% include "admin/use_inner_model_icons.html" %}
+	{% if CUSTOM_ADMIN.view_mode == "use_total_model_icons" %}
+	    {% include "admin/use_total_model_icons.html" %}
 	{% else %}
 		{% include "admin/admin_default.html" %}    
 	{% endif %}{% endif %}{% endif %}{% endif %}

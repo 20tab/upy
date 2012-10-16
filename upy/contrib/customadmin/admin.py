@@ -106,7 +106,8 @@ class CustomAdminOption(admin.ModelAdmin):
     save_on_top = True
     class Meta:
         model = CustomAdmin
-
+    class Media:
+        js = ('/upy_static/js/customadmin.js',)
  
 class CustomAppForm(forms.ModelForm):
     """
