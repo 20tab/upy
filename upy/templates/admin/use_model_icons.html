@@ -12,7 +12,7 @@
         {% for model in app.models %}
             {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
 	            <div class = "box_model">
-					<div class = "box_model_row">
+					<div class = "box_model_row" title="{{ model.name }}">
 						<div class="box_model_row_image"><a href="{{ model.admin_url }}"><img src="{% if model.image %}{{ model.image.url }}{% else %}/upy_static/images/upy_model.png{% endif %}" alt="{{model.name}}" /></a></div>
 						<div class="box_model_row_name">
 							{% if model.perms.change %}
