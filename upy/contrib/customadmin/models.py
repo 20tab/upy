@@ -45,7 +45,11 @@ def list_models():
     for app in settings.INSTALLED_APPS:
         if not verifyApp(app):
             list_models_app = []
-            for m in models.get_models(models.get_app(app.split(".")[-1])):
+            try:
+                all_models = models.get_models(models.get_app(app.split(".")[-1]))
+            except:
+                pass#app doesn't have model.py module
+            for m in all_models:
                 try:
                     CustomModel.objects.get(model=m.__name__)
                 except:
