@@ -70,22 +70,20 @@ class NodeForm(forms.ModelForm):
     def clean(self): 
         page = self.cleaned_data['page']
         parent = self.cleaned_data['parent']
-        
         slug = None
         if parent:
             slug = parent.complete_slug
             if page:
-                slug += "/%s" % page.slug 
-        
-        
-        
+                if slug:
+                    slug += "/%s" % page.slug 
+                else:
+                    slug = page.slug
         if self.instance == parent:
             raise forms.ValidationError(_("A node may not be made a child of itself."))
         if parent:
             basenode = parent.basenode
-            all_nodes = basenode.get_descendants(include_self=True) 
-            for node in all_nodes:
-                if page and slug == node.complete_slug and node.pk != self.instance.pk:
+            for node in basenode.get_descendants(include_self=False):
+                if slug == node.complete_slug and node.pk != self.instance.pk:
                     raise forms.ValidationError(_("You cannot use two same slugs in same nodes of the same structure"))
                 if node.page and node.page == page and node.pk != self.instance.pk:
                     raise forms.ValidationError(_("You can use page only in one node of the same structure"))
@@ -108,7 +106,7 @@ class NodeOption(TreeEditor):
     list_display = ('pk', 'name', 'page', page_info, 'presentation_type','hide_in_navigation', 'protected') 
     list_per_page = 900 #we should have all objects on one page 
     list_editable = ('name',) 
-    fieldsets = (('',{'fields': (('page','name','parent',),('hide_in_navigation','protected'),('value_regex','show_if_logged','groups'),),}),
+    fieldsets = (('',{'fields': (('page','name','parent',),('hide_in_navigation','hide_in_url','protected'),('value_regex','show_if_logged','groups'),),}),
                  (_('Sitemap configuration'),{'fields': (('changefreq', 'priority'),),}),
                  (_('Robots configuration'),{'fields': (('robots','disallow'),),}),)
     inlines = [NodeG11nInline,]

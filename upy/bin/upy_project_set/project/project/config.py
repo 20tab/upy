@@ -99,7 +99,7 @@ UPY_NEWSLETTER_SPOOLER_TIMEOUT = 300
 """ Frequency of recovery spooler in seconds """
 UPY_SECRET_KEY = "test_secret_key"
 """ It contributes to hashing contact secret key """
-USE_LOCAL_SMTP_SERVER = False
+USE_LOCAL_SMTP_SERVER = True
 """ If True there is no need to set smtp parameters """
 EMAIL_USER = "info@email.com"
 """ Default user's e-mail """ 

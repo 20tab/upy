@@ -96,6 +96,8 @@ class Node(G11nBase,MPTTModel):
     position = models.PositiveSmallIntegerField(u'Position', default=0)
     hide_in_navigation = models.BooleanField(help_text = _(u"Check it to hide the page in this node in the navigation."),
                                              verbose_name = _(u"Hide in navigation"))
+    hide_in_url = models.BooleanField(help_text = _(u"Check it to hide the node in url path (only if node hasn't a page)."),
+                                             verbose_name = _(u"Hide in url"))
     protected = models.BooleanField(help_text = _(u"Check it if the page related to this node should be protected from unauthorized access."),
                                     verbose_name = _(u"Protected"))
     
@@ -162,18 +164,21 @@ class Node(G11nBase,MPTTModel):
         """
         It returns page's view_path
         """
-        return "%s" % self.page.view_path
-        
+        if self.page:
+            return "%s" % self.page.view_path
+        return ""
     
     @property
     def slug(self):
         """
-        It returns page's slug
+        It returns node's slug
         """
-        try:
+        if self.page:
             return self.page.slug
-        except:
+        elif not self.hide_in_url:
             return self.name
+        else:
+            return ""
 
     @property
     def complete_slug(self):
@@ -193,8 +198,10 @@ class Node(G11nBase,MPTTModel):
         ancestors = self.get_ancestors()
         tree_slug = ""
         for node in ancestors[1:]:
-            tree_slug += "%s/" % node.slug
-        
+            if not node.hide_in_url:
+                tree_slug += "%s/" % node.slug
+            else:
+                tree_slug += "%s" % node.slug
         return tree_slug
     
     @property
@@ -203,10 +210,9 @@ class Node(G11nBase,MPTTModel):
         It returns self's base node
         """
         ancestors = self.get_ancestors()
-        try:
-            return ancestors[1]
-        except:
-            return self
+        if ancestors:
+            return ancestors[0]
+        return self
     
     def absolute_url(self,pub_extended,node):
         """

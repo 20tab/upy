@@ -67,7 +67,12 @@ if USE_UPY_ADMIN:
 TEMPLATE_CONTEXT_PROCESSORS.extend(
     PROJ_TEMPLATE_CONTEXT_PROCESSORS
 )
-TEMPLATE_DIRS = ['../templates']
+GLOBAL_TEMPLATES_DIR = '../templates'
+TEMPLATE_DIRS = [GLOBAL_TEMPLATES_DIR]
+if USE_GLOBAL_TEMPLATES_DIR:
+    list_dirs = [ "%s/%s" % (GLOBAL_TEMPLATES_DIR,tdir) for tdir in os.listdir(GLOBAL_TEMPLATES_DIR)]
+    if list_dirs:
+        TEMPLATE_DIRS.extend(list_dirs)
 if USE_UPY_ADMIN:
     TEMPLATE_DIRS.extend(
         [upy_templates(),upy_tpl(),]

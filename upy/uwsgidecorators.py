@@ -1,8 +1,3 @@
-"""
-Contains all uwsgi decorators documented on `uWSGI documentation`_
-
-.. _uWSGI documentation: http://projects.unbit.it/uwsgi/wiki/Decorators
-"""
 import uwsgi
 from threading import Thread
 
