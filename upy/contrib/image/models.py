@@ -4,7 +4,6 @@ from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFit, SmartResize, Adjust
 from datetime import date
 from django.conf import settings
-from project import config
 from upy.contrib.g11n.models import G11nModel
 
 def _choose_preprocessor():
@@ -60,7 +59,7 @@ class PositionImage(UPYImage):
         abstract = True   
             
             
-if config.USE_UPY_G11N:
+if settings.USE_UPY_G11N:
         
     class UPYImageG11n(G11nModel):
         """
@@ -75,7 +74,7 @@ if config.USE_UPY_G11N:
         class Meta:
             abstract = True
 
-if config.USE_UPY_IMAGE:            
+if settings.USE_UPY_IMAGE:            
     class ImageRepositoryBase(PositionImage):
         """
         Concrete class for Images. It add useful fields like position, name, date... and manage position
@@ -111,7 +110,7 @@ if config.USE_UPY_IMAGE:
             abstract = True
     
         
-    if config.USE_UPY_G11N:
+    if settings.USE_UPY_G11N:
         
                 
         class ImageRepositoryG11n(UPYImageG11n):

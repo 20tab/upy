@@ -4,7 +4,7 @@ from datetime import datetime
         
 from django.conf import settings
 
-from ckeditor import views
+from upy.contrib.ckeditor import views
 
 class ViewsTestCase(unittest.TestCase):
     def setUp(self):

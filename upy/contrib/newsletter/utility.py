@@ -2,7 +2,8 @@ from django.forms import ModelForm
 from django.template.loader import render_to_string
 from upy.contrib.newsletter.mail import send_rendered_mail
 from django.utils.translation import ugettext_lazy as _
-from upy.contrib.newsletter.models import Contact, List, settings, now
+from upy.contrib.newsletter.models import Contact, List, settings
+from datetime import datetime
 from upy.contrib.g11n.models import get_current_publication
 
 def upy_nl_confirm(request,secret_key, 
@@ -62,7 +63,7 @@ class UPYNewsletterForm(ModelForm):
                     nwl_list = List.objects.get(name = "List %s" % current_publication)
                 except:
                     nwl_list = List(name = "List %s" % current_publication, 
-                                                      description = "List created on %s" % now(),
+                                                      description = "List created on %s" % datetime.now(),
                                                       priority = 1,
                                                       publication = current_publication)
                 try:
