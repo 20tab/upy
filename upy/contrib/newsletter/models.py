@@ -258,7 +258,6 @@ try:
         This function enqueue a processing dispatcher. It checks every UPY_NEWSLETTER_SPOOLER_TIMEOUT seconds.  
         """
         disps = Dispatcher.objects.filter(status='processing')
-        print "QUI"
         for disp in disps:
             try: 
                 send_dispatcher_list(disp, recovery=True)
