@@ -6,8 +6,7 @@ Open-source platform built on top of Django Web Framework, provides useful apps 
 ## Installation
 
 Use the following command: <b><i>pip install upy</i></b>
-<br /><br />
-
+<br />
 It requires django, django-mptt and django-imagekit installations. It automatically searches for these distributions.
 
 
