@@ -5,9 +5,7 @@ Open-source platform built on top of Django Web Framework, provides useful apps 
 
 ## Installation
 
-There are two ways to install upy: <br /> 
-1. Clone the repository and add upy module to your project.<br/>
-2. Use the following command: <b><i>pip install upy</i></b>
+Use the following command: <b><i>pip install upy</i></b>
 <br /><br />
 
 It requires django, django-mptt and django-imagekit installations. It automatically searches for these distributions.
