@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFit, SmartResize, Adjust
-from upy.utils import today
+from datetime import date
 from django.conf import settings
 from project import config
 from upy.contrib.g11n.models import G11nModel
@@ -83,7 +83,7 @@ if config.USE_UPY_IMAGE:
         """
         name = models.CharField(max_length=100)
         display_image = ImageSpecField([ResizeToFit(800,600)], image_field='original_image', options={'quality': 90})  #format='JPEG',
-        date = models.DateField(default = today(), help_text = _(u"Set the date you want to display for this image.")) 
+        date = models.DateField(default = date.today, help_text = _(u"Set the date you want to display for this image.")) 
         creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), 
                                              verbose_name = _(u"Creation date"))
         def admin_thumbnail_view(self):

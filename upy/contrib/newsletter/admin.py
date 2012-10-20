@@ -2,7 +2,7 @@ from django.contrib import admin
 from upy.contrib.newsletter.models import Dispatcher, Contact, Newsletter, List, Attachment
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from upy.utils import now
+from datetime import datetime
 from upy.contrib.ckeditor.widgets import CKEditorWidget
 
 class SendDateForm(forms.ModelForm):
@@ -15,7 +15,7 @@ class SendDateForm(forms.ModelForm):
     def clean_send_date(self):
         send_date = self.cleaned_data['send_date']
         if not send_date:
-            send_date = now()
+            send_date = datetime.now()
             #raise forms.ValidationError(_("The date cannot be in the past!"))
         return send_date
 

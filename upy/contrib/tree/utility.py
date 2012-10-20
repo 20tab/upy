@@ -3,7 +3,7 @@ from django.conf import settings
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from upy.contrib.tree.models import PublicationExtended,UrlAjax
-from upy.utils import today
+from datetime import date
 from django.template.defaultfilters import slugify
    
 def getUrlList():
@@ -141,7 +141,7 @@ class UPYSitemap():
         
         
         tpl_str = render_to_string('sitemap.tpl.html', 
-                              {'set' : set_to_return, 'host' : host, 'today': today(),}, context_instance=RequestContext(self.request))
+                              {'set' : set_to_return, 'host' : host, 'today': date.today(),}, context_instance=RequestContext(self.request))
         
         return tpl_str
     

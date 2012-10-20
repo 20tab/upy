@@ -8,9 +8,10 @@ import hmac
 import hashlib
 import base64
 from django.conf import settings
-from upy.utils import now, datetimeToUnixSec  
+from upy.utils import datetimeToUnixSec  
 from upy.contrib.g11n.models import Publication
 from django.db.models.signals import post_save
+from datetime import datetime
 try:
     from upy.uwsgidecorators import spool, timer
 except Exception, e: 
@@ -53,7 +54,7 @@ class Contact(UPYNL):
     
     def save(self, *args, **kwargs):
         if not self.confirmed:
-            tohash = "%s%s" % (self.email,now())
+            tohash = "%s%s" % (self.email,datetime.now())
             dig = hmac.new(b'%s' % settings.UPY_SECRET_KEY, msg=tohash, digestmod=hashlib.sha256).digest()
             self.secret_key = base64.b64encode(dig).decode().replace("/","_")
         super(Contact,self).save( *args, **kwargs)
@@ -199,7 +200,7 @@ def close_dispatcher(disp):
     """
     try:
         disp.status = "sent"
-        disp.sent_date = now()
+        disp.sent_date = datetime.now()
         if not disp.contact_list.test:
             newsl = disp.newsletter
             newsl.sent = True
@@ -244,19 +245,20 @@ try:
         """
         if created or instance.status=="waiting":  
             #se il dispatcher e' appena stato creato o ri-settato su waiting accodalo
-            if not instance.send_date: instance.send_date = now()
+            if not instance.send_date: instance.send_date = datetime.now()
             timestamp = datetimeToUnixSec(instance.send_date)
             spooling_dispatcher.spool(disp="%s" % instance.pk,at=timestamp)
     
     post_save.connect(run_dispatcher, sender=Dispatcher)
     
     
-    @timer(settings.UPY_NEWSLETTER_SPOOLER_TIMEOUT, target='spooler')
+    @timer(settings.UPY_NEWSLETTER_SPOOLER_TIMEOUT, target='mule')
     def check_dispatchers(args):
         """
         This function enqueue a processing dispatcher. It checks every UPY_NEWSLETTER_SPOOLER_TIMEOUT seconds.  
         """
         disps = Dispatcher.objects.filter(status='processing')
+        print "QUI"
         for disp in disps:
             try: 
                 send_dispatcher_list(disp, recovery=True)
