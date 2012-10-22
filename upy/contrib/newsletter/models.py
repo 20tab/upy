@@ -252,7 +252,7 @@ try:
     post_save.connect(run_dispatcher, sender=Dispatcher)
     
     
-    @timer(settings.UPY_NEWSLETTER_SPOOLER_TIMEOUT, target='mule')
+    @timer(settings.UPY_NEWSLETTER_SPOOLER_TIMEOUT, target='spooler')
     def check_dispatchers(args):
         """
         This function enqueue a processing dispatcher. It checks every UPY_NEWSLETTER_SPOOLER_TIMEOUT seconds.  
