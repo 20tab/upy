@@ -15,7 +15,7 @@ class Menu(object):
     - root: the root of menu (it's hidden in menu string)
     - upy_context: it contains informations about current language, publication, page and node
     - menu_depth: it's depth level for menu introspection
-    - view_hidden: if True then hidden nodes will be show
+    - view_hidden: if True then hidden nodes will be shown
     - g11n_depth: check g11n_depth in contrib.g11n.models documentation
     """
     def __init__(self, request, root, upy_context, menu_depth = 0, view_hidden = False, g11n_depth = "publication_default"):
