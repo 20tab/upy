@@ -108,8 +108,6 @@ class Highlighter(object):
     
     def render_html(self, highlight_locations=None, start_offset=None, end_offset=None,nchars_before=0):
         # Start by chopping the block down to the proper window.
-        print self.text_block
-        print start_offset
         if start_offset > nchars_before:
             start_offset =  start_offset - nchars_before
         text = self.text_block[start_offset:end_offset]
