@@ -1,6 +1,14 @@
+"""
+Sources come from django-haystack project. 
+This contrib want to be an utility to use with no need of haystack.
+"""
 from django.utils.html import strip_tags
 
 class Highlighter(object):
+    """
+    This class permits to highlight the searched words (self.query) in a long text and truncates it
+    counts number of chars == max_length
+    """
     css_class = 'highlighted'
     html_tag = 'span'
     max_length = 200
@@ -21,6 +29,9 @@ class Highlighter(object):
         self.query_words = set([word.lower() for word in self.query.split() if not word.startswith('-')])
     
     def highlight(self, text_block,nchars_before=0):
+        """
+        This method highlight text_block and prepends chars before self.query word nchars_before chars
+        """
         self.text_block = strip_tags(text_block)
         highlight_locations = self.find_highlightable_words()
         start_offset, end_offset = self.find_window(highlight_locations)
