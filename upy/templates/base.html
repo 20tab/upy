@@ -7,26 +7,17 @@
 <meta name="keywords" content="{{ META.keywords }}" />
 <meta name="description" content="{{ META.description }}" />
 <meta name="generator" content="{{ META.generator }}" />
-{% if META.author %}
-	<meta name="author" content="{{META.author}}" />
-{% endif %}
-{% if META.robots %}
-	<meta name="robots" content="{{ META.robots }}" />
-{% endif %}
+{% if META.author %}<meta name="author" content="{{META.author}}" />{% endif %}
+{% if META.robots %}<meta name="robots" content="{{ META.robots }}" />{% endif %}
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 {% endblock head_meta %}
 {% block head_media %}
 <link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />
-{# <style type="text/css"></style> #}
- 	{% for css in MEDIA_CSS %}
-		<link rel="stylesheet" type="text/css" href="{{ css }}" />	
-	{% endfor %}
-	{% if USE_UPY_JQUERY_LIB %}
-	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
-	{% endif %}
-	{% for js in MEDIA_JS_HEADER %}
-		<script type="text/javascript" src="{{ js }}"></script> 	
-	{% endfor %}
+{% for css in MEDIA_CSS %}
+<link rel="stylesheet" type="text/css" href="{{ css }}" />{% endfor %}
+{% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}
+{% for js in MEDIA_JS_HEADER %}
+<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 {% endblock head_media %}
 {% block extra_head_media %}{% endblock %}
 </head>
@@ -34,12 +25,9 @@
 <body>
 {% endblock %}
 {% block body %}{% endblock %}
-
 {% block foot_media %}
-	{% for js in MEDIA_JS_FOOTER %}
-		<script type="text/javascript" src="{{ js }}"></script> 	
-	{% endfor %}
+{% for js in MEDIA_JS_FOOTER %}
+<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 {% endblock foot_media %}
-</body> 
-
+</body>
 </html>
