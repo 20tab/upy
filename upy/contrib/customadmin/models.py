@@ -120,6 +120,7 @@ class CustomAdmin(models.Model):
     view_mode = models.CharField(max_length = 250, null = True, blank = True, 
                                  choices = (('use_custom_app',_('Use custom app system')),
                                             ('use_app_icons',_("Use apps' icons system")),
+                                            ('use_app_and_model_icons',_("Use apps and models icons system")),
                                             ('use_model_icons',_("Use models' icons system in index group models by app")),
                                             ('use_total_model_icons',_("Use models' icons system in index ungroup models by app"))), 
                                  help_text = _(u"Choose the view mode"), 
