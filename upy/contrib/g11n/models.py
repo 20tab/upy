@@ -246,7 +246,7 @@ class Publication(G11nBase):
         It returns default publication
         """
         try:
-            return Publication.objects.get(is_default="default")
+            return Publication.objects.select_related().get(is_default="default")
         except: 
             return None  
 
@@ -337,7 +337,7 @@ class Language(models.Model):
         """
         
         try:
-            return Publication.objects.get(is_default="default").default_language
+            return Publication.objects.select_related().get(is_default="default").default_language
         except: 
             return None
     

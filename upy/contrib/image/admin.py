@@ -7,8 +7,6 @@ if config.USE_UPY_G11N:
     from upy.contrib.image.models import UPYImageG11n 
     if config.USE_UPY_IMAGE:
         from upy.contrib.image.models import ImageRepositoryG11n
-    
-from upy.contrib.image.models import UPYImage, PositionImage
 if config.USE_UPY_IMAGE:
         from upy.contrib.image.models import ImageRepository
 from django import forms

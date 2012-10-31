@@ -16,13 +16,13 @@ def getUrlList():
     """
     #Node.rebuild()
     
-    publications = PublicationExtended.objects.all()
+    publications = PublicationExtended.objects.select_related().all()
     set_to_return = []
     set_login_required = []
     set_url = []
     struct_tmp = []
     
-    for urlajax in UrlAjax.objects.all():
+    for urlajax in UrlAjax.objects.select_related().all():
         regex = r'^%s/%s$' % (urlajax.slug, urlajax.regex)
         regex_path = '%s/%s' % (urlajax.slug, urlajax.regex)
         view = u'%s.%s.%s' % (urlajax.view.app_name,urlajax.view.module_name,urlajax.view.func_name)

@@ -9,7 +9,7 @@ def add_app_icons(app_list, autocomplete):
     It returns a list of applications to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode.
     """
-    app_icon_list = CustomApp.objects.all()
+    app_icon_list = CustomApp.objects.select_related().all()
     app_list_ok = []
     for appicon in app_icon_list:
         try:
@@ -45,7 +45,7 @@ def custom_app_list(app_list, autocomplete):
     """
     It returns a list of applications chosen to view in admin's interface (index.html).
     """
-    app_icon_list = CustomApp.objects.all()
+    app_icon_list = CustomApp.objects.select_related().all()
     app_list_ok = []
     for appicon in app_icon_list:
         try:
@@ -80,7 +80,7 @@ def add_model_icons(app_list,custom_admin):
     It returns a list of models to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode for models.
     """
-    custommodels = CustomModel.objects.all()
+    custommodels = CustomModel.objects.select_related().all()
     app_res = []
     for app in app_list:
         names = []

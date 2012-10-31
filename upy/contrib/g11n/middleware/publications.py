@@ -26,7 +26,7 @@ class SetCurrentPublicationMiddleware(object):
             request.upy_context = match.kwargs['upy_context']
         elif match:
             try:
-                current_publication = Publication.objects.get(url = request.get_host())
+                current_publication = Publication.objects.select_related().get(url = request.get_host())
             except:
                 current_publication = None
             activate(current_publication)

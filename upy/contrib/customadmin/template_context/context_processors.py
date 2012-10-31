@@ -8,8 +8,8 @@ def customadmin_context(request):
     """
     context_extras = {}
     try:
-        context_extras['CUSTOM_ADMIN'] = CustomAdmin.objects.get(is_default = "default")
-        context_extras['CUSTOM_LINK_LIST'] = CustomLink.objects.all()
+        context_extras['CUSTOM_ADMIN'] = CustomAdmin.objects.select_related().get(is_default = "default")
+        context_extras['CUSTOM_LINK_LIST'] = CustomLink.objects.select_related().all()
         context_extras['CUSTOM_ADMIN_CSS_ICONS'] = True
     except CustomAdmin.DoesNotExist:
         context_extras['CUSTOM_ADMIN'] = None

@@ -238,7 +238,7 @@ class Node(G11nBase,MPTTModel):
         It returns simply a link as string
         """
         if upy_context:
-            link, x =  self.absolute_url(upy_context['PUB_EXTENDED'], upy_context['NODE'])
+            link =  self.absolute_url(upy_context['PUB_EXTENDED'], upy_context['NODE'])[0]
         else:
             link = "%s" % self.pk
         return link
@@ -275,6 +275,7 @@ class Node(G11nBase,MPTTModel):
         """
         DEPRECATED: It returns the current node, calculating it. But the current node is in the upy_context dictionary
         """
+        print "DEPRECATION WARNING: upy.contrib.tree.models.Node.getCurrent()"
         tree_structure_root = publication.tree_structure.tree_root
         nodes = tree_structure_root.get_descendants()
         for node in nodes:
@@ -288,6 +289,7 @@ class Node(G11nBase,MPTTModel):
         """
         DEPRECATED: It rebuilds mptt structure in database
         """
+        print "DEPRECATION WARNING: upy.contrib.tree.models.Node.rebuild()"
         def rebuild_tree(node, tree_id, lft=0, level=1):
             rght = lft + 1
             print "%s%s (%s)" % ("    " * (level - 1), node.name, unicode(node.parent))
@@ -376,7 +378,7 @@ class Page(G11nBase):
         It returns absolute url defined by node related to this page
         """
         try:    
-            node = Node.objects.filter(page = self)[0]
+            node = Node.objects.select_related().filter(page = self)[0]
             return node.get_absolute_url(upy_context)
         except Exception, e:
             raise ValueError("Error in %s.%s: %s" % (self.__module__,self.__class__.__name__,e))
@@ -420,6 +422,7 @@ class Page(G11nBase):
         """
         DEPRECATED: It calculates current page but it's in upy_context dictionary
         """
+        print "DEPRECATION WARNING: upy.contrib.tree.models.Page.getCurrent()"
         if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
             page_url = request.get_full_path()
             page_url = page_url.split('/')[2:]
@@ -900,6 +903,7 @@ class UrlAjax(models.Model):
         DEPRECATED: There aren't NODES or PAGES associated to urlajax
         This function check if a UrlAjax has static vars
         """
+        print "DEPRECATION WARNING: upy.contrib.tree.models.UrlAjax.check_static_vars()"
         if self.static_vars == "":
             self.static_vars = {'upy_context':{}}
         else:
