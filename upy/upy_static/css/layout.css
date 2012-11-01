@@ -171,3 +171,9 @@ h3 a:hover{}
 #changelist-filter h2{
     cursor: pointer;
 }
+.change-list .filtered{
+	background: #fff none !important;
+}
+#changelist-filter{
+	border-bottom:1px solid #ddd;
+}
