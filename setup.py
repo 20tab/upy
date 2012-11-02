@@ -1,23 +1,5 @@
 from setuptools import setup, find_packages
-from setuptools.dist import Distribution
-import pkg_resources
 import upy
-
-add_django_dependency = True
-try:
-    pkg_resources.get_distribution('Django')
-    add_django_dependency = False
-except pkg_resources.DistributionNotFound:
-    try:
-        import django
-        if django.VERSION[0] >= 1 and django.VERSION[1] >= 2 and django.VERSION[2] >= 0:
-            add_django_dependency = False
-    except ImportError:
-        pass
-
-Distribution({
-    "setup_requires": add_django_dependency and  ['Django >=1.4.0'] or []
-})
 
 setup(name='UPY',
     version=upy.__version__,
