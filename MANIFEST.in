@@ -9,6 +9,9 @@ include upy/templates/admin/upy/*
 include upy/contrib/language/templates/*
 include upy/contrib/staticpage/templates/*
 include upy/contrib/newsletter/templates/*
+include upy/contrib/ckeditor/LICENSE.markdown
+include upy/contrib/color/LICENSE
+include upy/contrib/highlighter/LICENSE
 include upy/upy_static/colors/*
 include upy/upy_static/colors/css/*
 include upy/upy_static/colors/images/*
@@ -76,3 +79,4 @@ include upy/bin/upy_project_set/project/*
 include upy/bin/upy_project_set/project/project/*
 include upy/contrib/ckeditor/templates/*
 include upy/contrib/staticelement/templates/*
+include LICENSE
