@@ -10,7 +10,7 @@ include upy/contrib/language/templates/*
 include upy/contrib/staticpage/templates/*
 include upy/contrib/newsletter/templates/*
 include upy/contrib/ckeditor/LICENSE.markdown
-include upy/contrib/color/LICENSE
+include upy/contrib/colors/LICENSE
 include upy/contrib/highlighter/LICENSE
 include upy/upy_static/colors/*
 include upy/upy_static/colors/css/*
