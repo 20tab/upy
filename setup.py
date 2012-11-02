@@ -1,4 +1,3 @@
-import os
 from setuptools import setup, find_packages
 from setuptools.dist import Distribution
 import pkg_resources
