@@ -82,6 +82,8 @@ def main():
 
     if len(args) != 1:
         parser.error("wrong number of arguments")
+    if args and args[0] != "startproject":
+        parser.error("use startproject command as first argument")
     create_project(options.name)
     
 if __name__ == '__main__':
