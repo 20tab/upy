@@ -82,11 +82,12 @@ class NodeForm(forms.ModelForm):
             raise forms.ValidationError(_("A node may not be made a child of itself."))
         if parent:
             basenode = parent.basenode
-            for node in basenode.get_descendants(include_self=False):
-                if slug == node.complete_slug and node.pk != self.instance.pk:
-                    raise forms.ValidationError(_("You cannot use two same slugs in same nodes of the same structure"))
-                if node.page and node.page == page and node.pk != self.instance.pk:
-                    raise forms.ValidationError(_("You can use page only in one node of the same structure"))
+            if page: # check the slug validity only if this is a page node with its own slug 
+                for node in basenode.get_descendants(include_self=False):
+                    if slug == node.complete_slug and node.pk != self.instance.pk:
+                        raise forms.ValidationError(_("You cannot use the same slug (/%s) in two different nodes of the same structure" % (slug)))
+                    if node.page and node.page == page and node.pk != self.instance.pk:
+                        raise forms.ValidationError(_("You can use page only in one node of the same structure"))
         return self.cleaned_data   
 
     
