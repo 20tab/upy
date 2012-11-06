@@ -4,11 +4,12 @@ It contains customadmin's models. It's used to customize admin's interface
 from upy.contrib.tree.models import _
 from django.db import models
 from upy.contrib.colors.fields import ColorField
-from upy.contrib.image.models import PositionImage
+from upy.contrib.image.models import PositionImage, _choose_preprocessor
 from django.conf import settings
 from upy.utils import clean_cache 
-from imagekit.models import ImageSpecField
+from imagekit.models import ImageSpecField,ProcessedImageField
 from imagekit.processors import ResizeToFit
+
 
 def verifyApp(app):
     return app in ['django.contrib.contenttypes',
@@ -76,6 +77,12 @@ class CustomAdmin(models.Model):
                                           help_text = _(u"Set brand's image."), 
                                           verbose_name = _(u"Branding image"))
     is_default = models.CharField(max_length = 50, choices = (("default","Default"),), null = True, blank = True, unique = True, help_text = _(u"Select it if you want use this as default customization."), verbose_name = _(u"Is default"))
+    
+    default_app_image = ProcessedImageField(verbose_name = _(u"Default app image"), help_text = _(u"Insert a default application image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])
+    default_model_image = ProcessedImageField(verbose_name = _(u"Default model image"), help_text = _(u"Insert a default model image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])
+    
+    app_image = ImageSpecField([ResizeToFit(128,128)], image_field='default_app_image', options={'quality': 90})  #format='JPEG',
+    model_image = ImageSpecField([ResizeToFit(50,50)], image_field='default_model_image', options={'quality': 90}) 
     
     bg_header = ColorField(max_length = 200, null = True, blank = True, 
                            help_text = _(u"Set header's background color."), 

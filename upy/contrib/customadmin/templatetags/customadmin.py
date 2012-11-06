@@ -1,5 +1,5 @@
 from django.template import Library
-from upy.contrib.customadmin.models import CustomApp,CustomModel
+from upy.contrib.customadmin.models import CustomApp,CustomModel,CustomAdmin
 
 register = Library()
 
@@ -9,12 +9,21 @@ def add_app_icons(app_list, autocomplete):
     It returns a list of applications to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode.
     """
+    try:
+        customadmin = CustomAdmin.objects.get(is_default="default")
+        def_app_img = None
+        if customadmin.default_app_image:
+            def_app_img = customadmin.app_image
+    except CustomAdmin.DoesNotExist:
+        def_app_img = None
     app_icon_list = CustomApp.objects.select_related().all()
     app_list_ok = []
     for appicon in app_icon_list:
         try:
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
-            app_temp['image'] = appicon.image
+            app_temp['image'] = def_app_img
+            if appicon.image:
+                app_temp['image'] = appicon.image
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
@@ -32,7 +41,7 @@ def add_app_icons(app_list, autocomplete):
         app_out_list = [x for x in app_list if x.get('name') in app_out_name]
         
         for app_out in app_out_list:
-            app_out['image'] = None
+            app_out['image'] = def_app_img
             app_out['verbose_app_name'] = app_out.get('name')
         
         app_list_ok.extend(app_out_list)
@@ -54,7 +63,7 @@ def custom_app_list(app_list, autocomplete):
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
-        except IndexError, e:
+        except IndexError:
             #print ("Error in customadmin.templatetags.add_app_icons: ", e, 
             #       "; application: ", appicon.application)
             pass # probabilmente e' stata inserita nella lista di applicazioni con icona una applicazione
@@ -80,6 +89,13 @@ def add_model_icons(app_list,custom_admin):
     It returns a list of models to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode for models.
     """
+    try:
+        customadmin = CustomAdmin.objects.get(is_default="default")
+        def_model_img = None
+        if customadmin.default_model_image:
+            def_model_img = customadmin.model_image
+    except CustomAdmin.DoesNotExist:
+        def_model_img = None
     custommodels = CustomModel.objects.select_related().all()
     app_res = []
     for app in app_list:
@@ -91,7 +107,9 @@ def add_model_icons(app_list,custom_admin):
             names.append(m.model.lower())
             try:
                 model_temp = [x for x in models_list if u"%s" % x['name'].lower() == u"%s" % m.model.lower()][0]
-                model_temp['image'] = m.image
+                model_temp['image'] = def_model_img
+                if m.image:
+                    model_temp['image'] = m.image
                 models_temp.append(model_temp)
             except IndexError:
                 pass
@@ -99,6 +117,7 @@ def add_model_icons(app_list,custom_admin):
         if custom_admin.autocomplete_models_list:
             for m in models_list:
                 if m['name'].lower() not in names:
+                    m['image'] = def_model_img
                     models_temp.append(m)
         
 

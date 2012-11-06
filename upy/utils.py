@@ -28,20 +28,6 @@ def upy_re_match(regex,value):
     reg = re.compile(regex)
     return reg.match(value)  
 
-def now():
-    """
-    Returns datetime.datetime.now()
-    """
-    print "DEPRECATION WARNING: upy.utils.now() will be removed from next release: 0.13.x"
-    return datetime.datetime.now()
-
-def today():
-    """
-    Returns datetime.date.today()
-    """
-    print "DEPRECATION WARNING: upy.utils.today() will be removed from next release: 0.13.x"
-    return datetime.date.today()
-
 def compare_dicts(dict1, dict2):
     """
     Checks if dict1 equals dict2

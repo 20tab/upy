@@ -4,7 +4,7 @@ Admin's option for all model defined in customadmin app.
 from django.contrib import admin
 from django import forms
 from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps,list_models,CustomModel
-from upy.contrib.image.admin import PositionImageOption
+from upy.contrib.image.admin import PositionImageOption,clean_image
 from upy.utils import upy_re_match
 
 
@@ -75,6 +75,8 @@ class CustomAdminForm(forms.ModelForm):
         if not chk:
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
         
+        clean_image(self,'default_app_image')
+        clean_image(self,'default_model_image')
         return self.cleaned_data 
 
 class CustomAdminOption(admin.ModelAdmin):
@@ -90,6 +92,9 @@ class CustomAdminOption(admin.ModelAdmin):
                     },),
                  (_('View Option'), {'fields':
                                 (('view_mode', 'use_log_sidebar'),('autocomplete_app_list','autocomplete_models_list')),
+                    },),
+                 (_('Images'), {'fields':
+                                (('default_app_image','default_model_image',),),
                     },),
                  (_('Style'), {'fields':
                                 (('bg_header',), ('sitename_font','sitename_font_size',

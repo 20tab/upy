@@ -47,7 +47,6 @@ class UPYImageForm(forms.ModelForm):
         It cleans all ImageField in this form
         """
         for name,field in self.fields.items():
-            print name, " - ", field.__class__
             if issubclass(field.__class__,ImageField):
                 clean_image(self,name)
         return self.cleaned_data
