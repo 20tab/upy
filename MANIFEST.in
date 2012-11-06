@@ -1,82 +1,19 @@
-include upy/locale/es/LC_MESSAGES/*
-include upy/locale/fr/LC_MESSAGES/*
-include upy/locale/it/LC_MESSAGES/*
-include upy/contrib/tree/tpl/*
-include upy/contrib/tree/templates/*
-include upy/templates/*
-include upy/templates/admin/*
-include upy/templates/admin/upy/*
-include upy/contrib/language/templates/*
-include upy/contrib/staticpage/templates/*
-include upy/contrib/newsletter/templates/*
+include LICENSE
 include upy/contrib/ckeditor/LICENSE.markdown
 include upy/contrib/colors/LICENSE
-include upy/contrib/highlighter/LICENSE
-include upy/upy_static/colors/*
-include upy/upy_static/colors/css/*
-include upy/upy_static/colors/images/*
-include upy/upy_static/colors/js/*
-include upy/upy_static/css/*
-include upy/upy_static/images/*
-include upy/upy_static/images/prettyPhoto/dark_rounded/*
-include upy/upy_static/images/prettyPhoto/dark_square/*
-include upy/upy_static/images/prettyPhoto/default/*
-include upy/upy_static/images/prettyPhoto/facebook/*
-include upy/upy_static/images/prettyPhoto/light_rounded/*
-include upy/upy_static/images/prettyPhoto/light_square/*
-include upy/upy_static/js/*
-include upy/upy_static/js/lib/*
-include upy/upy_static/js/lib/ckeditor/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/adapters/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/lang/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/a11yhelp/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/a11yhelp/lang/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/about/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/clipboard/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/colordialog/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/dialog/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/div/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/find/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/flash/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/flash/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/forms/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/iframedialog/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/image/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/link/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/link/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/pagebreak/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/pastefromword/filter/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/pastetext/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/scayt/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/showblocks/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/smiley/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/smiley/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/specialchar/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/stylescombo/styles/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/table/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/tabletools/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/templates/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/templates/templates/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/templates/templates/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/uicolor/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/uicolor/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/uicolor/lang/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/uicolor/yui/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/uicolor/yui/assets/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/plugins/wsc/dialogs/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/skins/office2003/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/skins/office2003/images/*
-include upy/upy_static/js/lib/ckeditor/ckeditor/themes/default/*
-include upy/upy_static/js/lib/ckeditor/galleriffic/css/*
-include upy/upy_static/js/lib/ckeditor/galleriffic/js/*
-include upy/contrib/customadmin/templates/*
-include upy/contrib/colors/templates/*
-include upy/bin/*
-include upy/bin/upy_project_set/*
-include upy/bin/upy_project_set/project/*
-include upy/bin/upy_project_set/project/project/*
-include upy/contrib/ckeditor/templates/*
-include upy/contrib/staticelement/templates/*
-include LICENSE
+include upy/contrib/rosetta/LICENSE
+recursive-include upy/locale *
+recursive-include upy/contrib/tree/tpl *
+recursive-include upy/templates *
+recursive-include upy/contrib/language/templates *
+recursive-include upy/contrib/staticpage/templates *
+recursive-include upy/contrib/newsletter/templates *
+recursive-include upy/upy_static *
+recursive-include upy/contrib/customadmin/templates *
+recursive-include upy/contrib/colors/templates *
+recursive-include upy/bin *
+recursive-include upy/contrib/ckeditor/templates *
+recursive-include upy/contrib/staticelement/templates *
+recursive-include upy/contrib/tree/templates *
+recursive-include upy/contrib/rosetta/locale *
+recursive-include upy/contrib/rosetta/templates *

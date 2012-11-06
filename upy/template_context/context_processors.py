@@ -11,4 +11,6 @@ def use_upy_admin(request):
     context_extras['USE_UPY_ADMIN'] = settings.USE_UPY_ADMIN
     context_extras['JQUERY_LIB'] = settings.JQUERY_LIB
     context_extras['USE_UPY_JQUERY_LIB'] = settings.USE_UPY_JQUERY_LIB
+    context_extras['USE_UPY_CSS_RESET'] = settings.USE_UPY_CSS_RESET
+    context_extras['USE_UPY_ROSETTA'] = settings.USE_UPY_ROSETTA
     return context_extras

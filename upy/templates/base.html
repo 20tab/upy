@@ -12,7 +12,7 @@
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 {% endblock head_meta %}
 {% block head_media %}
-<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />
+{% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}
 {% for css in MEDIA_CSS %}
 <link rel="stylesheet" type="text/css" href="{{ css }}" />{% endfor %}
 {% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}

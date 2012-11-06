@@ -48,3 +48,7 @@ if config.USE_CUSTOM_ADMIN:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.customadmin.urls')),
     )
+if config.USE_UPY_ROSETTA:
+    urlpatterns += patterns('',
+        (r'', include('upy.contrib.rosetta.urls')),
+    )

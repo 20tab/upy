@@ -27,6 +27,8 @@ USE_CUSTOM_ADMIN = True
 """ If True CustomAdmin app will be installed and you can customize your admin """
 USE_UPY_COLOR = True
 """ If True Colors app will be installed and you can use its utilities and widgets """
+USE_UPY_ROSETTA = True 
+""" If True the rosetta module will be installed """
 USE_STATIC_PAGE = True 
 """ If True the static page module will be installed. IT NEEDS USE_UPY_G11N = True """
 USE_STATIC_ELEMENT = False
@@ -43,6 +45,8 @@ DEBUG = True
 """ True only in development to debug your application"""
 USE_UPY_JQUERY_LIB = True
 """ If True standard upy jquery library will be included in base template """
+USE_UPY_CSS_RESET = True
+""" If True standard upy css reset will be included in base template """
 USE_GLOBAL_TEMPLATES_DIR = True
 """ If True upy.contrib.tree.Template saves templates in the global directory else in the application templates directory """
 ADMINS = (("errors","errors@email.com"),)

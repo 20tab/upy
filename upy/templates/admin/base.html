@@ -15,6 +15,7 @@
 {% if CUSTOM_ADMIN.html_head %}{{CUSTOM_ADMIN.html_head|safe}}{% endif %}
 {% endif %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+{% block rosetta %}{% endblock %}
 </head>
 {% load i18n %}
 
@@ -31,7 +32,7 @@
         </div>
         {% if user.is_active and user.is_staff %}
         <div id="user-tools">
-            {% trans 'Welcome,' %}
+            <div>{% trans 'Welcome,' %}
             <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
             {% block userlinks %}
                 {% url 'django-admindocs-docroot' as docsroot %}
@@ -41,9 +42,13 @@
                 <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
                 <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
             {% endblock %}
+            </div>
+            {% if USE_UPY_ROSETTA %}
+	        <div id="rosetta-link"><a href="/admin/rosetta">{% trans "Translate static strings" %}</a></div>
+	        {% endif %}
             {% if LANGUAGES|length > 1 %}
-                <br/>
-                <br/><form id = "form_change_language" action="/i18n/setlang/" method="post">{% csrf_token %}
+                <div class="box_change_language">
+                <form id = "form_change_language" action="/i18n/setlang/" method="post">{% csrf_token %}
                     <input name="next" type="hidden" value="" />
                     <select name="language">
                         {% for code,desc in LANGUAGES %}
@@ -52,7 +57,9 @@
                     </select>
                     <input type="submit" value="{% trans "Go" %}" />
                 </form>
+                </div>
             {% endif %}
+	        <div class="fixfloat"></div>
         </div>
         {% endif %}
         {% block nav-global %}{% endblock %}
@@ -64,6 +71,7 @@
     {% if title %} &rsaquo; {{ title }}{% endif %}
     </div>
     {% endblock %}
+    {% block rosetta_breadcrumbs %}{% endblock %}
     {% endif %}
 
     {% block messages %}

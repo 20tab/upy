@@ -123,7 +123,10 @@ if USE_UPY_COLOR:
     INSTALLED_APPS.append('upy.contrib.colors')
 
 if USE_CUSTOM_ADMIN:
-    INSTALLED_APPS.append('upy.contrib.customadmin')  
+    INSTALLED_APPS.append('upy.contrib.customadmin')
+
+if USE_UPY_ROSETTA:
+    INSTALLED_APPS.append('upy.contrib.rosetta')  
     
 INSTALLED_APPS.extend(
     PROJECT_APPS

@@ -177,3 +177,21 @@ h3 a:hover{}
 #changelist-filter{
 	border-bottom:1px solid #ddd;
 }
+
+#rosetta-link{
+	float:left;
+}
+#rosetta-link a{
+	background: white url(../images/nav-bg.gif) bottom repeat-x;
+    padding: 3px 5px;
+    border: 1px solid #bbb;
+    border-color: #ddd #aaa #aaa #ddd;
+	color: black !important;
+	height:25px;
+	line-height:25px;
+}
+.box_change_language{
+	float:right;
+	height:25px;
+	line-height:25px;
+}

@@ -21,7 +21,8 @@ def verifyApp(app):
                         'upy',
                         'upy.contrib.ckeditor',
                         'upy.contrib.colors',
-                        'upy.contrib.language']
+                        'upy.contrib.language',
+                        'upy.contrib.rosetta']
         
 
 def list_apps():
