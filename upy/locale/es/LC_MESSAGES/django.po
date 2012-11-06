@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-06 14:38+0100\n"
+"POT-Creation-Date: 2012-11-06 18:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1060,298 +1060,318 @@ msgstr ""
 msgid "Some values are not hexadecimal string"
 msgstr ""
 
-#: upy/contrib/customadmin/admin.py:87 upy/contrib/customadmin/models.py:69
+#: upy/contrib/customadmin/admin.py:89 upy/contrib/customadmin/models.py:70
 msgid "Branding"
 msgstr ""
 
-#: upy/contrib/customadmin/admin.py:91
+#: upy/contrib/customadmin/admin.py:93
 msgid "View Option"
 msgstr ""
 
-#: upy/contrib/customadmin/admin.py:94
+#: upy/contrib/customadmin/admin.py:96 upy/contrib/image/models.py:108
+msgid "Images"
+msgstr ""
+
+#: upy/contrib/customadmin/admin.py:99
 msgid "Style"
 msgstr ""
 
-#: upy/contrib/customadmin/admin.py:101 upy/contrib/g11n/models.py:317
+#: upy/contrib/customadmin/admin.py:106 upy/contrib/g11n/models.py:317
 msgid "Code"
 msgstr ""
 
-#: upy/contrib/customadmin/admin.py:136 upy/contrib/customadmin/admin.py:155
-#: upy/contrib/customadmin/admin.py:185
+#: upy/contrib/customadmin/admin.py:141 upy/contrib/customadmin/admin.py:160
+#: upy/contrib/customadmin/admin.py:190
 msgid "Icons"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:68
+#: upy/contrib/customadmin/models.py:69
 msgid "Set branding"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:72
+#: upy/contrib/customadmin/models.py:73
 msgid "Set branding's link"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:73
+#: upy/contrib/customadmin/models.py:74
 msgid "Branding link"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:76
+#: upy/contrib/customadmin/models.py:77
 msgid "Set brand's image."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:77
+#: upy/contrib/customadmin/models.py:78
 msgid "Branding image"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:78
+#: upy/contrib/customadmin/models.py:79
 msgid "Select it if you want use this as default customization."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:78 upy/contrib/g11n/models.py:192
+#: upy/contrib/customadmin/models.py:79 upy/contrib/g11n/models.py:192
 msgid "Is default"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:81
-msgid "Set header's background color."
+msgid "Default app image"
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:81
+msgid "Insert a default application image"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:82
-msgid "BG Header"
+msgid "Default model image"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:84
-msgid "Set sitename font."
-msgstr ""
-
-#: upy/contrib/customadmin/models.py:85
-msgid "Sitename font"
-msgstr ""
-
-#: upy/contrib/customadmin/models.py:87
-msgid "Set sitename font size."
+#: upy/contrib/customadmin/models.py:82
+msgid "Insert a default model image"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:88
-msgid "Sitename font size"
+msgid "Set header's background color."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:90
-msgid "Set sitename font weight."
+#: upy/contrib/customadmin/models.py:89
+msgid "BG Header"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:91
-msgid "Sitename font weight"
+msgid "Set sitename font."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:93
-msgid "Set the background of title in tables."
+#: upy/contrib/customadmin/models.py:92
+msgid "Sitename font"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:94
-msgid "BG table title "
+msgid "Set sitename font size."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:96
-msgid "Set the color of title in tables."
+#: upy/contrib/customadmin/models.py:95
+msgid "Sitename font size"
 msgstr ""
 
 #: upy/contrib/customadmin/models.py:97
+msgid "Set sitename font weight."
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:98
+msgid "Sitename font weight"
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:100
+msgid "Set the background of title in tables."
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:101
+msgid "BG table title "
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:103
+msgid "Set the color of title in tables."
+msgstr ""
+
+#: upy/contrib/customadmin/models.py:104
 msgid "Table title color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:99
+#: upy/contrib/customadmin/models.py:106
 msgid "Set h2 color."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:99
+#: upy/contrib/customadmin/models.py:106
 msgid "H2 color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:101
+#: upy/contrib/customadmin/models.py:108
 msgid "Set h2 size."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:101
+#: upy/contrib/customadmin/models.py:108
 msgid "H2 size"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:103
+#: upy/contrib/customadmin/models.py:110
 msgid "Set h3 color."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:103
+#: upy/contrib/customadmin/models.py:110
 msgid "H3 color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:105
+#: upy/contrib/customadmin/models.py:112
 msgid "Set h3 size."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:105
+#: upy/contrib/customadmin/models.py:112
 msgid "H3 size"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:107
+#: upy/contrib/customadmin/models.py:114
 msgid "Set link's color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:107
+#: upy/contrib/customadmin/models.py:114
 msgid "Link color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:109
+#: upy/contrib/customadmin/models.py:116
 msgid "Set link's color when hover"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:110
+#: upy/contrib/customadmin/models.py:117
 msgid "Link hover color"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:112
+#: upy/contrib/customadmin/models.py:119
 msgid "Set other html code to put in HEAD section. "
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:113
+#: upy/contrib/customadmin/models.py:120
 msgid "Html head"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:115
+#: upy/contrib/customadmin/models.py:122
 msgid "Set the css code. "
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:116
+#: upy/contrib/customadmin/models.py:123
 msgid "Css code"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:117
+#: upy/contrib/customadmin/models.py:124
 msgid "Check it if you want use css code to extends style."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:118
+#: upy/contrib/customadmin/models.py:125
 msgid "Use css code"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:119
+#: upy/contrib/customadmin/models.py:126
 msgid "Check it if you want use log sidebar in index template."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:120
+#: upy/contrib/customadmin/models.py:127
 msgid "Use log sidebar"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:122
+#: upy/contrib/customadmin/models.py:129
 msgid "Use custom app system"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:123
+#: upy/contrib/customadmin/models.py:130
 msgid "Use apps' icons system"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:124
+#: upy/contrib/customadmin/models.py:131
 msgid "Use apps and models icons system"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:125
+#: upy/contrib/customadmin/models.py:132
 msgid "Use models' icons system in index group models by app"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:126
+#: upy/contrib/customadmin/models.py:133
 msgid "Use models' icons system in index ungroup models by app"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:127
+#: upy/contrib/customadmin/models.py:134
 msgid "Choose the view mode"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:128
+#: upy/contrib/customadmin/models.py:135
 msgid "View mode"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:130
+#: upy/contrib/customadmin/models.py:137
 msgid ""
 "Check it if you want complete the custom app list with the default app list."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:131
+#: upy/contrib/customadmin/models.py:138
 msgid "Autocomplete App"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:133
+#: upy/contrib/customadmin/models.py:140
 msgid ""
 "Check it if you want complete the custom models list with the default models "
 "list."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:134
+#: upy/contrib/customadmin/models.py:141
 msgid "Autocomplete model"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:169 upy/contrib/customadmin/models.py:170
+#: upy/contrib/customadmin/models.py:176 upy/contrib/customadmin/models.py:177
 msgid "Custom Admin"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:178
+#: upy/contrib/customadmin/models.py:185
 msgid "Select the application"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:179
+#: upy/contrib/customadmin/models.py:186
 #: upy/contrib/rosetta/templates/rosetta_languages.html:31
 msgid "Application"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:181 upy/contrib/customadmin/models.py:207
+#: upy/contrib/customadmin/models.py:188 upy/contrib/customadmin/models.py:214
 msgid "Write the verbose name to show"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:182
+#: upy/contrib/customadmin/models.py:189
 msgid "Verbose app name"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:187
+#: upy/contrib/customadmin/models.py:194
 msgid ""
 "If use_app_icons is False in Customadmin, you can choose wheter or not show "
 "the model list."
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:188
+#: upy/contrib/customadmin/models.py:195
 msgid "Show models"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:194
+#: upy/contrib/customadmin/models.py:201
 msgid "Custom App"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:195
+#: upy/contrib/customadmin/models.py:202
 msgid "Custom Apps"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:204
+#: upy/contrib/customadmin/models.py:211
 msgid "Select the url you want to link"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:205
+#: upy/contrib/customadmin/models.py:212
 msgid "Link Url"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:208
+#: upy/contrib/customadmin/models.py:215
 msgid "Verbose url name"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:216 upy/contrib/customadmin/models.py:217
+#: upy/contrib/customadmin/models.py:223 upy/contrib/customadmin/models.py:224
 msgid "Custom Link"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:225
+#: upy/contrib/customadmin/models.py:232
 msgid "Select a model"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:226
+#: upy/contrib/customadmin/models.py:233
 msgid "Model"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:235
+#: upy/contrib/customadmin/models.py:242
 msgid "Custom Model"
 msgstr ""
 
-#: upy/contrib/customadmin/models.py:236
+#: upy/contrib/customadmin/models.py:243
 msgid "Custom Models"
 msgstr ""
 
@@ -1615,10 +1635,6 @@ msgstr ""
 
 #: upy/contrib/image/models.py:107
 msgid "Image"
-msgstr ""
-
-#: upy/contrib/image/models.py:108
-msgid "Images"
 msgstr ""
 
 #: upy/contrib/image/models.py:120 upy/contrib/image/models.py:139
