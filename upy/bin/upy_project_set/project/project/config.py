@@ -129,6 +129,7 @@ else:
 STATICPAGE_CKE_CONFIG = {
     'height': 300,
     'width': 800,
+    'forcePasteAsPlainText' : True,
     #'contentsCss':'/static/example_layout.css'
     # others parameters
 }
@@ -145,6 +146,7 @@ STATICPAGE_CKE_CONFIG = {
 STATICELEMENT_CKE_CONFIG = {
     'height': 300,
     'width': 800,
+    'forcePasteAsPlainText' : True,
     #'contentsCss':'/static/example_layout.css'
     # others parameters
 }

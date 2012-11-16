@@ -134,6 +134,11 @@ class PublicationOption(admin.ModelAdmin):
     
     inlines = [PublicationG11nInline,]
     save_on_top = True
+    
+    def save_model(self, request, obj, form, change):
+        obj.url = obj.url.replace("http://","").replace("https://","")
+        obj.save()
+    
     class Meta: 
         model = Publication
     class Media: 
