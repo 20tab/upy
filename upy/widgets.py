@@ -41,7 +41,6 @@ class SubFKWidget(forms.Select):
         Creates html to add to widget
         """
         buttons = u""
-        print "\n\n",self.__dict__
         for item in self.sub_options:
             application = item['application']
             model = item['model']
