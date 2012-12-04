@@ -18,7 +18,10 @@ def view_404(request, url = None):
     """
     It returns a 404 http response
     """
-    return render_to_response("404.html", {"PAGE_URL": request.get_full_path()},context_instance=RequestContext(request))
+    res = render_to_response("404.html", {"PAGE_URL": request.get_full_path()},context_instance=RequestContext(request))
+    res.status_code = 404
+    return res
+
 
 def view_500(request, url = None):
     """
