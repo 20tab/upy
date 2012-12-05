@@ -46,6 +46,11 @@ class ButtonableModelAdmin(admin.ModelAdmin):
     """
     buttons_link=[]
     buttons_form=[]
+    def add_view(self, request, form_url='', extra_context={}):
+        extra_context['buttons_link']=self.buttons_link
+        extra_context['buttons_form']=self.buttons_form 
+        extra_context['button_object_id']=''
+        return super(ButtonableModelAdmin, self).add_view(request, form_url,extra_context)
     def change_view(self, request, object_id, form_url = '',extra_context={}): 
         """
         It adds ButtonLinks and ButtonForms to extra_context used in the change_form template
@@ -56,7 +61,7 @@ class ButtonableModelAdmin(admin.ModelAdmin):
         return super(ButtonableModelAdmin, self).change_view(request, object_id, form_url,extra_context)
     
 class HiddenModelAdmin(admin.ModelAdmin):
-     def get_model_perms(self, *args, **kwargs):
+    def get_model_perms(self, *args, **kwargs):
         perms = admin.ModelAdmin.get_model_perms(self, *args, **kwargs)
         perms['list_hide'] = True
         return perms
