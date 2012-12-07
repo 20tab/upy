@@ -29,3 +29,9 @@ class RichTextFormField(forms.fields.Field):
     def __init__(self, config_name='default', *args, **kwargs):
         kwargs.update({'widget': CKEditorWidget(config_name=config_name)})
         super(RichTextFormField, self).__init__(*args, **kwargs)
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^upy\.contrib\.ckeditor\.fields\.CountryField"])
+except ImportError:
+    pass

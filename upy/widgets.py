@@ -5,6 +5,16 @@ from django import forms
 from django.conf import settings
 from django.utils.safestring import mark_safe
 
+class NullTrueCheckboxWidget(forms.CheckboxInput):
+    def value_from_datadict(self, data, files, name):
+        if name not in data:
+            return None
+        value = data.get(name)
+        values =  {'on': True, 'false': None}
+        if isinstance(value, basestring):
+            value = values.get(value.lower(), value)
+        return value
+
 class SubFKWidget(forms.Select):
     """
     This widget creates a formfield for a foreignkey but linked to its subclasses.

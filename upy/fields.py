@@ -3,6 +3,22 @@ Contains some fields as utilities.
 """
 from django.utils.translation import ugettext as _
 from django.db import models
+from django.utils.text import capfirst
+from upy import forms
+
+
+class NullTrueField(models.NullBooleanField):        
+    def get_internal_type(self):
+        return "NullTrueField"
+    def formfield(self, **kwargs):
+        
+        defaults = {
+            'form_class':forms.NullTrueField, 
+            'required':not self.blank, 
+            'label':capfirst(self.verbose_name), 
+            'help_text':self.help_text}
+        defaults.update(kwargs)
+        return super(NullTrueField, self).formfield(**defaults)
 
 
 # ISO 3166-1 country names and codes adapted from http://opencountrycodes.appspot.com/python/
@@ -273,6 +289,6 @@ class CountryField(models.CharField):
         
 try:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^upy\.fields\.CountryField"])
+    add_introspection_rules([], ["^upy\.fields\.CountryField","^upy\.fields\.NullTrueField"])
 except ImportError:
     pass
