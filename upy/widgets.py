@@ -5,7 +5,6 @@ from django import forms
 from django.conf import settings
 from django.utils.safestring import mark_safe
 
-
 class SubFKWidget(forms.Select):
     """
     This widget creates a formfield for a foreignkey but linked to its subclasses.
