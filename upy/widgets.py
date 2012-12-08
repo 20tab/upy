@@ -66,5 +66,3 @@ class SubFKWidget(forms.Select):
         js = (settings.JQUERY_LIB,
               '/upy_static/js/sub_foreignkey.js',)
         css = {"all" : ("/upy_static/css/sub_foreignkey.css",)}
-
-    
