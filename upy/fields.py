@@ -3,8 +3,34 @@ Contains some fields as utilities.
 """
 from django.utils.translation import ugettext as _
 from django.db import models
+from django.utils.text import capfirst
+from upy import forms
 
+class NullTrueFieldBase(models.SubfieldBase):
+    def to_python(self, value):
+        return value == True
 
+class NullTrueField(models.NullBooleanField):   
+    __metaclass__ = NullTrueFieldBase 
+    def to_python(self, value):
+        if value is True:
+            return value
+        return False
+
+    def get_prep_value(self, value):
+        if value is None or value is False:
+            return None
+        return True
+        
+    def formfield(self, **kwargs):
+        defaults = {
+            'form_class': forms.NullTrueField,
+            'required': not self.blank,
+            'label': capfirst(self.verbose_name),
+            'help_text': self.help_text}
+        defaults.update(kwargs)
+        return super(NullTrueField, self).formfield(**defaults)
+    
 # ISO 3166-1 country names and codes adapted from http://opencountrycodes.appspot.com/python/
 COUNTRIES = (
     ('GB', _('United Kingdom')), 
