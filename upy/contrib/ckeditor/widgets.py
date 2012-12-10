@@ -5,19 +5,11 @@ from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
 from django.utils.encoding import force_unicode
 from django.utils import simplejson
-
 from django.core.exceptions import ImproperlyConfigured
 from django.forms.util import flatatt
-
+from upy.contrib.ckeditor.config import CONFIGURATIONS
 json_encode = simplejson.JSONEncoder().encode
 
-DEFAULT_CONFIG = {
-    'skin': 'office2003',
-    'toolbar': 'Full',
-    'height': 300,
-    'width': 800,
-    #'contentsCss':'/static/example_layout.css'
-}
 
 class CKEditorWidget(forms.Textarea):
     """
@@ -32,17 +24,17 @@ class CKEditorWidget(forms.Textarea):
         except AttributeError:
             raise ImproperlyConfigured("django-ckeditor requires CKEDITOR_MEDIA_PREFIX setting. This setting specifies a URL prefix to the ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash: CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'")
 
-    def __init__(self, config_name='default',config = None, *args, **kwargs):
+    def __init__(self, config_name='COMPLETE_CONFIG',config = None, *args, **kwargs):
         super(CKEditorWidget, self).__init__(*args, **kwargs)
-        # Setup config from defaults.
         if not config:
-            self.config = DEFAULT_CONFIG
+            if config_name in CONFIGURATIONS.keys():
+                self.config = CONFIGURATIONS[config_name]
         else:
             self.config = config
         if not self.config.has_key('skin'):
-            self.config['skin'] = DEFAULT_CONFIG['skin']
+            self.config['skin'] = CONFIGURATIONS['COMPLETE_CONFIG']['skin']
         if not self.config.has_key('toolbar'):
-            self.config['toolbar'] = DEFAULT_CONFIG['toolbar']
+            self.config['toolbar'] = CONFIGURATIONS['COMPLETE_CONFIG']['toolbar']
             
     def render(self, name, value, attrs={}):
         if value is None: value = ''

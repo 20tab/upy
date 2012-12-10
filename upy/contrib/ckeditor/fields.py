@@ -10,7 +10,7 @@ class RichTextField(models.TextField):
     """
     Field that construct the textarea field with CKEditor widget.
     """
-    def __init__(self, config_name='default', *args, **kwargs):
+    def __init__(self, config_name='COMPLETE_CONFIG', *args, **kwargs):
         self.config_name = config_name
         super(RichTextField, self).__init__(*args, **kwargs)
     
@@ -26,12 +26,12 @@ class RichTextFormField(forms.fields.Field):
     """
     FormField for RichTextField
     """
-    def __init__(self, config_name='default', *args, **kwargs):
+    def __init__(self, config_name='COMPLETE_CONFIG', *args, **kwargs):
         kwargs.update({'widget': CKEditorWidget(config_name=config_name)})
         super(RichTextFormField, self).__init__(*args, **kwargs)
 
 try:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^upy\.contrib\.ckeditor\.fields\.CountryField"])
+    add_introspection_rules([], ["^upy\.contrib\.ckeditor\.fields\.RichTextField"])
 except ImportError:
     pass
