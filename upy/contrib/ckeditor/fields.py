@@ -10,9 +10,8 @@ class RichTextField(models.TextField):
     """
     Field that construct the textarea field with CKEditor widget.
     """
-    def __init__(self, *args, **kwargs):
-        if 'config_name' not in kwargs:
-            self.config_name = 'COMPLETE_CONFIG'
+    def __init__(self,config_name='COMPLETE_CONFIG',*args, **kwargs):
+        self.config_name = config_name
         super(RichTextField, self).__init__(*args, **kwargs)
     
     def formfield(self, **kwargs):
