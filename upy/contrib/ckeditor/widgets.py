@@ -29,6 +29,8 @@ class CKEditorWidget(forms.Textarea):
         if not config:
             if config_name in CONFIGURATIONS.keys():
                 self.config = CONFIGURATIONS[config_name]
+            else:
+                self.config = CONFIGURATIONS['COMPLETE_CONFIG']
         else:
             self.config = config
         if not self.config.has_key('skin'):
