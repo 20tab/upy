@@ -19,7 +19,9 @@ class CKEditorWidget(forms.Textarea):
     class Media:
         try:
             js = (
+                settings.JQUERY_LIB,
                 settings.CKEDITOR_MEDIA_PREFIX + 'ckeditor/ckeditor.js',
+                settings.CKEDITOR_MEDIA_PREFIX + 'ckeditor/jquery-ckeditor.js',
             )
         except AttributeError:
             raise ImproperlyConfigured("django-ckeditor requires CKEDITOR_MEDIA_PREFIX setting. This setting specifies a URL prefix to the ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash: CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'")
@@ -37,13 +39,13 @@ class CKEditorWidget(forms.Textarea):
             self.config['skin'] = CONFIGURATIONS['COMPLETE_CONFIG']['skin']
         if not self.config.has_key('toolbar'):
             self.config['toolbar'] = CONFIGURATIONS['COMPLETE_CONFIG']['toolbar']
-            
+      
     def render(self, name, value, attrs={}):
         if value is None: value = ''
         final_attrs = self.build_attrs(attrs, name=name)
         self.config['filebrowserUploadUrl'] = reverse('ckeditor_upload')
         self.config['filebrowserBrowseUrl'] = reverse('ckeditor_browse')
-        return mark_safe(u'''<textarea%s>%s</textarea>
-        <script type="text/javascript">
-            CKEDITOR.replace("%s", %s);
-        </script>''' % (flatatt(final_attrs), conditional_escape(force_unicode(value)), final_attrs['id'], json_encode(self.config)))
+        return mark_safe(u'''<textarea%s data-processed="0" data-config='%s' data-id="%s" data-type="ckeditortype">%s</textarea>
+                        ''' % (flatatt(final_attrs), json_encode(self.config), 
+                        final_attrs['id'],conditional_escape(force_unicode(value)), 
+                        ))
