@@ -2,6 +2,7 @@
 Contains some classes to extend ModelAdmin, with some other functionalities
 """
 from django.contrib import admin
+from django.conf import settings
 
 class ButtonLink(object):
     """

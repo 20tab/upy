@@ -13,6 +13,6 @@ class ColorField(models.CharField):
 
 try:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^upy\.contrib\.color\.fields\.ColorField"])
+    add_introspection_rules([], ["^upy\.contrib\.colors\.fields\.ColorField"])
 except ImportError:
     pass

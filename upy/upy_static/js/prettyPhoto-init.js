@@ -6,6 +6,7 @@ $(document).ready(function(){
 		},*/
 		social_tools: "",
 		show_title: false,
+		deeplinking:false,
 		markup: '<div class="pp_pic_holder"> \
 						<div class="ppt">&nbsp;</div> \
 						<div class="pp_top"> \
