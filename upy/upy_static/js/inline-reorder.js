@@ -30,8 +30,6 @@ jQuery(function(){
 			$(orderables[i]).find('tbody').sortable({
 				cancel:".add-row",
 				axis: 'y',
-				fixed:".add-row",
-				items: 'tr',
 				delay: '150',
 				start: function(event,ui){
 					temp_html_bottom = $(this).find('.add-row');
@@ -62,7 +60,8 @@ jQuery(function(){
 		else{
 			$(orderables[i]).sortable({
 				cancel:".add-row,h2",
-				fixed:".add-row,h2",
+				axis: 'y',
+				delay: '150',
 				items: '.inline-related',
 				start: function(event,ui){
 					temp_html_top = $(this).find('h2');
@@ -92,9 +91,20 @@ jQuery(function(){
 			});
 		}
 
+
 		$(orderables[i]).find("input,textarea,select")
 			.bind('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e) {
       		e.stopImmediatePropagation();
     	});
 
-	}});
+		
+	}
+	
+	$('.add-row a').on('click',function(){
+		$(this).parents('.ui-sortable').find("input,textarea,select")
+			.bind('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e) {
+      		e.stopImmediatePropagation();
+    	});	
+	});
+
+});

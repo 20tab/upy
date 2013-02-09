@@ -6,13 +6,13 @@ $(document).ready(function(){
 	var button_another = "input[name='_addanother']";
 	var button_continue = "input[name='_continue']";
 	
-	$(button_save).live('click',function(){
+	$(button_save).on('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
-	$(button_another).live('click',function(){
+	$(button_another).on('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
-	$(button_continue).live('click',function(){
+	$(button_continue).on('click',function(){
 		return checkG11nCompiled(inline_len,id_group);
 	});
 	

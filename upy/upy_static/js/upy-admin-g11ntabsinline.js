@@ -25,7 +25,7 @@ $(document).ready(function(){
 			cont++;
 		});
 	
-		$(".button-tab").live('click', function(){
+		$(".button-tab").on('click', function(){
 			$(".button-tab").removeClass('selected');
 			$(this).addClass('selected');
 			var id = $(this).attr('id').replace("button-tab-","");
