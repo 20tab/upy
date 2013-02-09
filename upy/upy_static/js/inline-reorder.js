@@ -29,13 +29,20 @@ jQuery(function(){
 		if($(orderables[i]).hasClass('tabular')){
 			$(orderables[i]).find('tbody').sortable({
 				cancel:".add-row",
+				axis: 'y',
 				fixed:".add-row",
+				items: 'tr',
+				delay: '150',
 				start: function(event,ui){
 					temp_html_bottom = $(this).find('.add-row');
 					$(this).find('.add-row').remove();
 				},
 				stop: function(event,ui){
 					$(this).append(temp_html_bottom);
+					$(orderables[i]).find("input,textarea,select")
+     					.bind('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e) {
+      					e.stopImmediatePropagation();
+    				});
 				},
 				update: function(event, ui) {
 		            item = ui.item
@@ -49,13 +56,14 @@ jQuery(function(){
 		            $(this).find('tr:odd').addClass('row2');
 				}
 				
-			}).disableSelection();
+			});
 			
 		}
 		else{
 			$(orderables[i]).sortable({
 				cancel:".add-row,h2",
 				fixed:".add-row,h2",
+				items: '.inline-related',
 				start: function(event,ui){
 					temp_html_top = $(this).find('h2');
 					temp_html_bottom = $(this).find('.add-row');
@@ -64,6 +72,10 @@ jQuery(function(){
 				stop: function(event,ui){
 					$(this).prepend(temp_html_top);
 					$(this).append(temp_html_bottom);
+					$(orderables[i]).find("input,textarea,select")
+     					.bind('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e) {
+      					e.stopImmediatePropagation();
+    				});
 				},
 				update: function(event, ui) {
 		            item = ui.item
@@ -77,7 +89,12 @@ jQuery(function(){
 		            $(this).find('tr:odd').addClass('row2');
 				}
 				
-			}).disableSelection();
+			});
 		}
-		
+
+		$(orderables[i]).find("input,textarea,select")
+			.bind('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e) {
+      		e.stopImmediatePropagation();
+    	});
+
 	}});

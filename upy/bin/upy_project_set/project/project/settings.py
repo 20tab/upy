@@ -147,8 +147,8 @@ CONTENT_TYPES = ['image', 'video']
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = "2048000"
 
-JQUERY_LIB = "/upy_static/js/lib/jquery-1.7.1.min.js" 
-JQUERYUI_LIB = "/upy_static/js/lib/jquery-ui-1.8.17.custom.min.js"
+JQUERY_LIB = "/upy_static/js/lib/jquery-1.9.0.js" 
+JQUERYUI_LIB = "/upy_static/js/lib/jquery-ui-1.10.0.custom.min.js"
 
 #This variables are necessary for treenode template
 UPY_ADMIN_MEDIA = '/upy_static/'
