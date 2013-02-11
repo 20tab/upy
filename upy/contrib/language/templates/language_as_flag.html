@@ -3,16 +3,16 @@
     <form id = "form_change_language" action="/i18n/setlang/" method="post">{% csrf_token %}        
 	    {% for language in languages %}        
 	        {% if not forloop.first %}
-	            {%if separator %}
+	            {%if mod.separator %}
 	                <span class = "lang_separator">
-	                    {{separator}}
+	                    {{mod.separator}}
 	                </span>
 	            {%endif%}
 	        {% endif %}
-	        {% if redirect_to %}
-	        <input type="hidden" name="next" value="{{redirect_to}}" />
+	        {% if mod.redirect_to %}
+	        <input type="hidden" name="next" value="{{mod.redirect_to}}" />
 	        {% endif %}
-	        <input type="image" {% if language.code == LANGUAGE_CODE %}disabled="disabled"{% endif %} name="language" id = "lang_{{language.code}}" value="{{language.code}}" src="{{MEDIA_URL}}{{ language.flag }}" alt="{{language.name}}" />
+	        <input type="image" {% if mod.current_disabled and language.code == LANGUAGE_CODE %}disabled="disabled"{% endif %} name="language" id = "lang_{{language.code}}" value="{{language.code}}" src="{{MEDIA_URL}}{{ language.flag }}" alt="{{language.name}}" />
 	    {% endfor %}
     </form>
 </div>
