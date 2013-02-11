@@ -23,17 +23,11 @@ class ChangeLangMod(object):
         """
         It returns a string, that represent a form, to print in your template.
         """
-        if self.type_as == u"as_flag":
-            languages = self.publication.languages.all()
-            return render_to_string("language_%s.html" % self.type_as, 
+        languages = self.publication.languages.all()
+        return render_to_string("language_%s.html" % self.type_as, 
                                     {"separator": self.separator,
                                      "redirect_to":self.redirect_to,
                                      "languages": languages}, 
-                                    context_instance=RequestContext(self.request))
-        else:
-            return render_to_string("language_%s.html" % self.type_as, 
-                                    {"redirect_to":self.redirect_to,
-                                     "separator": self.separator}, 
                                     context_instance=RequestContext(self.request))
         
         
