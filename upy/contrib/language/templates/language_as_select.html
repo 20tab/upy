@@ -1,7 +1,9 @@
 {% load i18n %}
 <div id="utility_lang">
     <form id = "form_change_language" action="/i18n/setlang/" method="post">{% csrf_token %}
-        <!-- <input name="next" type="hidden" value="" /> -->
+        {% if redirect_to %}
+        <input type="hidden" name="next" value="{{redirect_to}}" />
+        {% endif %}
         <select name="language">
             {% for code,desc in LANGUAGES %}
                 <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected="selected"{% endif %}>{{ desc }}</option>

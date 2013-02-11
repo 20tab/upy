@@ -9,12 +9,13 @@ class ChangeLangMod(object):
     - publication
     - separator: a string used to separate languages in form.
     """
-    def __init__(self, request, type_as, publication, separator = None):
+    def __init__(self, request, type_as, publication, separator = None,redirect_to=None):
         if type_as in ['as_select', 'as_string', 'as_flag']:
             self.request = request
             self.type_as = type_as # one of this: as_select, as_string, as_flag
             self.publication = publication
             self.separator = separator
+            self.redirect_to = redirect_to
         else:
             raise ValueError('Error in upy.contrib.language.ChangeLangMod. type_as "%s" is not found in __init__ function' % type_as)
 
@@ -26,11 +27,13 @@ class ChangeLangMod(object):
             languages = self.publication.languages.all()
             return render_to_string("language_%s.html" % self.type_as, 
                                     {"separator": self.separator,
+                                     "redirect_to":self.redirect_to,
                                      "languages": languages}, 
                                     context_instance=RequestContext(self.request))
         else:
             return render_to_string("language_%s.html" % self.type_as, 
-                                    {"separator": self.separator}, 
+                                    {"redirect_to":self.redirect_to,
+                                     "separator": self.separator}, 
                                     context_instance=RequestContext(self.request))
         
         

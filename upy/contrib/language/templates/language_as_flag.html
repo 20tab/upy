@@ -9,6 +9,9 @@
 	                </span>
 	            {%endif%}
 	        {% endif %}
+	        {% if redirect_to %}
+	        <input type="hidden" name="next" value="{{redirect_to}}" />
+	        {% endif %}
 	        <input type="image" {% if language.code == LANGUAGE_CODE %}disabled="disabled"{% endif %} name="language" id = "lang_{{language.code}}" value="{{language.code}}" src="{{MEDIA_URL}}{{ language.flag }}" alt="{{language.name}}" />
 	    {% endfor %}
     </form>

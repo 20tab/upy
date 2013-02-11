@@ -10,6 +10,9 @@
         {% endif %}
         <form class="upy_lan_form_string" id = "form_change_language_{{code}}" action="/i18n/setlang/" method="post">{% csrf_token %}
 	        <input name="language" type="hidden" value="{{code}}" />
+	        {% if redirect_to %}
+	        <input type="hidden" name="next" value="{{redirect_to}}" />
+	        {% endif %}
 	        <input type="submit" {% if code == LANGUAGE_CODE %}disabled="disabled"{% endif %} value="{{desc}}" />
     	</form>
     {% endfor %}
