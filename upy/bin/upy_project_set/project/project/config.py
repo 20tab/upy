@@ -45,6 +45,8 @@ DEBUG = True
 """ True only in development to debug your application"""
 USE_UPY_JQUERY_LIB = True
 """ If True standard upy jquery library will be included in base template """
+USE_UPY_JQUERYUI_LIB = False
+""" If True standard upy jquery ui library will be included in base template """
 USE_UPY_CSS_RESET = True
 """ If True standard upy css reset will be included in base template """
 USE_GLOBAL_TEMPLATES_DIR = True

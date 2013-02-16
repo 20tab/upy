@@ -16,6 +16,7 @@
 {% for css in MEDIA_CSS %}
 <link rel="stylesheet" type="text/css" href="{{ css }}" />{% endfor %}
 {% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}
+{% if USE_UPY_JQUERYUI_LIB %}<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>{% endif %}
 {% for js in MEDIA_JS_HEADER %}
 <script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 {% endblock head_media %}
