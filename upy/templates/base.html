@@ -13,6 +13,7 @@
 {% endblock head_meta %}
 {% block head_media %}
 {% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}
+{% if USE_UPY_JQUERYUI_LIB %}<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />{% endif %}
 {% for css in MEDIA_CSS %}
 <link rel="stylesheet" type="text/css" href="{{ css }}" />{% endfor %}
 {% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}

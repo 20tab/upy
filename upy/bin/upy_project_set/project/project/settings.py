@@ -150,6 +150,8 @@ MAX_UPLOAD_SIZE = "2048000"
 JQUERY_LIB = "/upy_static/js/lib/jquery-1.9.0.js" 
 JQUERYUI_LIB = "/upy_static/js/lib/jquery-ui-1.10.0.custom.min.js"
 
+JQUERYUI_CSSLIB = "/upy_static/css/jqueryui/jquery-ui-1.10.0.custom.css"
+
 #This variables are necessary for treenode template
 UPY_ADMIN_MEDIA = '/upy_static/'
 UPY_ADMIN_MEDIA_LOCATION = upy_static()

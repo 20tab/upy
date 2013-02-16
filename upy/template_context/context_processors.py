@@ -14,6 +14,7 @@ def use_upy_admin(request):
     context_extras['USE_UPY_JQUERY_LIB'] = settings.USE_UPY_JQUERY_LIB
     context_extras['JQUERYUI_LIB'] = settings.JQUERYUI_LIB
     context_extras['USE_UPY_JQUERYUI_LIB'] = settings.USE_UPY_JQUERY_LIB
+    context_extras['JQUERYUI_CSSLIB'] = settings.JQUERYUI_CSSLIB
     context_extras['USE_UPY_CSS_RESET'] = settings.USE_UPY_CSS_RESET
     context_extras['USE_UPY_ROSETTA'] = settings.USE_UPY_ROSETTA
     context_extras['UPY_VERSION'] = upy.__version__
