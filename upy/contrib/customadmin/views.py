@@ -8,7 +8,7 @@ def custom_admin_layout(request):
     It renders customadmin.css that defines rules to customize admin's interface
     """
     try:
-        custom = CustomAdmin.objects.select_related().get(is_default = "default")
+        custom = CustomAdmin.objects.select_related().get(default =True)
     except:
         custom = None
     return render_to_response("customadmin.css.html", 

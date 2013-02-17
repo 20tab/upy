@@ -79,18 +79,19 @@ def g11n(request):
                                 
         context_extras['ROOT'] = pub_extended.root
         
-        filename="meta-%s-%s-%s.json" % (publication.pk,page.pk,node.pk)
-        if os.path.exists("%s%s" % (settings.UPYCACHE_DIR,filename)):
-            file_cache = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
-            json = simplejson.loads(file_cache.read())
-            meta_temp = MetaContent()
-            meta_temp.jsonToMeta(json['META'])
-            context_extras['META'] = meta_temp
-            context_extras['MEDIA_CSS'] = json['MEDIA_CSS']
-            context_extras['MEDIA_JS_HEADER'] = json['MEDIA_JS_HEADER']
-            context_extras['MEDIA_JS_FOOTER'] = json['MEDIA_JS_FOOTER']
-            return context_extras
-        
+        if settings.USE_UPY_CACHE:        
+            filename="meta-%s-%s-%s.json" % (publication.pk,page.pk,node.pk)
+            if os.path.exists("%s%s" % (settings.UPYCACHE_DIR,filename)):
+                file_cache = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
+                json = simplejson.loads(file_cache.read())
+                meta_temp = MetaContent()
+                meta_temp.jsonToMeta(json['META'])
+                context_extras['META'] = meta_temp
+                context_extras['MEDIA_CSS'] = json['MEDIA_CSS']
+                context_extras['MEDIA_JS_HEADER'] = json['MEDIA_JS_HEADER']
+                context_extras['MEDIA_JS_FOOTER'] = json['MEDIA_JS_FOOTER']
+                return context_extras
+            
         cache_json = {}
         
         try:
@@ -174,13 +175,14 @@ def g11n(request):
                     
                 cache_json['META'] = meta_temp.get_fields()
                 context_extras['META'] = meta_temp
-        try:
-            filename="meta-%s-%s-%s.json" % (publication.pk,page.pk,node.pk)
-            with open(u'%s%s' % (settings.UPYCACHE_DIR,filename),"w") as file_cache:
-                data = simplejson.dumps(cache_json)
-                file_cache.write(data)
-        except Exception, e:
-            print "Exception in upy.contrib.tree.template_context.context_processors at line 206: ", e
+        if settings.USE_UPY_CACHE:
+            try:
+                filename="meta-%s-%s-%s.json" % (publication.pk,page.pk,node.pk)
+                with open(u'%s%s' % (settings.UPYCACHE_DIR,filename),"w") as file_cache:
+                    data = simplejson.dumps(cache_json)
+                    file_cache.write(data)
+            except Exception, e:
+                print "Exception in upy.contrib.tree.template_context.context_processors at line 206: ", e
         
     return context_extras
     

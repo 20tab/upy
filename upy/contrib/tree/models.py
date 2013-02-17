@@ -10,6 +10,7 @@ import os,sys,traceback
 from upy.contrib.g11n.models import G11nBase,G11nModel,Publication
 from upy.multiple_meta import classmaker
 
+
 def formatExceptionInfo(maxTBlevel=5):
     cla, exc, trbk = sys.exc_info()
     excName = cla.__name__
@@ -417,6 +418,7 @@ class Page(G11nBase):
         verbose_name_plural = _(u"Pages")
         ordering = ['name']
 
+    '''
     @staticmethod
     def getCurrent(request, publication):
         """
@@ -443,7 +445,7 @@ class Page(G11nBase):
         except Exception, e:
             raise ValueError("Error in %s.Page: %s" % (Page.__module__,e))
 
-        
+    ''' 
      
 class PageG11n(G11nModel):
     """
@@ -727,6 +729,9 @@ class CssTreeStructurePosition(models.Model):
                 self.position = 0
         clean_cache(settings.UPYCACHE_DIR,"meta")
         super(CssTreeStructurePosition,self).save( *args, **kwargs)
+    
+    def __unicode__(self):
+        return u"%s - %s - %s" % (self.css,self.tree_structure,self.position)
     
     def delete(self):
         clean_cache(settings.UPYCACHE_DIR,"meta")

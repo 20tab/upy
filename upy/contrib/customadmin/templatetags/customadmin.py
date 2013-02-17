@@ -10,7 +10,7 @@ def add_app_icons(app_list, autocomplete):
     This filter is called only if you want view icons mode.
     """
     try:
-        customadmin = CustomAdmin.objects.get(is_default="default")
+        customadmin = CustomAdmin.objects.get(default=True)
         def_app_img = None
         if customadmin.default_app_image:
             def_app_img = customadmin.app_image
@@ -90,7 +90,7 @@ def add_model_icons(app_list,custom_admin):
     This filter is called only if you want view icons mode for models.
     """
     try:
-        customadmin = CustomAdmin.objects.get(is_default="default")
+        customadmin = CustomAdmin.objects.get(default=True)
         def_model_img = None
         if customadmin.default_model_image:
             def_model_img = customadmin.model_image

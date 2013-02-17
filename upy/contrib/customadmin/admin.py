@@ -84,11 +84,11 @@ class CustomAdminOption(admin.ModelAdmin):
     Admin's options for CustomAdmin model
     """
     list_display = ('customization','branding','branding_link',
-                    'is_default','view_mode','autocomplete_app_list','autocomplete_models_list')
-    list_editable = ('branding','branding_link','is_default','view_mode')
+                    'default','view_mode','autocomplete_app_list','autocomplete_models_list')
+    list_editable = ('branding','branding_link','default','view_mode')
     fieldsets = ((_('Branding'), {'fields':
                                 (('branding', 'branding_link'),
-                                 ('branding_image','is_default')),
+                                 ('branding_image','default')),
                     },),
                  (_('View Option'), {'fields':
                                 (('view_mode', 'use_log_sidebar'),('autocomplete_app_list','autocomplete_models_list')),

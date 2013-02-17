@@ -125,11 +125,11 @@ class PublicationOption(admin.ModelAdmin):
     """
     This is the option class for Publication Admin
     """
-    list_display = ('name','url','is_default') 
-    list_editable = ('url','is_default') 
+    list_display = ('name','url','default') 
+    list_editable = ('url','default') 
     list_filter = ('name', 'languages',)
     fieldsets = (('',{'fields': (('name','url','favicon'),),}),
-                 (_('Checking'),{'fields': (('enabled', 'is_default'),),}),
+                 (_('Checking'),{'fields': (('enabled', 'default'),),}),
                  (_('Languages'),{'fields': (( 'languages','default_language',),),}),)
     
     inlines = [PublicationG11nInline,]

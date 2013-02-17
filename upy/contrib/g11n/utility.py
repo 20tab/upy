@@ -5,7 +5,7 @@ def getDefaultLanguage():
     Get default language and return the tuple to use in the settings.py, DEFAULT_LANGUAGES
     """
     try:
-        publication = Publication.objects.get(is_default="default")
+        publication = Publication.objects.get(default=True)
         if publication and publication.default_language:
             return publication.default_language
         return None

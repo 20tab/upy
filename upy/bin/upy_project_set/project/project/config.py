@@ -51,6 +51,8 @@ USE_UPY_CSS_RESET = True
 """ If True standard upy css reset will be included in base template """
 USE_GLOBAL_TEMPLATES_DIR = True
 """ If True upy.contrib.tree.Template saves templates in the global directory else in the application templates directory """
+USE_UPY_CACHE = False
+""" If True Breadrumb and Menu use upy cached files to make menu and breadcrumbs """
 ADMINS = (("errors","errors@email.com"),)
 """ It's important set administrators to monitor how application works """
 TIME_ZONE = 'Europe/Rome'

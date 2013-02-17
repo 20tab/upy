@@ -50,19 +50,19 @@ class Menu(object):
             str_groups = "-%s" % "e".join(str_groups)   
         else:
             str_groups = "-nouser"
-        
-        for filename in filter_files(settings.UPYCACHE_DIR,
-                                    u"menu-%s-%s-%s%s-%s" % (self.root.pk,
-                                                        self.upy_context['NODE'].pk,
-                                                        menu_as,str_groups,
-                                                        self.request.LANGUAGE_CODE)):
-            tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
-            json = simplejson.loads(tempfile.read())
-            if filename and compare_dicts(json,dict_cache):
-                return mark_safe(json['menu'])
-            else:
-                clean_cache(settings.UPYCACHE_DIR,"menu")
-                clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
+        if settings.USE_UPY_CACHE:
+            for filename in filter_files(settings.UPYCACHE_DIR,
+                                        u"menu-%s-%s-%s%s-%s" % (self.root.pk,
+                                                            self.upy_context['NODE'].pk,
+                                                            menu_as,str_groups,
+                                                            self.request.LANGUAGE_CODE)):
+                tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
+                json = simplejson.loads(tempfile.read())
+                if filename and compare_dicts(json,dict_cache):
+                    return mark_safe(json['menu'])
+                else:
+                    clean_cache(settings.UPYCACHE_DIR,"menu")
+                    clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
 
         nodes = self.root.get_descendants()
         if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
@@ -113,11 +113,11 @@ class Menu(object):
                                'after_1' : after_1, 'before_all' : before_all, 'after_all' : after_all,
                                }, context_instance=RequestContext(self.request))
 
-        
-        with open(u'%smenu-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.root.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
-            dict_cache['menu'] = menutpl
-            data = simplejson.dumps(dict_cache)
-            file_menu.write(data)
+        if settings.USE_UPY_CACHE:
+            with open(u'%smenu-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.root.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
+                dict_cache['menu'] = menutpl
+                data = simplejson.dumps(dict_cache)
+                file_menu.write(data)
             
         return menutpl
         
@@ -187,14 +187,15 @@ class Breadcrumb(object):
         else:
             str_groups = "-nouser"
         
-        for filename in filter_files(settings.UPYCACHE_DIR,u"breadcrumb-%s-%s-%s%s-%s" % (self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE)):
-            tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
-            json = simplejson.loads(tempfile.read())
-            if filename and compare_dicts(json,dict_cache):
-                return mark_safe(json['breadcrumb'])
-            else:
-                clean_cache(settings.UPYCACHE_DIR,"menu")
-                clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
+        if settings.USE_UPY_CACHE:
+            for filename in filter_files(settings.UPYCACHE_DIR,u"breadcrumb-%s-%s-%s%s-%s" % (self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE)):
+                tempfile = open(u'%s%s' % (settings.UPYCACHE_DIR,filename))
+                json = simplejson.loads(tempfile.read())
+                if filename and compare_dicts(json,dict_cache):
+                    return mark_safe(json['breadcrumb'])
+                else:
+                    clean_cache(settings.UPYCACHE_DIR,"menu")
+                    clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
         nodes = self.leaf.get_ancestors()[1:]
         list_nodes = list(nodes)
         if show_leaf:
@@ -236,11 +237,12 @@ class Breadcrumb(object):
                               {'NODE': self.upy_context['NODE'], 'nodes' : list_nodes, 'chars' : chars, 'current_linkable' : current_linkable,
                                'class_current' : class_current,
                                'view_hidden' : self.view_hidden}, context_instance=RequestContext(self.request))
-                
-        with open(u'%sbreadcrumb-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
-            dict_cache['breadcrumb'] = menutpl
-            data = simplejson.dumps(dict_cache)
-            file_menu.write(data)
+        
+        if settings.USE_UPY_CACHE:        
+            with open(u'%sbreadcrumb-%s-%s-%s%s-%s-%s.json' % (settings.UPYCACHE_DIR,self.leaf.pk,self.upy_context['NODE'].pk,menu_as,str_groups,self.request.LANGUAGE_CODE,int(time.time())),"w") as file_menu:
+                dict_cache['breadcrumb'] = menutpl
+                data = simplejson.dumps(dict_cache)
+                file_menu.write(data)
         return mark_safe(menutpl)
         
 

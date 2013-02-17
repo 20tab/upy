@@ -7,6 +7,7 @@ from upy.contrib.g11n.admin import G11nTabularInlineAdmin,G11nStackedInlineAdmin
 from django.conf import settings
 from django.template.loader import render_to_string
 import re
+from upy.contrib.orderable.admin import OrderableTabularInline
 
 class PublicationExtendedInline(admin.TabularInline):
     """
@@ -27,18 +28,18 @@ class PublicationAdmin(PublicationOption):
     save_on_top = True
 
  
-class CssTreeStructurePositionInline(admin.TabularInline):
+class CssTreeStructurePositionInline(OrderableTabularInline):
     """
     Inline admin for CssTreeStructurePosition model
     """
-    model = CssTreeStructurePosition
-    extra = 3    
-class JsTreeStructurePositionInline(admin.TabularInline):
+    model = CssTreeStructurePosition   
+    fieldsets = (('',{'fields': ('position', 'css',),}),) 
+class JsTreeStructurePositionInline(OrderableTabularInline):
     """
     Inline admin for JsTreeStructurePosition model
     """
-    model = JsTreeStructurePosition
-    extra = 3    
+    model = JsTreeStructurePosition 
+    fieldsets = (('',{'fields': ('position', 'js',),}),)
 
 class TreeStructureOption(admin.ModelAdmin): 
     """
@@ -224,18 +225,18 @@ class TemplateAdminForm(forms.ModelForm):
     input_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\w*(,)?|(, )?)*$', help_text = _(u"Set the variables required by template (separated with ,)."))
     class Meta:
         model = Template
-class CssTemplatePositionInline(admin.TabularInline):
+class CssTemplatePositionInline(OrderableTabularInline):
     """
     Admin's options for CssTemplatePosition model used as inline
     """
-    model = CssTemplatePosition
-    extra = 3    
-class JsTemplatePositionInline(admin.TabularInline):
+    model = CssTemplatePosition 
+    fieldsets = (('',{'fields': ('position', 'css',),}),)
+class JsTemplatePositionInline(OrderableTabularInline):
     """
     Admin's options for JsTemplatePosition model used as inline
     """
     model = JsTemplatePosition
-    extra = 3    
+    fieldsets = (('',{'fields': ('position', 'js',),}),)
     
 class TemplateOption(admin.ModelAdmin): 
     """
@@ -243,7 +244,7 @@ class TemplateOption(admin.ModelAdmin):
     """
     list_display = ('name', 'app_name', 'file_name',) 
     list_editable = ('app_name', 'file_name',) 
-    fieldset = (('',{'fields': ('name', 'file_name', 'app_name', 'input_vars',),}))
+    fieldsets = (('',{'fields': ('name', 'file_name', 'app_name', 'input_vars',),}),)
     list_filter = ('app_name',)
     save_on_top = True
     form = TemplateAdminForm
@@ -272,12 +273,14 @@ class ViewOption(admin.ModelAdmin):
     list_display = ('name', 'app_name', 'module_name', 'func_name',) 
     list_editable = ('app_name', 'module_name',) 
     list_filter = ('app_name', 'module_name', )
-    prepopulated_fields = {'func_name': ('name',)}
     fieldsets = (('',{'fields': (('name', 'app_name'), ('func_name','module_name'),('input_vars','output_vars',),),}),)
     save_on_top = True
     form = ViewAdminForm
     class Meta: 
         model = View
+    class Media: 
+        js = (settings.JQUERY_LIB,
+              '/upy_static/js/upy-admin-view.js',)
    
 
 class CssOption(admin.ModelAdmin): 

@@ -9,6 +9,7 @@ from django.conf import settings
 from upy.utils import clean_cache 
 from imagekit.models import ImageSpecField,ProcessedImageField
 from imagekit.processors import ResizeToFit
+from upy.fields import NullTrueField
 
 
 def verifyApp(app):
@@ -76,7 +77,7 @@ class CustomAdmin(models.Model):
                                           match="\.jpg|\.jpeg|.png|\.gif", recursive=True, 
                                           help_text = _(u"Set brand's image."), 
                                           verbose_name = _(u"Branding image"))
-    is_default = models.CharField(max_length = 50, choices = (("default","Default"),), null = True, blank = True, unique = True, help_text = _(u"Select it if you want use this as default customization."), verbose_name = _(u"Is default"))
+    default = NullTrueField(_(u"Default"),help_text = _(u"Select it if you want use this as default customization."))
     
     default_app_image = ProcessedImageField(verbose_name = _(u"Default app image"), help_text = _(u"Insert a default application image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])
     default_model_image = ProcessedImageField(verbose_name = _(u"Default model image"), help_text = _(u"Insert a default model image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])

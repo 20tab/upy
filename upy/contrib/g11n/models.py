@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from upy.contrib.g11n.g11n_threading import get_publication
 from django.db.models.base import ModelBase
 import os
+from upy.fields import NullTrueField
 
 class G11nBaseCurrentManager(models.Manager):
     """
@@ -38,7 +39,7 @@ class G11nCurrentManager(models.Manager):
 
 class G11nManager(models.Manager):
     """
-    This is a default manager for G11n objects that implements the g11n searching
+    This is a manager for G11n objects that implements the g11n searching
     of content. Curr_pub/curr_lan --> curr_pub/default_lan --> default_pub/default_lan --> Raise DoesNotExist
     obj_filter is a dynamic list of filter to pre-pone to our query
     """
@@ -66,7 +67,7 @@ class G11nManager(models.Manager):
                     try:
                         result = super(self.__class__, self).get_query_set().filter(publication=publication,language=language,**obj_filter)
                         if not result and dict_depth[depth] > 1:
-                            publication = Publication.objects.get(is_default=True)
+                            publication = Publication.objects.get(default=True)
                             language = publication.default_language
                             try:
                                 result = super(self.__class__, self).get_query_set().filter(publication=publication,language=language,**obj_filter)
@@ -187,9 +188,7 @@ class Publication(G11nBase):
                            verbose_name = _(u"Url"))  
     enabled = models.BooleanField(default = True, help_text = _(u"Uncheck it to disable the website."), 
                                   verbose_name = _(u"Enabled"))
-    is_default = models.CharField(max_length = 50, choices = (("default","Default"),), null = True, blank = True,unique = True, 
-                                     help_text = _(u"Select it if it's the default publication for the website."), 
-                                     verbose_name = _(u"Is default"))
+    default = NullTrueField(_(u"Default"),help_text = _(u"Set as the default publication for the website."))
     default_language = models.ForeignKey(u"Language", null = True, blank = True, related_name = 'default_language', 
                                          help_text = _(u"Default language to use in this publication."), 
                                          verbose_name = _(u"Default language"))
@@ -246,7 +245,7 @@ class Publication(G11nBase):
         It returns default publication
         """
         try:
-            return Publication.objects.select_related().get(is_default="default")
+            return Publication.objects.select_related().get(default=True)
         except: 
             return None  
 
@@ -337,7 +336,7 @@ class Language(models.Model):
         """
         
         try:
-            return Publication.objects.select_related().get(is_default="default").default_language
+            return Publication.objects.select_related().get(default=True).default_language
         except: 
             return None
     
