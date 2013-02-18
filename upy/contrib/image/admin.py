@@ -59,11 +59,11 @@ class UPYImageOption(admin.ModelAdmin):
     form = UPYImageForm
     
     class Media:
-        css = {"all" : ("/upy_static/css/prettyPhoto.css",)}
+        css = {"all" : ("/upy_static/colorbox/colorbox.css",)}
         js = (settings.JQUERY_LIB,
               settings.JQUERYUI_LIB,
-              '/upy_static/js/lib/jquery.prettyPhoto.js',
-              '/upy_static/js/prettyPhoto-init.js')
+              '/upy_static/colorbox/jquery.colorbox-min.js',
+              '/upy_static/js/colorbox-init.js')
         
     class Meta:
         abstract = True

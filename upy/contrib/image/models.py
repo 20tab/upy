@@ -33,7 +33,7 @@ class UPYImage(models.Model):
         and with prettyPhoto jQuery plugin to open images in a lightbox.
         """
         if self.original_image:
-            return u'<a href="%s" data-rel="prettyPhoto" title="%s"><img src="%s" class="upy_admin_thumb" alt="%s"/></a>' % (self.original_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
+            return u'<a href="%s" class="upy_colorbox" title="%s"><img src="%s" class="upy_admin_thumb" alt="%s"/></a>' % (self.original_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
         else:
             return None
     admin_thumbnail_view.short_description = _(u'Thumbnail')
@@ -91,7 +91,7 @@ if settings.USE_UPY_IMAGE:
             and with prettyPhoto jQuery plugin to open images in a lightbox.
             """
             if self.original_image:
-                return u'<a href="%s" data-rel="prettyPhoto" title="%s"><img src="%s" alt="%s"/></a>' % (self.display_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
+                return u'<a href="%s" class="upy_colorbox" title="%s"><img src="%s" alt="%s"/></a>' % (self.display_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
             else:
                 return None
         admin_thumbnail_view.short_description = _(u'Thumbnail Display')
