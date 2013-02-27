@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import url
+from django.conf.urls import url
 from django.conf import settings
 from django.template import RequestContext
 from django.template.loader import render_to_string

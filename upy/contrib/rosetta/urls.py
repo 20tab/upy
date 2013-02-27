@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls import url, patterns
 
 urlpatterns = patterns('upy.contrib.rosetta.views',
     url(r'^admin/rosetta$', 'home', name='rosetta-home'),

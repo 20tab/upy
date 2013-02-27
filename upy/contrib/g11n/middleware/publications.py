@@ -1,6 +1,6 @@
 from upy.contrib.g11n.g11n_threading import deactivate,activate
 from django.core.urlresolvers import resolve,Resolver404
-from django.conf.urls.defaults import handler404
+from django.conf.urls import handler404
 from django.utils.importlib import import_module
 from upy.contrib.g11n.models import Publication
 

@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from mptt.models import MPTTModel
 from django.conf import settings
 from upy.utils import clean_cache
-from django.conf.urls.defaults import url
+from django.conf.urls import url
 from django.contrib.auth.models import Group
 from ast import literal_eval
 import os,sys,traceback

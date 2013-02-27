@@ -1,6 +1,4 @@
-from django.conf.urls.defaults import *
-from django.conf import settings
-#import colors
+from django.conf.urls import *
 
 urlpatterns = patterns('',
 
