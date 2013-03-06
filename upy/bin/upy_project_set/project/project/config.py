@@ -119,14 +119,14 @@ if USE_LOCAL_SMTP_SERVER:
     EMAIL_HOST_USER = EMAIL_USER
     """ Should be like EMAIL_USER. So you shouldn't set this parameters """ 
 else:
-    EMAIL_HOST = "smtp.example.it"
+    EMAIL_HOST = "localhost" # or "smtp.myexamplesite.it"
     """ smtp host """
     EMAIL_PORT = 25
     """ smtp port """
     EMAIL_HOST_USER = EMAIL_USER
     EMAIL_HOST_PASSWORD = "pswd"
     """ smtp account's password """
-    EMAIL_USE_TLS = True
+    EMAIL_USE_TLS = False
     """ If True account uses tls """
     
 ######################################################################################################################################   
