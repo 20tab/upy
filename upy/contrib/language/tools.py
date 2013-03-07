@@ -1,5 +1,7 @@
 from django.template import RequestContext
 from django.template.loader import render_to_string
+import Image as PilImage
+
 
 class ChangeLangMod(object):
     """
@@ -9,7 +11,7 @@ class ChangeLangMod(object):
     - publication
     - separator: a string used to separate languages in form.
     """
-    def __init__(self, request, type_as, publication, separator = None,redirect_to=None, current_disabled = True,style="padding:0;border:0;background:none;"):
+    def __init__(self, request, type_as, publication, separator = None,redirect_to=None, current_disabled = True,style="padding:0;border:0;"):
         if type_as in ['as_select', 'as_string', 'as_flag']:
             self.request = request
             self.type_as = type_as # one of this: as_select, as_string, as_flag
@@ -25,7 +27,15 @@ class ChangeLangMod(object):
         """
         It returns a string, that represent a form, to print in your template.
         """
-        languages = self.publication.languages.all()
+        languages = self.publication.languages.all()        
+        if self.type_as == "as_flag":
+            try:
+                im = PilImage.open(languages[0].flag)
+                width, height = im.size
+                self.style = "width:%spx;height:%spx;%s" % (width,height,self.style)
+            except:
+                raise
+        
         return render_to_string("language_%s.html" % self.type_as, 
                                     {"mod":self,
                                      "languages": languages}, 
