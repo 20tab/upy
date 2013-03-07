@@ -12,7 +12,9 @@
 	        {% if mod.redirect_to %}
 	        <input type="hidden" name="next" value="{{mod.redirect_to}}" />
 	        {% endif %}
-	        <input type="image" {% if mod.current_disabled and language.code == LANGUAGE_CODE %}disabled="disabled"{% endif %} name="language" id = "lang_{{language.code}}" value="{{language.code}}" src="{{MEDIA_URL}}{{ language.flag }}" alt="{{language.name}}" />
+	        <button{% if language.code == LANGUAGE_CODE %} class="active"{% if mod.current_disabled %} disabled="disabled"{% endif %}{% endif %} style = "{{mod.style}}" name="language" id = "lang_{{language.code}}" value="{{language.code}}">
+	        	<img  src="{{MEDIA_URL}}{{ language.flag }}" alt="{{language.name}}" />
+	       	</button>
 	    {% endfor %}
     </form>
 </div>
