@@ -1,9 +1,25 @@
 import os
 
-UWSGI_INI = "../uwsgi.ini" 
-""" The file's name that define the uwsgi configuration. If you don't want use uwsgi define this var with None value """
+IN_PRODUCTION = False
+"""True if application is in production, False if it's in development"""
+if IN_PRODUCTION:
+    ALLOWED_HOSTS = ('mysite.com',)
+    """A list of strings representing the host/domain names that this Django site can serve."""
+    UWSGI_INI = "../uwsgi_unbit.ini" 
+    """ The file's name that define the uwsgi configuration. If you don't want use uwsgi define this var with None value """
+    DEBUG = False
+    """ True only in development to debug your application"""
+else:
+    ALLOWED_HOSTS = ('localhost','127.0.0.1')
+    """A list of strings representing the host/domain names that this Django site can serve."""
+    UWSGI_INI = "../uwsgi.ini" 
+    """ The file's name that define the uwsgi configuration. If you don't want use uwsgi define this var with None value """
+    DEBUG = True
+    """ True only in development to debug your application"""
 UWSGI_COMMAND = "uwsgi"
 """ uWSGI command location. On unbit's servers usually located to /proc/unbit/uwsgi/uwsgi. """
+ADMINS = (("errors","errors@email.com"),)
+""" It's important set administrators to monitor how application works """
 HANDLER_404 = None 
 """ The name of the view for handler404 """
 HANDLER_500 = None 
@@ -41,8 +57,6 @@ RGBA_FILTER = True
 """ Allow only RGB and RGBa images' modes """
 USE_UPY_NEWSLETTER = False 
 """ If True upy newsletter module will be installed. It needs USE_UPY_G11N = True """
-DEBUG = True
-""" True only in development to debug your application"""
 USE_UPY_JQUERY_LIB = True
 """ If True standard upy jquery library will be included in base template """
 USE_UPY_JQUERYUI_LIB = False
@@ -53,8 +67,6 @@ USE_GLOBAL_TEMPLATES_DIR = True
 """ If True upy.contrib.tree.Template saves templates in the global directory else in the application templates directory """
 USE_UPY_CACHE = False
 """ If True Breadrumb and Menu use upy cached files to make menu and breadcrumbs """
-ADMINS = (("errors","errors@email.com"),)
-""" It's important set administrators to monitor how application works """
 TIME_ZONE = 'Europe/Rome'
 """ See the TIME_ZONE's details on django settings documentation """
 LANGUAGE_CODE = 'it-It'

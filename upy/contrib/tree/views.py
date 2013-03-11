@@ -27,7 +27,9 @@ def view_500(request, url = None):
     """
     it returns a 500 http response
     """
-    return render_to_response("500.html", context_instance=RequestContext(request))
+    res = render_to_response("500.html", context_instance=RequestContext(request))
+    res.status_code = 500
+    return res
     
 def view_page_disable(request,message):
     """
