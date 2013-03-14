@@ -3,6 +3,7 @@ Contains some classes to extend ModelAdmin, with some other functionalities
 """
 from django.contrib import admin
 
+
 class ButtonLink(object):
     """
     It defines a button that you can locate near the history button in change_form.html as a link
