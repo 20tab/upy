@@ -142,8 +142,9 @@ def g11n(request):
                 
                 all_css_set = []
                 all_css_set_res = []
-                all_css_set.extend(page_css)
                 all_css_set.extend(struct_css)
+                all_css_set.extend(page_css)
+                
                 for css in all_css_set:
                     if not css in all_css_set_res:
                         all_css_set_res.append(css.url)
