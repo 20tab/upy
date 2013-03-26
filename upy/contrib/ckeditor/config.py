@@ -20,7 +20,7 @@ CONFIGURATIONS = {
     },
     'CKE_CONFIG_ADVANCED': {
         'height': 250,
-        'width': 670,
+        'width': 700,
         'forcePasteAsPlainText' : True,
         'toolbar': [['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', '-', 'FontSize', 'TextColor', '-', 
                      'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock', '-', 'NumberedList', 'BulletedList', 
