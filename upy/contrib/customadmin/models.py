@@ -21,6 +21,7 @@ def verifyApp(app):
                         'mptt',  
                         'imagekit',
                         'upy',
+                        'south',
                         'upy.contrib.ckeditor',
                         'upy.contrib.colors',
                         'upy.contrib.language',
