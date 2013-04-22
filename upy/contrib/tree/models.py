@@ -506,7 +506,7 @@ def list_apps():
     It returns a list of application contained in PROJECT_APPS
     """
     list_apps = []
-    for app in settings.PROJECT_APPS:
+    for app in [x for x in settings.PROJECT_APPS if x not in ['south',]]:
         list_apps.append([app.split(".")[-1]]*2)
     return list_apps  
 

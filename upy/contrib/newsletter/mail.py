@@ -53,15 +53,16 @@ def send_mail(subject, text_content, from_email, to, html_content = None, attach
         msg.attach_alternative(html_content, "text/html")
     if attachments:
         for att in attachments:            
-            mimetype = mimetypes.guess_type(att.file.url)[0]
-            if str(mimetype) in ('image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'):
-                try:
-                    with open(att.file.path) as f:
-                        email_embed_image(msg, att.name, f.read())
-                except Exception, e:
-                    print e
-            else:
-                msg.attach_file("%s" % (att.file.url[1:]))
+            if att.attached_file:
+                mimetype = mimetypes.guess_type(att.attached_file.url)[0]
+                if str(mimetype) in ('image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'):
+                    try:
+                        with open(att.attached_file.path) as f:
+                            email_embed_image(msg, att.name, f.read())
+                    except Exception, e:
+                        print e
+                else:
+                    msg.attach_file("%s" % (att.attached_file.url[1:]))
     msg.send()    
     
 def send_rendered_mail(subject, text_content, template_name, context_dict, from_email,to, attachments = None):
