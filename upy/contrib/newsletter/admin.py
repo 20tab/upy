@@ -67,7 +67,14 @@ class NLForm(forms.ModelForm):
     This form change default widget to textarea input with CKEditor widget
     """
     body_text = forms.CharField(label = _(u"Body text"),widget=forms.Textarea(attrs={'cols': 80, 'rows': 15}), required = False, help_text = _(u"Set body in text format"))
-    body_html = forms.CharField(widget=CKEditorWidget(config={'height': 300,'width': 800,}))
+    body_html = forms.CharField(widget=CKEditorWidget(config={
+                                                                'height': 250,
+                                                                'width': 700,
+                                                                'forcePasteAsPlainText' : True,
+                                                                'toolbar': [['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', '-', 'FontSize', 'TextColor', '-', 
+                                                                             'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock', '-', 'NumberedList', 'BulletedList', 
+                                                                             '-', 'Outdent', 'Indent', '-', 'Link', 'Unlink', '-', 'Source', 'Image']],
+                                                            }))
     class Meta:
         model = Newsletter
        
