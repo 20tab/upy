@@ -66,7 +66,7 @@ try:
             pass
         try:
             disp = Dispatcher.objects.get(pk=int(args['disp']))
-            print "DISPATCHER: ",disp
+            #print "DISPATCHER: ",disp
             if disp.status == "deleted": return  
             # ho deciso di annullare l'invio dopo che il dispatcher era gia' stato spoolato. 
             # Return e bbona notte.
