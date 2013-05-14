@@ -118,7 +118,7 @@ class Newsletter(UPYNL):
     def save(self, *args, **kwargs):
         try:
             publication = Publication.get_default()
-            self.body_html = self.body_html.replace("\"%s/uploads" % settings.CKEDITOR_MEDIA_URL,"http://%s%s/uploads" % (publication.url,settings.CKEDITOR_MEDIA_URL))
+            self.body_html = self.body_html.replace('"%s/uploads' % settings.CKEDITOR_MEDIA_URL,'"http://%s%s/uploads' % (publication.url,settings.CKEDITOR_MEDIA_URL))
         except Exception, e:
             print "\n\n",e
         super(Newsletter,self).save( *args, **kwargs)
