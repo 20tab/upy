@@ -13,7 +13,6 @@ class GoogleMapsAddressWidget(widgets.TextInput):
             'http://maps.google.com/maps/api/js?sensor=false',
             '/upy_static/gmaps/js/google-maps-admin.js',
         )
-
     def render(self, name, value, attrs=None):
         if value is None:
             value = ''
