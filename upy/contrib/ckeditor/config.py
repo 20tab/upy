@@ -32,7 +32,3 @@ COMPLETE_CONFIG is the complete configuration,
 CKE_CONFIG_EASY is a basic configuration with following options: 'Bold', 'Italic', 'Underline', '-', 'TextColor', '-', 'Link', 'Unlink', '-', 'Source',
 CKE_CONFIG_ADVANCED has more options to format text
 """
-DEFAULT_CONFIG = CONFIGURATIONS['COMPLETE_CONFIG']
-CKE_CONFIG_EASY = CONFIGURATIONS['CKE_CONFIG_EASY']
-CKE_CONFIG_ADVANCED = CONFIGURATIONS['CKE_CONFIG_ADVANCED']
-print "DEFAULT_CONFIG, CKE_CONFIG_EASY, CKE_CONFIG_ADVANCED are deprecated in upy.contrib.ckeditor.config"
