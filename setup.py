@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import upy
 
-setup(name='upy',
+setup(name='UPY',
     version=upy.__version__,
     description='Open-source platform built on top of Django Web Framework, provides useful apps and tools for the most common features to save your time and let you focus just on your specific needs.',
     author='20tab srl: Raffaele Colace - Gabriele Giaccari',
