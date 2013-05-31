@@ -49,8 +49,6 @@ USE_STATIC_PAGE = True
 """ If True the static page module will be installed. IT NEEDS USE_UPY_G11N = True """
 USE_STATIC_ELEMENT = False
 """ If True the static element module will be installed. """
-USE_UPY_IMAGE = False 
-""" If True the image module will be installed """
 USE_FULLHD_SUPPORT = False 
 """ If True allow big size image (1920x1080px) """
 RGBA_FILTER = True 

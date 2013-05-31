@@ -278,6 +278,7 @@ class PublicationG11n(G11nModel):
                                                            ),
                                     help_text = _(u"Select the value of meta tag robots if you want set it."),
                                     verbose_name = _(u"Robots"))
+    disallow_all_robots = models.BooleanField(_(u'Disallow all robots'),default=False,help_text = _(u"Set True to add this directive: \"User-agent: * Disallow: /\" in robots.txt"))
     generator = models.CharField(max_length = 250, null = True, blank = True, help_text = _(u"Set the website's generator."),
                                     verbose_name = _(u"Generator"))
     g11n_creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
@@ -327,7 +328,6 @@ class Language(models.Model):
     class Meta:
         verbose_name = _(u"Language")
         verbose_name_plural = _(u"Languages")
-        #ordering = ['name']
 
     @staticmethod
     def get_default():

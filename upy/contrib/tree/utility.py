@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.template import RequestContext
 from django.template.loader import render_to_string
+from upy.contrib.g11n.models import get_current_publication
 from upy.contrib.tree.models import PublicationExtended,UrlAjax
 from datetime import date
 from django.template.defaultfilters import slugify
@@ -155,32 +156,36 @@ class UPYRobotTXT():
     def _do_robotstxt(self):
         publications = PublicationExtended.objects.all()
         set_robot = {}
+        disallow_all = False
         struct_tmp = []
-        for pub_extended in publications:
-            publication = pub_extended.publication
-            publication_url = ''
-            if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
-                publication_url = '%s/' % publication.url
-            
-            current_struct = pub_extended.tree_structure
-            if current_struct not in struct_tmp:
-                struct_tmp.append(current_struct)
-                nodes = current_struct.tree_root.get_descendants()
-                
-                for node in nodes:
-                    if node.page and node.disallow:
-                        page = node.page
-                        regex = r'%s/%s%s/%s' % (publication_url, node.treeslug, page.slug, page.regex)
-                        
-                        for robot in node.robots.all():
-                            if robot.name_id in set_robot.keys():
-                                set_robot[robot.name_id].append(regex)
-                            else:
-                                set_robot[robot.name_id] =[regex,]
-                        
-        
-        
+        try:
+            public = get_current_publication()
+            if public.g11n.disallow_all_robots:
+                disallow_all = True
+        except:
+            pass
+        if not disallow_all:
+            for pub_extended in publications:
+                publication = pub_extended.publication
+                publication_url = ''
+                if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
+                    publication_url = '%s/' % publication.url
+                current_struct = pub_extended.tree_structure
+                if current_struct not in struct_tmp:
+                    struct_tmp.append(current_struct)
+                    nodes = current_struct.tree_root.get_descendants()
+                    
+                    for node in nodes:
+                        if node.page and node.disallow:
+                            page = node.page
+                            regex = r'%s/%s%s/%s' % (publication_url, node.treeslug, page.slug, page.regex)
+                            
+                            for robot in node.robots.all():
+                                if robot.name_id in set_robot.keys():
+                                    set_robot[robot.name_id].append(regex)
+                                else:
+                                    set_robot[robot.name_id] =[regex,]
         tpl_str = render_to_string('robots.tpl.html', 
-                              {'set' : set_robot,}, context_instance=RequestContext(self.request))
+                              {'set' : set_robot,'disallow_all':disallow_all}, context_instance=RequestContext(self.request))
         
         return tpl_str

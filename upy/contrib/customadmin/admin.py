@@ -4,7 +4,7 @@ Admin's option for all model defined in customadmin app.
 from django.contrib import admin
 from django import forms
 from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps,list_models,CustomModel
-from upy.contrib.image.admin import PositionImageOption,clean_image
+from upy.contrib.image.admin import PositionImageOption
 from upy.utils import upy_re_match
 
 
@@ -43,14 +43,12 @@ class CustomAdminForm(forms.ModelForm):
                 msg_autocomplete_app_list= _(u"...or at least enable autocomplete_app_list which will include Customadmin too.")
                 self._errors["view_mode"] = self.error_class([msg_view_mode])
                 self._errors["autocomplete_app_list"] = self.error_class([msg_autocomplete_app_list])
-    
                 # These fields are no longer valid. Remove them from the
                 # cleaned data.
                 del self.cleaned_data["view_mode"]
                 del self.cleaned_data["autocomplete_app_list"]
                 #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
-                #if you use a custom view_mode without autocomplete_app_list"))
-        
+                #if you use a custom view_mode without autocomplete_app_list"))  
         elif view_mode and not autocomplete_models_list:
             try:
                 CustomModel.objects.get(model__iexact=CustomAdmin._meta.verbose_name_plural)
@@ -59,7 +57,6 @@ class CustomAdminForm(forms.ModelForm):
                 msg_autocomplete_models_list= _(u"...or at least enable autocomplete_models_list which will include Customadmin too.")
                 self._errors["view_mode"] = self.error_class([msg_view_mode])
                 self._errors["autocomplete_models_list"] = self.error_class([msg_autocomplete_models_list])
-    
                 # These fields are no longer valid. Remove them from the
                 # cleaned data.
                 del self.cleaned_data["view_mode"]
@@ -70,13 +67,8 @@ class CustomAdminForm(forms.ModelForm):
                                                  'table_title_color','h2_color',
                                                  'h3_color','link_color',
                                                  'link_hover_color'])
-        
-        
         if not chk:
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
-        
-        clean_image(self,'default_app_image')
-        clean_image(self,'default_model_image')
         return self.cleaned_data 
 
 class CustomAdminOption(admin.ModelAdmin):

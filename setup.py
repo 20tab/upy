@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import upy
 
-setup(name='UPY',
+setup(name='upy',
     version=upy.__version__,
     description='Open-source platform built on top of Django Web Framework, provides useful apps and tools for the most common features to save your time and let you focus just on your specific needs.',
     author='20tab srl: Raffaele Colace - Gabriele Giaccari',
@@ -22,9 +22,9 @@ setup(name='UPY',
         'Topic :: Software Development :: Libraries :: Application Frameworks',
     ],
     install_requires=[
-        'Django >=1.4.0',
-        'django_mptt >=0.5.4',
-        'django_imagekit >=2.0.2',
+        'Django >=1.5.0',
+        'django_mptt >=0.5.5',
+        'django_imagekit >=3',
     ],
     requires=[
         'PIL (>1.1.7)',

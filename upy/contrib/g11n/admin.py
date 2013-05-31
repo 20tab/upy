@@ -118,7 +118,7 @@ class PublicationG11nInline(G11nStackedInlineAdmin):
                         ('keywords','author'),
                         ('content_type','enabled'),
                         ('disabled_message',),
-                       ('robots','generator')),
+                       ('robots','disallow_all_robots'),('generator',)),
         },),) + G11nAdmin.fieldsets
         
 class PublicationOption(admin.ModelAdmin): 

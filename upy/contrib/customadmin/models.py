@@ -4,11 +4,11 @@ It contains customadmin's models. It's used to customize admin's interface
 from upy.contrib.tree.models import _
 from django.db import models
 from upy.contrib.colors.fields import ColorField
-from upy.contrib.image.models import PositionImage, _choose_preprocessor
+from upy.contrib.image.models import PositionImage
 from django.conf import settings
 from upy.utils import clean_cache 
 from imagekit.models import ImageSpecField,ProcessedImageField
-from imagekit.processors import ResizeToFit
+from pilkit.processors import ResizeToFit
 from upy.fields import NullTrueField
 
 
@@ -80,11 +80,11 @@ class CustomAdmin(models.Model):
                                           verbose_name = _(u"Branding image"))
     default = NullTrueField(_(u"Default"),help_text = _(u"Select it if you want use this as default customization."))
     
-    default_app_image = ProcessedImageField(verbose_name = _(u"Default app image"), help_text = _(u"Insert a default application image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])
-    default_model_image = ProcessedImageField(verbose_name = _(u"Default model image"), help_text = _(u"Insert a default model image"),null = True, blank = True, upload_to='customadmin', processors=[_choose_preprocessor(),])
+    default_app_image = ProcessedImageField(verbose_name = _(u"Default app image"), help_text = _(u"Insert a default application image"),null = True, blank = True, upload_to='customadmin')
+    default_model_image = ProcessedImageField(verbose_name = _(u"Default model image"), help_text = _(u"Insert a default model image"),null = True, blank = True, upload_to='customadmin')
     
-    app_image = ImageSpecField([ResizeToFit(128,128)], image_field='default_app_image', options={'quality': 90})  #format='JPEG',
-    model_image = ImageSpecField([ResizeToFit(50,50)], image_field='default_model_image', options={'quality': 90}) 
+    app_image = ImageSpecField([ResizeToFit(128,128)], source='default_app_image', options={'quality': 90})  #format='JPEG',
+    model_image = ImageSpecField([ResizeToFit(50,50)], source='default_model_image', options={'quality': 90}) 
     
     bg_header = ColorField(max_length = 200, null = True, blank = True, 
                            help_text = _(u"Set header's background color."), 
@@ -190,7 +190,7 @@ class CustomApp(PositionImage):
                                         help_text = _(u"Write the verbose name to show"), 
                                         verbose_name = _(u"Verbose app name")) 
     image = ImageSpecField([ResizeToFit(128, 128)], 
-                           image_field='original_image', 
+                           source='original_image', 
                            format='png')
     show_models = models.BooleanField(default=True, 
         help_text = _(u"If use_app_icons is False in Customadmin, you can choose wheter or not show the model list."), 
@@ -215,7 +215,7 @@ class CustomLink(PositionImage):
     verbose_url_name = models.CharField(max_length = 250, unique=True, 
                                         help_text = _(u"Write the verbose name to show"), 
                                         verbose_name = _(u"Verbose url name")) 
-    image = ImageSpecField([ResizeToFit(128, 128)], image_field='original_image', format='png')
+    image = ImageSpecField([ResizeToFit(128, 128)], source='original_image', format='png')
 
     
     def __unicode__(self):
@@ -234,7 +234,7 @@ class CustomModel(PositionImage):
                                    unique=True, help_text = _(u"Select a model"), 
                                    verbose_name = _(u"Model"))
     image = ImageSpecField([ResizeToFit(50, 50)], 
-                           image_field='original_image', 
+                           source='original_image', 
                            format='png')
     
     def __unicode__(self):
