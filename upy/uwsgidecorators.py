@@ -15,7 +15,6 @@ spooler_functions = {}
 mule_functions = {}
 postfork_chain = []
 
-
 def get_free_signal():
     for signum in xrange(0, 256):
         if not uwsgi.signal_registered(signum):
