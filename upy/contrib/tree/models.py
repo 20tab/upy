@@ -175,10 +175,7 @@ class Node(G11nBase,MPTTModel):
         It returns node's slug
         """
         if self.page:
-            if self.page.regex:
-                return "%s/%s" % (self.page.slug, self.page.regex)
-            else:
-                return self.page.slug
+            return self.page.slug
         elif not self.hide_in_url:
             return self.name
         else:
