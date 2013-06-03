@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 import hmac, hashlib,base64
 from django.conf import settings
-from upy.contrib.g11n.models import Publication,get_current_publication
+from upy.contrib.g11n.models import Publication
 from datetime import datetime
 
 class UPYNL(models.Model):

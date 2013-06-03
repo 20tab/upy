@@ -9,7 +9,10 @@ class UPYImageForm(forms.ModelForm):
     """ 
     def __init__(self,*args, **kwargs):
         super(UPYImageForm, self).__init__(*args, **kwargs)
-        self.fields['original_image'].label = self.instance.original_image_label
+        if hasattr(self.instance.__class__.UPYImageMeta,'label'):
+            self.fields['original_image'].label = self.instance.__class__.UPYImageMeta.label
+        if hasattr(self.instance.__class__.UPYImageMeta,'required'):
+            self.fields['original_image'].required = self.instance.__class__.UPYImageMeta.required
               
 class UPYImageOption(admin.ModelAdmin):
     """

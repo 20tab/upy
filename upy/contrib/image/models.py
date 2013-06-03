@@ -2,8 +2,27 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from imagekit.models import ImageSpecField, ProcessedImageField
 from pilkit.processors import SmartResize, Adjust
-from django.conf import settings
 from upy.contrib.g11n.models import G11nModel
+from django.db.models.base import ModelBase
+
+class UPYImageOptions(type):
+    """
+    Options class for UPYImageBase.
+    """
+    class Schema:
+        def __getattr__(self, attr):
+            t_model = getattr(self, self.UPYImageMeta.tradmodel)
+            return getattr(self, attr, getattr(t_model, attr))
+
+class UPYImageBase(ModelBase):
+    """
+    UPYImage metaclass. This metaclass parses UPYImageOptions.
+    """
+    def __new__(cls, name, bases, attrs):
+        new = super(UPYImageBase, cls).__new__(cls, name, bases, attrs)
+        g11n_opts = attrs.pop('UPYImageMeta', None)
+        setattr(new, '_upyimage_meta', UPYImageOptions(g11n_opts))
+        return new
 
 class UPYImage(models.Model):
     """
@@ -11,9 +30,9 @@ class UPYImage(models.Model):
     admin_thumbnail_view function. Inherit this class in you models.py and import imagekit ImageSpec
     to create other thumbnail or display field with any processor you need.
     """
-    original_image = ProcessedImageField(null = True, blank = True, upload_to='upyimage')#, processors=[_choose_preprocessor(),])
+    original_image = ProcessedImageField(null = True, blank = True, upload_to='upyimage')
     admin_thumbnail = ImageSpecField([Adjust(contrast=1.2, sharpness=1.1),
-            SmartResize(25, 25)], source='original_image', options={'quality': 90})  #format='JPEG', 
+            SmartResize(25, 25)], source='original_image', options={'quality': 90}) 
 
     def admin_thumbnail_view(self):
         """
@@ -26,8 +45,10 @@ class UPYImage(models.Model):
             return None
     admin_thumbnail_view.short_description = _(u'Thumbnail')
     admin_thumbnail_view.allow_tags = True
-    
-    original_image_label = _(u"Original image")
+
+    class UPYImageMeta:
+        label = _(u"Original image")
+        required = False
     
     def __unicode__(self):
         return u"%s" % (self.original_image)
@@ -45,19 +66,16 @@ class PositionImage(UPYImage):
     class Meta: 
         ordering = [u'position',]
         abstract = True   
-            
-            
-if settings.USE_UPY_G11N:
-        
-    class UPYImageG11n(G11nModel):
-        """
-        Abstract class for G11nModel to inherit if you need localized contents for your UPYImage model
-        """
-        title = models.CharField(max_length = 150, help_text = _(u"Set the image title."))
-        alt = models.CharField(max_length = 150, help_text = _(u"Set the image alternative field."))
-        
-        def __unicode__(self):
-            return u"%s" % (self.language)
-        
-        class Meta:
-            abstract = True
+       
+class UPYImageG11n(G11nModel):
+    """
+    Abstract class for G11nModel to inherit if you need localized contents for your UPYImage model
+    """
+    title = models.CharField(max_length = 150, help_text = _(u"Set the image title."))
+    alt = models.CharField(max_length = 150, help_text = _(u"Set the image alternative field."))
+    
+    def __unicode__(self):
+        return u"%s" % (self.language)
+    
+    class Meta:
+        abstract = True

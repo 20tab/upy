@@ -199,6 +199,10 @@ class CustomApp(PositionImage):
     def __unicode__(self):
         return u"%s" % (self.application)
     
+    class UPYImageMeta:
+        label = _(u"Image")
+        required = False
+    
     class Meta:
         verbose_name = _(u"Custom App")
         verbose_name_plural = _(u"Custom Apps")
@@ -221,6 +225,10 @@ class CustomLink(PositionImage):
     def __unicode__(self):
         return u"%s" % (self.link_url)
     
+    class UPYImageMeta:
+        label = _(u"Image")
+        required = False
+    
     class Meta:
         verbose_name = _(u"Custom Link")
         verbose_name_plural = _(u"Custom Link")
@@ -239,6 +247,10 @@ class CustomModel(PositionImage):
     
     def __unicode__(self):
         return u"%s" % (self.model)
+    
+    class UPYImageMeta:
+        label = _(u"Image")
+        required = False
     
     class Meta:
         verbose_name = _(u"Custom Model")
