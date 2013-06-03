@@ -132,14 +132,12 @@ function googleMapAdmin() {
 }
 
 jQuery(function() {
-	$("#id_geoaddress").parents('fieldset').find('h2>a').on('click',function(){
-		if($("#id_geoaddress").siblings('#gmap_search').attr('id') == undefined){
-			$("#id_geoaddress").css("width","400px");
-		    $("#id_geoaddress").after("<img id='gmap_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
-		
+	if($("#id_geoaddress").siblings('#gmap_search').attr('id') == undefined){
+		$("#id_geoaddress").css("width","400px");
+	    $("#id_geoaddress").after("<img id='gmap_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
+	
+		console.log($("#gmap_search").attr('src'));
 		    var googlemap = googleMapAdmin();
 		    googlemap.initialize();
 		}
-	});
-	
 });
