@@ -40,10 +40,6 @@ if config.USE_UPY_TREE:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.tree.urls'))
     )
-if config.USE_UPY_IMAGE:
-    urlpatterns += patterns('',
-        (r'', include('upy.contrib.image.urls')),
-    )
 if config.USE_CUSTOM_ADMIN:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.customadmin.urls')),

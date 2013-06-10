@@ -40,7 +40,10 @@ class UPYImage(models.Model):
         and with prettyPhoto jQuery plugin to open images in a lightbox.
         """
         if self.original_image:
-            return u'<a href="%s" class="upy_colorbox" title="%s"><img src="%s" class="upy_admin_thumb" alt="%s"/></a>' % (self.original_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
+            try:
+                return u'<a href="%s" class="upy_colorbox" title="%s"><img src="%s" class="upy_admin_thumb" alt="%s"/></a>' % (self.original_image.url, _("view image"), self.admin_thumbnail.url, self.admin_thumbnail.url )
+            except:
+                return _(u'Missing file')
         else:
             return None
     admin_thumbnail_view.short_description = _(u'Thumbnail')
