@@ -378,7 +378,9 @@ def can_translate(user):
         return True
     if not user.is_authenticated():
         return False
-    elif user.is_superuser and user.is_staff:
+    elif user.is_superuser:
+        return True
+    elif getattr(settings, 'ALLOW_STAFF_TO_ROSETTA') and user.is_staff:
         return True
     else:
         try:

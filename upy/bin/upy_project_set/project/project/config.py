@@ -45,6 +45,8 @@ USE_UPY_COLOR = True
 """ If True Colors app will be installed and you can use its utilities and widgets """
 USE_UPY_ROSETTA = True 
 """ If True the rosetta module will be installed """
+ALLOW_STAFF_TO_ROSETTA = True 
+""" If True staff can translate through rosetta """
 USE_STATIC_PAGE = True 
 """ If True the static page module will be installed. IT NEEDS USE_UPY_G11N = True """
 USE_STATIC_ELEMENT = False
