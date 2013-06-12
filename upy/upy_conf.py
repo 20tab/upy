@@ -56,6 +56,10 @@ def validate_config(config):
     if not config.USE_UPY_COLOR and config.USE_CUSTOM_ADMIN:
         print "UPY improperly configured: you can't set USE_CUSTOM_ADMIN = True if USE_UPY_COLOR is False"
         sys.exit()
+    for host in config.ALLOWED_HOSTS:
+        if "_" in host:
+            print "UPY improperly configured: you can't set ALLOWED_HOSTS with some \"_\""
+            sys.exit()
         
 
 def check_uwsgi_config(config):
