@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from mptt.models import MPTTModel
+from mptt.models import MPTTModel,TreeForeignKey
 from django.conf import settings
 from upy.utils import clean_cache
 from django.conf.urls import url
@@ -91,7 +91,7 @@ class Node(G11nBase,MPTTModel):
                             verbose_name = _(u"Name"))
     page = models.ForeignKey(u"Page", null = True, blank = True, help_text = _(u"Set the page for the referenced node."),
                              verbose_name = _(u"Page"))
-    parent = models.ForeignKey('self', null = True, blank = True, related_name = 'children', 
+    parent = TreeForeignKey('self', null = True, blank = True, related_name = 'children', 
                                help_text = _(u"Set the parent node for this node if it isn't root."),
                                verbose_name = _(u"Parent"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
