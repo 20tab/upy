@@ -13,23 +13,15 @@
 {% endblock head_meta %}
 {% block head_media %}
 {% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}
+{% block extra_style %}{% endblock %}
 {% if USE_UPY_JQUERYUI_LIB %}<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />{% endif %}
-{% for css in MEDIA_CSS %}
-<link rel="stylesheet" type="text/css" href="{{ css }}" />{% endfor %}
 {% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}
 {% if USE_UPY_JQUERYUI_LIB %}<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>{% endif %}
-{% for js in MEDIA_JS_HEADER %}
-<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
-{% endblock head_media %}
-{% block extra_head_media %}{% endblock %}
+{% block extra_head %}{% endblock %}
 </head>
 {% block tag_body %}
 <body>
 {% endblock %}
 {% block body %}{% endblock %}
-{% block foot_media %}
-{% for js in MEDIA_JS_FOOTER %}
-<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
-{% endblock foot_media %}
 </body>
 </html>

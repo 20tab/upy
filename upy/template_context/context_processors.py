@@ -3,7 +3,6 @@ Contains some common upy project context_processors
 """
 from django.conf import settings
 import upy
-from django.utils.translation import get_language
 
 def use_upy_admin(request):
     """

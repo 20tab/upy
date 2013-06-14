@@ -7,7 +7,6 @@ from upy.contrib.g11n.admin import G11nTabularInlineAdmin,G11nStackedInlineAdmin
 from django.conf import settings
 from django.template.loader import render_to_string
 import re
-from upy.contrib.orderable.admin import OrderableTabularInline
 
 class PublicationExtendedInline(admin.TabularInline):
     """
@@ -27,20 +26,6 @@ class PublicationAdmin(PublicationOption):
     inlines = [PublicationExtendedInline,] + PublicationOption.inlines
     save_on_top = True
 
- 
-class CssTreeStructurePositionInline(OrderableTabularInline):
-    """
-    Inline admin for CssTreeStructurePosition model
-    """
-    model = CssTreeStructurePosition   
-    fieldsets = (('',{'fields': ('position', 'css',),}),) 
-class JsTreeStructurePositionInline(OrderableTabularInline):
-    """
-    Inline admin for JsTreeStructurePosition model
-    """
-    model = JsTreeStructurePosition 
-    fieldsets = (('',{'fields': ('position', 'js',),}),)
-
 class TreeStructureOption(admin.ModelAdmin): 
     """
     This is the option class for TreeStructure Admin
@@ -49,7 +34,6 @@ class TreeStructureOption(admin.ModelAdmin):
     list_editable = ('tree_root', 'description',) 
     list_filter = ('tree_root',)
     save_on_top = True
-    inlines = [CssTreeStructurePositionInline,JsTreeStructurePositionInline,]
     fieldsets = (('', {'fields':('name','tree_root','description')}),)
     class Meta: 
         model = TreeStructure
@@ -225,18 +209,6 @@ class TemplateAdminForm(forms.ModelForm):
     input_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\w*(,)?|(, )?)*$', help_text = _(u"Set the variables required by template (separated with ,)."))
     class Meta:
         model = Template
-class CssTemplatePositionInline(OrderableTabularInline):
-    """
-    Admin's options for CssTemplatePosition model used as inline
-    """
-    model = CssTemplatePosition 
-    fieldsets = (('',{'fields': ('position', 'css',),}),)
-class JsTemplatePositionInline(OrderableTabularInline):
-    """
-    Admin's options for JsTemplatePosition model used as inline
-    """
-    model = JsTemplatePosition
-    fieldsets = (('',{'fields': ('position', 'js',),}),)
     
 class TemplateOption(admin.ModelAdmin): 
     """
@@ -248,7 +220,6 @@ class TemplateOption(admin.ModelAdmin):
     list_filter = ('app_name',)
     save_on_top = True
     form = TemplateAdminForm
-    inlines = [CssTemplatePositionInline,JsTemplatePositionInline,]
     class Meta: 
         model = Template
     class Media: 
@@ -282,37 +253,6 @@ class ViewOption(admin.ModelAdmin):
         js = (settings.JQUERY_LIB,
               '/upy_static/js/upy-admin-view.js',)
    
-
-class CssOption(admin.ModelAdmin): 
-    """
-    This is the option class for Css Admin
-    """
-    list_display = ('name', 'file_name',) 
-    list_editable = ('file_name',) 
-    save_on_top = True
-    fieldsets = (('',{'fields': ('name', 'file_name','description'),}),)
-    class Meta: 
-        model = Css
-
-class UrlAjaxInline(admin.StackedInline):
-    """
-    Admin's options for UrlAjax model used as inline
-    """
-    prepopulated_fields = {'slug': ('name',)}
-    model = UrlAjax
-    extra = 1
-class JsOption(admin.ModelAdmin): 
-    """
-    This is the option class for Js Admin
-    """
-    list_display = ('name', 'file_name','html_position') 
-    list_editable = ('file_name','html_position') 
-    save_on_top = True
-    fieldsets = (('',{'fields': ('name', 'file_name','html_position','description'),}),)
-    inlines = [UrlAjaxInline,]
-    class Meta: 
-        model = Js
-
 class RobotOption(admin.ModelAdmin): 
     """
     This is the option class for Robot Admin
@@ -357,10 +297,4 @@ admin.site.register(Template, TemplateOption)
 admin.site.register(View, ViewOption)
 admin.site.register(ViewAjax, ViewOption)
 admin.site.register(Robot, RobotOption)
-admin.site.register(Css,CssOption)
-admin.site.register(Js, JsOption)
-#admin.site.register(CssTreeStructurePosition)
-#admin.site.register(JsTreeStructurePosition)
-#admin.site.register(CssTemplatePosition)
-#admin.site.register(JsTemplatePosition)
 admin.site.register(UrlAjax,UrlAjaxOption)

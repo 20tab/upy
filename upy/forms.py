@@ -7,3 +7,6 @@ class NullTrueField(forms.NullBooleanField):
     cleaned to None.
     """
     widget = NullCheckboxWidget
+    
+
+    

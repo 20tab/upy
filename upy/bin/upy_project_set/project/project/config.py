@@ -16,6 +16,22 @@ else:
     """ The file's name that define the uwsgi configuration. If you don't want use uwsgi define this var with None value """
     DEBUG = True
     """ True only in development to debug your application"""
+
+PROJECT_APPS = [
+]
+""" It defines list of additional applications for your project """
+PROJECT_APP_DEFAULT = "" 
+""" Must be the name of your default app. It is used to autocomplete application name in tree.template and tree.views """
+PROJ_MIDDLEWARE_CLASSES = [
+]
+""" It defines list of additional middleware for your project """
+PROJ_TEMPLATE_CONTEXT_PROCESSORS = [
+]
+""" It defines list of additional context processors for your project """
+PROJ_TEMPLATE_DIRS = [
+]
+""" It defines list of additional templates' directories for your project """
+
 UWSGI_COMMAND = "uwsgi"
 """ uWSGI command location. On unbit's servers usually located to /proc/unbit/uwsgi/uwsgi. """
 ADMINS = (("errors","errors@email.com"),)
@@ -47,10 +63,6 @@ USE_UPY_ROSETTA = True
 """ If True the rosetta module will be installed """
 ALLOW_STAFF_TO_ROSETTA = True 
 """ If True staff can translate through rosetta """
-USE_STATIC_PAGE = True 
-""" If True the static page module will be installed. IT NEEDS USE_UPY_G11N = True """
-USE_STATIC_ELEMENT = False
-""" If True the static element module will be installed. """
 USE_FULLHD_SUPPORT = False 
 """ If True allow big size image (1920x1080px) """
 RGBA_FILTER = True 
@@ -99,20 +111,6 @@ DATABASES = {
     },
 }
 """
-PROJ_MIDDLEWARE_CLASSES = [
-]
-""" It defines list of additional middleware for your project """
-PROJ_TEMPLATE_CONTEXT_PROCESSORS = [
-]
-""" It defines list of additional context processors for your project """
-PROJ_TEMPLATE_DIRS = [
-]
-""" It defines list of additional templates' directories for your project """
-PROJECT_APPS = [
-]
-""" It defines list of additional applications for your project """
-PROJECT_APP_DEFAULT = "" 
-""" Must be the name of your default app. It is used to autocomplete application name in tree.template and tree.views """
 
 ######################## Newsletter configuration #########################
 UPY_NEWSLETTER_SPOOLER_TIMEOUT = 300 

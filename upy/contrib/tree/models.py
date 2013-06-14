@@ -58,10 +58,6 @@ class TreeStructure(models.Model):
     tree_root = models.ForeignKey(u"Node", help_text = _(u"Set the root node for the referenced tree."), 
                                   limit_choices_to = {'parent': None},
                                   verbose_name = _(u"Tree root"))
-    css = models.ManyToManyField(u"Css", null = True, blank = True, help_text = _(u"TreeStructure's css"), verbose_name = _(u"Css"), through = u"CssTreeStructurePosition")
-    
-    js = models.ManyToManyField(u"Js", null = True, blank = True, help_text = _(u"TreeStructure's js"), verbose_name = _(u"Js"), through = u"JsTreeStructurePosition")
-    
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), 
                                          verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), 
@@ -520,10 +516,6 @@ class Template(models.Model):
     file_name = models.CharField(max_length = 150, help_text = _(u"Set the template's file name."), verbose_name = _(u"File name"))
     input_vars = models.TextField(null = True, blank = True, help_text = _(u"Set the variables required by template (separated with ,)."),
                                   verbose_name = _(u"Input vars"))
-    css = models.ManyToManyField(u"Css", null = True, blank = True, help_text = _(u"TreeStructure's css"), verbose_name = _(u"Css"), through = u"CssTemplatePosition")
-    
-    js = models.ManyToManyField(u"Js", null = True, blank = True, help_text = _(u"TreeStructure's js"), verbose_name = _(u"Js"), through = u"JsTemplatePosition")
-    
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), verbose_name = _(u"Last update"))
     
@@ -681,192 +673,6 @@ class Robot(models.Model):
         verbose_name_plural = _(u"Robots")
         ordering = ['name']
     
-
-class CssTemplatePosition(models.Model):
-    """
-    It's used to order css files in templates
-    """
-    css = models.ForeignKey(u"Css", help_text = _(u"Css associated"), verbose_name = _(u"Css"))
-    template = models.ForeignKey(u"Template", help_text = _(u"Template associated"), verbose_name = _(u"Template"))
-    position = models.PositiveSmallIntegerField(u'Position', default=0)
-    
-    def save(self, *args, **kwargs):
-        if not self.pk and self.position == 0:
-            try:
-                last = CssTemplatePosition.objects.select_related("css","template").all().order_by("position").reverse()[0]
-                self.position = last.position + 1
-            except:
-                self.position = 0
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(CssTemplatePosition,self).save( *args, **kwargs)
-    
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(CssTemplatePosition,self).delete()
-       
-    def __unicode__(self):
-        return u"%s - %s - %s" % (self.css,self.template,self.position)
-    
-    class Meta:
-        ordering = ["position",]
-        verbose_name = _(u"Css/Template Position")
-        verbose_name_plural = _(u"Css/Template Positions")
-
-class CssTreeStructurePosition(models.Model):
-    """
-    It's used to order css files in treestructure objects
-    """
-    css = models.ForeignKey(u"Css", help_text = _(u"Css associated"), verbose_name = _(u"Css"))
-    tree_structure = models.ForeignKey(u"TreeStructure", help_text = _(u"TreeStructure associated"), verbose_name = _(u"TreeStructure"))
-    position = models.PositiveSmallIntegerField(u'Position', default=0)
-    
-    def save(self, *args, **kwargs):
-        if not self.pk and self.position == 0:
-            try:
-                last = CssTreeStructurePosition.objects.select_related("css","tree_structure").all().order_by("position").reverse()[0]
-                self.position = last.position + 1
-            except:
-                self.position = 0
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(CssTreeStructurePosition,self).save( *args, **kwargs)
-    
-    def __unicode__(self):
-        return u"%s - %s - %s" % (self.css,self.tree_structure,self.position)
-    
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(CssTreeStructurePosition,self).delete()
-       
-    class Meta:
-        ordering = ["position",]
-        verbose_name = _(u"Css/TreeStructure Position")
-        verbose_name_plural = _(u"Css/TreeStructure Positions")
-    
-class Css(models.Model):
-    """
-    It defines the css file location
-    """
-    name = models.CharField(max_length = 100, help_text = _(u"Set the css's name."),verbose_name = _(u"Name"))
-    description = models.TextField(null = True, blank = True, help_text = _(u"Set the css's description."),
-                                   verbose_name = _(u"Description"))
-    file_name = models.FilePathField(path=settings.RELATIVE_STATIC_ROOT, match=".css", recursive=True, help_text = _(u"Set the css's file name."), verbose_name = _(u"File name"))
-    
-    @property
-    def url(self):
-        return self.file_name.replace(settings.RELATIVE_STATIC_ROOT,settings.STATIC_URL).replace("//","/")
-        
-    def save(self, *args, **kwargs):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(Css,self).save( *args, **kwargs)
-    
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(Css,self).delete()
-        
-    def __unicode__(self):
-        return u"%s" % (self.name)
-    
-    class Meta:
-        ordering = ["file_name",]
-        verbose_name = _(u"Css")
-        verbose_name_plural = _(u"Css")
-
-class JsTemplatePosition(models.Model):
-    """
-    It's used to order js files in templates 
-    """
-    js = models.ForeignKey(u"Js", help_text = _(u"Js associated"), verbose_name = _(u"Js"))
-    template = models.ForeignKey(u"Template", help_text = _(u"Template associated"), verbose_name = _(u"Template"))
-    position = models.PositiveSmallIntegerField(u'Position', default=0)
-    
-    def save(self, *args, **kwargs):
-        if not self.pk and self.position == 0:
-            try:
-                last = JsTemplatePosition.objects.select_related("js","template").all().order_by("position").reverse()[0]
-                self.position = last.position + 1
-            except:
-                self.position = 0
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(JsTemplatePosition,self).save( *args, **kwargs)
-    
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(JsTemplatePosition,self).delete()
-            
-    def __unicode__(self):
-        return u"%s - %s - %s" % (self.js,self.template,self.position)
-    
-    class Meta:
-        ordering = ["position",]
-        verbose_name = _(u"Js/Template Position")
-        verbose_name_plural = _(u"Js/Template Positions")
-    
-class JsTreeStructurePosition(models.Model):
-    """
-    It's used to order js files in treestructure objects
-    """
-    js = models.ForeignKey(u"Js", help_text = _(u"Js associated"), verbose_name = _(u"Js"))
-    tree_structure = models.ForeignKey(u"TreeStructure", help_text = _(u"TreeStructure associated"), verbose_name = _(u"TreeStructure"))
-    position = models.PositiveSmallIntegerField(u'Position', default=0)
-    
-    def save(self, *args, **kwargs):
-        if not self.pk and self.position == 0:
-            try:
-                last = JsTreeStructurePosition.objects.select_related("js","tree_structure").all().order_by("position").reverse()[0]
-                self.position = last.position + 1
-            except:
-                self.position = 0
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(JsTreeStructurePosition,self).save( *args, **kwargs)
-     
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(JsTreeStructurePosition,self).delete()
-           
-    def __unicode__(self):
-        return u"%s - %s - %s" % (self.js,self.tree_structure,self.position)
-    
-    class Meta:
-        ordering = ["position",]
-        verbose_name = _(u"Js/TreeStructure Position")
-        verbose_name_plural = _(u"Js/TreeStructure Positions")
-    
-class Js(models.Model):
-    """
-    It defines the js file location
-    """
-    name = models.CharField(max_length = 100, help_text = _(u"Set the js's name."),verbose_name = _(u"Name"))
-    description = models.TextField(null = True, blank = True, help_text = _(u"Set the js's description."),
-                                   verbose_name = _(u"Description"))
-    file_name = models.FilePathField(path=settings.RELATIVE_STATIC_ROOT, match=".js", recursive=True, help_text = _(u"Set the js's file name."), verbose_name = _(u"File name"))
-    html_position = models.CharField(max_length = 50, choices = (("header","Header"),
-                                                           ("footer","Footer"),
-                                                           ),
-                                    default = 'header',
-                                    help_text = _(u"Select the position in the html file."),
-                                    verbose_name = _(u"Html position"))
-    
-    @property
-    def url(self):
-        return self.file_name.replace(settings.RELATIVE_STATIC_ROOT,settings.STATIC_URL).replace("//","/")
-    
-    def save(self, *args, **kwargs):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(Js,self).save( *args, **kwargs)
-    
-    def delete(self):
-        clean_cache(settings.UPYCACHE_DIR,"meta")
-        super(Js,self).delete()
-        
-    def __unicode__(self):
-        return u"%s" % (self.name)
-    
-    class Meta:
-        ordering = ["file_name",]
-        verbose_name = _(u"Js")
-        verbose_name_plural = _(u"Js")  
-    
-    
 class UrlAjax(models.Model):
     """
     This is the class that defines an Url Ajax.
@@ -883,8 +689,6 @@ class UrlAjax(models.Model):
     scheme_name = models.CharField(max_length = 100, null = True, blank = True, 
                                    help_text = _(u"Set the unique name to associate the view of a callback url."),
                                    verbose_name = _(u"Scheme name"))
-    js = models.ForeignKey(u"Js", help_text = _(u"Set the Js to associate with the UrlAjax."),
-                             verbose_name = _(u"Js"))
     view = models.ForeignKey(u"ViewAjax", help_text = _(u"Set the view to associate with the UrlAjax."),
                              verbose_name = _(u"View"))
     creation_date = models.DateTimeField(auto_now_add = True, help_text = _(u"Establishment date"), verbose_name = _(u"Creation date"))

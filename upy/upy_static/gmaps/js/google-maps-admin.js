@@ -136,7 +136,7 @@ jQuery(function() {
 		$("#id_geoaddress").css("width","400px");
 	    $("#id_geoaddress").after("<img id='gmap_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
 	
-		console.log($("#gmap_search").attr('src'));
+		//console.log($("#gmap_search").attr('src'));
 		    var googlemap = googleMapAdmin();
 		    googlemap.initialize();
 		}

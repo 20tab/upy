@@ -1,5 +1,4 @@
 from django.conf import settings
-from project import config
 from django.contrib import admin
 from django import forms
 

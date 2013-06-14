@@ -102,10 +102,6 @@ if USE_UPY_G11N:
     if USE_UPY_TREE:
         INSTALLED_APPS.append('upy.contrib.tree')
     INSTALLED_APPS.append('upy.contrib.language')
-    if USE_UPY_TREE and USE_STATIC_PAGE:
-        INSTALLED_APPS.append('upy.contrib.staticpage')
-if USE_STATIC_ELEMENT:
-    INSTALLED_APPS.append('upy.contrib.staticelement')
 
 if USE_FULLHD_SUPPORT:
     PIL_IMAGEFILE_MAXBLOCK = 256 * 2 ** 13 # 2MB
