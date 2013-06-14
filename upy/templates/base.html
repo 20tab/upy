@@ -11,7 +11,6 @@
 {% if META.robots %}<meta name="robots" content="{{ META.robots }}" />{% endif %}
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 {% endblock head_meta %}
-{% block head_media %}
 {% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}
 {% block extra_style %}{% endblock %}
 {% if USE_UPY_JQUERYUI_LIB %}<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />{% endif %}
