@@ -17,3 +17,4 @@ recursive-include upy/contrib/staticelement/templates *
 recursive-include upy/contrib/tree/templates *
 recursive-include upy/contrib/rosetta/locale *
 recursive-include upy/contrib/rosetta/templates *
+recursive-include upy/contrib/inspect/templates *
