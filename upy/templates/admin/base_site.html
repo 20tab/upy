@@ -29,4 +29,5 @@
 
     <a href="/" class="ml">{% trans "Website home" %}</a>  
     <a href="/admin/" class="ml">{% trans "Admin home" %}</a>
+    {% if user.is_superuser %}<a href="{% url "upy.contrib.inspect.views.browse" %}" class="ml">{% trans "Inspect models" %}</a>{% endif %}
 {% endblock nav-global %}

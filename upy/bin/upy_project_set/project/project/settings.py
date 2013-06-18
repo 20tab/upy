@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'imagekit',
     'upy',
     'upy.contrib.ckeditor',
+    'upy.contrib.inspect',
 ]
 if USE_UPY_G11N:
     INSTALLED_APPS.append('upy.contrib.g11n')

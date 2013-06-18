@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
 encoding//upy/contrib/colors/widgets.py=utf-8
+encoding//upy/contrib/inspect/__init__.py=utf-8
+encoding//upy/contrib/inspect/tests.py=utf-8
+encoding//upy/contrib/inspect/utils.py=utf-8

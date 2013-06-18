@@ -1,0 +1,177 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load inspect_tags %}
+{% block title %}{% trans "Inspect models" %}{% if CUSTOM_ADMIN.branding %} | {{CUSTOM_ADMIN.branding}}{% endif %}{% endblock %}
+{% block extrastyle %}
+	{{block.super}}
+	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />
+	<style type="text/css">
+		.inspect-container{
+			margin-top: 20px;
+		}
+		.att_name{
+			font-weight:bold;
+		}
+		#tabs>div>ul>li{
+			margin-top:10px;
+		}
+	</style>
+{% endblock %}
+{% block extrahead %}
+	{{block.super}}
+	{% if display_as == "tabs" %}
+	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
+	<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			$('#tabs').tabs();
+		});
+	</script>
+	{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+{% if title %} &rsaquo; {{ title }}{% endif %}
+ &rsaquo; {% trans "Inspect models" %}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="form-inspect">
+	<form name="choose_app" action="" method="post">
+		{% csrf_token %}
+		<label>{% trans "Choose a model" %}:</label>
+		<select name="model">
+			{% for app in apps %}
+			{% if app.models %}
+			<optgroup label="{{app.name}}" class="{{app.name}}">
+			{% for mod in app.models %}
+				<option value="{{app.value}}.{{mod}}"{% if model and mod == model.model_name  %} selected{% endif %}>{{mod}}</option>
+			{% endfor %}
+			</optgroup>
+			{% endif %}
+			{% endfor %}
+		</select>
+		<label>{% trans "Display as" %}:</label>
+		<select name="display_as">
+			<option value="list"{% if display_as == "list" %} selected{% endif %}>{% trans "list" %}</option>
+			<option value="tabs"{% if display_as == "tabs" %} selected{% endif %}>{% trans "tabs" %}</option>
+		</select>
+		<button type="submit">{% trans "Inspect" %}</button>
+		
+	</form>
+</div>
+<div class="inspect-container">
+	
+	<div id="tabs">
+		
+		{% if display_as == "tabs" %}
+		<ul>
+	    	<li><a href="#fields">{% trans "Fields" %}</a></li>
+	    	<li><a href="#properties">{% trans "Properties" %}</a></li>	
+	  		<li><a href="#methods">{% trans "Methods" %}</a></li>
+	    	<li><a href="#relation_fields">{% trans "Relation fields" %}</a></li>
+	    	<li><a href="#many_fields">{% trans "Many fields" %}</a></li>
+	    	<li><a href="#attributes">{% trans "Attributes" %}</a></li>
+	    	<li><a href="#items">{% trans "Items" %}</a></li>
+	    </ul>
+	  	{% endif %}
+	  	<div id="fields">
+	  		<h2>{% trans "Fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.fields %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="properties">
+	  		<h2>{% trans "Properties" %}</h2>
+	 		<ul>
+	 			{% for f in model.properties %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="methods">
+	  		<h2>{% trans "Methods" %}</h2>
+	 		<ul>
+	 			{% for f in model.methods %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="relation_fields">
+	  		<h2>{% trans "Relation fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.relation_fields %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="many_fields">
+	  		<h2>{% trans "Many fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.many_fields %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+		<div id="attributes">
+	  		<h2>{% trans "Attributes" %}</h2>
+	 		<ul>
+	 			{% for f in model.attributes %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="items">
+	  		<h2>{% trans "Items" %}</h2>
+	 		<ul>
+	 			{% for f in model.items %}
+	 			<li>
+	 				<div class="att_name">{{f}}</div>
+	 				{% if model.model|inspect_doc:f %}
+	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	 				{% endif %}
+	 			</li>
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	</div>
+</div>
+
+{% endblock %}
