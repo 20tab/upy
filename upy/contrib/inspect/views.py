@@ -19,9 +19,7 @@ def browse(request):
                 }
         apps.append(item) 
     
-    model_res = None
-    g11n_model = None
-    display_as = None
+    model_res = g11n_model = display_as = app = None
     if request.POST:
         model_name=request.POST['model'].replace('.models','')
         app = '.'.join(request.POST['model'].split('.')[:-1])
