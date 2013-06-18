@@ -5,40 +5,14 @@
 {% block extrastyle %}
 	{{block.super}}
 	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />
-	<style type="text/css">
-		.inspect-container{
-			margin-top: 15px;
-		}
-		#tabs{
-			margin-top: 10px;
-		}
-		.att_name{
-			font-weight:bold;
-		}
-		#tabs>div>ul>li{
-			margin-top:10px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/upy_static/inspect/css/inspect.css" />
 {% endblock %}
 {% block extrahead %}
 	{{block.super}}
-	{% if display_as == "tabs" %}
 	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
 	<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>
-	<script type="text/javascript">
-		jQuery(function(){
-			$('#tabs').tabs();
-			
-			$('.g11n-model').on('click',function(){
-				var val = $(this).attr('href');
-				$('#model-select').val(val);
-				$('#inspect-form').submit();
-				return false;
-			});
-			
-		});
-	</script>
-	{% endif %}
+	<script type="text/javascript" src="/upy_static/inspect/js/inspect.js"></script>
+	
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -69,8 +43,8 @@
 		</select>
 		<label>{% trans "Display as" %}:</label>
 		<select name="display_as">
-			<option value="list"{% if display_as == "list" %} selected{% endif %}>{% trans "list" %}</option>
 			<option value="tabs"{% if display_as == "tabs" %} selected{% endif %}>{% trans "tabs" %}</option>
+			<option value="list"{% if display_as == "list" %} selected{% endif %}>{% trans "list" %}</option>
 		</select>
 		<button type="submit">{% trans "Inspect" %}</button>
 		
@@ -84,7 +58,7 @@
 	</h1>
 	{% endif %}
 	
-	<div id="tabs">
+	<div class="tabs"{% if display_as == "tabs" %} id="tabs"{% endif %}>
 		
 		{% if display_as == "tabs" %}
 		<ul>
@@ -101,12 +75,7 @@
 	  		<h2>{% trans "Fields" %}</h2>
 	 		<ul>
 	 			{% for f in model.fields %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -114,12 +83,7 @@
 	  		<h2>{% trans "Properties" %}</h2>
 	 		<ul>
 	 			{% for f in model.properties %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -127,12 +91,7 @@
 	  		<h2>{% trans "Methods" %}</h2>
 	 		<ul>
 	 			{% for f in model.methods %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -140,12 +99,7 @@
 	  		<h2>{% trans "Relation fields" %}</h2>
 	 		<ul>
 	 			{% for f in model.relation_fields %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -153,12 +107,7 @@
 	  		<h2>{% trans "Many fields" %}</h2>
 	 		<ul>
 	 			{% for f in model.many_fields %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -166,12 +115,7 @@
 	  		<h2>{% trans "Attributes" %}</h2>
 	 		<ul>
 	 			{% for f in model.attributes %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
@@ -179,12 +123,7 @@
 	  		<h2>{% trans "Items" %}</h2>
 	 		<ul>
 	 			{% for f in model.items %}
-	 			<li>
-	 				<div class="att_name">{{f}}</div>
-	 				{% if model.model|inspect_doc:f %}
-	 				<div class="att_doc">{{model.model|inspect_doc:f}}</div>
-	 				{% endif %}
-	 			</li>
+	 			{% include "included_item_inspected.html" %}
 	 			{% endfor %}
 	 		</ul>
 	  	</div>
