@@ -3,7 +3,7 @@ from django.core.urlresolvers import resolve,Resolver404
 from django.conf.urls import handler404
 from django.utils.importlib import import_module
 from upy.contrib.g11n.models import Publication
-
+from django.conf import settings
 
 class SetCurrentPublicationMiddleware(object):
     """
@@ -27,8 +27,14 @@ class SetCurrentPublicationMiddleware(object):
         elif match:
             try:
                 current_publication = Publication.objects.select_related().get(url = request.get_host())
-            except:
-                current_publication = None
+            except Publication.DoesNotExist:
+                if not settings.MULTI_DOMAIN:
+                    try:
+                        current_publication = Publication.objects.select_related().get(default=True)
+                    except Publication.DoesNotExist:
+                        current_publication = None
+                else:
+                    current_publication = None
             activate(current_publication)
             
         

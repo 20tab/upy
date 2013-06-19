@@ -146,7 +146,7 @@ def get_image_browse_urls(user=None):
                 'thumb': get_media_url(get_thumb_filename(filename)),
                 'src': get_media_url(filename)
             })
-
+            
     return images
     
 def browse(request):

@@ -7,6 +7,7 @@ from upy.contrib.g11n.g11n_threading import get_publication
 from django.db.models.base import ModelBase
 import os
 from upy.fields import NullTrueField
+from django.core.exceptions import FieldError
 
 class G11nBaseCurrentManager(models.Manager):
     """
@@ -20,10 +21,60 @@ class G11nBaseCurrentManager(models.Manager):
             select_dict = dict([(field.column,"%s.%s" % (db_table,field.column)) for field in g11nmodel._meta.fields if field.name not in ['id',self.model.G11nMeta.fieldname]])
             filter_dict = {"%s__language__code__iexact" % self.model.G11nMeta.g11n.lower():translation.get_language(), 
                            "%s__publication" % self.model.G11nMeta.g11n.lower(): get_publication()}
+            if hasattr(self.model.G11nMeta,'ordering'):
+                return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict).order_by(*self.model.G11nMeta.ordering)
             return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict)
         except:
             raise
-            #return super(G11nBaseCurrentManager, self).get_empty_query_set()
+        
+    def _make_kwargs(self,**kwargs):
+        g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
+        base_kw = {}
+        g11n_kw = {}
+        base_fields = [field.name for field in self.model._meta.fields]
+        g11n_fields = [field.name for field in g11nmodel._meta.fields if field.name not in ['id',self.model.G11nMeta.fieldname]]
+        for k,v in kwargs.items():
+            f = k
+            if '__' in k:
+                f = k.split('__')[0]
+            if f in base_fields:
+                base_kw[k] = v
+            elif f in g11n_fields:
+                g11n_kw[k] = v
+            else:
+                raise FieldError("Cannot resolve keyword %r into field. "
+                            "Choices are: %s" % (f, ", ".join(base_fields + g11n_fields)))
+        return base_kw,g11n_kw,g11nmodel
+        
+   
+    def filter(self, *args, **kwargs):
+        base_kw,g11n_kw,g11nmodel = self._make_kwargs(**kwargs)        
+        return self.get_query_set().filter(
+                pk__in=g11nmodel.g11nobjects.values_list(
+                    self.model.G11nMeta.fieldname,
+                    flat=True
+                ).filter(**g11n_kw)).filter(*args, **base_kw)
+        
+    def get(self, *args, **kwargs):
+        base_kw = self._make_kwargs(**kwargs)[0]
+        return self.filter(*args, **kwargs).get(*args, **base_kw)
+
+
+    def exclude(self, *args, **kwargs):
+        base_kw,g11n_kw,g11nmodel = self._make_kwargs(**kwargs)        
+        return self.get_query_set().filter(
+                pk__in=g11nmodel.g11nobjects.values_list(
+                    self.model.G11nMeta.fieldname,
+                    flat=True
+                ).exclude(**g11n_kw)).exclude(*args, **base_kw)
+
+
+    def order_by(self, *args, **kwargs): 
+        return self.get_query_set().order_by(*args, **kwargs)
+
+    
+
+
 
 class G11nCurrentManager(models.Manager):
     """
@@ -143,8 +194,7 @@ class G11nBase(models.Model):
                       '%s__pk' % self.__class__.G11nMeta.fieldname: self.pk
             }
             return g11nmodel.g11nobjects.get(**kwargs)
-        except Exception,e:
-            print ValueError("Raised in %s/models.py Error in %s.%s: %s. Function called by %s" % (os.path.dirname(__file__),self.__module__,self.__class__.__name__,e,self.__class__.G11nMeta.g11n))
+        except:
             return None
     
     def __unicode__(self):
@@ -159,6 +209,8 @@ class G11nBase(models.Model):
         """
         g11n = None  # Must be a string that define the G11nModel class name that refers to sel as foreign key
         fieldname = None
+        ordering = ()
+        
     class Meta:
         abstract = True
  

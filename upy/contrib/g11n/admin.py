@@ -2,7 +2,11 @@ from django.contrib import admin
 from upy.contrib.g11n.models import _,PublicationG11n,Publication,Language
 from django.forms.models import BaseInlineFormSet
 from django.conf import settings
+from django.contrib.admin.views import main
 
+class ChangeList(main.ChangeList):
+    def get_query_set(self,request = None):
+        return self.model.g11nobjects.get_query_set()
 
 class G11nAdmin(admin.ModelAdmin):
     """
@@ -20,7 +24,13 @@ class G11nAdmin(admin.ModelAdmin):
             if Language.get_default():
                 kwargs['initial'] = Language.get_default().pk
         return super(G11nAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
-      
+    
+    def queryset(self, request):
+        qs = super(G11nAdmin, self).queryset(request)
+        return qs
+
+    def get_changelist(self, request, **kwargs):
+        return ChangeList
 
 class CyclePublication(object):
     """

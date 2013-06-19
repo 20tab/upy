@@ -12,12 +12,14 @@ class RichTextField(models.TextField):
     """
     def __init__(self,*args, **kwargs):
         self.config_name = kwargs.pop("config_name", "COMPLETE_CONFIG")
+        self.config = kwargs.pop("config", None)
         super(RichTextField, self).__init__(*args, **kwargs)
     
     def formfield(self, **kwargs):
         defaults = {
             'form_class': RichTextFormField,
             'config_name': self.config_name,
+            'config':self.config
         }
         defaults.update(kwargs)
         return super(RichTextField, self).formfield(**defaults)
@@ -26,8 +28,8 @@ class RichTextFormField(forms.fields.Field):
     """
     FormField for RichTextField
     """
-    def __init__(self, config_name='COMPLETE_CONFIG', *args, **kwargs):
-        kwargs.update({'widget': CKEditorWidget(config_name=config_name)})
+    def __init__(self, config_name='COMPLETE_CONFIG',config=None, *args, **kwargs):
+        kwargs.update({'widget': CKEditorWidget(config_name=config_name,config=config)})
         super(RichTextFormField, self).__init__(*args, **kwargs)
 
 try:
