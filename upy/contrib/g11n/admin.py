@@ -4,10 +4,13 @@ from django.forms.models import BaseInlineFormSet
 from django.conf import settings
 from django.contrib.admin.views import main
 
+"""
+TODO
 class ChangeList(main.ChangeList):
     def get_query_set(self,request = None):
+        qs = super(ChangeList, self).get_query_set(request)
         return self.model.g11nobjects.get_query_set()
-
+"""
 class G11nAdmin(admin.ModelAdmin):
     """
     Base Admin for G11n Models
@@ -25,13 +28,15 @@ class G11nAdmin(admin.ModelAdmin):
                 kwargs['initial'] = Language.get_default().pk
         return super(G11nAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
     
+    """
+    TODO
     def queryset(self, request):
         qs = super(G11nAdmin, self).queryset(request)
         return qs
-
+    
     def get_changelist(self, request, **kwargs):
         return ChangeList
-
+    """
 class CyclePublication(object):
     """
     It returns a list of tuples with all combinations made with languages and publications. 
