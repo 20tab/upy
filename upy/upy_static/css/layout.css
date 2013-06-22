@@ -23,7 +23,7 @@ div#container{}
     text-align: left;
     font-weight: bold;   
 	/********************** per cambiare colore barre dei titoli delle tabelle **************************/
-    background: #f49e00; /*: #7CA0C7 url(../img/admin/default-bg.gif) top left repeat-x;*/
+    background: #4C6771; /*: #7CA0C7 url(../img/admin/default-bg.gif) top left repeat-x;*/
     color: white;
 }
 .module table {width: 100%;} /* per rendere omogenea la visualizzazione con show_models_false */
@@ -36,8 +36,8 @@ div#container{}
 }
 
 div.inline-group{margin-top: 10px;}
-.inline-group>h2{font-size: 1.2em; color: #f4f379;}
-.inline-related h3{font-size: 1.25em; background: #f4f379;}
+.inline-group>h2{font-size: 1.2em; color: #fff;}
+.inline-related h3{font-size: 1.25em; background: #eee;}
 .dynamic-eventmetacontent_set{line-height: 2.0em;}
 div.breadcrumbs {
     background: white; /*white url(../img/admin/nav-bg-reverse.gif) 0 -10px repeat-x;*/
@@ -48,9 +48,13 @@ div.breadcrumbs {
     border-bottom: 1px solid #ccc;
     text-align: left;
 }
-div#header{background-color: #f49e00;}
+div#header{background-color: #4C6771;}
 div#header h1#site-name{font-family: "Trebuchet", "Sans-serif"; font-size: 2.0em; font-weight: bold;}
 
+
+#branding h1 {
+	color: #fff;
+}
 /* ************************************************************************ */ 		
 /* ************************************************************************ */
 /* ************************************************************************ */

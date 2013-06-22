@@ -167,7 +167,7 @@ class Breadcrumb(object):
         self.view_hidden = view_hidden
         self.g11n_depth = g11n_depth
         
-    def __do_menu(self, menu_as, show_leaf, current_linkable, class_current, chars = ""):
+    def __do_menu(self, menu_as, show_leaf, current_linkable, class_current, chars = "",render=True):
         """
         If there is a file in cache for current node's breadcrumb it returns this file, 
         else it calculates it and save file in cache
@@ -232,7 +232,10 @@ class Breadcrumb(object):
                     node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
             else:
                 node.url = None
-            
+        
+        if not render:
+            return list_nodes
+        
         menutpl = render_to_string('breadcrumb_%s.tpl.html' % menu_as, 
                               {'NODE': self.upy_context['NODE'], 'nodes' : list_nodes, 'chars' : chars, 'current_linkable' : current_linkable,
                                'class_current' : class_current,
@@ -263,3 +266,9 @@ class Breadcrumb(object):
         It returns breadcrumb as string
         """
         return self.__do_menu("as_string", show_leaf, current_linkable, class_current, chars)
+
+    def as_tree(self):
+        """
+        It returns a menu not cached as tree
+        """
+        return self.__do_menu("", render = False)

@@ -81,8 +81,12 @@ USE_UPY_CACHE = False
 """ If True Breadrumb and Menu use upy cached files to make menu and breadcrumbs """
 TIME_ZONE = 'Europe/Rome'
 """ See the TIME_ZONE's details on django settings documentation """
-LANGUAGE_CODE = 'it-It'
+LANGUAGE_CODE = 'it-it'
 """ See the LANGUAGE_CODE's details on django settings documentation """
+LANGUAGE_DEFAULT_NAME = 'italian'
+""" upy init_db command needs this information to create a default language """
+LANGUAGE_DEFAULT_ALIAS = 'IT'
+""" upy init_db command needs this information to create a default language """
 SECRET_KEY = 'secret_key_example'
 """ Make this unique, and don't share it with anybody. """
 PROJ_LOCALE_PATHS = [

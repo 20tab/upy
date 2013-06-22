@@ -9,6 +9,7 @@ def add_app_icons(app_list, autocomplete):
     It returns a list of applications to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode.
     """
+
     try:
         customadmin = CustomAdmin.objects.get(default=True)
         def_app_img = None
@@ -22,7 +23,7 @@ def add_app_icons(app_list, autocomplete):
         try:
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
             app_temp['image'] = def_app_img
-            if appicon.image:
+            if appicon.image != None:
                 app_temp['image'] = appicon.image
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
@@ -44,8 +45,7 @@ def add_app_icons(app_list, autocomplete):
             app_out['image'] = def_app_img
             app_out['verbose_app_name'] = app_out.get('name')
         
-        app_list_ok.extend(app_out_list)
-        
+        app_list_ok.extend(app_out_list)  
     return app_list_ok
 
 
@@ -63,9 +63,9 @@ def custom_app_list(app_list, autocomplete):
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
-        except IndexError:
-            #print ("Error in customadmin.templatetags.add_app_icons: ", e, 
-            #       "; application: ", appicon.application)
+        except Exception,e:
+            print ("Error in customadmin.templatetags.add_app_icons: ", e,
+                   "; application: ", appicon.application)
             pass # probabilmente e' stata inserita nella lista di applicazioni con icona una applicazione
             # che non e' tra quelle registrate nell'admin, quindi poco male...
     

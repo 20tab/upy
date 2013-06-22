@@ -238,8 +238,11 @@ class CustomModel(PositionImage):
     """
     This object links models in  installed_apps with an icon to use if CustomAdmin.view_mode == "use_model_icons" or CustomAdmin.view_mode == "use_inner_model_icons"
     """
+    app = models.CharField(max_length = 250, 
+                                 help_text = _(u"Select an appplication"), 
+                                   verbose_name = _(u"App"))
     model = models.CharField(max_length = 250, 
-                                   unique=True, help_text = _(u"Select a model"), 
+                                    help_text = _(u"Select a model"), 
                                    verbose_name = _(u"Model"))
     image = ImageSpecField([ResizeToFit(50, 50)], 
                            source='original_image', 
@@ -255,5 +258,6 @@ class CustomModel(PositionImage):
     class Meta:
         verbose_name = _(u"Custom Model")
         verbose_name_plural = _(u"Custom Models")
+        unique_together=('app','model')
         ordering = ['position']
  

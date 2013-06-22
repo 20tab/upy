@@ -6,6 +6,7 @@ from django import forms
 from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps,list_models,CustomModel
 from upy.contrib.image.admin import PositionImageOption
 from upy.utils import upy_re_match
+from django.conf import settings
 
 
 
@@ -104,7 +105,7 @@ class CustomAdminOption(admin.ModelAdmin):
     class Meta:
         model = CustomAdmin
     class Media:
-        js = ('/upy_static/js/customadmin.js',)
+        js = ('/upy_static/customadmin/js/customadmin.js',)
  
 class CustomAppForm(forms.ModelForm):
     """
@@ -164,9 +165,11 @@ class CustomModelForm(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(CustomModelForm, self).__init__(*args, **kwargs)
         listmodels = list_models()
+        listapps = list_apps()
         if self.instance.pk:
             listmodels.append([self.instance.model]*2)
         self.fields['model'].widget = forms.Select(choices=listmodels)
+        self.fields['app'].widget = forms.Select(choices=listapps)
         
     class Meta:
         model = CustomModel
@@ -175,12 +178,12 @@ class CustomModelOption(PositionImageOption):
     """
     Admin's options for CustomModel model
     """
-    list_display = ('position','model','original_image','admin_thumbnail_view',)
+    list_display = ('position','app','model','original_image','admin_thumbnail_view',)
     list_editable = ['position','original_image']
     list_display_links = ['model',]
-    
+    list_filter = ('app',)
     fieldsets = ((_('Icons'), {'fields':
-                                (('model',),
+                                (('app','model',),
                                  ('original_image'),),
                     },),
                  )
@@ -188,6 +191,8 @@ class CustomModelOption(PositionImageOption):
     form = CustomModelForm
     class Meta:
         model = CustomModel
+    class Media:
+        js = (settings.JQUERY_LIB,'/upy_static/customadmin/js/custommodel.js',)
     
 admin.site.register(CustomAdmin, CustomAdminOption)
 admin.site.register(CustomApp, CustomAppOption)

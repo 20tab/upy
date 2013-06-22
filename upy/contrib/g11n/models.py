@@ -317,8 +317,8 @@ class PublicationG11n(G11nModel):
                                 verbose_name = _(u"Keywords"))
     author = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the website's author."),
                               verbose_name = _(u"Author"))
-    content_type = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the website's content type."),
-                                    verbose_name = _(u"Content type"))
+    content_type = models.CharField(max_length = 150, default=u"utf-8", null = True, blank = True, help_text = _(u"Set the website's charset."),
+                                    verbose_name = _(u"Charset"))
     enabled = models.BooleanField(default = True, help_text = _(u"Uncheck it to enable the website."),
                                   verbose_name = _(u"Enabled"))
     disabled_message = models.TextField(null = True, blank = True, help_text = _(u"Text or html code to use if the website is disabled."),
