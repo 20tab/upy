@@ -3,7 +3,8 @@ Admin's option for all model defined in customadmin app.
 """
 from django.contrib import admin
 from django import forms
-from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _,list_apps,list_models,CustomModel
+from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _, \
+                                            list_apps,list_models,CustomModel, all_apps
 from upy.contrib.image.admin import PositionImageOption
 from upy.utils import upy_re_match
 from django.conf import settings
@@ -165,7 +166,8 @@ class CustomModelForm(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(CustomModelForm, self).__init__(*args, **kwargs)
         listmodels = list_models()
-        listapps = list_apps()
+        listapps = all_apps()
+        print listapps
         if self.instance.pk:
             listmodels.append([self.instance.model]*2)
         self.fields['model'].widget = forms.Select(choices=listmodels)

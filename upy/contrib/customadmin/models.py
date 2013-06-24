@@ -27,6 +27,15 @@ def verifyApp(app):
                         'upy.contrib.language',
                         'upy.contrib.rosetta']
         
+def all_apps():
+    """
+    it returns a list of tuples with the name of all installed apps with admin's registration.
+    """
+    list_apps = []
+    for app in settings.INSTALLED_APPS:
+        if not verifyApp(app): 
+            list_apps.append([app,app.split(".")[-1].title()])
+    return list_apps 
 
 def list_apps():
     """
@@ -55,7 +64,7 @@ def list_models():
                 pass#app doesn't have model.py module
             for m in all_models:
                 try:
-                    CustomModel.objects.get(model=m.__name__)
+                    CustomModel.objects.get(app=app,model=m.__name__)
                 except:
                     list_models_app.append([m._meta.verbose_name_plural]*2)
             list_models.append((app.split(".")[-1].title(),list_models_app))
