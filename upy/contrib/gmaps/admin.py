@@ -11,7 +11,9 @@ class GmapsForm(forms.ModelForm):
         if hasattr(self.instance.__class__.GmapsMeta,'default_country'):
             self.fields['country'].initial = self.instance.__class__.GmapsMeta.default_country
             self.fields['country'].widget = CountrySelect(choices=self.fields['country'].choices)
-    
+        if hasattr(self.instance.__class__.GmapsMeta,'default_continent'):
+            self.fields['continent'].initial = self.instance.__class__.GmapsMeta.default_continent
+            
 class GmapsAdmin(admin.ModelAdmin):
     list_display = ('geoaddress','continent','country','city','address','zip_code')
     list_filter = ('continent',)

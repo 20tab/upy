@@ -38,6 +38,7 @@ class GmapsModel(models.Model):
     
     class GmapsMeta:
         default_country = u'IT'
+        default_continent=u'europe'
         
     class Meta:
         abstract = True
