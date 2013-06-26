@@ -170,21 +170,26 @@ class Node(G11nBase,MPTTModel):
         """
         It returns node's slug
         """
-        if self.page:
-            return self.page.slug
-        elif not self.hide_in_url:
-            return self.name
-        else:
-            return ""
-
+        if self.slugable:
+            if self.is_root_node():
+                return u""
+            
+            if not self.page.regex or (self.page.regex and not self.page.show_regex) or self.is_leaf_node():
+                return u"%s/%s" % (self.parent.slug,self.page.slug)
+            elif self.page.regex and self.value_regex and self.page.show_regex:
+                return u'%s/%s/%s' % (self.parent.slug,self.page.slug,self.value_regex)
+            elif not self.hide_in_url:
+                return u'%s/%s' % (self.parent.slug,self.name)
+        return ""
+    '''
     @property
     def complete_slug(self):
         """
         It returns complete slug for this node
         """
         compl_slug = self.treeslug
-        if self.page:
-            compl_slug += "%s" % self.page.slug
+        if self.slugable and compl_slug:
+            compl_slug += "%s" % self.slug
         return compl_slug
     
     @property
@@ -195,6 +200,8 @@ class Node(G11nBase,MPTTModel):
         ancestors = self.get_ancestors()
         tree_slug = ""
         for node in ancestors[1:]:
+            if not node.slugable:
+                return None
             if not node.hide_in_url:
                 tree_slug += "%s/" % node.slug
             else:
@@ -202,15 +209,55 @@ class Node(G11nBase,MPTTModel):
         return tree_slug
     
     @property
-    def basenode(self):
+    def tree_urlpattern(self):
         """
-        It returns self's base node
+        It returns tree's url pattern including all ancestors
         """
         ancestors = self.get_ancestors()
-        if ancestors:
-            return ancestors[0]
-        return self
+        tree_slug = ""
+        for node in ancestors[1:]:
+            if node.page:
+                pass
+            if not node.hide_in_url:
+                tree_slug += "%s/" % node.slug
+            else:
+                tree_slug += "%s" % node.slug
+        return tree_slug
+    '''
+    @property
+    def slugable(self):
+        """
+        A node is slugable in following cases:
+        1 - Node doesn't have children.
+        2 - Node has children but its page doesn't have a regex.
+        3 - Node has children, its page has regex but it doesn't show it.
+        4 - Node has children, its page shows his regex and node has a default value for regex.
+        5 - Node hasn't a page but it ins't hidden in url.
+        """
+        if self.page:
+            if self.is_leaf_node():
+                return True
+            if not self.is_leaf_node() and not self.page.regex:
+                return True
+            if not self.is_leaf_node() and self.page.regex and not self.page.show_regex:
+                return True
+            if not self.is_leaf_node() and self.page.regex and self.page.show_regex and self.value_regex:
+                return True
+        elif not self.is_leaf_node() and not self.hide_in_url:
+            return True
+        return False
     
+    def get_publication_url(self):
+        if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
+            return u"/%s/" % PublicationExtended.objects.get(tree_structure = TreeStructure.objects.get(tree_root= self.get_root())).publication.url
+        return "/"
+    
+    def get_publication_pattern(self):
+        if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
+            return u"%s/" % PublicationExtended.objects.get(tree_structure = TreeStructure.objects.get(tree_root= self.get_root())).publication.url
+        return ""
+           
+    '''
     def absolute_url(self,pub_extended,node):
         """
         It calculates absolute url and it returns link as string and the relative url pattern
@@ -229,16 +276,28 @@ class Node(G11nBase,MPTTModel):
             return link, url(regex, view, page.static_vars, page.scheme_name)
         
         return False
+    '''
+    def get_pattern(self):
+        """
+        It returns its url pattern
+        """
+        if self.is_root_node():
+            return self.get_publication_pattern()
+        else:
+            if not self.page and not self.hide_in_url:
+                return u'%s/%s' % (self.parent.get_pattern(),self.name)     
+            elif self.page.regex and self.page.show_regex:
+                return u'%s/%s/%s' % (self.parent.get_pattern(),self.page.slug,self.page.regex)
+            elif self.is_leaf_node() and self.page.regex:
+                return u'%s/%s/%s' % (self.parent.get_pattern(),self.page.slug,self.page.regex)
+            else:
+                return u'%s/%s' % (self.parent.get_pattern(),self.page.slug)
     
-    def get_absolute_url(self,upy_context = None):
+    def get_absolute_url(self):
         """
         It returns simply a link as string
         """
-        if upy_context:
-            link =  self.absolute_url(upy_context['PUB_EXTENDED'], upy_context['NODE'])[0]
-        else:
-            link = "%s" % self.pk
-        return link
+        return u"%s%s" % (self.get_publication_url(), self.slug)
     
     @property
     def presentation_type(self):
@@ -266,7 +325,7 @@ class Node(G11nBase,MPTTModel):
         verbose_name = _(u"Node")
         verbose_name_plural = _(u"Nodes")
         ordering = ['tree_id', 'lft']
-    
+    '''
     @staticmethod
     def getCurrent(publication, page):
         """
@@ -301,7 +360,7 @@ class Node(G11nBase,MPTTModel):
         for root_node in Node.tree.root_nodes().order_by("position"):
             rebuild_tree(root_node, tree_id)
             tree_id += 1
-
+    '''
 class NodeG11n(G11nModel):
     """
     This is the class that defines static contents of a page of the structure.
@@ -344,6 +403,7 @@ class Page(G11nBase):
                             verbose_name = _(u"Slug"))
     regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url (e.g. \"(?P<element_id>\d+)\")."),
                              verbose_name = _(u"Regex"))
+    show_regex = models.BooleanField(_(u'Show regex'),default=True,help_text=_(u'If it\'s checked the regex will not be shown in urlpattern'))
     static_vars = models.TextField(null = True, blank = True, 
                                    help_text = _(u"Set the dictionary of static parameters of the page in a regular format: {\"param1\":value1, \"param2\":value2}."),
                                    verbose_name = _(u"Static vars"))
@@ -370,13 +430,13 @@ class Page(G11nBase):
         else:
             return "%s" % self.scheme_name
     
-    def get_absolute_url(self,upy_context):
+    def get_absolute_url(self):
         """
         It returns absolute url defined by node related to this page
         """
         try:    
             node = Node.objects.select_related().filter(page = self)[0]
-            return node.get_absolute_url(upy_context)
+            return node.get_absolute_url()
         except Exception, e:
             raise ValueError("Error in %s.%s: %s" % (self.__module__,self.__class__.__name__,e))
             return ""
@@ -413,35 +473,6 @@ class Page(G11nBase):
         verbose_name = _(u"Page")
         verbose_name_plural = _(u"Pages")
         ordering = ['name']
-
-    '''
-    @staticmethod
-    def getCurrent(request, publication):
-        """
-        DEPRECATED: It calculates current page but it's in upy_context dictionary
-        """
-        print "DEPRECATION WARNING: upy.contrib.tree.models.Page.getCurrent()"
-        if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
-            page_url = request.get_full_path()
-            page_url = page_url.split('/')[2:]
-        else:
-            page_url = request.get_full_path()
-        page_url = page_url.split('?')[0]
-        if page_url == "" or page_url == "/":
-            try:
-                return publication.index_node.page
-            except:
-                raise ValueError("No index_node set in current publication")
-        try:
-            page_url = page_url.split('/')
-            page = Page.objects.get(slug__iexact=page_url[-2:-1][0])
-            return page
-        except Page.DoesNotExist:
-            raise ValueError("Page Doesn't exist in %s.Page.getCurrent" % Page.__module__)
-        except Exception, e:
-            raise ValueError("Error in %s.Page: %s" % (Page.__module__,e))
-
-    ''' 
      
 class PageG11n(G11nModel):
     """
@@ -707,6 +738,7 @@ class UrlAjax(models.Model):
     def __unicode__(self):
         return u"%s" % (self.name)
     
+    '''
     def check_static_vars(self,pub_extended,node): 
         """
         DEPRECATED: There aren't NODES or PAGES associated to urlajax
@@ -720,7 +752,7 @@ class UrlAjax(models.Model):
         self.static_vars['upy_context']['PUB_EXTENDED'] = pub_extended
         self.static_vars['upy_context']['NODE'] = node
         self.static_vars['upy_context']['PAGE'] = None
-    
+    '''
     class Meta:
         verbose_name = _(u"UrlAjax")
         verbose_name_plural = _(u"UrlAjax")

@@ -198,7 +198,7 @@ class CustomApp(PositionImage):
     verbose_app_name = models.CharField(max_length = 250, unique=True, 
                                         help_text = _(u"Write the verbose name to show"), 
                                         verbose_name = _(u"Verbose app name")) 
-    image = ImageSpecField([ResizeToFit(128, 128)], 
+    image = ImageSpecField([ResizeToFit(80, 80)], 
                            source='original_image', 
                            format='png')
     show_models = models.BooleanField(default=True, 
@@ -228,7 +228,7 @@ class CustomLink(PositionImage):
     verbose_url_name = models.CharField(max_length = 250, unique=True, 
                                         help_text = _(u"Write the verbose name to show"), 
                                         verbose_name = _(u"Verbose url name")) 
-    image = ImageSpecField([ResizeToFit(128, 128)], source='original_image', format='png')
+    image = ImageSpecField([ResizeToFit(80, 80)], source='original_image', format='png')
 
     
     def __unicode__(self):

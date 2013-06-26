@@ -114,9 +114,11 @@ h3 a:hover{}
 #content-main-icon .module .box_model .box_model_row .box_model_row_name{
 	height:50px;
 	width:160px;
-	line-height:50px;
-	float:right;
+	/*line-height:50px;
+	float:right;*/
 	overflow:hidden;
+	display:table-cell;
+	vertical-align:middle;
 }
 #content-main-icon .module .box_model .box_model_row div{
 	text-align:center;

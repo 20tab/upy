@@ -46,8 +46,8 @@ def getUrlList():
             regex_path = '%s' % publication_url
             
             if pub_extended.index_node.page:
-                regex = r'^%s%s$' % (publication_url, pub_extended.index_node.page.regex)
-                regex_path = '%s%s' % (publication_url, pub_extended.index_node.page.regex)
+                regex = r'^$'
+                regex_path = ''
             page = pub_extended.index_node.page
             view = page.view
             view = u'%s.%s.%s' % (view.app_name,view.module_name,view.func_name)
@@ -72,8 +72,8 @@ def getUrlList():
                 if node.page:
                     page = node.page
                     view = page.view
-                    regex = r'^%s%s%s/%s$' % (publication_url, node.treeslug, page.slug, page.regex)
-                    regex_path = '%s%s%s/%s' % (publication_url, node.treeslug, page.slug, page.regex)
+                    regex = r'^%s$' % node.get_pattern()
+                    regex_path = '%s' % node.get_pattern()
                     if node.protected:
                         set_login_required.append(regex)
                     view = u'%s.%s.%s' % (view.app_name,view.module_name,view.func_name)
@@ -127,11 +127,7 @@ class UPYSitemap():
                 
                 for node in nodes:
                     if node.page:
-                        page = node.page
-                        if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
-                            regex = r'%s/%s%s/%s' % (publication.url, node.treeslug, page.slug, page.regex)
-                        else:
-                            regex = r'%s%s/%s' % (node.treeslug, page.slug, page.regex)
+                        regex = r'%s' % node.get_pattern()
                             
                         url_sitemap = UrlSitemap(loc = regex)
                         if node.changefreq:
@@ -166,10 +162,6 @@ class UPYRobotTXT():
             pass
         if not disallow_all:
             for pub_extended in publications:
-                publication = pub_extended.publication
-                publication_url = ''
-                if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
-                    publication_url = '%s/' % publication.url
                 current_struct = pub_extended.tree_structure
                 if current_struct not in struct_tmp:
                     struct_tmp.append(current_struct)
@@ -177,8 +169,7 @@ class UPYRobotTXT():
                     
                     for node in nodes:
                         if node.page and node.disallow:
-                            page = node.page
-                            regex = r'%s/%s%s/%s' % (publication_url, node.treeslug, page.slug, page.regex)
+                            regex = r'%s' % node.slug
                             
                             for robot in node.robots.all():
                                 if robot.name_id in set_robot.keys():

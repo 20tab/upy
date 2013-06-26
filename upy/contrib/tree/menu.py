@@ -72,32 +72,33 @@ class Menu(object):
             publication_url = ""
         list_nodes = []
         for node in nodes:
-            if node.show_if_logged and self.request.user:
-                if not node.groups.all():
-                    node.hide_in_navigation = True
+            if node.slugable:
+                if node.show_if_logged and self.request.user:
+                    if not node.groups.all():
+                        node.hide_in_navigation = True
+                    else:
+                        list_user_groups = str_groups.replace("-","").split("e")
+                        for grp in node.groups.all():
+                            if "%s" % grp.pk not in list_user_groups:
+                                node.hide_in_navigation = True
+                        
+                try:
+                    node_g11n = node.g11n
+                except:
+                    node_g11n = None
                 else:
-                    list_user_groups = str_groups.replace("-","").split("e")
-                    for grp in node.groups.all():
-                        if "%s" % grp.pk not in list_user_groups:
-                            node.hide_in_navigation = True
-                    
-            try:
-                node_g11n = node.g11n
-            except:
-                node_g11n = None
-            else:
-                if not node_g11n:
-                    node.alias = node.name
+                    if not node_g11n:
+                        node.alias = node.name
+                    else:
+                        node.alias = node_g11n.alias
+                if node.page:
+                    if not node.value_regex:
+                        node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
+                    else:
+                        node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
                 else:
-                    node.alias = node_g11n.alias
-            if node.page:
-                if not node.value_regex:
-                    node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
-                else:
-                    node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
-            else:
-                node.url = None
-            list_nodes.append(node)
+                    node.url = None
+                list_nodes.append(node)
         if not render:
             return list_nodes
         
@@ -207,31 +208,32 @@ class Breadcrumb(object):
         else:
             publication_url = ""
         for node in list_nodes:
-            if node.show_if_logged and self.request.user:
-                if not node.groups.all():
-                    node.hide_in_navigation = True
+            if node.slugable:
+                if node.show_if_logged and self.request.user:
+                    if not node.groups.all():
+                        node.hide_in_navigation = True
+                    else:
+                        list_user_groups = str_groups.replace("-","").split("e")
+                        for grp in node.groups.all():
+                            if "%s" % grp.pk not in list_user_groups:
+                                node.hide_in_navigation = True
+                        
+                try:
+                    node_g11n = node.g11n
+                except:
+                    node_g11n = None
                 else:
-                    list_user_groups = str_groups.replace("-","").split("e")
-                    for grp in node.groups.all():
-                        if "%s" % grp.pk not in list_user_groups:
-                            node.hide_in_navigation = True
-                    
-            try:
-                node_g11n = node.g11n
-            except:
-                node_g11n = None
-            else:
-                if not node_g11n:
-                    node.alias = node.name
+                    if not node_g11n:
+                        node.alias = node.name
+                    else:
+                        node.alias = node_g11n.alias
+                if node.page:
+                    if not node.value_regex:
+                        node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
+                    else:
+                        node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
                 else:
-                    node.alias = node_g11n.alias
-            if node.page:
-                if not node.value_regex:
-                    node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
-                else:
-                    node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
-            else:
-                node.url = None
+                    node.url = None
         
         if not render:
             return list_nodes

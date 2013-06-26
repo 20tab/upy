@@ -56,20 +56,19 @@ class NodeForm(forms.ModelForm):
         page = self.cleaned_data['page']
         parent = self.cleaned_data['parent']
         slug = None
+        if self.instance == parent:
+            raise forms.ValidationError(_("A node may not be made a child of itself."))
         if parent:
-            slug = parent.complete_slug
+            slug = parent.slug
             if page:
                 if slug:
                     slug += "/%s" % page.slug 
                 else:
                     slug = page.slug
-        if self.instance == parent:
-            raise forms.ValidationError(_("A node may not be made a child of itself."))
-        if parent:
-            basenode = parent.basenode
+            basenode = parent.get_root()
             if page: # check the slug validity only if this is a page node with its own slug 
                 for node in basenode.get_descendants(include_self=False):
-                    if slug == node.complete_slug and node.pk != self.instance.pk:
+                    if slug == node.slug and node.pk != self.instance.pk:
                         raise forms.ValidationError(_("You cannot use the same slug (/%s) in two different nodes of the same structure" % (slug)))
                     if node.page and node.page == page and node.pk != self.instance.pk:
                         raise forms.ValidationError(_("You can use page only in one node of the same structure"))
@@ -194,7 +193,7 @@ class PageOption(admin.ModelAdmin):
     form = PageAdminForm
     fieldsets = (('', {'fields': 
                        (('name', 'slug',),
-                       ('regex', 'scheme_name',),
+                       ('regex','show_regex'),('scheme_name',),
                        ('static_vars',),
                        ('template','view'),
                        ('presentation_type',))
