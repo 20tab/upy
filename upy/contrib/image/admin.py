@@ -13,7 +13,7 @@ class UPYImageForm(forms.ModelForm):
         if hasattr(self.instance.__class__.UPYImageMeta,'required'):
             self.fields['original_image'].required = self.instance.__class__.UPYImageMeta.required
               
-class UPYImageOption(admin.ModelAdmin):
+class UPYImageAdmin(admin.ModelAdmin):
     """
     Abstract admin option class for UPYImage
     """
@@ -31,7 +31,7 @@ class UPYImageOption(admin.ModelAdmin):
         abstract = True
     
     
-class PositionImageOption(UPYImageOption):
+class PositionImageAdmin(UPYImageAdmin):
     """
     Abstract admin option class for PositionImage
     """
@@ -42,7 +42,7 @@ class PositionImageOption(UPYImageOption):
     exclude = ('position',)
     
     class Media:
-        js = UPYImageOption.Media.js+('/upy_static/js/admin-list-reorder.js',)
+        js = UPYImageAdmin.Media.js+('/upy_static/js/admin-list-reorder.js',)
     
     class Meta:
         abstract = True

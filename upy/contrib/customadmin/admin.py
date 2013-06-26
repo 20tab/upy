@@ -5,7 +5,7 @@ from django.contrib import admin
 from django import forms
 from upy.contrib.customadmin.models import CustomAdmin, CustomApp, CustomLink, _, \
                                             list_apps,list_models,CustomModel, all_apps
-from upy.contrib.image.admin import PositionImageOption
+from upy.contrib.image.admin import PositionImageAdmin
 from upy.utils import upy_re_match
 from django.conf import settings
 
@@ -73,7 +73,7 @@ class CustomAdminForm(forms.ModelForm):
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
         return self.cleaned_data 
 
-class CustomAdminOption(admin.ModelAdmin):
+class CustomAdminAdmin(admin.ModelAdmin):
     """
     Admin's options for CustomAdmin model
     """
@@ -122,7 +122,7 @@ class CustomAppForm(forms.ModelForm):
     class Meta:
         model = CustomApp
         
-class CustomAppAdmin(PositionImageOption):
+class CustomAppAdmin(PositionImageAdmin):
     """
     Admin's options for CustomApp model
     """
@@ -142,7 +142,7 @@ class CustomAppAdmin(PositionImageOption):
     class Meta:
         model = CustomApp
         
-class CustomLinkAdmin(PositionImageOption):
+class CustomLinkAdmin(PositionImageAdmin):
     """
     Admin's options for CustomLink model
     """
@@ -176,7 +176,7 @@ class CustomModelForm(forms.ModelForm):
     class Meta:
         model = CustomModel
         
-class CustomModelAdmin(PositionImageOption):
+class CustomModelAdmin(PositionImageAdmin):
     """
     Admin's options for CustomModel model
     """
@@ -196,7 +196,7 @@ class CustomModelAdmin(PositionImageOption):
     class Media:
         js = (settings.JQUERY_LIB,'/upy_static/customadmin/js/custommodel.js',)
     
-admin.site.register(CustomAdmin, CustomAdminOption)
+admin.site.register(CustomAdmin, CustomAdminAdmin)
 admin.site.register(CustomApp, CustomAppAdmin)
 admin.site.register(CustomLink, CustomLinkAdmin)
 admin.site.register(CustomModel, CustomModelAdmin)

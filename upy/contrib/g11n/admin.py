@@ -2,15 +2,7 @@ from django.contrib import admin
 from upy.contrib.g11n.models import _,PublicationG11n,Publication,Language
 from django.forms.models import BaseInlineFormSet
 from django.conf import settings
-from django.contrib.admin.views import main
 
-"""
-TODO
-class ChangeList(main.ChangeList):
-    def get_query_set(self,request = None):
-        qs = super(ChangeList, self).get_query_set(request)
-        return self.model.g11nobjects.get_query_set()
-"""
 
 class G11nBaseAdmin(admin.ModelAdmin):
     def queryset(self, request):
@@ -18,7 +10,6 @@ class G11nBaseAdmin(admin.ModelAdmin):
         ordering = self.get_ordering(request)
         if ordering:
             qs = qs.order_by(*ordering)
-
         return qs
 
 class G11nAdmin(admin.ModelAdmin):
@@ -38,15 +29,7 @@ class G11nAdmin(admin.ModelAdmin):
                 kwargs['initial'] = Language.get_default().pk
         return super(G11nAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
     
-    """
-    TODO
-    def queryset(self, request):
-        qs = super(G11nAdmin, self).queryset(request)
-        return qs
-    
-    def get_changelist(self, request, **kwargs):
-        return ChangeList
-    """
+
 class CyclePublication(object):
     """
     It returns a list of tuples with all combinations made with languages and publications. 
@@ -146,7 +129,7 @@ class PublicationG11nInline(G11nStackedInlineAdmin):
                        ('robots','disallow_all_robots'),('generator',)),
         },),) + G11nAdmin.fieldsets
         
-class PublicationOption(admin.ModelAdmin): 
+class PublicationAdmin(admin.ModelAdmin): 
     """
     This is the option class for Publication Admin
     """
@@ -170,7 +153,7 @@ class PublicationOption(admin.ModelAdmin):
         js = (settings.JQUERY_LIB,
               '/upy_static/js/upy-admin-publication.js',)
         
-class PublicationG11nOption(G11nAdmin): 
+class PublicationG11nAdmin(G11nAdmin): 
     """
     This is the option class for PublicationG11n Admin
     """
@@ -186,7 +169,7 @@ class PublicationG11nOption(G11nAdmin):
     class Meta: 
         model = PublicationG11n
         
-class LanguageOption(admin.ModelAdmin): 
+class LanguageAdmin(admin.ModelAdmin): 
     """
     This is the option class for Language Admin
     """
@@ -195,6 +178,6 @@ class LanguageOption(admin.ModelAdmin):
     class Meta: 
         model = Language
         
-admin.site.register(Publication, PublicationOption)
+admin.site.register(Publication, PublicationAdmin)
 #admin.site.register(PublicationG11n, PublicationG11nOption)
-admin.site.register(Language, LanguageOption)
+admin.site.register(Language, LanguageAdmin)

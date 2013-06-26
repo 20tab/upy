@@ -176,6 +176,8 @@ class G11nBase(models.Model):
     g11nobjects = G11nBaseCurrentManager()
     objects = models.Manager()
 
+    g11n_default_unicode = models.CharField(_(u'G11n default unicode'),max_length=255,default = "",blank=True)
+
     @property
     def g11n(self):
         """
@@ -191,12 +193,10 @@ class G11nBase(models.Model):
             return None
     
     def __unicode__(self):
-        if self.g11n and hasattr(self.g11n,'__unicode__'):
-            return self.g11n.__unicode__()
+        if self.g11n_default_unicode:
+            return self.g11n_default_unicode
         else:
             return "%s %s" % (self.__class__.__name__, self.pk)
-    
-    
     
     class G11nMeta:
         """
@@ -219,9 +219,23 @@ class G11nModel(models.Model):
     objects = models.Manager()
     g11nFilter = G11nManager()
     g11nobjects = G11nCurrentManager()
+    
+    def __unicode__(self):
+        return u"%s (%s - %s)" % (self.__class__.__name__,self.publication,self.language)
+    
+    def save(self,*args,**kwargs):
+        if self.language == self.publication.default_language:
+            for f in self.__class__._meta.fields:
+                if f.get_internal_type() == "ForeignKey" and f.name not in ['language','publication']:
+                    if hasattr(f.rel.to,"G11nMeta") and getattr(f.rel.to.G11nMeta,"fieldname") == f.name:
+                        g11nbase = getattr(self,f.name)
+                        g11nbase.g11n_default_unicode = self.__unicode__()
+                        g11nbase.save()
+        super(G11nModel,self).save(*args,**kwargs)
+    
     class Meta:
         abstract = True
-
+        
 class Publication(G11nBase):
     """
     This is the class that defines the referenced Publication of the website.

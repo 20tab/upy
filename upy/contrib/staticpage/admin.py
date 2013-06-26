@@ -18,7 +18,7 @@ class CKEditorForm(forms.ModelForm):
     )
     
 
-class StaticPageG11nOption(G11nAdmin):
+class StaticPageG11nAdmin(G11nAdmin):
     """
     Admin's options for StaticPageG11n model
     """
@@ -39,7 +39,7 @@ class StaticPageG11nInline(G11nStackedInlineAdmin):
                        ('alias', 'html'),
         },),) + G11nAdmin.fieldsets
 
-class StaticPageOption(admin.ModelAdmin):
+class StaticPageAdmin(admin.ModelAdmin):
     """
     Admin's options for StaticPage model
     """
@@ -49,7 +49,7 @@ class StaticPageOption(admin.ModelAdmin):
     save_on_top = True
 
 
-class StaticPageCategoryOption(admin.ModelAdmin):
+class StaticPageCategoryAdmin(admin.ModelAdmin):
     """
     Admin's options for StaticPageCategory model
     """

@@ -3,7 +3,7 @@ from django import forms
 from upy.contrib.tree.models import *
 from django.utils.translation import ugettext_lazy as _
 from upy.contrib.tree.tree_admin import TreeEditor
-from upy.contrib.g11n.admin import G11nTabularInlineAdmin,G11nStackedInlineAdmin,G11nAdmin,PublicationOption
+from upy.contrib.g11n.admin import G11nTabularInlineAdmin,G11nStackedInlineAdmin,G11nAdmin,PublicationAdmin
 from django.conf import settings
 from django.template.loader import render_to_string
 import re
@@ -18,15 +18,15 @@ class PublicationExtendedInline(admin.TabularInline):
     max_num = 1 
 
 
-class PublicationAdmin(PublicationOption):
+class PublicationAdmin(PublicationAdmin):
     """
     Admin's options for Publication model
     """
-    list_display = PublicationOption.list_display
-    inlines = [PublicationExtendedInline,] + PublicationOption.inlines
+    list_display = PublicationAdmin.list_display
+    inlines = [PublicationExtendedInline,] + PublicationAdmin.inlines
     save_on_top = True
 
-class TreeStructureOption(admin.ModelAdmin): 
+class TreeStructureAdmin(admin.ModelAdmin): 
     """
     This is the option class for TreeStructure Admin
     """
@@ -75,7 +75,7 @@ class NodeForm(forms.ModelForm):
         return self.cleaned_data   
 
     
-class NodeOption(TreeEditor): 
+class NodeAdmin(TreeEditor): 
     """
     This is the option class for Node Admin
     """
@@ -127,7 +127,7 @@ class NodeOption(TreeEditor):
               '/upy_static/js/upy-admin-node.js',)
 
    
-class NodeG11nOption(G11nAdmin): 
+class NodeG11nAdmin(G11nAdmin): 
     """
     This is the option class for NodeG11n Admin
     """
@@ -140,7 +140,7 @@ class NodeG11nOption(G11nAdmin):
     class Meta: 
         model = NodeG11n 
     
-class PageG11nOption(G11nAdmin): 
+class PageG11nAdmin(G11nAdmin): 
     """
     This is the option class for PageG11n Admin
     """
@@ -180,7 +180,7 @@ class PageAdminForm(forms.ModelForm):
         model = Page
     static_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\{((?:"\w+"|\'\w+\'):(?:"\w+"|\'\w+\'),?\s?)+\})*$', help_text = _(u"Set the dictionary of static parameters of the page in a regular format: {\"param1\":\"value1\", \"param2\":\"value2\"}."))
 
-class PageOption(admin.ModelAdmin): 
+class PageAdmin(admin.ModelAdmin): 
     """
     This is the option class for Page Admin
     """
@@ -209,7 +209,7 @@ class TemplateAdminForm(forms.ModelForm):
     class Meta:
         model = Template
     
-class TemplateOption(admin.ModelAdmin): 
+class TemplateAdmin(admin.ModelAdmin): 
     """
     This is the option class for Template Admin
     """
@@ -236,7 +236,7 @@ class ViewAdminForm(forms.ModelForm):
     class Meta:
         model = View
     
-class ViewOption(admin.ModelAdmin): 
+class ViewAdmin(admin.ModelAdmin): 
     """
     This is the option class for View Admin
     """
@@ -252,7 +252,7 @@ class ViewOption(admin.ModelAdmin):
         js = (settings.JQUERY_LIB,
               '/upy_static/js/upy-admin-view.js',)
    
-class RobotOption(admin.ModelAdmin): 
+class RobotAdmin(admin.ModelAdmin): 
     """
     This is the option class for Robot Admin
     """
@@ -271,7 +271,7 @@ class UrlAjaxAdminForm(forms.ModelForm):
     slug = forms.RegexField(required = True,  regex = '^[-\w/]+$', help_text = _(u"Identifying UrlAjax's url."))
     static_vars = forms.RegexField(required = False, widget = forms.Textarea(attrs = {"cols": '80', "rows": '4'}), regex = '^(\{((?:"\w+"|\'\w+\'):\w+,?\s?)+\})*$', help_text = _(u"Set the dictionary of static parameters of the page in a regular format: {\"param1\":value1, \"param2\":value2}."))
 
-class UrlAjaxOption(admin.ModelAdmin): 
+class UrlAjaxAdmin(admin.ModelAdmin): 
     """
     This is the option class for UrlAjax Admin
     """
@@ -287,13 +287,13 @@ class UrlAjaxOption(admin.ModelAdmin):
 
 admin.site.unregister(Publication)
 admin.site.register(Publication,PublicationAdmin)
-admin.site.register(TreeStructure, TreeStructureOption)
-admin.site.register(Node, NodeOption)
-#admin.site.register(NodeG11n, NodeG11nOption)
-admin.site.register(Page, PageOption)
-#admin.site.register(PageG11n, PageG11nOption)
-admin.site.register(Template, TemplateOption)
-admin.site.register(View, ViewOption)
-admin.site.register(ViewAjax, ViewOption)
-admin.site.register(Robot, RobotOption)
-admin.site.register(UrlAjax,UrlAjaxOption)
+admin.site.register(TreeStructure, TreeStructureAdmin)
+admin.site.register(Node, NodeAdmin)
+#admin.site.register(NodeG11n, NodeG11nAdmin)
+admin.site.register(Page, PageAdmin)
+#admin.site.register(PageG11n, PageG11nAdmin)
+admin.site.register(Template, TemplateAdmin)
+admin.site.register(View, ViewAdmin)
+admin.site.register(ViewAjax, ViewAdmin)
+admin.site.register(Robot, RobotAdmin)
+admin.site.register(UrlAjax,UrlAjaxAdmin)

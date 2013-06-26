@@ -9,7 +9,7 @@ STATICELEMENT_CKE_CONFIG = None
 if settings.STATICELEMENT_CKE_CONFIG:
     STATICELEMENT_CKE_CONFIG = settings.STATICELEMENT_CKE_CONFIG
 
-class StaticElementCategoryOption(admin.ModelAdmin):
+class StaticElementCategoryAdmin(admin.ModelAdmin):
     """
     Admin's options for StaticElementCategory model
     """
@@ -24,7 +24,7 @@ class CKEditorFormMC(forms.ModelForm):
     )
     class Meta:
         model = se_models.StaticElement
-class StaticElementG11nOption(G11nAdmin):
+class StaticElementG11nAdmin(G11nAdmin):
     """
     Admin's options for StaticElementG11n model
     """
@@ -44,7 +44,7 @@ class StaticElementG11nInline(G11nStackedInlineAdmin):
                        ('alias', 'html'),
         },),) + G11nAdmin.fieldsets
 
-class StaticElementG11nBaseOption(admin.ModelAdmin):
+class StaticElementG11nBaseAdmin(admin.ModelAdmin):
     """
     Admin's options for StaticElement model
     """
@@ -57,7 +57,7 @@ class CKEditorForm(forms.ModelForm):
         widget=CKEditorWidget(config=STATICELEMENT_CKE_CONFIG)
     )
 
-class StaticElementOption(admin.ModelAdmin):
+class StaticElementAdmin(admin.ModelAdmin):
     """
     Admin's options for StaticElementCategory model
     """

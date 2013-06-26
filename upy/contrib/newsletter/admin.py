@@ -19,7 +19,7 @@ class SendDateForm(forms.ModelForm):
             #raise forms.ValidationError(_("The date cannot be in the past!"))
         return send_date
 
-class ContactOption(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     """
     Admin's options for Contact model
     """
@@ -33,7 +33,7 @@ class ContactOption(admin.ModelAdmin):
     class Meta:
         model = Contact  
     
-class ListOption(admin.ModelAdmin):
+class ListAdmin(admin.ModelAdmin):
     """
     Admin's options for List model
     """
@@ -49,7 +49,7 @@ class ListOption(admin.ModelAdmin):
     class Meta:
         model = List  
         
-class AttachmentOption(admin.ModelAdmin):
+class AttachmentAdmin(admin.ModelAdmin):
     """
     Admin's options for Attachment model
     """
@@ -78,7 +78,7 @@ class NLForm(forms.ModelForm):
     class Meta:
         model = Newsletter
        
-class NewsletterOption(admin.ModelAdmin):
+class NewsletterAdmin(admin.ModelAdmin):
     """
     Admin's options for Newsletter model
     """
@@ -93,7 +93,7 @@ class NewsletterOption(admin.ModelAdmin):
     class Meta:
         model = Newsletter
         
-class DispatcherOption(admin.ModelAdmin):
+class DispatcherAdmin(admin.ModelAdmin):
     """
     Admin's options for Dispatcher model
     """
@@ -143,8 +143,8 @@ class DispatcherOption(admin.ModelAdmin):
         queryset.update(status='processing')
     continue_selected.short_description = _("Continue selected dispatchers")   
             
-admin.site.register(Contact, ContactOption)
-admin.site.register(List, ListOption)
-admin.site.register(Attachment, AttachmentOption)
-admin.site.register(Newsletter, NewsletterOption)
-admin.site.register(Dispatcher, DispatcherOption)
+admin.site.register(Contact, ContactAdmin)
+admin.site.register(List, ListAdmin)
+admin.site.register(Attachment, AttachmentAdmin)
+admin.site.register(Newsletter, NewsletterAdmin)
+admin.site.register(Dispatcher, DispatcherAdmin)

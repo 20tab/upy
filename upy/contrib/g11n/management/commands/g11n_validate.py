@@ -21,6 +21,10 @@ class Command(NoArgsCommand):
             for m in models.get_models(app): # per ogni modello nell'applicazione corrente
                 
                 if issubclass(m,G11nModel):# se e' subclass di G11nModel deve controllare che estende una classe astratta e non conreta
+                    for f in m._meta.fields:
+                        if f.get_internal_type() == "ForeignKey" and f.name not in ['language','publication']:
+                            if not hasattr(f.rel.to,"G11nMeta") or getattr(f.rel.to.G11nMeta,"fieldname") != f.name:
+                                raise CommandError("Error in %s.%s . G11nModel can't have ForeignKey to a No-G11Base model" % (m.__module__,m.__name__))
                     for base in m.__bases__:
                         if issubclass(base,G11nModel) and not base._meta.abstract:
                             raise CommandError("Error in %s.%s . G11nModel can extend only abstract Model" % (m.__module__,m.__name__))
