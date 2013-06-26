@@ -11,6 +11,16 @@ class ChangeList(main.ChangeList):
         qs = super(ChangeList, self).get_query_set(request)
         return self.model.g11nobjects.get_query_set()
 """
+
+class G11nBaseAdmin(admin.ModelAdmin):
+    def queryset(self, request):
+        qs = self.model.g11nobjects.all()
+        ordering = self.get_ordering(request)
+        if ordering:
+            qs = qs.order_by(*ordering)
+
+        return qs
+
 class G11nAdmin(admin.ModelAdmin):
     """
     Base Admin for G11n Models

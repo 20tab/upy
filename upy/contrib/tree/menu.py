@@ -65,11 +65,6 @@ class Menu(object):
                     clean_cache(settings.UPYCACHE_DIR,"breadcrumb")
 
         nodes = self.root.get_descendants()
-        if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
-            full_path = self.request.get_full_path()
-            publication_url = "/%s" % full_path.split('/')[1]
-        else:
-            publication_url = ""
         list_nodes = []
         for node in nodes:
             if node.slugable:
@@ -92,10 +87,7 @@ class Menu(object):
                     else:
                         node.alias = node_g11n.alias
                 if node.page:
-                    if not node.value_regex:
-                        node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
-                    else:
-                        node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
+                    node.url = node.slug
                 else:
                     node.url = None
                 list_nodes.append(node)
@@ -202,11 +194,6 @@ class Breadcrumb(object):
         if show_leaf:
             list_nodes.append(self.leaf)
 
-        if settings.MULTI_DOMAIN is False and settings.MULTI_PUBLICATION is True:
-            full_path = self.request.get_full_path()
-            publication_url = "/%s" % full_path.split('/')[1]
-        else:
-            publication_url = ""
         for node in list_nodes:
             if node.slugable:
                 if node.show_if_logged and self.request.user:
@@ -229,9 +216,7 @@ class Breadcrumb(object):
                         node.alias = node_g11n.alias
                 if node.page:
                     if not node.value_regex:
-                        node.url = "%s/%s%s/" % (publication_url, node.treeslug, node.page.slug)
-                    else:
-                        node.url = "%s/%s%s/%s" % (publication_url, node.treeslug, node.page.slug,node.value_regex)
+                        node.url = node.slug
                 else:
                     node.url = None
         

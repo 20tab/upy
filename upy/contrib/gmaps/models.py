@@ -24,12 +24,12 @@ class GmapsBase(ModelBase):
         return new
 
 class GmapsModel(models.Model):
-    continent = models.CharField(_(u'Continent'),max_length=100,choices=(CONTINENTS))
-    country = ContinentCountryField(_(u"Country"), max_length = 250)
-    area = models.CharField(_(u"Area"), null=True, blank=True, max_length = 250)
-    city = models.CharField(_(u'City'), max_length = 250)
-    address = models.CharField(_(u"Address"), max_length = 250)
-    zip_code  = models.CharField(_(u"Zip code"), max_length = 50)
+    continent = models.CharField(_(u'Continent'),max_length=100, blank=True,choices=(CONTINENTS))
+    country = ContinentCountryField(_(u"Country"), blank=True, max_length = 250)
+    area = models.CharField(_(u"Area"), blank=True, max_length = 250)
+    city = models.CharField(_(u'City'), blank=True, max_length = 250)
+    address = models.CharField(_(u"Address"), blank=True, max_length = 250)
+    zip_code  = models.CharField(_(u"Zip code"), blank=True, max_length = 50)
     geoaddress = map_fields.AddressField(_(u"Geo Address"), max_length=250)
     geolocation = map_fields.GeoLocationField(_(u"Geo Location"), max_length=250)
       

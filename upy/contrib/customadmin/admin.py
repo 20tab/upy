@@ -122,7 +122,7 @@ class CustomAppForm(forms.ModelForm):
     class Meta:
         model = CustomApp
         
-class CustomAppOption(PositionImageOption):
+class CustomAppAdmin(PositionImageOption):
     """
     Admin's options for CustomApp model
     """
@@ -142,7 +142,7 @@ class CustomAppOption(PositionImageOption):
     class Meta:
         model = CustomApp
         
-class CustomLinkOption(PositionImageOption):
+class CustomLinkAdmin(PositionImageOption):
     """
     Admin's options for CustomLink model
     """
@@ -176,7 +176,7 @@ class CustomModelForm(forms.ModelForm):
     class Meta:
         model = CustomModel
         
-class CustomModelOption(PositionImageOption):
+class CustomModelAdmin(PositionImageOption):
     """
     Admin's options for CustomModel model
     """
@@ -197,6 +197,6 @@ class CustomModelOption(PositionImageOption):
         js = (settings.JQUERY_LIB,'/upy_static/customadmin/js/custommodel.js',)
     
 admin.site.register(CustomAdmin, CustomAdminOption)
-admin.site.register(CustomApp, CustomAppOption)
-admin.site.register(CustomLink, CustomLinkOption)
-admin.site.register(CustomModel, CustomModelOption)
+admin.site.register(CustomApp, CustomAppAdmin)
+admin.site.register(CustomLink, CustomLinkAdmin)
+admin.site.register(CustomModel, CustomModelAdmin)

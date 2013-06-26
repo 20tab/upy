@@ -68,13 +68,8 @@ class G11nBaseCurrentManager(models.Manager):
                     flat=True
                 ).exclude(**g11n_kw)).exclude(*args, **base_kw)
 
-
     def order_by(self, *args, **kwargs): 
         return self.get_query_set().order_by(*args, **kwargs)
-
-    
-
-
 
 class G11nCurrentManager(models.Manager):
     """
@@ -139,8 +134,6 @@ class G11nManager(models.Manager):
             else:
                 return result
             
-    
-
 class G11nBaseManager(models.Manager):
     """
     This is a default manager for G11n objects that implements the g11n searching
@@ -182,7 +175,7 @@ class G11nBase(models.Model):
     g11nFilter = G11nBaseManager()
     g11nobjects = G11nBaseCurrentManager()
     objects = models.Manager()
-    
+
     @property
     def g11n(self):
         """
@@ -202,7 +195,9 @@ class G11nBase(models.Model):
             return self.g11n.__unicode__()
         else:
             return "%s %s" % (self.__class__.__name__, self.pk)
-        
+    
+    
+    
     class G11nMeta:
         """
         This is a class Meta that define which model is the related G11nModel and which field in the related model refers to this G11nBase model
@@ -249,8 +244,7 @@ class Publication(G11nBase):
                                          verbose_name = _(u"Creation date"))
     last_update = models.DateTimeField(auto_now = True, help_text = _(u"Last update"), 
                                        verbose_name = _(u"Last update"))
-    
-    
+
     def save(self, *args, **kwargs):
         clean_cache(settings.UPYCACHE_DIR)
         super(Publication,self).save( *args, **kwargs)
@@ -301,9 +295,6 @@ class Publication(G11nBase):
         except: 
             return None  
 
-    
-    
-        
 class PublicationG11n(G11nModel):
     """
     This is the class that defines meta informations of the website.

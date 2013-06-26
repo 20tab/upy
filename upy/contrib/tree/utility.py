@@ -74,6 +74,7 @@ def getUrlList():
                     view = page.view
                     regex = r'^%s$' % node.get_pattern()
                     regex_path = '%s' % node.get_pattern()
+                                         
                     if node.protected:
                         set_login_required.append(regex)
                     view = u'%s.%s.%s' % (view.app_name,view.module_name,view.func_name)
@@ -127,7 +128,7 @@ class UPYSitemap():
                 
                 for node in nodes:
                     if node.page:
-                        regex = r'%s' % node.get_pattern()
+                        regex = r'%s' % node.slug
                             
                         url_sitemap = UrlSitemap(loc = regex)
                         if node.changefreq:
