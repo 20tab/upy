@@ -1,0 +1,203 @@
+/*body { behavior: url("csshover3.htc"); }*/
+
+html,body{margin: 0;padding:0}
+
+
+div#no_ie{display:none; padding: 2px; margin: 0 auto; background-color: red; border-bottom: 2px gray solid;}
+
+
+div#container_web{/*float: left;*/ /*width: 1000px;*/ margin: 5px; text-align: left; color: #000; 
+		border: 3px solid #000; /*overflow: auto;*/
+		border-radius: 20px /*/ 5px*/;
+		-moz-border-radius: 20px ;}
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+/*stili specifici per l'admin*/ /* **************************************** */
+
+div#container{}
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 2px 5px 3px 5px;
+    font-size: 11px;
+    text-align: left;
+    font-weight: bold;   
+	/********************** per cambiare colore barre dei titoli delle tabelle **************************/
+    background: #4C6771; /*: #7CA0C7 url(../img/admin/default-bg.gif) top left repeat-x;*/
+    color: white;
+}
+.module table {width: 100%;} /* per rendere omogenea la visualizzazione con show_models_false */
+
+.calendar caption{
+	text-align:center;
+}
+.calendarnav-previous,.calendarnav-next{
+	background:none !important;
+}
+
+div.inline-group{margin-top: 10px;}
+.inline-group>h2{font-size: 1.2em; color: #fff;}
+.inline-related h3{font-size: 1.25em; background: #eee;}
+.dynamic-eventmetacontent_set{line-height: 2.0em;}
+div.breadcrumbs {
+    background: white; /*white url(../img/admin/nav-bg-reverse.gif) 0 -10px repeat-x;*/
+    padding: 2px 8px 3px 8px;
+    font-size: 11px;
+    color: #999;
+    border-top: 1px solid white;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+div#header{background-color: #4C6771;}
+div#header h1#site-name{font-family: "Trebuchet", "Sans-serif"; font-size: 2.0em; font-weight: bold;}
+
+
+#branding h1 {
+	color: #fff;
+}
+/* ************************************************************************ */ 		
+/* ************************************************************************ */
+/* ************************************************************************ */
+
+
+h1{font-size: 1.3em;}
+h1 a{}
+h1 a:hover{}
+
+h2{font-size: 1.2em;}
+h2 a{}
+h2 a:hover{}
+
+h3{font-size: 1.1em;}
+h3 a{}
+h3 a:hover{}
+
+/* ************************************************************************ */
+/* ************************************************************************ */
+.app_icon_box{
+	color: #888 !important; max-width: 150px; display: inline-block; 
+	margin: 30px; text-align: center; font-weight: bold;
+}
+.app_icon_box a{color: #888 !important;}
+.app_icon_box a:hover{color: #f49e00 !important;}
+
+.dashboard div.appicon-content{width: 90% !important;}
+#content-main{/*background-color:yellow;*/}
+#content-main-icon{/*background-color:green; */}
+#content-main-icon-link{/*background-color:red; */}
+#content-main-custom-app{width:50%;float:left;}
+
+
+
+/*******************************CUSTOM_MODEL_ICONS**********************************/
+#content-main-icon .module .box_model{
+	float:left;
+	margin:5px;
+}
+#content-main-icon .module .box_model .box_model_row{
+	display:block;
+	position:relative;
+}
+#content-main-icon .module .box_model .box_model_row div{
+	position:relative;
+	text-align:center;
+	
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_image a{
+	display:block;
+	height:50px;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_image{
+	min-height:50px;
+	float:left;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_name{
+	height:50px;
+	width:160px;
+	/*line-height:50px;
+	float:right;*/
+	overflow:hidden;
+	display:table-cell;
+	vertical-align:middle;
+}
+#content-main-icon .module .box_model .box_model_row div{
+	text-align:center;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_add{
+	float:left;
+	background-color:orange;
+	width:104px;
+	background-color:#CCCCCC;
+	height:35px;
+	line-height:35px;
+}
+#content-main-icon .module .box_model .box_model_row .box_model_row_change{
+	float:right;
+	width:104px;
+	margin-left:2px;
+	background-color:#CCCCCC;
+	height:35px;
+	line-height:35px;
+}
+/*******************************************************/
+/* classi per rendere i button_form come i button_link */
+.object-tools input[type='submit']{
+    display: block;
+    float: left;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+    border: 0;
+    margin: 0;
+    padding: .1em 14px .1em 8px;
+    height: 16px;
+    background: #999 url(../images/tool-right.gif) 100% 0 no-repeat;
+    cursor: pointer;
+}
+
+.object-tools input[type='submit']:hover, .object-tools li:hover input[type='submit'] {
+    background: #5b80b2 url(../images/tool-right_over.gif) 100% 0 no-repeat;
+}
+
+/*******************************************************/
+
+
+.selector{
+	width: 900px !important;
+}
+.selector select, .selector-available, .selector-chosen{
+	width: 400px !important;
+}
+
+
+.change-list .filtered .results, .change-list .filtered .paginator, .filtered #toolbar, .filtered div.xfull, .filtered .actions {
+    margin-right: 0px !important;
+}
+#changelist-filter h2{
+    cursor: pointer;
+}
+.change-list .filtered{
+	background: #fff none !important;
+}
+#changelist-filter{
+	border-bottom:1px solid #ddd;
+}
+
+#rosetta-link{
+	float:left;
+}
+#rosetta-link a{
+	background: white url(../images/nav-bg.gif) bottom repeat-x;
+    padding: 3px 5px;
+    border: 1px solid #bbb;
+    border-color: #ddd #aaa #aaa #ddd;
+	color: black !important;
+	height:25px;
+	line-height:25px;
+}
+.box_change_language{
+	float:right;
+	height:25px;
+	line-height:25px;
+}

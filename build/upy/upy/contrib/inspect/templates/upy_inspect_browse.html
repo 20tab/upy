@@ -1,0 +1,133 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load inspect_tags %}
+{% block title %}{% trans "Inspect models" %}{% if CUSTOM_ADMIN.branding %} | {{CUSTOM_ADMIN.branding}}{% endif %}{% endblock %}
+{% block extrastyle %}
+	{{block.super}}
+	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />
+	<link rel="stylesheet" type="text/css" href="/upy_static/inspect/css/inspect.css" />
+{% endblock %}
+{% block extrahead %}
+	{{block.super}}
+	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
+	<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>
+	<script type="text/javascript" src="/upy_static/inspect/js/inspect.js"></script>
+	
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+{% if title %} &rsaquo; {{ title }}{% endif %}
+ &rsaquo; {% trans "Inspect models" %}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="form-inspect">
+	<form id = "inspect-form" name="inspect-form" action="" method="post">
+		{% csrf_token %}
+		<label>{% trans "Choose a model" %}:</label>
+		<select id="model-select" name="model">
+			{% for app in apps %}
+			{% if app.models %}
+			<optgroup label="{{app.name}}" class="{{app.name}}">
+			{% for mod in app.models %}
+				<option value="{{app.value}}.{{mod}}"{% if model and mod == model.model_name  %} selected{% endif %}>{{mod}}</option>
+			{% endfor %}
+			</optgroup>
+			{% endif %}
+			{% endfor %}
+		</select>
+		<label>{% trans "Display as" %}:</label>
+		<select name="display_as">
+			<option value="tabs"{% if display_as == "tabs" %} selected{% endif %}>{% trans "tabs" %}</option>
+			<option value="list"{% if display_as == "list" %} selected{% endif %}>{% trans "list" %}</option>
+		</select>
+		<button type="submit">{% trans "Inspect" %}</button>
+		
+	</form>
+</div>
+{% if model %}
+<div class="inspect-container">
+	{% if g11n_model %}
+	<h1>
+		{{model.model_name}} {% trans "has g11n model associated. See also" %} <a class="g11n-model" href="{{app}}.{{g11n_model}}">{{g11n_model}}</a>
+	</h1>
+	{% endif %}
+	
+	<div class="tabs"{% if display_as == "tabs" %} id="tabs"{% endif %}>
+		
+		{% if display_as == "tabs" %}
+		<ul>
+	    	<li><a href="#fields">{% trans "Fields" %}</a></li>
+	    	<li><a href="#properties">{% trans "Properties" %}</a></li>	
+	  		<li><a href="#methods">{% trans "Methods" %}</a></li>
+	    	<li><a href="#relation_fields">{% trans "Relation fields" %}</a></li>
+	    	<li><a href="#many_fields">{% trans "Many fields" %}</a></li>
+	    	<li><a href="#attributes">{% trans "Attributes" %}</a></li>
+	    	<li><a href="#items">{% trans "Items" %}</a></li>
+	    </ul>
+	  	{% endif %}
+	  	<div id="fields">
+	  		<h2>{% trans "Fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.fields %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="properties">
+	  		<h2>{% trans "Properties" %}</h2>
+	 		<ul>
+	 			{% for f in model.properties %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="methods">
+	  		<h2>{% trans "Methods" %}</h2>
+	 		<ul>
+	 			{% for f in model.methods %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="relation_fields">
+	  		<h2>{% trans "Relation fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.relation_fields %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="many_fields">
+	  		<h2>{% trans "Many fields" %}</h2>
+	 		<ul>
+	 			{% for f in model.many_fields %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+		<div id="attributes">
+	  		<h2>{% trans "Attributes" %}</h2>
+	 		<ul>
+	 			{% for f in model.attributes %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	  	<div id="items">
+	  		<h2>{% trans "Items" %}</h2>
+	 		<ul>
+	 			{% for f in model.items %}
+	 			{% include "included_item_inspected.html" %}
+	 			{% endfor %}
+	 		</ul>
+	  	</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

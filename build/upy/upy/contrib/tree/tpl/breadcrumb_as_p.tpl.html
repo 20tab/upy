@@ -1,0 +1,8 @@
+{% for node in nodes %}{% if not node.hide_in_navigation or view_hidden %}
+<p>{% if not node.page %}
+    {{ node.alias }}{% else %}{% if not current_linkable and node == NODE %}
+	<span class="{{ class_current }}">{{ node.alias}}</span>{% else %}
+	<{% if node.url %}a{% else %}span{% endif %}{% if node == NODE %} class="{{ class_current }}"{% endif %} href="{{ node.url }}">
+		{{ node.alias}}
+	</{% if node.url %}a{% else %}span{% endif %}>{% endif %}{% endif %}
+</p>{% endif %}{% endfor %}

@@ -1,0 +1,19 @@
+{% load i18n %}
+<div id="utility_lang">
+    <form id = "form_change_language" action="/i18n/setlang/" method="post">{% csrf_token %}        
+	    {% for language in languages %}        
+	        {% if not forloop.first %}
+	            {%if mod.separator %}
+	                <span class = "lang_separator">
+	                    {{mod.separator}}
+	                </span>
+	            {%endif%}
+	        {% endif %}
+	        {% if mod.redirect_to %}
+	        <input type="hidden" name="next" value="{{mod.redirect_to}}" />
+	        {% endif %}
+	        <button{% if language.code == LANGUAGE_CODE %} class="active"{% if mod.current_disabled %} disabled="disabled"{% endif %}{% endif %} style = "background:url('{{language.flag.url}}');{{mod.style}}" name="language" id = "lang_{{language.code}}" value="{{language.code}}">
+	       	</button>
+	    {% endfor %}
+    </form>
+</div>

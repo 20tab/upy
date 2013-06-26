@@ -22,9 +22,9 @@ setup(name='UPY',
         'Topic :: Software Development :: Libraries :: Application Frameworks',
     ],
     install_requires=[
-        'Django ==1.5',
+        'Django >=1.5',
         'django_mptt >=0.5.5',
-        'django_imagekit ==3',
+        'django_imagekit >=3',
     ],
     requires=[
         'PIL (>1.1.7)',

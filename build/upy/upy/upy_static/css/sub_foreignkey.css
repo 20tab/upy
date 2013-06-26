@@ -1,0 +1,11 @@
+span.add_custom_button {
+	margin: 0 0 0 10px;
+}
+span.add_custom_button img{
+	height:20px;
+	width:20px;
+}
+
+.hidden_element{
+	display:none;
+}

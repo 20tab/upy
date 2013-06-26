@@ -1,0 +1,37 @@
+{% load i18n admin_static %}
+{% load customadmin %}
+
+<div id="content-main-custom-app">
+{% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list %}
+    <div class="module">
+    <table summary="{% blocktrans with app.verbose_app_name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+    <caption><a href="{{ app.app_url }}" class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</a></caption>
+    {% if app.show_models or app_list|length <= 1  %}
+        {% for model in app.models %}
+            {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
+	            <tr>
+	            {% if model.perms.change %}
+	                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+	            {% else %}
+	                <th scope="row">{{ model.name }}</th>
+	            {% endif %}
+	
+	            {% if model.perms.add %}
+	                <td><a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a></td>
+	            {% else %}
+	                <td>&nbsp;</td>
+	            {% endif %}
+	
+	            {% if model.perms.change %}
+	                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+	            {% else %}
+	                <td>&nbsp;</td>
+	            {% endif %}
+	            </tr>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    </table>
+    </div> <!-- /module -->
+{% endfor %}
+</div>

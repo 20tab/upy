@@ -1,0 +1,26 @@
+{% load i18n %}<!doctype html>
+<html lang="{{LANGUAGE_CODE}}">
+<head>
+<title>{% block title %}{{ META.title }}{% endblock %}</title>
+<meta charset="{% block content_type %}{{ META.content_type }}{% endblock content_type %}" /> 
+{% block head_meta %}
+<meta name="keywords" content="{% block keywords %}{{ META.keywords }}{% endblock keywords %}" />
+<meta name="description" content="{% block description %}{{ META.description }}{% endblock description %}" />
+<meta name="generator" content="{% block generator %}{% if META.generator %}{{ META.generator }}{% else %}UPY {{UPY_VERSION}} - upyproject.com{% endif %}{% endblock generator %}" />
+{% if META.author %}<meta name="author" content="{{META.author}}" />{% endif %}
+{% if META.robots %}<meta name="robots" content="{{ META.robots }}" />{% endif %}
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+{% endblock head_meta %}
+{% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}
+{% block extra_style %}{% endblock %}
+{% if USE_UPY_JQUERYUI_LIB %}<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />{% endif %}
+{% if USE_UPY_JQUERY_LIB %}<script type="text/javascript" src="{{JQUERY_LIB}}"></script>{% endif %}
+{% if USE_UPY_JQUERYUI_LIB %}<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>{% endif %}
+{% block extra_head %}{% endblock %}
+</head>
+{% block tag_body %}
+<body>
+{% endblock %}
+{% block body %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load i18n admin_static %}
+{% load customadmin %}
+
+<div id="content-main-icon">
+<div class="module">
+    
+{% for app in app_list|custom_app_list:CUSTOM_ADMIN.autocomplete_app_list %}
+    {% if app.models|add_model_icons:CUSTOM_ADMIN.autocomplete_models_list %}
+    {% comment %}
+    <table summary="{% blocktrans with app.verbose_app_name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+    <caption><span class="section">{% blocktrans with app.verbose_app_name as name %}{{ name }}{% endblocktrans %}</span></caption>
+	</table>
+	{% endcomment %}
+    {% if app.show_models or app_list|length <= 1  %}
+        {% for model in app.models|add_model_icons:CUSTOM_ADMIN.autocomplete_models_list %}
+            {% if not model.perms.list_hide %} {# prevede perms['list_hide'] #}
+	            <div class = "box_model">
+					<div class = "box_model_row">
+						<div class="box_model_row_image"><a href="{{ model.admin_url }}"><img src="{% if model.image %}{{ model.image.url }}{% else %}/upy_static/images/upy_model.png{% endif %}" alt="{{model.name}}" /></a></div>
+						<div class="box_model_row_name">
+							{% if model.perms.change %}
+	                			<a href="{{ model.admin_url }}">{{ model.name }}</a>
+				            {% else %}
+	                			{{ model.name }}
+				            {% endif %}		
+						</div>
+						<div class="fixfloat"></div>
+					</div>
+					<div class = "box_model_row">
+						<div class="box_model_row_add">
+							{% if model.perms.add %}
+	                			<a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a>
+							{% endif %}
+						</div>
+						<div class="box_model_row_change">
+							{% if model.perms.change %}
+	               				<a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a>
+							{% endif %}
+						</div>
+						<div class="fixfloat"></div>
+					</div>
+				</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+	
+    <!-- </table> -->
+    
+    {% endif %}
+{% endfor %}
+<div class="fixfloat"></div>
+</div> <!-- /module -->
+</div>

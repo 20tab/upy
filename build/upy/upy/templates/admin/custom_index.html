@@ -1,0 +1,80 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+{% load customadmin %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+
+{% if app_list %}
+	{% if CUSTOM_ADMIN.view_mode == "use_app_icons" and app_list|length > 1 %}
+		{% include "admin/use_app_icons.html" %}
+	{% else %}
+	{% if CUSTOM_ADMIN.view_mode == "use_app_and_model_icons" and app_list|length > 1 %}
+		{% include "admin/use_app_icons.html" %}
+	{% else %}
+	{% if CUSTOM_ADMIN.view_mode == "use_app_and_model_icons" and app_list|length == 1 %}
+	    {% include "admin/use_model_icons.html" %}
+	{% else %}
+	{% if CUSTOM_ADMIN.view_mode == "use_custom_app" and app_list|length > 1 %}
+	    {% include "admin/use_custom_app.html" %}
+	{% else %}
+	{% if CUSTOM_ADMIN.view_mode == "use_model_icons" %}
+	    {% include "admin/use_model_icons.html" %}
+	{% else %}
+	{% if CUSTOM_ADMIN.view_mode == "use_total_model_icons" %}
+	    {% include "admin/use_total_model_icons.html" %}
+	{% else %}
+		{% include "admin/admin_default.html" %}    
+	{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+
+{% else %}
+	<div id="content-main">
+	    <p>{% trans "You don't have permission to edit anything." %}</p>
+	</div> <!-- /content-main -->
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+{% if not CUSTOM_ADMIN or CUSTOM_ADMIN.use_log_sidebar %}
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>{% trans 'Recent Actions' %}</h2>
+        <h3>{% trans 'My Actions' %}</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>{% trans 'None available' %}</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                {% if entry.is_deletion %}
+                    {{ entry.object_repr }}
+                {% else %}
+                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                <br/>
+                {% if entry.content_type %}
+                    <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+                {% else %}
+                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div> <!-- /module /recent-actions-module -->
+</div> <!-- /content-related -->
+<div class="fixfloat"></div>
+{% endif %}
+{% endblock %}
+

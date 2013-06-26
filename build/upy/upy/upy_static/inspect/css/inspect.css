@@ -1,0 +1,39 @@
+.inspect-container{
+	margin-top: 15px;
+}
+.tabs{
+	margin-top: 10px;
+}
+.att_name{
+	font-weight:bold;
+	font-size:12px;
+}
+.tabs>div>ul>li{
+	margin-top:10px;
+}
+.att_doc{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#ddd;
+	padding:10px;
+	margin-top:5px;
+}
+.att_source_button{
+	color: #5b80b2 !important;
+	text-decoration: none;
+	cursor:pointer;
+}
+.att_source_button:hover{
+	color: #AABBCC !important;
+}
+.att_source{
+	display:none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#000;
+	padding:10px;
+	color:#fff;
+	margin-top:2px;
+}

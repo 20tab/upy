@@ -1,0 +1,23 @@
+{% load mptt_tags %}
+
+{% for node in nodes %}
+{% if not node.hide_in_navigation or view_hidden%}
+		
+<span>{% if not node.page %}{{ node.alias }}
+{% else %}
+	{% if not current_linkable and node == NODE %}
+	<span class="{{ class_current }}">{{ node.alias}}</span>
+	{% else %}
+	<{% if node.url %}a{% else %}span{% endif %}{% if node == NODE %} class="{{ class_current }}"{% endif %} href="{{ node.url }}">{{ node.alias}}</{% if node.url %}a{% else %}span{% endif %}>
+	{% endif %}
+{% endif %}</span>
+{% if not forloop.last %}
+{{ chars|safe }}
+{% endif %}
+  {% if not node.is_leaf_node %}
+	{% if menu_depth > node.level or menu_depth == 0 %}
+	   {{ children }}
+    {% endif %}
+  {% endif %}   		
+{% endif %}
+{% endfor %}

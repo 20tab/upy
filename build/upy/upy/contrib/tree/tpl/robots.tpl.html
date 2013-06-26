@@ -1,0 +1,8 @@
+{% if disallow_all %}
+User-agent: *
+Disallow: /
+{% else %}
+{% for key,value in set.items %}User-agent: {{key}}
+{% for v in value %}Disallow: {{v}}{% endfor%}
+{% endfor %}
+{% endif %}

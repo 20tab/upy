@@ -1,0 +1,90 @@
+#!/usr/bin/python
+"""
+Contains the script that create a upy project 
+"""
+import os,shutil,upy
+from optparse import OptionParser
+UPY_LOCATION = "%s/%s" % (os.path.dirname(upy.__file__),"bin/upy_project_set")
+
+def overwrite_proj():
+    """
+    It asks to user if he want overwrite existing project
+    """
+    q = raw_input("Do you want overwrite it? (y/n): ")
+    if q == "y":
+        return True
+    elif q == "n":
+        return False
+    else:
+        print "Tap y or n"
+        return overwrite_proj()
+
+def create_project(name = None):
+    """
+    It creates upy project
+    """
+    listing = []
+    if os.path.exists(UPY_LOCATION):
+        listing = os.listdir(UPY_LOCATION)
+    
+    create_proj = False
+    if name:
+        if os.path.exists("%s" %(name)):
+            print "Project already exists!"
+            if overwrite_proj():
+                for f in listing:
+                    if os.path.isdir("%s/%s" % (name,f)):
+                        shutil.rmtree("%s/%s" % (name,f))
+                    else:
+                        os.remove("%s/%s" % (name,f))
+                create_proj = True
+        else:
+            os.mkdir(name)
+            create_proj = True
+    else:
+        name = "."
+        create_proj = True
+    if create_proj:
+        try:
+            print "Configuring project!"
+            if not os.path.exists("%s/templates/admin" % name):
+                os.makedirs("%s/templates/admin" % name)
+            if not os.path.exists("%s/static" % name):
+                os.makedirs("%s/static" % name)
+            print "Copying files: "
+            print listing
+            for f in listing:
+                if os.path.isdir("%s/%s" % (UPY_LOCATION,f)):
+                    shutil.copytree("%s/%s" % (UPY_LOCATION,f),'%s/%s' % (name,f))
+                elif f[-3:] != "pyc" or f[-3:] != "svn":
+                    shutil.copy2('%s/%s' % (UPY_LOCATION,f), '%s/%s' % (name,f))
+        except Exception, e:
+            print e
+            print "Something is going wrong!"
+        
+        else:
+            print "Project configured!"  
+
+def main():
+    parser = OptionParser(usage="usage: %prog startproject [options]",
+                          version="%prog " + upy.__version__)
+    parser.add_option("-s",
+                      action="store_true",
+                      dest="startproject",
+                      default=False,
+                      help="create upy project")
+    parser.add_option("-n", "--name",
+                      action="store",
+                      dest="name",
+                      default="",
+                      help="If it isn't empty create a directory in which it creates the project, else the projects will be created in the current directory",)
+    (options, args) = parser.parse_args()
+
+    if len(args) != 1:
+        parser.error("wrong number of arguments")
+    if args and args[0] != "startproject":
+        parser.error("use startproject command as first argument")
+    create_project(options.name)
+    
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% if CUSTOM_ADMIN.branding %} | {{CUSTOM_ADMIN.branding}}{% endif %}{% endblock %}
+{% block extrahead %}
+	{% if USE_CUSTOM_ADMIN %}<link rel="stylesheet" type="text/css" href="/upy_custom_admin_layout.css" />{% endif %}
+{% endblock extrahead %}
+{% block rosetta %}{% endblock %}
+{% block branding %}
+<h1 id="site-name">
+	{% if CUSTOM_ADMIN %}
+		{% if CUSTOM_ADMIN.branding_link %}<a href="http://{{CUSTOM_ADMIN.branding_link}}" title="{{CUSTOM_ADMIN.branding}}">{% endif %}
+		{% if CUSTOM_ADMIN.branding_image %}<img src = "{{CUSTOM_ADMIN.branding_image_url}}" alt = "{{CUSTOM_ADMIN.branding}}" />
+			<span>{{CUSTOM_ADMIN.branding}}</span>
+		{% else %}{{CUSTOM_ADMIN.branding}}
+		{% endif %}
+		{% if CUSTOM_ADMIN.branding_link %}</a>{% endif %}
+	{% else %}
+		{% trans "UPY - upyproject.com " %}
+	{% endif %}
+	
+</h1>
+{% endblock branding %}
+
+{% block nav-global %}
+    <style type="text/css">
+        .ml {margin:0 10px 10px;display:block;float:left}
+    </style>
+
+    <a href="/" class="ml">{% trans "Website home" %}</a>  
+    <a href="/admin/" class="ml">{% trans "Admin home" %}</a>
+    {% if user.is_superuser %}<a href="{% url "upy.contrib.inspect.views.browse" %}" class="ml">{% trans "Inspect models" %}</a>{% endif %}
+{% endblock nav-global %}

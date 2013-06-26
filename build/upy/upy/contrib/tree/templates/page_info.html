@@ -1,0 +1,40 @@
+{% load i18n %}
+<div class="page_info">
+	{% if node.page %}
+	<img class = "page_info_img" src="/upy_static/images/magnifier.png" />
+	<div class="page_info_text">
+		<div>
+			<span class="page_info_key">{% trans "Slug" %}</span>:
+			<span class="page_info_value">{{node.page.slug}}</span>
+		</div>
+		<div>
+			<span class="page_info_key">{% trans "Regex" %}</span>:
+			<span class="page_info_value">{{node.page.regex}}</span>
+		</div>
+		
+		<div>
+			<span class="page_info_key">{% trans "Complete slug" %}</span>:
+			<span class="page_info_value">{{node.slug}}</span>
+		</div>
+		<div>
+			<span class="page_info_key">{% trans "Template" %}</span>:
+			<span class="page_info_value">{{node.page.template}}</span>
+		</div>
+		<div>
+			<span class="page_info_key">{% trans "View" %}</span>:
+			<span class="page_info_value">{{node.page.view}}</span>
+		</div>
+		<div>
+			<span class="page_info_key">{% trans "Template file" %}</span>:
+			<span class="page_info_value">{{node.page.template.file_name}}</span>
+		</div>
+		<div>
+			<span class="page_info_key">{% trans "View function" %}</span>:
+			<span class="page_info_value">{{node.page.view.func_name}}</span>
+		</div>
+	</div>
+	{% else %}
+	
+	{% trans "Node has not a page" %}
+	{% endif %}
+</div>

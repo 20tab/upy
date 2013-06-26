@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: UPY
+Version: 0.19.1
+Summary: Open-source platform built on top of Django Web Framework, provides useful apps and tools for the most common features to save your time and let you focus just on your specific needs.
+Home-page: http://upyproject.com/
+Author: 20tab srl: Raffaele Colace - Gabriele Giaccari
+Author-email: info@20tab.com
+License: MIT License
+Description: UNKNOWN
+Platform: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires: PIL (>1.1.7)

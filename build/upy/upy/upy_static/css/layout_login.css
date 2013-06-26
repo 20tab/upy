@@ -1,0 +1,23 @@
+body{
+	font-size: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+}
+#login_container{
+	width: 300px;
+	border: 1px solid #ddd;
+	margin: 100px auto;
+	
+}
+#login_container h2{
+	padding: 15px;
+	background-color: #ddd;
+}
+#login_container p, .login .login_body{
+	margin: 15px;
+}
+
+a{
+	color: #111;
+}
+a:hover{
+	color: #333;
+}

@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load inspect_tags %}
+<li>
+	<div class="att_name">
+		{{f}} 
+		{% if model.model|inspect_source:f %}
+		<a class="att_source_button" data-text="{% trans "Hide source code" %}">{% trans "Show source code" %}</a>
+		{% endif %}
+	</div>
+	{% if model.model|inspect_doc:f %}
+	<div class="att_doc">{{model.model|inspect_doc:f}}</div>
+	{% endif %}
+	{% if model.model|inspect_source:f %}
+	<div class="att_source">{{model.model|inspect_source:f|safe}}</div>
+	{% endif %}
+</li>

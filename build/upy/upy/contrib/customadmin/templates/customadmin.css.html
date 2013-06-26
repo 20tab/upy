@@ -1,0 +1,38 @@
+{% if custom %}
+	{% if custom.use_log_sidebar %}
+	#content-main-icon{float:left;width:78%;}
+	#content-related{float:right;margin-left:2%;margin-right:0;width:20%;}
+	{% endif %}
+	{% if custom.bg_header %}div#header{background-color: #{{custom.bg_header}};}{%endif%}
+	div#header h1#site-name{
+		{% if custom.sitename_font %}font-family: "{{custom.sitename_font}}";{%endif%} 
+		{% if custom.sitename_font_size %}font-size: {{ custom.sitename_font }}; {%endif%} 
+		{% if custom.sitename_font_weight %}font-weight: {{custom.sitename_font }};{%endif%} 
+	}
+	.module h2, .module caption, .inline-group h2 {
+	    {% if custom.table_title_bg %}background: #{{custom.table_title_bg}};{%endif%} 
+	    {% if custom.table_title_color %}color: #{{custom.table_title_color}};{%endif%} 
+	}	
+	.box_model_row_name{
+		{% if custom.table_title_bg %}background: #{{custom.table_title_bg}};{%endif%} 
+	    {% if custom.table_title_color %}color: #{{custom.table_title_color}};{%endif%} 
+	}
+	.inline-group>h2{
+		{% if custom.h2_size %}font-size: {{custom.h2_size}};{%endif%}  
+		{% if custom.h2_color %}color: #{{custom.h2_color}};{%endif%} 
+	}
+	.inline-related h3{
+		{% if custom.h3_size %}font-size: {{custom.h3_size}};{%endif%}  
+		{% if custom.h3_color %}background: #{{custom.h3_color}};{%endif%} 
+	}
+	a:link, a:visited {
+		{% if custom.link_color %}color: #{{custom.link_color}};{%endif%}
+	}
+	a:hover {
+		{% if custom.link_hover_color %}color: #{{custom.link_hover_color}};{%endif%}
+	}
+	{% if custom.use_css_code %}
+		{{custom.css_code}}
+	{% endif %}
+	.fixfloat{height:0;width:100%; clear:both;}
+{% endif %}
