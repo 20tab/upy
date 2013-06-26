@@ -72,8 +72,8 @@ def getUrlList():
                 if node.page:
                     page = node.page
                     view = page.view
-                    regex = r'^%s$' % node.get_pattern()
-                    regex_path = '%s' % node.get_pattern()
+                    regex = r'^%s/$' % node.get_pattern()
+                    regex_path = '%s/' % node.get_pattern()
                                          
                     if node.protected:
                         set_login_required.append(regex)

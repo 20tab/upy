@@ -212,9 +212,7 @@ class Node(G11nBase,MPTTModel):
     
     def get_publication_pattern(self):
         if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
-            print "DIOMERDA"
             return u"%s/" % PublicationExtended.objects.get(tree_structure = TreeStructure.objects.get(tree_root= self.get_root())).publication.url
-        print "DIOMENOMERDA"
         return ""
 
     def get_pattern(self):
