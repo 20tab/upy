@@ -197,7 +197,7 @@ class G11nBase(models.Model):
             return self.g11n_default_unicode
         else:
             return "%s %s" % (self.__class__.__name__, self.pk)
-    
+
     class G11nMeta:
         """
         This is a class Meta that define which model is the related G11nModel and which field in the related model refers to this G11nBase model

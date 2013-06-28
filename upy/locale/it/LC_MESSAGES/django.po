@@ -1,1014 +1,1041 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-06 18:22+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Rafo <raffaele@upcode.com>\n"
+"POT-Creation-Date: 2013-06-28 18:27+0200\n"
+"PO-Revision-Date: 2013-06-28 18:28\n"
+"Last-Translator:   <raffaele@20tab.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: upy/fields.py:10
-msgid "United Kingdom"
-msgstr "United Kingdom"
+#: upy/fields.py:35 upy/fields.py:294
+#, fuzzy
+msgid "Africa"
+msgstr "Africa"
 
-#: upy/fields.py:11
-msgid "Afghanistan"
-msgstr "Afghanistan"
-
-#: upy/fields.py:12
-msgid "Aland Islands"
-msgstr "Aland Islands"
-
-#: upy/fields.py:13
-msgid "Albania"
-msgstr "Albania"
-
-#: upy/fields.py:14
-msgid "Algeria"
-msgstr "Algeria"
-
-#: upy/fields.py:15
-msgid "American Samoa"
-msgstr "American Samoa"
-
-#: upy/fields.py:16
-msgid "Andorra"
-msgstr "Andorra"
-
-#: upy/fields.py:17
-msgid "Angola"
-msgstr "Angola"
-
-#: upy/fields.py:18
-msgid "Anguilla"
-msgstr "Anguilla"
-
-#: upy/fields.py:19
+#: upy/fields.py:36 upy/fields.py:54 upy/fields.py:353 upy/fields.py:354
 msgid "Antarctica"
 msgstr "Antarctica"
 
-#: upy/fields.py:20
+#: upy/fields.py:37 upy/fields.py:359
+msgid "Asia"
+msgstr "Asia"
+
+#: upy/fields.py:38 upy/fields.py:410
+msgid "Europe"
+msgstr "Europa"
+
+#: upy/fields.py:39 upy/fields.py:467
+#, fuzzy
+msgid "North America"
+msgstr "South Africa"
+
+#: upy/fields.py:40 upy/fields.py:508
+msgid "Oceania"
+msgstr "Oceani"
+
+#: upy/fields.py:41 upy/fields.py:536
+#, fuzzy
+msgid "South America"
+msgstr "South Africa"
+
+#: upy/fields.py:45 upy/fields.py:464
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+#: upy/fields.py:46 upy/fields.py:360
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: upy/fields.py:47 upy/fields.py:411
+msgid "Aland Islands"
+msgstr "Aland Islands"
+
+#: upy/fields.py:48 upy/fields.py:412
+msgid "Albania"
+msgstr "Albania"
+
+#: upy/fields.py:49 upy/fields.py:295
+msgid "Algeria"
+msgstr "Algeria"
+
+#: upy/fields.py:50 upy/fields.py:468
+msgid "American Samoa"
+msgstr "American Samoa"
+
+#: upy/fields.py:51 upy/fields.py:413
+msgid "Andorra"
+msgstr "Andorra"
+
+#: upy/fields.py:52 upy/fields.py:296
+msgid "Angola"
+msgstr "Angola"
+
+#: upy/fields.py:53 upy/fields.py:469
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: upy/fields.py:55 upy/fields.py:470
 msgid "Antigua and Barbuda"
 msgstr "Antigua and Barbuda"
 
-#: upy/fields.py:21
+#: upy/fields.py:56 upy/fields.py:537
 msgid "Argentina"
 msgstr "Argentina"
 
-#: upy/fields.py:22
+#: upy/fields.py:57 upy/fields.py:414
 msgid "Armenia"
 msgstr "Armenia"
 
-#: upy/fields.py:23
+#: upy/fields.py:58 upy/fields.py:471
 msgid "Aruba"
 msgstr "Aruba"
 
-#: upy/fields.py:24
+#: upy/fields.py:59 upy/fields.py:509
 msgid "Australia"
 msgstr "Australia"
 
-#: upy/fields.py:25
+#: upy/fields.py:60 upy/fields.py:415
 msgid "Austria"
 msgstr "Austria"
 
-#: upy/fields.py:26
+#: upy/fields.py:61 upy/fields.py:416
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
-#: upy/fields.py:27
+#: upy/fields.py:62 upy/fields.py:472
 msgid "Bahamas"
 msgstr "Bahamas"
 
-#: upy/fields.py:28
+#: upy/fields.py:63 upy/fields.py:361
 msgid "Bahrain"
 msgstr "Bahrain"
 
-#: upy/fields.py:29
+#: upy/fields.py:64 upy/fields.py:362
 msgid "Bangladesh"
 msgstr "Bangladesh"
 
-#: upy/fields.py:30
+#: upy/fields.py:65 upy/fields.py:473
 msgid "Barbados"
 msgstr "Barbados"
 
-#: upy/fields.py:31
+#: upy/fields.py:66 upy/fields.py:417
 msgid "Belarus"
 msgstr "Belarus"
 
-#: upy/fields.py:32
+#: upy/fields.py:67 upy/fields.py:418
 msgid "Belgium"
 msgstr "Belgium"
 
-#: upy/fields.py:33
+#: upy/fields.py:68 upy/fields.py:474
 msgid "Belize"
 msgstr "Belize"
 
-#: upy/fields.py:34
+#: upy/fields.py:69 upy/fields.py:297
 msgid "Benin"
 msgstr "Benin"
 
-#: upy/fields.py:35
+#: upy/fields.py:70 upy/fields.py:475
 msgid "Bermuda"
 msgstr "Bermuda"
 
-#: upy/fields.py:36
+#: upy/fields.py:71 upy/fields.py:363
 msgid "Bhutan"
 msgstr "Bhutan"
 
-#: upy/fields.py:37
+#: upy/fields.py:72 upy/fields.py:538
 msgid "Bolivia"
 msgstr "Bolivia"
 
-#: upy/fields.py:38
+#: upy/fields.py:73 upy/fields.py:419
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia e Herzegovina"
 
-#: upy/fields.py:39
+#: upy/fields.py:74 upy/fields.py:298
 msgid "Botswana"
 msgstr "Botswana"
 
-#: upy/fields.py:40
+#: upy/fields.py:75 upy/fields.py:355
 msgid "Bouvet Island"
 msgstr "Bouvet Island"
 
-#: upy/fields.py:41
+#: upy/fields.py:76 upy/fields.py:539
 msgid "Brazil"
 msgstr "Brazil"
 
-#: upy/fields.py:42
+#: upy/fields.py:77 upy/fields.py:364
 msgid "British Indian Ocean Territory"
 msgstr "British Indian Ocean Territory"
 
-#: upy/fields.py:43
+#: upy/fields.py:78 upy/fields.py:365
 msgid "Brunei Darussalam"
 msgstr "Brunei Darussalam"
 
-#: upy/fields.py:44
+#: upy/fields.py:79 upy/fields.py:420
 msgid "Bulgaria"
 msgstr "Bulgaria"
 
-#: upy/fields.py:45
+#: upy/fields.py:80 upy/fields.py:299
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: upy/fields.py:46
+#: upy/fields.py:81 upy/fields.py:300
 msgid "Burundi"
 msgstr "Burundi"
 
-#: upy/fields.py:47
+#: upy/fields.py:82 upy/fields.py:366
 msgid "Cambodia"
 msgstr "Cambodia"
 
-#: upy/fields.py:48
+#: upy/fields.py:83 upy/fields.py:301
 msgid "Cameroon"
 msgstr "Cameroon"
 
-#: upy/fields.py:49
+#: upy/fields.py:84 upy/fields.py:476
 msgid "Canada"
 msgstr "Canada"
 
-#: upy/fields.py:50
+#: upy/fields.py:85 upy/fields.py:302
 msgid "Cape Verde"
 msgstr "Cape Verde"
 
-#: upy/fields.py:51
+#: upy/fields.py:86 upy/fields.py:477
 msgid "Cayman Islands"
 msgstr "Cayman Islands"
 
-#: upy/fields.py:52
+#: upy/fields.py:87 upy/fields.py:303
 msgid "Central African Republic"
 msgstr "Central African Republic"
 
-#: upy/fields.py:53
+#: upy/fields.py:88 upy/fields.py:304
 msgid "Chad"
 msgstr "Chad"
 
-#: upy/fields.py:54
+#: upy/fields.py:89 upy/fields.py:540
 msgid "Chile"
 msgstr "Chile"
 
-#: upy/fields.py:55
+#: upy/fields.py:90 upy/fields.py:367
 msgid "China"
 msgstr "China"
 
-#: upy/fields.py:56
+#: upy/fields.py:91 upy/fields.py:510
 msgid "Christmas Island"
 msgstr "Christmas Island"
 
-#: upy/fields.py:57
+#: upy/fields.py:92 upy/fields.py:511
 msgid "Cocos (Keeling) Islands"
 msgstr "Cocos (Keeling) Islands"
 
-#: upy/fields.py:58
+#: upy/fields.py:93 upy/fields.py:541
 msgid "Colombia"
 msgstr "Colombia"
 
-#: upy/fields.py:59
+#: upy/fields.py:94 upy/fields.py:305
 msgid "Comoros"
 msgstr "Comoros"
 
-#: upy/fields.py:60
+#: upy/fields.py:95 upy/fields.py:306
 msgid "Congo"
 msgstr "Congo"
 
-#: upy/fields.py:61
+#: upy/fields.py:96 upy/fields.py:307
 msgid "Congo, The Democratic Republic of the"
 msgstr "Congo, The Democratic Republic of the"
 
-#: upy/fields.py:62
+#: upy/fields.py:97 upy/fields.py:512
 msgid "Cook Islands"
 msgstr "Cook Islands"
 
-#: upy/fields.py:63
+#: upy/fields.py:98 upy/fields.py:478
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
-#: upy/fields.py:64
+#: upy/fields.py:99 upy/fields.py:308
 msgid "Cote d'Ivoire"
 msgstr "Cote d'Ivoire"
 
-#: upy/fields.py:65
+#: upy/fields.py:100 upy/fields.py:421
 msgid "Croatia"
 msgstr "Croatia"
 
-#: upy/fields.py:66
+#: upy/fields.py:101 upy/fields.py:479
 msgid "Cuba"
 msgstr "Cuba"
 
-#: upy/fields.py:67
+#: upy/fields.py:102 upy/fields.py:422
 msgid "Cyprus"
 msgstr "Cyprus"
 
-#: upy/fields.py:68
+#: upy/fields.py:103 upy/fields.py:423
 msgid "Czech Republic"
 msgstr "Czech Republic"
 
-#: upy/fields.py:69
+#: upy/fields.py:104 upy/fields.py:424
 msgid "Denmark"
 msgstr "Denmark"
 
-#: upy/fields.py:70
+#: upy/fields.py:105 upy/fields.py:309
 msgid "Djibouti"
 msgstr "Djibouti"
 
-#: upy/fields.py:71
+#: upy/fields.py:106 upy/fields.py:480
 msgid "Dominica"
 msgstr "Dominica"
 
-#: upy/fields.py:72
+#: upy/fields.py:107 upy/fields.py:481
 msgid "Dominican Republic"
 msgstr "Dominican Republic"
 
-#: upy/fields.py:73
+#: upy/fields.py:108 upy/fields.py:542
 msgid "Ecuador"
 msgstr "Ecuador"
 
-#: upy/fields.py:74
+#: upy/fields.py:109 upy/fields.py:310
 msgid "Egypt"
 msgstr "Egypt"
 
-#: upy/fields.py:75
+#: upy/fields.py:110 upy/fields.py:482
 msgid "El Salvador"
 msgstr "El Salvador"
 
-#: upy/fields.py:76
+#: upy/fields.py:111 upy/fields.py:311
 msgid "Equatorial Guinea"
 msgstr "Equatorial Guinea"
 
-#: upy/fields.py:77
+#: upy/fields.py:112 upy/fields.py:312
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: upy/fields.py:78
+#: upy/fields.py:113 upy/fields.py:425
 msgid "Estonia"
 msgstr "Estonia"
 
-#: upy/fields.py:79
+#: upy/fields.py:114 upy/fields.py:313
 msgid "Ethiopia"
 msgstr "Ethiopia"
 
-#: upy/fields.py:80
+#: upy/fields.py:115 upy/fields.py:543
 msgid "Falkland Islands (Malvinas)"
 msgstr "Falkland Islands (Malvinas)"
 
-#: upy/fields.py:81
+#: upy/fields.py:116 upy/fields.py:426
 msgid "Faroe Islands"
 msgstr "Faroe Islands"
 
-#: upy/fields.py:82
+#: upy/fields.py:117 upy/fields.py:513
 msgid "Fiji"
 msgstr "Fiji"
 
-#: upy/fields.py:83
+#: upy/fields.py:118 upy/fields.py:427
 msgid "Finland"
 msgstr "Finland"
 
-#: upy/fields.py:84
+#: upy/fields.py:119 upy/fields.py:428
 msgid "France"
 msgstr "France"
 
-#: upy/fields.py:85
+#: upy/fields.py:120 upy/fields.py:544
 msgid "French Guiana"
 msgstr "French Guiana"
 
-#: upy/fields.py:86
+#: upy/fields.py:121 upy/fields.py:514
 msgid "French Polynesia"
 msgstr "French Polynesia"
 
-#: upy/fields.py:87
+#: upy/fields.py:122 upy/fields.py:356
 msgid "French Southern Territories"
 msgstr "French Southern Territories"
 
-#: upy/fields.py:88
+#: upy/fields.py:123 upy/fields.py:314
 msgid "Gabon"
 msgstr "Gabon"
 
-#: upy/fields.py:89
+#: upy/fields.py:124 upy/fields.py:315
 msgid "Gambia"
 msgstr "Gambia"
 
-#: upy/fields.py:90
+#: upy/fields.py:125 upy/fields.py:429
 msgid "Georgia"
 msgstr "Georgia"
 
-#: upy/fields.py:91
+#: upy/fields.py:126 upy/fields.py:430
 msgid "Germany"
 msgstr "Germany"
 
-#: upy/fields.py:92
+#: upy/fields.py:127 upy/fields.py:316
 msgid "Ghana"
 msgstr "Ghana"
 
-#: upy/fields.py:93
+#: upy/fields.py:128 upy/fields.py:431
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
-#: upy/fields.py:94
+#: upy/fields.py:129 upy/fields.py:432
 msgid "Greece"
 msgstr "Greece"
 
-#: upy/fields.py:95
+#: upy/fields.py:130 upy/fields.py:433
 msgid "Greenland"
 msgstr "Greenland"
 
-#: upy/fields.py:96
+#: upy/fields.py:131 upy/fields.py:483
 msgid "Grenada"
 msgstr "Grenada"
 
-#: upy/fields.py:97
+#: upy/fields.py:132 upy/fields.py:484
 msgid "Guadeloupe"
 msgstr "Guadeloupe"
 
-#: upy/fields.py:98
+#: upy/fields.py:133 upy/fields.py:515
 msgid "Guam"
 msgstr "Guam"
 
-#: upy/fields.py:99
+#: upy/fields.py:134 upy/fields.py:485
 msgid "Guatemala"
 msgstr "Guatemala"
 
-#: upy/fields.py:100
+#: upy/fields.py:135 upy/fields.py:434
 msgid "Guernsey"
 msgstr "Guernsey"
 
-#: upy/fields.py:101
+#: upy/fields.py:136 upy/fields.py:317
 msgid "Guinea"
 msgstr "Guinea"
 
-#: upy/fields.py:102
+#: upy/fields.py:137 upy/fields.py:318
 msgid "Guinea-Bissau"
 msgstr "Guinea-Bissau"
 
-#: upy/fields.py:103
+#: upy/fields.py:138 upy/fields.py:545
 msgid "Guyana"
 msgstr "Guyana"
 
-#: upy/fields.py:104
+#: upy/fields.py:139 upy/fields.py:486
 msgid "Haiti"
 msgstr "Haiti"
 
-#: upy/fields.py:105
+#: upy/fields.py:140 upy/fields.py:357
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island and McDonald Islands"
 
-#: upy/fields.py:106
+#: upy/fields.py:141 upy/fields.py:465
 msgid "Holy See (Vatican City State)"
 msgstr "Holy See (Vatican City State)"
 
-#: upy/fields.py:107
+#: upy/fields.py:142 upy/fields.py:487
 msgid "Honduras"
 msgstr "Honduras"
 
-#: upy/fields.py:108
+#: upy/fields.py:143 upy/fields.py:368
 msgid "Hong Kong"
 msgstr "Hong Kong"
 
-#: upy/fields.py:109
+#: upy/fields.py:144 upy/fields.py:435
 msgid "Hungary"
 msgstr "Hungary"
 
-#: upy/fields.py:110
+#: upy/fields.py:145 upy/fields.py:436
 msgid "Iceland"
 msgstr "Iceland"
 
-#: upy/fields.py:111
+#: upy/fields.py:146 upy/fields.py:370
 msgid "India"
 msgstr "India"
 
-#: upy/fields.py:112
+#: upy/fields.py:147 upy/fields.py:371
 msgid "Indonesia"
 msgstr "Indonesia"
 
-#: upy/fields.py:113
+#: upy/fields.py:148 upy/fields.py:369
 msgid "Iran, Islamic Republic of"
 msgstr "Iran, Islamic Republic of"
 
-#: upy/fields.py:114
+#: upy/fields.py:149 upy/fields.py:372
 msgid "Iraq"
 msgstr "Iraq"
 
-#: upy/fields.py:115
+#: upy/fields.py:150 upy/fields.py:437
 msgid "Ireland"
 msgstr "Ireland"
 
-#: upy/fields.py:116
+#: upy/fields.py:151 upy/fields.py:438
 msgid "Isle of Man"
 msgstr "Isle of Man"
 
-#: upy/fields.py:117
+#: upy/fields.py:152 upy/fields.py:373
 msgid "Israel"
 msgstr "Israel"
 
-#: upy/fields.py:118
+#: upy/fields.py:153 upy/fields.py:439
 msgid "Italy"
 msgstr "Italy"
 
-#: upy/fields.py:119
+#: upy/fields.py:154 upy/fields.py:488
 msgid "Jamaica"
 msgstr "Jamaica"
 
-#: upy/fields.py:120
+#: upy/fields.py:155 upy/fields.py:374
 msgid "Japan"
 msgstr "Japan"
 
-#: upy/fields.py:121
+#: upy/fields.py:156 upy/fields.py:440
 msgid "Jersey"
 msgstr "Jersey"
 
-#: upy/fields.py:122
+#: upy/fields.py:157 upy/fields.py:375
 msgid "Jordan"
 msgstr "Jordan"
 
-#: upy/fields.py:123
+#: upy/fields.py:158 upy/fields.py:376
 msgid "Kazakhstan"
 msgstr "Kazakhstan"
 
-#: upy/fields.py:124
+#: upy/fields.py:159 upy/fields.py:319
 msgid "Kenya"
 msgstr "Kenya"
 
-#: upy/fields.py:125
+#: upy/fields.py:160 upy/fields.py:516
 msgid "Kiribati"
 msgstr "Kiribati"
 
-#: upy/fields.py:126
+#: upy/fields.py:161 upy/fields.py:378
 msgid "Korea, Democratic People's Republic of"
 msgstr "Korea, Democratic People's Republic of"
 
-#: upy/fields.py:127
+#: upy/fields.py:162 upy/fields.py:379
 msgid "Korea, Republic of"
 msgstr "Korea, Republic of"
 
-#: upy/fields.py:128
+#: upy/fields.py:163 upy/fields.py:377
 msgid "Kuwait"
 msgstr "Kuwait"
 
-#: upy/fields.py:129
+#: upy/fields.py:164 upy/fields.py:381
 msgid "Kyrgyzstan"
 msgstr "Kyrgyzstan"
 
-#: upy/fields.py:130
+#: upy/fields.py:165 upy/fields.py:380
 msgid "Lao People's Democratic Republic"
 msgstr "Lao People's Democratic Republic"
 
-#: upy/fields.py:131
+#: upy/fields.py:166 upy/fields.py:441
 msgid "Latvia"
 msgstr "Latvia"
 
-#: upy/fields.py:132
+#: upy/fields.py:167 upy/fields.py:382
 msgid "Lebanon"
 msgstr "Lebanon"
 
-#: upy/fields.py:133
+#: upy/fields.py:168 upy/fields.py:320
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: upy/fields.py:134
+#: upy/fields.py:169 upy/fields.py:321
 msgid "Liberia"
 msgstr "Liberia"
 
-#: upy/fields.py:135
+#: upy/fields.py:170 upy/fields.py:322
 msgid "Libyan Arab Jamahiriya"
 msgstr "Libyan Arab Jamahiriya"
 
-#: upy/fields.py:136
+#: upy/fields.py:171 upy/fields.py:442
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
-#: upy/fields.py:137
+#: upy/fields.py:172 upy/fields.py:443
 msgid "Lithuania"
 msgstr "Lithuania"
 
-#: upy/fields.py:138
+#: upy/fields.py:173 upy/fields.py:444
 msgid "Luxembourg"
 msgstr "Luxembourg"
 
-#: upy/fields.py:139
+#: upy/fields.py:174 upy/fields.py:383
 msgid "Macao"
 msgstr "Macao"
 
-#: upy/fields.py:140
+#: upy/fields.py:175 upy/fields.py:445
 msgid "Macedonia, The Former Yugoslav Republic of"
 msgstr "Macedonia, The Former Yugoslav Republic of"
 
-#: upy/fields.py:141
+#: upy/fields.py:176 upy/fields.py:323
 msgid "Madagascar"
 msgstr "Madagascar"
 
-#: upy/fields.py:142
+#: upy/fields.py:177 upy/fields.py:325
 msgid "Malawi"
 msgstr "Malawi"
 
-#: upy/fields.py:143
+#: upy/fields.py:178 upy/fields.py:384
 msgid "Malaysia"
 msgstr "Malaysia"
 
-#: upy/fields.py:144
+#: upy/fields.py:179 upy/fields.py:385
 msgid "Maldives"
 msgstr "Maldives"
 
-#: upy/fields.py:145
+#: upy/fields.py:180 upy/fields.py:326
 msgid "Mali"
 msgstr "Mali"
 
-#: upy/fields.py:146
+#: upy/fields.py:181 upy/fields.py:446
 msgid "Malta"
 msgstr "Malta"
 
-#: upy/fields.py:147
+#: upy/fields.py:182 upy/fields.py:517
 msgid "Marshall Islands"
 msgstr "Marshall Islands"
 
-#: upy/fields.py:148
+#: upy/fields.py:183 upy/fields.py:546
 msgid "Martinique"
 msgstr "Martinique"
 
-#: upy/fields.py:149
+#: upy/fields.py:184 upy/fields.py:327
 msgid "Mauritania"
 msgstr "Mauritania"
 
-#: upy/fields.py:150
+#: upy/fields.py:185 upy/fields.py:328
 msgid "Mauritius"
 msgstr "Mauritius"
 
-#: upy/fields.py:151
+#: upy/fields.py:186 upy/fields.py:324
 msgid "Mayotte"
 msgstr "Mayotte"
 
-#: upy/fields.py:152
+#: upy/fields.py:187 upy/fields.py:489
 msgid "Mexico"
 msgstr "Mexico"
 
-#: upy/fields.py:153
+#: upy/fields.py:188 upy/fields.py:518
 msgid "Micronesia, Federated States of"
 msgstr "Micronesia, Federated States of"
 
-#: upy/fields.py:154
+#: upy/fields.py:189 upy/fields.py:447
 msgid "Moldova"
 msgstr "Moldova"
 
-#: upy/fields.py:155
+#: upy/fields.py:190 upy/fields.py:448
 msgid "Monaco"
 msgstr "Monaco"
 
-#: upy/fields.py:156
+#: upy/fields.py:191 upy/fields.py:387
 msgid "Mongolia"
 msgstr "Mongolia"
 
-#: upy/fields.py:157
+#: upy/fields.py:192 upy/fields.py:449
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: upy/fields.py:158
+#: upy/fields.py:193 upy/fields.py:490
 msgid "Montserrat"
 msgstr "Montserrat"
 
-#: upy/fields.py:159
+#: upy/fields.py:194 upy/fields.py:329
 msgid "Morocco"
 msgstr "Morocco"
 
-#: upy/fields.py:160
+#: upy/fields.py:195 upy/fields.py:330
 msgid "Mozambique"
 msgstr "Mozambique"
 
-#: upy/fields.py:161
+#: upy/fields.py:196 upy/fields.py:386
 msgid "Myanmar"
 msgstr "Myanmar"
 
-#: upy/fields.py:162
+#: upy/fields.py:197 upy/fields.py:331
 msgid "Namibia"
 msgstr "Namibia"
 
-#: upy/fields.py:163
+#: upy/fields.py:198 upy/fields.py:519
 msgid "Nauru"
 msgstr "Nauru"
 
-#: upy/fields.py:164
+#: upy/fields.py:199 upy/fields.py:388
 msgid "Nepal"
 msgstr "Nepal"
 
-#: upy/fields.py:165
+#: upy/fields.py:200 upy/fields.py:450
 msgid "Netherlands"
 msgstr "Netherlands"
 
-#: upy/fields.py:166
+#: upy/fields.py:201 upy/fields.py:491
 msgid "Netherlands Antilles"
 msgstr "Netherlands Antilles"
 
-#: upy/fields.py:167
+#: upy/fields.py:202 upy/fields.py:520
 msgid "New Caledonia"
 msgstr "New Caledonia"
 
-#: upy/fields.py:168
+#: upy/fields.py:203 upy/fields.py:521
 msgid "New Zealand"
 msgstr "New Zealand"
 
-#: upy/fields.py:169
+#: upy/fields.py:204 upy/fields.py:492
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
-#: upy/fields.py:170
+#: upy/fields.py:205 upy/fields.py:332
 msgid "Niger"
 msgstr "Niger"
 
-#: upy/fields.py:171
+#: upy/fields.py:206 upy/fields.py:333
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: upy/fields.py:172
+#: upy/fields.py:207 upy/fields.py:522
 msgid "Niue"
 msgstr "Niue"
 
-#: upy/fields.py:173
+#: upy/fields.py:208 upy/fields.py:523
 msgid "Norfolk Island"
 msgstr "Norfolk Island"
 
-#: upy/fields.py:174
+#: upy/fields.py:209 upy/fields.py:524
 msgid "Northern Mariana Islands"
 msgstr "Northern Mariana Islands"
 
-#: upy/fields.py:175
+#: upy/fields.py:210 upy/fields.py:451
 msgid "Norway"
 msgstr "Norway"
 
-#: upy/fields.py:176
+#: upy/fields.py:211 upy/fields.py:389
 msgid "Oman"
 msgstr "Oman"
 
-#: upy/fields.py:177
+#: upy/fields.py:212 upy/fields.py:390
 msgid "Pakistan"
 msgstr "Palau"
 
-#: upy/fields.py:178
+#: upy/fields.py:213 upy/fields.py:525
 msgid "Palau"
 msgstr "Palau"
 
-#: upy/fields.py:179
+#: upy/fields.py:214 upy/fields.py:391
 msgid "Palestinian Territory, Occupied"
 msgstr "Palestinian Territory, Occupied"
 
-#: upy/fields.py:180
+#: upy/fields.py:215 upy/fields.py:493
 msgid "Panama"
 msgstr "Panama"
 
-#: upy/fields.py:181
+#: upy/fields.py:216 upy/fields.py:526
 msgid "Papua New Guinea"
 msgstr "Papua New Guinea"
 
-#: upy/fields.py:182
+#: upy/fields.py:217 upy/fields.py:547
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: upy/fields.py:183
+#: upy/fields.py:218 upy/fields.py:548
 msgid "Peru"
 msgstr "Peru"
 
-#: upy/fields.py:184
+#: upy/fields.py:219 upy/fields.py:392
 msgid "Philippines"
 msgstr "Philippines"
 
-#: upy/fields.py:185
+#: upy/fields.py:220 upy/fields.py:527
 msgid "Pitcairn"
 msgstr "Pitcairn"
 
-#: upy/fields.py:186
+#: upy/fields.py:221 upy/fields.py:452
 msgid "Poland"
 msgstr "Poland"
 
-#: upy/fields.py:187
+#: upy/fields.py:222 upy/fields.py:453
 msgid "Portugal"
 msgstr "Portugal"
 
-#: upy/fields.py:188
+#: upy/fields.py:223 upy/fields.py:494
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
-#: upy/fields.py:189
+#: upy/fields.py:224 upy/fields.py:393
 msgid "Qatar"
 msgstr "Qatar"
 
-#: upy/fields.py:190
+#: upy/fields.py:225 upy/fields.py:334
 msgid "Reunion"
 msgstr "Reunion"
 
-#: upy/fields.py:191
+#: upy/fields.py:226 upy/fields.py:454
 msgid "Romania"
 msgstr "Romania"
 
-#: upy/fields.py:192
+#: upy/fields.py:227 upy/fields.py:394
 msgid "Russian Federation"
 msgstr "Russian Federation"
 
-#: upy/fields.py:193
+#: upy/fields.py:228 upy/fields.py:335
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: upy/fields.py:194
+#: upy/fields.py:229 upy/fields.py:495
 msgid "Saint Barthelemy"
 msgstr "Saint Barthelemy"
 
-#: upy/fields.py:195
+#: upy/fields.py:230 upy/fields.py:336
 msgid "Saint Helena"
 msgstr "Saint Helena"
 
-#: upy/fields.py:196
+#: upy/fields.py:231 upy/fields.py:496
 msgid "Saint Kitts and Nevis"
 msgstr "Saint Kitts and Nevis"
 
-#: upy/fields.py:197
+#: upy/fields.py:232 upy/fields.py:497
 msgid "Saint Lucia"
 msgstr "Saint Lucia"
 
-#: upy/fields.py:198
+#: upy/fields.py:233 upy/fields.py:498
 msgid "Saint Martin"
 msgstr "Saint Martin"
 
-#: upy/fields.py:199
+#: upy/fields.py:234 upy/fields.py:499
 msgid "Saint Pierre and Miquelon"
 msgstr "Saint Pierre and Miquelon"
 
-#: upy/fields.py:200
+#: upy/fields.py:235 upy/fields.py:500
 msgid "Saint Vincent and the Grenadines"
 msgstr "Saint Vincent and the Grenadines"
 
-#: upy/fields.py:201
+#: upy/fields.py:236 upy/fields.py:528
 msgid "Samoa"
 msgstr "Samoa"
 
-#: upy/fields.py:202
+#: upy/fields.py:237 upy/fields.py:455
 msgid "San Marino"
 msgstr "San Marino"
 
-#: upy/fields.py:203
+#: upy/fields.py:238 upy/fields.py:337
 msgid "Sao Tome and Principe"
 msgstr "Sao Tome and Principe"
 
-#: upy/fields.py:204
+#: upy/fields.py:239 upy/fields.py:395
 msgid "Saudi Arabia"
 msgstr "Saudi Arabia"
 
-#: upy/fields.py:205
+#: upy/fields.py:240 upy/fields.py:338
 msgid "Senegal"
 msgstr "Senegal"
 
-#: upy/fields.py:206
+#: upy/fields.py:241 upy/fields.py:456
 msgid "Serbia"
 msgstr "Serbia"
 
-#: upy/fields.py:207
+#: upy/fields.py:242 upy/fields.py:339
 msgid "Seychelles"
 msgstr "Seychelles"
 
-#: upy/fields.py:208
+#: upy/fields.py:243 upy/fields.py:340
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: upy/fields.py:209
+#: upy/fields.py:244 upy/fields.py:396
 msgid "Singapore"
 msgstr "Singapore"
 
-#: upy/fields.py:210
+#: upy/fields.py:245 upy/fields.py:457
 msgid "Slovakia"
 msgstr "Slovakia"
 
-#: upy/fields.py:211
+#: upy/fields.py:246 upy/fields.py:458
 msgid "Slovenia"
 msgstr "Slovenia"
 
-#: upy/fields.py:212
+#: upy/fields.py:247 upy/fields.py:529
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
 
-#: upy/fields.py:213
+#: upy/fields.py:248 upy/fields.py:341
 msgid "Somalia"
 msgstr "Somalia"
 
-#: upy/fields.py:214
+#: upy/fields.py:249 upy/fields.py:342
 msgid "South Africa"
 msgstr "South Africa"
 
-#: upy/fields.py:215
+#: upy/fields.py:250 upy/fields.py:549
 msgid "South Georgia and the South Sandwich Islands"
 msgstr "South Georgia and the South Sandwich Islands"
 
-#: upy/fields.py:216
+#: upy/fields.py:251 upy/fields.py:459
 msgid "Spain"
 msgstr "Spain"
 
-#: upy/fields.py:217
+#: upy/fields.py:252 upy/fields.py:398
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: upy/fields.py:218
+#: upy/fields.py:253 upy/fields.py:343
 msgid "Sudan"
 msgstr "Sudan"
 
-#: upy/fields.py:219
+#: upy/fields.py:254 upy/fields.py:550
 msgid "Suriname"
 msgstr "Suriname"
 
-#: upy/fields.py:220
+#: upy/fields.py:255 upy/fields.py:460
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard and Jan Mayen"
 
-#: upy/fields.py:221
+#: upy/fields.py:256 upy/fields.py:344
 msgid "Swaziland"
 msgstr "Swaziland"
 
-#: upy/fields.py:222
+#: upy/fields.py:257 upy/fields.py:461
 msgid "Sweden"
 msgstr "Sweden"
 
-#: upy/fields.py:223
+#: upy/fields.py:258 upy/fields.py:462
 msgid "Switzerland"
 msgstr "Switzerland"
 
-#: upy/fields.py:224
+#: upy/fields.py:259 upy/fields.py:397
 msgid "Syrian Arab Republic"
 msgstr "Syrian Arab Republic"
 
-#: upy/fields.py:225
+#: upy/fields.py:260 upy/fields.py:400
 msgid "Taiwan, Province of China"
 msgstr "Taiwan, Province of China"
 
-#: upy/fields.py:226
+#: upy/fields.py:261 upy/fields.py:399
 msgid "Tajikistan"
 msgstr "Tajikistan"
 
-#: upy/fields.py:227
+#: upy/fields.py:262 upy/fields.py:345
 msgid "Tanzania, United Republic of"
 msgstr "Tanzania, United Republic of"
 
-#: upy/fields.py:228
+#: upy/fields.py:263 upy/fields.py:401
 msgid "Thailand"
 msgstr "Thailand"
 
-#: upy/fields.py:229
+#: upy/fields.py:264 upy/fields.py:402
 msgid "Timor-Leste"
 msgstr "Timor-Leste"
 
-#: upy/fields.py:230
+#: upy/fields.py:265 upy/fields.py:346
 msgid "Togo"
 msgstr "Togo"
 
-#: upy/fields.py:231
+#: upy/fields.py:266 upy/fields.py:530
 msgid "Tokelau"
 msgstr "Tokelau"
 
-#: upy/fields.py:232
+#: upy/fields.py:267 upy/fields.py:531
 msgid "Tonga"
 msgstr "Tonga"
 
-#: upy/fields.py:233
+#: upy/fields.py:268 upy/fields.py:501
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"
 
-#: upy/fields.py:234
+#: upy/fields.py:269 upy/fields.py:347
 msgid "Tunisia"
 msgstr "Tunisia"
 
-#: upy/fields.py:235
+#: upy/fields.py:270 upy/fields.py:403
 msgid "Turkey"
 msgstr "Turkey"
 
-#: upy/fields.py:236
+#: upy/fields.py:271 upy/fields.py:404
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: upy/fields.py:237
+#: upy/fields.py:272 upy/fields.py:502
 msgid "Turks and Caicos Islands"
 msgstr "Turks and Caicos Islands"
 
-#: upy/fields.py:238
+#: upy/fields.py:273 upy/fields.py:532
 msgid "Tuvalu"
 msgstr "Tuvalu"
 
-#: upy/fields.py:239
+#: upy/fields.py:274 upy/fields.py:348
 msgid "Uganda"
 msgstr "Uganda"
 
-#: upy/fields.py:240
+#: upy/fields.py:275 upy/fields.py:463
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: upy/fields.py:241
+#: upy/fields.py:276 upy/fields.py:405
 msgid "United Arab Emirates"
 msgstr "United Arab Emirates"
 
-#: upy/fields.py:242
+#: upy/fields.py:277 upy/fields.py:503
 msgid "United States"
 msgstr "United States"
 
-#: upy/fields.py:243
+#: upy/fields.py:278 upy/fields.py:504
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#: upy/fields.py:244
+#: upy/fields.py:279 upy/fields.py:551
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: upy/fields.py:245
+#: upy/fields.py:280 upy/fields.py:406
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
-#: upy/fields.py:246
+#: upy/fields.py:281 upy/fields.py:533
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
-#: upy/fields.py:247
+#: upy/fields.py:282 upy/fields.py:552
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: upy/fields.py:248
+#: upy/fields.py:283
 msgid "Viet Nam"
 msgstr "Viet Nam"
 
-#: upy/fields.py:249
+#: upy/fields.py:284 upy/fields.py:505
 msgid "Virgin Islands, British"
 msgstr "Virgin Islands, British"
 
-#: upy/fields.py:250
+#: upy/fields.py:285 upy/fields.py:506
 msgid "Virgin Islands, U.S."
 msgstr "Virgin Islands, U.S."
 
-#: upy/fields.py:251
+#: upy/fields.py:286 upy/fields.py:534
 msgid "Wallis and Futuna"
 msgstr "Wallis e Futuna"
 
-#: upy/fields.py:252
+#: upy/fields.py:287 upy/fields.py:349
 msgid "Western Sahara"
 msgstr "Western Sahara"
 
-#: upy/fields.py:253
+#: upy/fields.py:288 upy/fields.py:408
 msgid "Yemen"
 msgstr "Yemen"
 
-#: upy/fields.py:254
+#: upy/fields.py:289 upy/fields.py:350
 msgid "Zambia"
 msgstr "Zambia"
 
-#: upy/fields.py:255
+#: upy/fields.py:290 upy/fields.py:351
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: upy/models.py:5
-#: upy/contrib/g11n/models.py:198
-#: upy/contrib/g11n/models.py:284
-#: upy/contrib/g11n/models.py:322
-#: upy/contrib/image/models.py:87
-#: upy/contrib/newsletter/models.py:27
-#: upy/contrib/tree/models.py:65
-#: upy/contrib/tree/models.py:139
-#: upy/contrib/tree/models.py:318
-#: upy/contrib/tree/models.py:363
-#: upy/contrib/tree/models.py:477
-#: upy/contrib/tree/models.py:525
-#: upy/contrib/tree/models.py:582
-#: upy/contrib/tree/models.py:885
+#: upy/fields.py:407
+#, fuzzy
+msgid "Vietnam"
+msgstr "Viet Nam"
+
+#: upy/models.py:5 upy/contrib/g11n/models.py:258
+#: upy/contrib/g11n/models.py:341 upy/contrib/g11n/models.py:379
+#: upy/contrib/newsletter/models.py:18 upy/contrib/tree/models.py:62
+#: upy/contrib/tree/models.py:136 upy/contrib/tree/models.py:280
+#: upy/contrib/tree/models.py:326 upy/contrib/tree/models.py:412
+#: upy/contrib/tree/models.py:456 upy/contrib/tree/models.py:513
+#: upy/contrib/tree/models.py:631
 msgid "Creation date"
 msgstr "Data creazione"
 
@@ -1024,282 +1051,301 @@ msgstr "Ultimo aggiornamento"
 msgid "Last update date."
 msgstr "Ultimo aggiornamento."
 
-#: upy/contrib/customadmin/admin.py:23
+#: upy/contrib/customadmin/admin.py:25
 msgid "You must compile this field with hexadecimal characters"
 msgstr "In questo campo puoi scrivere solo caratteri esadecimali"
 
-#: upy/contrib/customadmin/admin.py:27
+#: upy/contrib/customadmin/admin.py:29
 msgid "You must compile this field with six hexadecimal characters"
 msgstr "Questo campo deve avere sei caratteri esadecimali"
 
-#: upy/contrib/customadmin/admin.py:42
-msgid "You have to define Customadmin in your CustomApp if you use a custom view_mode..."
-msgstr "Devi definire Customadmin nel tuo CustomApp se vuoi usare un  view_mode personalizzato..."
+#: upy/contrib/customadmin/admin.py:44
+msgid ""
+"You have to define Customadmin in your CustomApp if you use a custom "
+"view_mode..."
+msgstr ""
+"Devi definire Customadmin nel tuo CustomApp se vuoi usare un  view_mode "
+"personalizzato..."
 
-#: upy/contrib/customadmin/admin.py:43
-msgid "...or at least enable autocomplete_app_list which will include Customadmin too."
-msgstr "... oppure abilita autocomplete_app_list che include anche Customadmin."
+#: upy/contrib/customadmin/admin.py:45
+msgid ""
+"...or at least enable autocomplete_app_list which will include Customadmin "
+"too."
+msgstr ""
+"... oppure abilita autocomplete_app_list che include anche Customadmin."
 
 #: upy/contrib/customadmin/admin.py:58
-msgid "You have to define Customadmin in your CustomModel if you use a custom view_mode..."
-msgstr "Devi definire Customadmin nel tuo CustomModel se vuoi usare un  view_mode personalizzato..."
+msgid ""
+"You have to define Customadmin in your CustomModel if you use a custom "
+"view_mode..."
+msgstr ""
+"Devi definire Customadmin nel tuo CustomModel se vuoi usare un  view_mode "
+"personalizzato..."
 
 #: upy/contrib/customadmin/admin.py:59
-msgid "...or at least enable autocomplete_models_list which will include Customadmin too."
-msgstr "... oppure abilita autocomplete_models_list che include anche Customadmin."
+msgid ""
+"...or at least enable autocomplete_models_list which will include "
+"Customadmin too."
+msgstr ""
+"... oppure abilita autocomplete_models_list che include anche Customadmin."
 
-#: upy/contrib/customadmin/admin.py:76
+#: upy/contrib/customadmin/admin.py:73
 msgid "Some values are not hexadecimal string"
 msgstr "Alcuni valori non sono stringhe rappresentanti esadecimali"
 
-#: upy/contrib/customadmin/admin.py:89
-#: upy/contrib/customadmin/models.py:70
+#: upy/contrib/customadmin/admin.py:83 upy/contrib/customadmin/models.py:81
 msgid "Branding"
 msgstr "Branding"
 
-#: upy/contrib/customadmin/admin.py:93
+#: upy/contrib/customadmin/admin.py:87
 msgid "View Option"
 msgstr "Opzioni visualizzazione"
 
-#: upy/contrib/customadmin/admin.py:96
-#: upy/contrib/image/models.py:108
+#: upy/contrib/customadmin/admin.py:90
 msgid "Images"
 msgstr "Immagini"
 
-#: upy/contrib/customadmin/admin.py:99
+#: upy/contrib/customadmin/admin.py:93
 msgid "Style"
 msgstr "Style"
 
-#: upy/contrib/customadmin/admin.py:106
-#: upy/contrib/g11n/models.py:317
+#: upy/contrib/customadmin/admin.py:100 upy/contrib/g11n/models.py:374
 msgid "Code"
 msgstr "Codice"
 
-#: upy/contrib/customadmin/admin.py:141
-#: upy/contrib/customadmin/admin.py:160
-#: upy/contrib/customadmin/admin.py:190
+#: upy/contrib/customadmin/admin.py:135 upy/contrib/customadmin/admin.py:154
+#: upy/contrib/customadmin/admin.py:187
 msgid "Icons"
 msgstr "Icone"
 
-#: upy/contrib/customadmin/models.py:69
+#: upy/contrib/customadmin/models.py:80
 msgid "Set branding"
 msgstr "Scrivi il branding"
 
-#: upy/contrib/customadmin/models.py:73
+#: upy/contrib/customadmin/models.py:84
 msgid "Set branding's link"
 msgstr "Imposta il link del branding"
 
-#: upy/contrib/customadmin/models.py:74
+#: upy/contrib/customadmin/models.py:85
 msgid "Branding link"
 msgstr "Branding link"
 
-#: upy/contrib/customadmin/models.py:77
+#: upy/contrib/customadmin/models.py:88
 msgid "Set brand's image."
 msgstr "Scegli l'immagine del brand"
 
-#: upy/contrib/customadmin/models.py:78
+#: upy/contrib/customadmin/models.py:89
 msgid "Branding image"
 msgstr "Branding - immagine"
 
-#: upy/contrib/customadmin/models.py:79
-msgid "Select it if you want use this as default customization."
-msgstr "Seleziona Default se vuoi usare questa come personalizzazione di default"
-
-#: upy/contrib/customadmin/models.py:79
-#: upy/contrib/g11n/models.py:192
-msgid "Is default"
+#: upy/contrib/customadmin/models.py:90 upy/contrib/g11n/models.py:252
+#, fuzzy
+msgid "Default"
 msgstr "Default"
 
-#: upy/contrib/customadmin/models.py:81
+#: upy/contrib/customadmin/models.py:90
+msgid "Select it if you want use this as default customization."
+msgstr ""
+"Seleziona Default se vuoi usare questa come personalizzazione di default"
+
+#: upy/contrib/customadmin/models.py:92
 msgid "Default app image"
 msgstr "Immagine app di default"
 
-#: upy/contrib/customadmin/models.py:81
+#: upy/contrib/customadmin/models.py:92
 msgid "Insert a default application image"
 msgstr "Inserisci un'immagine di default per le applicazioni"
 
-#: upy/contrib/customadmin/models.py:82
+#: upy/contrib/customadmin/models.py:93
 msgid "Default model image"
 msgstr "Immagine model di default"
 
-#: upy/contrib/customadmin/models.py:82
+#: upy/contrib/customadmin/models.py:93
 msgid "Insert a default model image"
 msgstr "Inserisci un'immagine di default per i model"
 
-#: upy/contrib/customadmin/models.py:88
+#: upy/contrib/customadmin/models.py:99
 msgid "Set header's background color."
 msgstr "Imposta il colore di sfondo per l'header"
 
-#: upy/contrib/customadmin/models.py:89
+#: upy/contrib/customadmin/models.py:100
 msgid "BG Header"
 msgstr "BG Header"
 
-#: upy/contrib/customadmin/models.py:91
+#: upy/contrib/customadmin/models.py:102
 msgid "Set sitename font."
 msgstr "Imposta il font per il sitename"
 
-#: upy/contrib/customadmin/models.py:92
+#: upy/contrib/customadmin/models.py:103
 msgid "Sitename font"
 msgstr "Sitename font"
 
-#: upy/contrib/customadmin/models.py:94
+#: upy/contrib/customadmin/models.py:105
 msgid "Set sitename font size."
 msgstr "Imposta la grandezza del font del sitename"
 
-#: upy/contrib/customadmin/models.py:95
+#: upy/contrib/customadmin/models.py:106
 msgid "Sitename font size"
 msgstr "Sitename font size"
 
-#: upy/contrib/customadmin/models.py:97
+#: upy/contrib/customadmin/models.py:108
 msgid "Set sitename font weight."
 msgstr "Imposta lo spessore del font del sitename"
 
-#: upy/contrib/customadmin/models.py:98
+#: upy/contrib/customadmin/models.py:109
 msgid "Sitename font weight"
 msgstr "Sitename font weight"
 
-#: upy/contrib/customadmin/models.py:100
+#: upy/contrib/customadmin/models.py:111
 msgid "Set the background of title in tables."
 msgstr "Imposta il colore di sfondo dei titoli delle tabelle"
 
-#: upy/contrib/customadmin/models.py:101
+#: upy/contrib/customadmin/models.py:112
 msgid "BG table title "
 msgstr "BG table title "
 
-#: upy/contrib/customadmin/models.py:103
+#: upy/contrib/customadmin/models.py:114
 msgid "Set the color of title in tables."
 msgstr "Imposta il colore dei titoli delle tabelle"
 
-#: upy/contrib/customadmin/models.py:104
+#: upy/contrib/customadmin/models.py:115
 msgid "Table title color"
 msgstr "Table title color"
 
-#: upy/contrib/customadmin/models.py:106
+#: upy/contrib/customadmin/models.py:117
 msgid "Set h2 color."
 msgstr "Imposta il colore degli H2"
 
-#: upy/contrib/customadmin/models.py:106
+#: upy/contrib/customadmin/models.py:117
 msgid "H2 color"
 msgstr "H2 color"
 
-#: upy/contrib/customadmin/models.py:108
+#: upy/contrib/customadmin/models.py:119
 msgid "Set h2 size."
 msgstr "Imposta la grandezza degli H2"
 
-#: upy/contrib/customadmin/models.py:108
+#: upy/contrib/customadmin/models.py:119
 msgid "H2 size"
 msgstr "H2 size"
 
-#: upy/contrib/customadmin/models.py:110
+#: upy/contrib/customadmin/models.py:121
 msgid "Set h3 color."
 msgstr "Imposta il colore degli H3"
 
-#: upy/contrib/customadmin/models.py:110
+#: upy/contrib/customadmin/models.py:121
 msgid "H3 color"
 msgstr "H3 color"
 
-#: upy/contrib/customadmin/models.py:112
+#: upy/contrib/customadmin/models.py:123
 msgid "Set h3 size."
 msgstr "Imposta la grandezza degli H3"
 
-#: upy/contrib/customadmin/models.py:112
+#: upy/contrib/customadmin/models.py:123
 msgid "H3 size"
 msgstr "H3 size"
 
-#: upy/contrib/customadmin/models.py:114
+#: upy/contrib/customadmin/models.py:125
 msgid "Set link's color"
 msgstr "Imposta il colore dei link"
 
-#: upy/contrib/customadmin/models.py:114
+#: upy/contrib/customadmin/models.py:125
 msgid "Link color"
 msgstr "Link color"
 
-#: upy/contrib/customadmin/models.py:116
+#: upy/contrib/customadmin/models.py:127
 msgid "Set link's color when hover"
 msgstr "Impost ail colore dei link on mouse hover"
 
-#: upy/contrib/customadmin/models.py:117
+#: upy/contrib/customadmin/models.py:128
 msgid "Link hover color"
 msgstr "Link hover color"
 
-#: upy/contrib/customadmin/models.py:119
+#: upy/contrib/customadmin/models.py:130
 msgid "Set other html code to put in HEAD section. "
 msgstr "Imposta altro codice html da inserire nella sezione HEAD."
 
-#: upy/contrib/customadmin/models.py:120
+#: upy/contrib/customadmin/models.py:131
 msgid "Html head"
 msgstr "Html head"
 
-#: upy/contrib/customadmin/models.py:122
+#: upy/contrib/customadmin/models.py:133
 msgid "Set the css code. "
 msgstr "Scrivi il codice css"
 
-#: upy/contrib/customadmin/models.py:123
+#: upy/contrib/customadmin/models.py:134
 msgid "Css code"
 msgstr "Codice css"
 
-#: upy/contrib/customadmin/models.py:124
+#: upy/contrib/customadmin/models.py:135
 msgid "Check it if you want use css code to extends style."
 msgstr "Seleziona Default se vuoi usare il codice css per estendere lo style"
 
-#: upy/contrib/customadmin/models.py:125
+#: upy/contrib/customadmin/models.py:136
 msgid "Use css code"
 msgstr "Usa il codice css"
 
-#: upy/contrib/customadmin/models.py:126
+#: upy/contrib/customadmin/models.py:137
 msgid "Check it if you want use log sidebar in index template."
-msgstr "Spunta la casella per usare la sidebar dei log nel template index dell'admin."
+msgstr ""
+"Spunta la casella per usare la sidebar dei log nel template index "
+"dell'admin."
 
-#: upy/contrib/customadmin/models.py:127
+#: upy/contrib/customadmin/models.py:138
 msgid "Use log sidebar"
 msgstr "Usa la sidebar dei log"
 
-#: upy/contrib/customadmin/models.py:129
+#: upy/contrib/customadmin/models.py:140
 msgid "Use custom app system"
 msgstr "Usa sistema custom app"
 
-#: upy/contrib/customadmin/models.py:130
+#: upy/contrib/customadmin/models.py:141
 msgid "Use apps' icons system"
 msgstr "Usa sistema ad icone per le applicazioni"
 
-#: upy/contrib/customadmin/models.py:131
+#: upy/contrib/customadmin/models.py:142
 msgid "Use apps and models icons system"
 msgstr "Usa il sistema ad icone ibrido (model e app)"
 
-#: upy/contrib/customadmin/models.py:132
+#: upy/contrib/customadmin/models.py:143
 msgid "Use models' icons system in index group models by app"
 msgstr "Usa il sistema ad icone per i modelli raggruppandoli per app"
 
-#: upy/contrib/customadmin/models.py:133
+#: upy/contrib/customadmin/models.py:144
 msgid "Use models' icons system in index ungroup models by app"
 msgstr "Usa il sistema ad icone per i modelli senza raggrupparli per app"
 
-#: upy/contrib/customadmin/models.py:134
+#: upy/contrib/customadmin/models.py:145
 msgid "Choose the view mode"
 msgstr "Scegli il tipo di visualizzazione"
 
-#: upy/contrib/customadmin/models.py:135
+#: upy/contrib/customadmin/models.py:146
 msgid "View mode"
 msgstr "Tipo visualizzazione"
 
-#: upy/contrib/customadmin/models.py:137
-msgid "Check it if you want complete the custom app list with the default app list."
-msgstr "Spunta se vuoi completare la lista delle applicazioni personalizzate con la lista delle applicazioni di default."
+#: upy/contrib/customadmin/models.py:148
+msgid ""
+"Check it if you want complete the custom app list with the default app list."
+msgstr ""
+"Spunta se vuoi completare la lista delle applicazioni personalizzate con la "
+"lista delle applicazioni di default."
 
-#: upy/contrib/customadmin/models.py:138
+#: upy/contrib/customadmin/models.py:149
 msgid "Autocomplete App"
 msgstr "Autocompleta lista app"
 
-#: upy/contrib/customadmin/models.py:140
-msgid "Check it if you want complete the custom models list with the default models list."
-msgstr "Spunta se vuoi completare la lista dei modelli personalizzati con la lista dei modelli di default."
+#: upy/contrib/customadmin/models.py:151
+msgid ""
+"Check it if you want complete the custom models list with the default models"
+" list."
+msgstr ""
+"Spunta se vuoi completare la lista dei modelli personalizzati con la lista "
+"dei modelli di default."
 
-#: upy/contrib/customadmin/models.py:141
+#: upy/contrib/customadmin/models.py:152
 msgid "Autocomplete model"
 msgstr "Autocompleta lista modelli"
 
-#: upy/contrib/customadmin/models.py:176
-#: upy/contrib/customadmin/models.py:177
+#: upy/contrib/customadmin/models.py:187 upy/contrib/customadmin/models.py:188
 msgid "Custom Admin"
 msgstr "Personalizza Admin"
 
@@ -1307,495 +1353,585 @@ msgstr "Personalizza Admin"
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#: upy/contrib/customadmin/models.py:185
+# 
+#: upy/contrib/customadmin/models.py:196
 msgid "Select the application"
 msgstr "Seleziona l'applicazione"
 
-#: upy/contrib/customadmin/models.py:186
+#: upy/contrib/customadmin/models.py:197
 #: upy/contrib/rosetta/templates/rosetta_languages.html:31
 msgid "Application"
 msgstr "Applicazione"
 
-#: upy/contrib/customadmin/models.py:188
-#: upy/contrib/customadmin/models.py:214
+#: upy/contrib/customadmin/models.py:199 upy/contrib/customadmin/models.py:229
 msgid "Write the verbose name to show"
 msgstr "Scrivi il nome da visualizzare"
 
-#: upy/contrib/customadmin/models.py:189
+#: upy/contrib/customadmin/models.py:200
 msgid "Verbose app name"
 msgstr "Nome applicazione"
 
-#: upy/contrib/customadmin/models.py:194
-msgid "If use_app_icons is False in Customadmin, you can choose wheter or not show the model list."
-msgstr "Se 'use_app_icons' è False in Customadmin, puoi scegliere se mostrare o no la lista dei model per ogni applicazione"
+#: upy/contrib/customadmin/models.py:205
+msgid ""
+"If use_app_icons is False in Customadmin, you can choose wheter or not show "
+"the model list."
+msgstr ""
+"Se 'use_app_icons' è False in Customadmin, puoi scegliere se mostrare o no "
+"la lista dei model per ogni applicazione"
 
-#: upy/contrib/customadmin/models.py:195
+#: upy/contrib/customadmin/models.py:206
 msgid "Show models"
 msgstr "Mostra modelli"
 
-#: upy/contrib/customadmin/models.py:201
+#: upy/contrib/customadmin/models.py:212 upy/contrib/customadmin/models.py:238
+#: upy/contrib/customadmin/models.py:264
+msgid "Image"
+msgstr "Immagine"
+
+#: upy/contrib/customadmin/models.py:216
 msgid "Custom App"
 msgstr "Custom App"
 
-#: upy/contrib/customadmin/models.py:202
+#: upy/contrib/customadmin/models.py:217
 msgid "Custom Apps"
 msgstr "Custom Apps"
 
-#: upy/contrib/customadmin/models.py:211
+#: upy/contrib/customadmin/models.py:226
 msgid "Select the url you want to link"
 msgstr "Seleziona l'url che vuoi linkare"
 
-#: upy/contrib/customadmin/models.py:212
+#: upy/contrib/customadmin/models.py:227
 msgid "Link Url"
 msgstr "Link Url"
 
-#: upy/contrib/customadmin/models.py:215
+#: upy/contrib/customadmin/models.py:230
 msgid "Verbose url name"
 msgstr "Url"
 
-#: upy/contrib/customadmin/models.py:223
-#: upy/contrib/customadmin/models.py:224
+#: upy/contrib/customadmin/models.py:242 upy/contrib/customadmin/models.py:243
 msgid "Custom Link"
 msgstr "Custom Link"
-
-#: upy/contrib/customadmin/models.py:232
-msgid "Select a model"
-msgstr "Seleziona un model"
-
-#: upy/contrib/customadmin/models.py:233
-msgid "Model"
-msgstr ""
-
-#: upy/contrib/customadmin/models.py:242
-msgid "Custom Model"
-msgstr "Custom Model"
-
-#: upy/contrib/customadmin/models.py:243
-msgid "Custom Models"
-msgstr "Custom Model"
-
-#: upy/contrib/g11n/admin.py:11
-msgid "Globalization"
-msgstr "Globalizzazione"
-
-#: upy/contrib/g11n/admin.py:132
-msgid "Checking"
-msgstr "Controlli"
-
-#: upy/contrib/g11n/admin.py:133
-#: upy/contrib/g11n/models.py:184
-#: upy/contrib/g11n/models.py:330
-msgid "Languages"
-msgstr "Lingue"
 
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#: upy/contrib/g11n/models.py:169
+# 
+#: upy/contrib/customadmin/models.py:251
+#, fuzzy
+msgid "Select an appplication"
+msgstr "Seleziona l'applicazione"
+
+#: upy/contrib/customadmin/models.py:252
+msgid "App"
+msgstr "App"
+
+#: upy/contrib/customadmin/models.py:254
+msgid "Select a model"
+msgstr "Seleziona un model"
+
+#: upy/contrib/customadmin/models.py:255
+msgid "Model"
+msgstr "Model"
+
+#: upy/contrib/customadmin/models.py:268
+msgid "Custom Model"
+msgstr "Custom Model"
+
+#: upy/contrib/customadmin/models.py:269
+msgid "Custom Models"
+msgstr "Custom Model"
+
+#: upy/contrib/g11n/admin.py:20
+msgid "Globalization"
+msgstr "Globalizzazione"
+
+#: upy/contrib/g11n/admin.py:141
+msgid "Checking"
+msgstr "Controlli"
+
+#: upy/contrib/g11n/admin.py:142 upy/contrib/g11n/models.py:246
+#: upy/contrib/g11n/models.py:387
+msgid "Languages"
+msgstr "Lingue"
+
+#: upy/contrib/g11n/models.py:179
+msgid "G11n default unicode"
+msgstr "G11n default unicode"
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#: upy/contrib/g11n/models.py:217
 msgid "Set the Publication for Globalization."
 msgstr "Imposta la Pubblicazione per la Globalizzazione."
 
-#: upy/contrib/g11n/models.py:169
-#: upy/contrib/g11n/models.py:220
-#: upy/contrib/newsletter/models.py:80
-#: upy/contrib/tree/models.py:45
+#: upy/contrib/g11n/models.py:217 upy/contrib/g11n/models.py:279
+#: upy/contrib/newsletter/models.py:71 upy/contrib/tree/models.py:46
 msgid "Publication"
 msgstr "Pubblicazione"
 
-#: upy/contrib/g11n/models.py:170
+#: upy/contrib/g11n/models.py:218
 msgid "Set the Language for Globalization."
 msgstr "Imposta la lingua per la Globalizzazione."
 
-#: upy/contrib/g11n/models.py:170
-#: upy/contrib/g11n/models.py:329
+#: upy/contrib/g11n/models.py:218 upy/contrib/g11n/models.py:386
 msgid "Language"
 msgstr "Lingua"
 
-#: upy/contrib/g11n/models.py:181
+#: upy/contrib/g11n/models.py:243
 msgid "Identifying name of the website."
 msgstr "Nome identificativo del sito web."
 
-#: upy/contrib/g11n/models.py:182
-#: upy/contrib/g11n/models.py:314
-#: upy/contrib/newsletter/models.py:39
-#: upy/contrib/newsletter/models.py:72
-#: upy/contrib/newsletter/models.py:97
-#: upy/contrib/staticelement/models.py:16
-#: upy/contrib/staticelement/models.py:51
-#: upy/contrib/staticelement/models.py:68
-#: upy/contrib/staticpage/models.py:51
-#: upy/contrib/tree/models.py:54
-#: upy/contrib/tree/models.py:90
-#: upy/contrib/tree/models.py:345
-#: upy/contrib/tree/models.py:515
-#: upy/contrib/tree/models.py:572
-#: upy/contrib/tree/models.py:672
-#: upy/contrib/tree/models.py:744
-#: upy/contrib/tree/models.py:833
-#: upy/contrib/tree/models.py:870
+#: upy/contrib/g11n/models.py:244 upy/contrib/g11n/models.py:371
+#: upy/contrib/newsletter/models.py:30 upy/contrib/newsletter/models.py:63
+#: upy/contrib/newsletter/models.py:88 upy/contrib/staticelement/models.py:14
+#: upy/contrib/staticelement/models.py:45
+#: upy/contrib/staticelement/models.py:59 upy/contrib/staticpage/models.py:46
+#: upy/contrib/tree/models.py:55 upy/contrib/tree/models.py:87
+#: upy/contrib/tree/models.py:307 upy/contrib/tree/models.py:450
+#: upy/contrib/tree/models.py:503 upy/contrib/tree/models.py:603
+#: upy/contrib/tree/models.py:618
 msgid "Name"
 msgstr "Nome"
 
-#: upy/contrib/g11n/models.py:183
+#: upy/contrib/g11n/models.py:245
 msgid "List of languages to be made available on the website."
 msgstr "Elenco di lingue disponibili per il sito web."
 
-#: upy/contrib/g11n/models.py:186
-msgid "Identifying url of the website. (In multidomain project it should be 'http://servername', in monodomain project just a slugfield with the unique name of the Publication.)"
-msgstr "Url identificativa del sito web. (In un progetto multidominio dovrebbe essere: 'http://nomeserver', in un progeto monodominio soltanto uno slug con il nome unico delle Pubblicazione)."
+#: upy/contrib/g11n/models.py:248
+msgid ""
+"Identifying url of the website. (In multidomain project it should be "
+"'http://servername', in monodomain project just a slugfield with the unique "
+"name of the Publication.)"
+msgstr ""
+"Url identificativa del sito web. (In un progetto multidominio dovrebbe "
+"essere: 'http://nomeserver', in un progeto monodominio soltanto uno slug con"
+" il nome unico delle Pubblicazione)."
 
-#: upy/contrib/g11n/models.py:187
+#: upy/contrib/g11n/models.py:249
 msgid "Url"
 msgstr "Url"
 
-#: upy/contrib/g11n/models.py:188
+#: upy/contrib/g11n/models.py:250
 msgid "Uncheck it to disable the website."
 msgstr "Togli il segno di spunta per disabilitare il sito web."
 
-#: upy/contrib/g11n/models.py:189
-#: upy/contrib/g11n/models.py:272
-#: upy/contrib/tree/models.py:464
+#: upy/contrib/g11n/models.py:251 upy/contrib/g11n/models.py:328
+#: upy/contrib/tree/models.py:399
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: upy/contrib/g11n/models.py:191
-msgid "Select it if it's the default publication for the website."
+#: upy/contrib/g11n/models.py:252
+#, fuzzy
+msgid "Set as the default publication for the website."
 msgstr "Seleziona Default se è la pubblicazione di default per il sito."
 
-#: upy/contrib/g11n/models.py:194
+#: upy/contrib/g11n/models.py:254
 msgid "Default language to use in this publication."
 msgstr "Lingua di default da usare in questa pubblicazione."
 
-#: upy/contrib/g11n/models.py:195
+#: upy/contrib/g11n/models.py:255
 msgid "Default language"
 msgstr "Lingua di default"
 
-#: upy/contrib/g11n/models.py:196
+#: upy/contrib/g11n/models.py:256
 msgid "Upload the favicon file. (25x25 px / .ico extension)"
 msgstr "Carica il file per la favicon. (25x25 px / estensione .ico)"
 
-#: upy/contrib/g11n/models.py:197
-#: upy/contrib/g11n/models.py:284
-#: upy/contrib/g11n/models.py:322
-#: upy/contrib/image/models.py:86
-#: upy/contrib/newsletter/models.py:26
-#: upy/contrib/tree/models.py:64
-#: upy/contrib/tree/models.py:139
-#: upy/contrib/tree/models.py:318
-#: upy/contrib/tree/models.py:363
-#: upy/contrib/tree/models.py:477
-#: upy/contrib/tree/models.py:525
-#: upy/contrib/tree/models.py:582
-#: upy/contrib/tree/models.py:885
+#: upy/contrib/g11n/models.py:257 upy/contrib/g11n/models.py:341
+#: upy/contrib/g11n/models.py:379 upy/contrib/newsletter/models.py:17
+#: upy/contrib/tree/models.py:61 upy/contrib/tree/models.py:136
+#: upy/contrib/tree/models.py:280 upy/contrib/tree/models.py:326
+#: upy/contrib/tree/models.py:412 upy/contrib/tree/models.py:456
+#: upy/contrib/tree/models.py:513 upy/contrib/tree/models.py:631
 msgid "Establishment date"
 msgstr "Data creazione"
 
-#: upy/contrib/g11n/models.py:199
-#: upy/contrib/g11n/models.py:200
-#: upy/contrib/g11n/models.py:285
-#: upy/contrib/g11n/models.py:323
-#: upy/contrib/newsletter/models.py:28
-#: upy/contrib/newsletter/models.py:29
-#: upy/contrib/tree/models.py:66
-#: upy/contrib/tree/models.py:67
-#: upy/contrib/tree/models.py:140
-#: upy/contrib/tree/models.py:319
-#: upy/contrib/tree/models.py:364
-#: upy/contrib/tree/models.py:478
-#: upy/contrib/tree/models.py:526
-#: upy/contrib/tree/models.py:583
-#: upy/contrib/tree/models.py:886
+#: upy/contrib/g11n/models.py:259 upy/contrib/g11n/models.py:260
+#: upy/contrib/g11n/models.py:342 upy/contrib/g11n/models.py:380
+#: upy/contrib/newsletter/models.py:19 upy/contrib/newsletter/models.py:20
+#: upy/contrib/tree/models.py:63 upy/contrib/tree/models.py:64
+#: upy/contrib/tree/models.py:137 upy/contrib/tree/models.py:281
+#: upy/contrib/tree/models.py:327 upy/contrib/tree/models.py:413
+#: upy/contrib/tree/models.py:457 upy/contrib/tree/models.py:514
+#: upy/contrib/tree/models.py:632
 msgid "Last update"
 msgstr "Ultimo aggiornamento"
 
-#: upy/contrib/g11n/models.py:221
-#: upy/contrib/tree/models.py:46
+#: upy/contrib/g11n/models.py:280 upy/contrib/tree/models.py:47
 msgid "Publications"
 msgstr "Pubblicazioni"
 
-#: upy/contrib/g11n/models.py:260
+#: upy/contrib/g11n/models.py:316
 msgid "Set the website's title."
 msgstr "Imposta il titolo del sito web."
 
-#: upy/contrib/g11n/models.py:261
-#: upy/contrib/tree/models.py:315
-#: upy/contrib/tree/models.py:453
+#: upy/contrib/g11n/models.py:317 upy/contrib/tree/models.py:277
+#: upy/contrib/tree/models.py:388
 msgid "Title"
 msgstr "Titolo"
 
-#: upy/contrib/g11n/models.py:262
-#: upy/contrib/tree/models.py:454
+#: upy/contrib/g11n/models.py:318 upy/contrib/tree/models.py:389
 msgid "Set the website's description."
 msgstr "Imposta la descrizione del sito web."
 
-#: upy/contrib/g11n/models.py:263
-#: upy/contrib/newsletter/models.py:74
-#: upy/contrib/tree/models.py:56
-#: upy/contrib/tree/models.py:455
-#: upy/contrib/tree/models.py:746
-#: upy/contrib/tree/models.py:835
+#: upy/contrib/g11n/models.py:319 upy/contrib/newsletter/models.py:65
+#: upy/contrib/tree/models.py:57 upy/contrib/tree/models.py:390
 msgid "Description"
 msgstr "Descrizione"
 
-#: upy/contrib/g11n/models.py:265
-msgid "Set the list of website keywords. Don't use more than 10 words approximately."
-msgstr "Imposta la lista delle parole chive del sito. Non usare più di 10 parole approssimativamente."
+#: upy/contrib/g11n/models.py:321
+msgid ""
+"Set the list of website keywords. Don't use more than 10 words "
+"approximately."
+msgstr ""
+"Imposta la lista delle parole chive del sito. Non usare più di 10 parole "
+"approssimativamente."
 
-#: upy/contrib/g11n/models.py:266
-#: upy/contrib/tree/models.py:458
+#: upy/contrib/g11n/models.py:322 upy/contrib/tree/models.py:393
 msgid "Keywords"
 msgstr "Keywords"
 
-#: upy/contrib/g11n/models.py:267
+#: upy/contrib/g11n/models.py:323
 msgid "Set the website's author."
 msgstr "Imposta l'autore del sito."
 
-#: upy/contrib/g11n/models.py:268
-#: upy/contrib/tree/models.py:460
+#: upy/contrib/g11n/models.py:324 upy/contrib/tree/models.py:395
 msgid "Author"
 msgstr "Author"
 
-#: upy/contrib/g11n/models.py:269
-msgid "Set the website's content type."
-msgstr "Imposta il content-type del sito."
+#: upy/contrib/g11n/models.py:325
+#, fuzzy
+msgid "Set the website's charset."
+msgstr "Imposta l'autore del sito."
 
-#: upy/contrib/g11n/models.py:270
-#: upy/contrib/tree/models.py:462
-msgid "Content type"
-msgstr "Content type"
+#: upy/contrib/g11n/models.py:326
+msgid "Charset"
+msgstr "Charset"
 
-#: upy/contrib/g11n/models.py:271
+#: upy/contrib/g11n/models.py:327
 msgid "Uncheck it to enable the website."
 msgstr "Togli il segno di spunta per disabilitare il sito web."
 
-#: upy/contrib/g11n/models.py:273
+#: upy/contrib/g11n/models.py:329
 msgid "Text or html code to use if the website is disabled."
 msgstr "Testo o codice html da usare se il sito web è disabilitato."
 
-#: upy/contrib/g11n/models.py:274
-#: upy/contrib/tree/models.py:466
+#: upy/contrib/g11n/models.py:330 upy/contrib/tree/models.py:401
 msgid "Disabled message"
 msgstr "Messaggio di disabilitazione"
 
-#: upy/contrib/g11n/models.py:280
-#: upy/contrib/tree/models.py:473
+#: upy/contrib/g11n/models.py:336 upy/contrib/tree/models.py:408
 msgid "Select the value of meta tag robots if you want set it."
 msgstr "Seleziona il valore del meta tag robot se necessario."
 
-#: upy/contrib/g11n/models.py:281
-#: upy/contrib/tree/models.py:135
-#: upy/contrib/tree/models.py:474
-#: upy/contrib/tree/models.py:679
+#: upy/contrib/g11n/models.py:337 upy/contrib/tree/models.py:132
+#: upy/contrib/tree/models.py:409 upy/contrib/tree/models.py:610
 msgid "Robots"
 msgstr "Robot"
 
-#: upy/contrib/g11n/models.py:282
+#: upy/contrib/g11n/models.py:338
+msgid "Disallow all robots"
+msgstr "Disabilita tutti i robot"
+
+#: upy/contrib/g11n/models.py:338
+msgid ""
+"Set True to add this directive: \"User-agent: * Disallow: /\" in robots.txt"
+msgstr ""
+"Imposta a True per aggiungere questa direttiva:  \"User-agent: * Disallow: "
+"/\" nel robots.txt"
+
+#: upy/contrib/g11n/models.py:339
 msgid "Set the website's generator."
 msgstr "Imposta il generator del sito."
 
-#: upy/contrib/g11n/models.py:283
+#: upy/contrib/g11n/models.py:340
 msgid "Generator"
 msgstr "Generator"
 
-#: upy/contrib/g11n/models.py:305
+#: upy/contrib/g11n/models.py:362
 msgid "Publication's g11n elements"
 msgstr "Traduzioni della Pubblicazione"
 
-#: upy/contrib/g11n/models.py:306
+#: upy/contrib/g11n/models.py:363
 msgid "Publications' g11n elements"
 msgstr "Traduzioni delle pubblicazioni"
 
-#: upy/contrib/g11n/models.py:313
+#: upy/contrib/g11n/models.py:370
 msgid "Set the language's name."
 msgstr "Imposta il nome della lingua."
 
-#: upy/contrib/g11n/models.py:316
-msgid "Set the language's code. <a target='_blank' href='http://www.i18nguy.com/unicode/language-identifiers.html'>Open the language identifiers.</a>"
-msgstr "Imposta il codice della lingua. <a target='_blank' href='http://www.i18nguy.com/unicode/language-identifiers.html'>Apri gli identificatori di lingua.</a>"
+#: upy/contrib/g11n/models.py:373
+msgid ""
+"Set the language's code. <a target='_blank' "
+"href='http://www.i18nguy.com/unicode/language-identifiers.html'>Open the "
+"language identifiers.</a>"
+msgstr ""
+"Imposta il codice della lingua. <a target='_blank' "
+"href='http://www.i18nguy.com/unicode/language-identifiers.html'>Apri gli "
+"identificatori di lingua.</a>"
 
-#: upy/contrib/g11n/models.py:318
+#: upy/contrib/g11n/models.py:375
 msgid "Set the language's alias."
 msgstr "Imposta l'alias della lingua."
 
-#: upy/contrib/g11n/models.py:319
-#: upy/contrib/staticelement/models.py:34
-#: upy/contrib/staticelement/models.py:53
-#: upy/contrib/staticpage/models.py:36
-#: upy/contrib/tree/models.py:313
+#: upy/contrib/g11n/models.py:376 upy/contrib/staticelement/models.py:30
+#: upy/contrib/staticelement/models.py:46 upy/contrib/staticpage/models.py:33
+#: upy/contrib/tree/models.py:275
 msgid "Alias"
 msgstr "Alias"
 
-#: upy/contrib/g11n/models.py:320
+#: upy/contrib/g11n/models.py:377
 msgid "Upload the flag file"
 msgstr "Carica il file per la bandiera."
 
-#: upy/contrib/g11n/models.py:320
+#: upy/contrib/g11n/models.py:377
 msgid "Flag"
 msgstr "Bandiera"
 
-#: upy/contrib/image/admin.py:27
-#, python-format
-msgid "Image size out of range. Actual size: %(width)spx X %(height)spx"
-msgstr "Le dimensioni dell'immagine superano quelle consentite. Dimensione attuale:  %(width)spx X %(height)spx"
+#: upy/contrib/gmaps/models.py:27
+#, fuzzy
+msgid "Continent"
+msgstr "Content type"
 
-#: upy/contrib/image/admin.py:33
-msgid "Image mode not in RGB or RGBa."
-msgstr "Il modo dell'immagine non è RGB o RGBa"
+#: upy/contrib/gmaps/models.py:28
+msgid "Country"
+msgstr "Nazione"
 
-#: upy/contrib/image/models.py:36
-#: upy/contrib/image/models.py:94
+#: upy/contrib/gmaps/models.py:29
+msgid "Area"
+msgstr "Area"
+
+#: upy/contrib/gmaps/models.py:30
+msgid "City"
+msgstr "Città"
+
+#: upy/contrib/gmaps/models.py:31
+msgid "Address"
+msgstr "Indirizzo"
+
+#: upy/contrib/gmaps/models.py:32
+#, fuzzy
+msgid "Zip code"
+msgstr "Codice css"
+
+#: upy/contrib/gmaps/models.py:33
+msgid "Geo Address"
+msgstr "Indirizzo geo"
+
+#: upy/contrib/gmaps/models.py:34
+msgid "Geo Location"
+msgstr "Coordinate geo"
+
+#: upy/contrib/image/models.py:44
 msgid "view image"
 msgstr "view image"
 
-#: upy/contrib/image/models.py:39
+#: upy/contrib/image/models.py:46
+msgid "Missing file"
+msgstr "File mancante"
+
+#: upy/contrib/image/models.py:49
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: upy/contrib/image/models.py:42
+#: upy/contrib/image/models.py:53
 msgid "Original image"
 msgstr "Immagine originale"
 
-#: upy/contrib/image/models.py:68
-#: upy/contrib/image/models.py:137
+#: upy/contrib/image/models.py:77
 msgid "Set the image title."
 msgstr "Imposta il titolo dell'immagine."
 
-#: upy/contrib/image/models.py:69
-#: upy/contrib/image/models.py:138
+#: upy/contrib/image/models.py:78
 msgid "Set the image alternative field."
 msgstr "Imposta il campo alt dell'immagine."
 
-#: upy/contrib/image/models.py:85
-msgid "Set the date you want to display for this image."
-msgstr "Imposta la data da visualizzare per questa immagine"
+#: upy/contrib/inspect/templates/included_item_inspected.html:7
+msgid "Hide source code"
+msgstr "Nascondi il codice sorgente"
 
-#: upy/contrib/image/models.py:97
-msgid "Thumbnail Display"
-msgstr "Miniatura"
+#: upy/contrib/inspect/templates/included_item_inspected.html:7
+msgid "Show source code"
+msgstr "Mostra il codice sorgente"
 
-#: upy/contrib/image/models.py:107
-msgid "Image"
-msgstr "Immagine"
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:4
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:22
+#: upy/templates/admin/base_site.html:32
+#, fuzzy
+msgid "Inspect models"
+msgstr "Seleziona un model"
 
-#: upy/contrib/image/models.py:120
-#: upy/contrib/image/models.py:139
-msgid "Image description."
-msgstr "Descrizione immagine"
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:20
+#: upy/templates/admin/app_index.html:8 upy/templates/admin/base.html:70
+#: upy/templates/admin/change_form.html:21
+#: upy/templates/admin/change_list.html:43
+msgid "Home"
+msgstr "Home"
 
-#: upy/contrib/image/models.py:121
-msgid "Choose an Image Repository element to associate."
-msgstr "Scegli un'immagine dall'archivio da associare."
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:32
+#, fuzzy
+msgid "Choose a model"
+msgstr "Scegli una pagina"
 
-#: upy/contrib/image/models.py:121
-msgid "Image Repository element"
-msgstr "Elemento immagine archivio"
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:44
+#, fuzzy
+msgid "Display as"
+msgstr "Display:"
 
-#: upy/contrib/language/templates/language_as_select.html:10
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:46
+msgid "tabs"
+msgstr "tab"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:47
+msgid "list"
+msgstr "lista"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:49
+msgid "Inspect"
+msgstr "Inspect"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:57
+msgid "has g11n model associated. See also"
+msgstr "ha un model g11n associato. Vedi anche"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:65
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:75
+msgid "Fields"
+msgstr "Fields"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:66
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:83
+msgid "Properties"
+msgstr "Property"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:67
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:91
+msgid "Methods"
+msgstr "Metodi"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:68
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:99
+msgid "Relation fields"
+msgstr "Relation fields"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:69
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:107
+msgid "Many fields"
+msgstr "Many fields"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:70
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:115
+msgid "Attributes"
+msgstr "Attributi"
+
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:71
+#: upy/contrib/inspect/templates/upy_inspect_browse.html:123
+msgid "Items"
+msgstr "Elementi"
+
+#: upy/contrib/language/templates/language_as_select.html:12
 #: upy/contrib/rosetta/templates/pofile.html:47
 #: upy/templates/admin/base.html:58
 msgid "Go"
 msgstr "Vai"
 
-#: upy/contrib/newsletter/admin.py:69
-#: upy/contrib/newsletter/models.py:114
+#: upy/contrib/newsletter/admin.py:69 upy/contrib/newsletter/models.py:105
 msgid "Body text"
 msgstr "Testo messaggio"
 
-#: upy/contrib/newsletter/admin.py:69
-#: upy/contrib/newsletter/models.py:114
+#: upy/contrib/newsletter/admin.py:69 upy/contrib/newsletter/models.py:105
 msgid "Set body in text format"
 msgstr "Scrivi il corpo del messaggio in formato testuale"
 
-#: upy/contrib/newsletter/admin.py:114
+#: upy/contrib/newsletter/admin.py:121
 msgid "Stop selected dispatchers"
 msgstr "Ferma i dispatcher selezionati"
 
-#: upy/contrib/newsletter/admin.py:121
+#: upy/contrib/newsletter/admin.py:128
 msgid "Revoke selected dispatchers"
 msgstr "Revoca i dispatcher selezionati"
 
-#: upy/contrib/newsletter/admin.py:130
+#: upy/contrib/newsletter/admin.py:137
 msgid "Restart selected dispatchers now"
 msgstr "Riavvia adesso i dispatcher selezionati"
 
-#: upy/contrib/newsletter/admin.py:137
+#: upy/contrib/newsletter/admin.py:144
 msgid "Continue selected dispatchers"
 msgstr "Continua i dispatcher selezionati"
 
-#: upy/contrib/newsletter/models.py:37
+#: upy/contrib/newsletter/models.py:28
 msgid "Insert your e-mail."
 msgstr "Inserisci la tua e-mail"
 
-#: upy/contrib/newsletter/models.py:37
+#: upy/contrib/newsletter/models.py:28
 msgid "E-mail"
 msgstr "E-mail"
 
-#: upy/contrib/newsletter/models.py:38
+#: upy/contrib/newsletter/models.py:29
 msgid "Insert you name"
 msgstr "Inserisci il tuo nome"
 
-#: upy/contrib/newsletter/models.py:41
+#: upy/contrib/newsletter/models.py:32
 msgid "Insert you surname"
 msgstr "Inserisci il tuo cognome"
 
-#: upy/contrib/newsletter/models.py:41
+#: upy/contrib/newsletter/models.py:32
 msgid "Surname"
 msgstr "Cognome"
 
-#: upy/contrib/newsletter/models.py:42
+#: upy/contrib/newsletter/models.py:33
 msgid "Set secret key"
 msgstr "Imposta la chiave segreta"
 
-#: upy/contrib/newsletter/models.py:42
+#: upy/contrib/newsletter/models.py:33
 msgid "Secret key"
 msgstr "Chiave segreta"
 
-#: upy/contrib/newsletter/models.py:44
+#: upy/contrib/newsletter/models.py:35
 msgid "Check if this contact is confirmed"
 msgstr "Spunta se il contatto è confermato"
 
-#: upy/contrib/newsletter/models.py:45
+#: upy/contrib/newsletter/models.py:36
 msgid "Confirmed"
 msgstr "Confermato"
 
-#: upy/contrib/newsletter/models.py:47
+#: upy/contrib/newsletter/models.py:38
 msgid "Check if this contact is subscribed"
 msgstr "Spunta se il contatto è iscritto"
 
-#: upy/contrib/newsletter/models.py:48
+#: upy/contrib/newsletter/models.py:39
 msgid "Subscribed"
 msgstr "Iscritto"
 
-#: upy/contrib/newsletter/models.py:63
+#: upy/contrib/newsletter/models.py:54
 msgid "Contact"
 msgstr "Contatto"
 
-#: upy/contrib/newsletter/models.py:64
-#: upy/contrib/newsletter/models.py:78
+#: upy/contrib/newsletter/models.py:55 upy/contrib/newsletter/models.py:69
 msgid "Contacts"
 msgstr "Contatti"
 
-#: upy/contrib/newsletter/models.py:72
+#: upy/contrib/newsletter/models.py:63
 msgid "Insert list's name"
 msgstr "Inserisci il nome della lista"
 
-#: upy/contrib/newsletter/models.py:73
+#: upy/contrib/newsletter/models.py:64
 msgid "Set list's description"
 msgstr "Inserisci la descrizione della lista"
 
-#: upy/contrib/newsletter/models.py:75
+#: upy/contrib/newsletter/models.py:66
 msgid "Set list's priority"
 msgstr "Seleziona la priorità della lista"
 
-#: upy/contrib/newsletter/models.py:76
-#: upy/contrib/tree/models.py:133
+#: upy/contrib/newsletter/models.py:67 upy/contrib/tree/models.py:130
 msgid "Priority"
 msgstr "Priority"
 
-#: upy/contrib/newsletter/models.py:77
+#: upy/contrib/newsletter/models.py:68
 msgid "A list of contacts to associate"
 msgstr "Una lista di contatti da associare"
 
@@ -1803,80 +1939,83 @@ msgstr "Una lista di contatti da associare"
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#: upy/contrib/newsletter/models.py:79
+# 
+#: upy/contrib/newsletter/models.py:70
 msgid "Set the Publication for this list"
 msgstr "Imposta la Pubblicazione della lista"
 
-#: upy/contrib/newsletter/models.py:81
+#: upy/contrib/newsletter/models.py:72
 msgid "Check if this list is a test list"
 msgstr "Spunta se si tratta di una lista di test"
 
-#: upy/contrib/newsletter/models.py:82
+#: upy/contrib/newsletter/models.py:73
 msgid "Test"
 msgstr "Test"
 
-#: upy/contrib/newsletter/models.py:88
-#: upy/contrib/newsletter/models.py:135
+#: upy/contrib/newsletter/models.py:79 upy/contrib/newsletter/models.py:135
 msgid "List"
 msgstr "Lista"
 
-#: upy/contrib/newsletter/models.py:89
+#: upy/contrib/newsletter/models.py:80
 msgid "Lists"
 msgstr "Liste"
 
-#: upy/contrib/newsletter/models.py:96
+#: upy/contrib/newsletter/models.py:87
 msgid "Attachment's name"
 msgstr "Nome dell'allegato"
 
-#: upy/contrib/newsletter/models.py:99
+#: upy/contrib/newsletter/models.py:90
 msgid "Upload the attachment's file."
 msgstr "Carica il file allegato"
 
-#: upy/contrib/newsletter/models.py:99
+#: upy/contrib/newsletter/models.py:90
 #: upy/contrib/rosetta/templates/rosetta_languages.html:37
 msgid "File"
 msgstr "File"
 
-#: upy/contrib/newsletter/models.py:106
+#: upy/contrib/newsletter/models.py:97
 msgid "Attachment"
 msgstr "Allegato"
 
-#: upy/contrib/newsletter/models.py:107
-#: upy/contrib/newsletter/models.py:118
+#: upy/contrib/newsletter/models.py:98 upy/contrib/newsletter/models.py:109
 msgid "Attachments"
 msgstr "Allegati"
 
-#: upy/contrib/newsletter/models.py:113
+#: upy/contrib/newsletter/models.py:104
 msgid "Insert subject"
 msgstr "Inserisci l'oggetto"
 
-#: upy/contrib/newsletter/models.py:113
+#: upy/contrib/newsletter/models.py:104
 msgid "Subject"
 msgstr "Oggetto"
 
-#: upy/contrib/newsletter/models.py:115
-msgid "Set body in html format. If you want add an image in html content, you must replace url in src attribute with the cid content. Example src='cid:name_of_an_attachment_image'"
-msgstr "Scrivi il body nel formato html. Se vuoi aggiungere un'immagine nel contenuto html, devi sostituire l'url presente nell'attributo src con il contenuto cid. per esempio: src='cid:nome_di_un_file_allegato'"
+#: upy/contrib/newsletter/models.py:106
+msgid ""
+"Set body in html format. If you want add an image in html content, you must "
+"replace url in src attribute with the cid content. Example "
+"src='cid:name_of_an_attachment_image'"
+msgstr ""
+"Scrivi il body nel formato html. Se vuoi aggiungere un'immagine nel "
+"contenuto html, devi sostituire l'url presente nell'attributo src con il "
+"contenuto cid. per esempio: src='cid:nome_di_un_file_allegato'"
 
-#: upy/contrib/newsletter/models.py:115
+#: upy/contrib/newsletter/models.py:106
 msgid "Body html"
 msgstr "Html"
 
-#: upy/contrib/newsletter/models.py:117
+#: upy/contrib/newsletter/models.py:108
 msgid "A list of Attachments to associate"
 msgstr "Una lista di allegati da associare"
 
-#: upy/contrib/newsletter/models.py:120
+#: upy/contrib/newsletter/models.py:111
 msgid "Check if this newsletter is sent"
 msgstr "Spunta se la newsletter è stata spedita"
 
-#: upy/contrib/newsletter/models.py:121
+#: upy/contrib/newsletter/models.py:112
 msgid "Sent"
 msgstr "Spedita"
 
-#: upy/contrib/newsletter/models.py:127
-#: upy/contrib/newsletter/models.py:136
+#: upy/contrib/newsletter/models.py:127 upy/contrib/newsletter/models.py:136
 msgid "Newsletter"
 msgstr "Newsletter"
 
@@ -1960,17 +2099,17 @@ msgstr "Dispatcher (Invio newsletter)"
 msgid "Dispatchers"
 msgstr "Dispatcher (Invio newsletter)"
 
-#: upy/contrib/newsletter/utility.py:10
-#: upy/contrib/newsletter/views.py:26
+#: upy/contrib/newsletter/utility.py:10 upy/contrib/newsletter/views.py:26
 #, python-format
 msgid "Hi %s, your account is succesfully confirmed"
 msgstr "Ciao %s, il tuo account è stato confermato con successo"
 
-#: upy/contrib/newsletter/utility.py:11
-#: upy/contrib/newsletter/views.py:27
+#: upy/contrib/newsletter/utility.py:11 upy/contrib/newsletter/views.py:27
 #, python-format
 msgid "Some problems are occurred during confirmation. Please, contact %s"
-msgstr "Si sono verificati alcuni problemi durante la conferma. Per favore, contatti %s"
+msgstr ""
+"Si sono verificati alcuni problemi durante la conferma. Per favore, contatti"
+" %s"
 
 #: upy/contrib/newsletter/utility.py:81
 msgid "Confirm subscription"
@@ -2038,13 +2177,18 @@ msgstr ""
 "\n"
 "%(website)s\n"
 
+#: upy/contrib/orderable/models.py:6
+#, fuzzy
+msgid "Position"
+msgstr "Posizione HTML"
+
 #: upy/contrib/rosetta/templates/pofile.html:8
 msgid "Pick another file"
-msgstr ""
+msgstr "Scegli un altro file"
 
 #: upy/contrib/rosetta/templates/pofile.html:9
 msgid "Download this catalog"
-msgstr ""
+msgstr "Scarica il catalogo"
 
 #: upy/contrib/rosetta/templates/pofile.html:24
 #, python-format
@@ -2056,7 +2200,9 @@ msgid "File is read-only: download the file when done editing!"
 msgstr ""
 
 #: upy/contrib/rosetta/templates/pofile.html:27
-msgid "Some items in your last translation block couldn't be saved: this usually happens when the catalog file changes on disk after you last loaded it."
+msgid ""
+"Some items in your last translation block couldn't be saved: this usually "
+"happens when the catalog file changes on disk after you last loaded it."
 msgstr ""
 
 #: upy/contrib/rosetta/templates/pofile.html:31
@@ -2087,7 +2233,7 @@ msgstr ""
 
 #: upy/contrib/rosetta/templates/pofile.html:45
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: upy/contrib/rosetta/templates/pofile.html:67
 msgid "Original"
@@ -2100,7 +2246,7 @@ msgstr ""
 
 #: upy/contrib/rosetta/templates/pofile.html:71
 msgid "Occurrences(s)"
-msgstr ""
+msgstr "Occorrenze"
 
 #: upy/contrib/rosetta/templates/pofile.html:85
 #: upy/contrib/rosetta/templates/pofile.html:88
@@ -2145,7 +2291,11 @@ msgid "Language selection"
 msgstr "Selezione lingua"
 
 #: upy/contrib/rosetta/templates/rosetta_languages.html:8
-msgid "Couldn't load the specified language file. This usually happens when using the Encrypted Cookies Session Storage backend on Django 1.4 or higher.<br/>Setting ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage' in your settings file should fix this."
+msgid ""
+"Couldn't load the specified language file. This usually happens when using "
+"the Encrypted Cookies Session Storage backend on Django 1.4 or "
+"higher.<br/>Setting ROSETTA_STORAGE_CLASS = "
+"'rosetta.storage.CacheRosettaStorage' in your settings file should fix this."
 msgstr ""
 
 #: upy/contrib/rosetta/templates/rosetta_languages.html:14
@@ -2183,703 +2333,565 @@ msgid "Nothing to translate!"
 msgstr ""
 
 #: upy/contrib/rosetta/templates/rosetta_languages.html:61
-msgid "You haven't specified any languages in your settings file, or haven't yet generated a batch of translation catalogs."
+msgid ""
+"You haven't specified any languages in your settings file, or haven't yet "
+"generated a batch of translation catalogs."
 msgstr ""
 
 #: upy/contrib/rosetta/templates/rosetta_languages.html:62
 #, python-format
-msgid "Please refer to <a href=\"%(i18n_doc_link)s\">Django's I18N documentation</a> for a guide on how to set up internationalization for your project."
+msgid ""
+"Please refer to <a href=\"%(i18n_doc_link)s\">Django's I18N "
+"documentation</a> for a guide on how to set up internationalization for your"
+" project."
 msgstr ""
 
-#: upy/contrib/staticelement/models.py:16
-#: upy/contrib/staticelement/models.py:51
+#: upy/contrib/staticelement/models.py:14
+#: upy/contrib/staticelement/models.py:45
 msgid "Set the element's name."
 msgstr "Imposta il nome dell'elemento"
 
-#: upy/contrib/staticelement/models.py:17
-#: upy/contrib/staticelement/models.py:52
-#: upy/contrib/staticpage/models.py:17
+#: upy/contrib/staticelement/models.py:15
 msgid "Choose a category."
 msgstr "Scegli una categoria"
 
-#: upy/contrib/staticelement/models.py:17
-#: upy/contrib/staticelement/models.py:52
-#: upy/contrib/staticelement/models.py:74
-#: upy/contrib/staticpage/models.py:17
-#: upy/contrib/staticpage/models.py:57
+#: upy/contrib/staticelement/models.py:15
 msgid "Category"
 msgstr "Categoria"
 
-#: upy/contrib/staticelement/models.py:26
-#: upy/contrib/staticelement/models.py:60
-msgid "Static Element"
-msgstr "Elemento statico"
-
-#: upy/contrib/staticelement/models.py:27
-#: upy/contrib/staticelement/models.py:61
-msgid "Static Elements"
-msgstr "Elementi Statici"
-
-#: upy/contrib/staticelement/models.py:34
-#: upy/contrib/staticelement/models.py:53
+#: upy/contrib/staticelement/models.py:30
+#: upy/contrib/staticelement/models.py:46
 msgid "Set the element's alias."
 msgstr "Imposta l'alias."
 
-#: upy/contrib/staticelement/models.py:35
-#: upy/contrib/staticelement/models.py:54
-#: upy/contrib/staticpage/models.py:37
+#: upy/contrib/staticelement/models.py:31
+#: upy/contrib/staticelement/models.py:47 upy/contrib/staticpage/models.py:34
 msgid "HTML"
 msgstr "HTML"
 
-#: upy/contrib/staticelement/models.py:36
-msgid "Choose a Static element to associate."
-msgstr "Scegli un Elemento statico da associare"
-
-#: upy/contrib/staticelement/models.py:36
-msgid "Static element"
-msgstr "Elemento statico"
-
-#: upy/contrib/staticelement/models.py:42
-#: upy/contrib/staticelement/models.py:43
-msgid "Static Element G11n"
-msgstr "Traduzione elemento statico"
-
-#: upy/contrib/staticelement/models.py:68
-#: upy/contrib/staticpage/models.py:51
+#: upy/contrib/staticelement/models.py:59
 msgid "Category name."
 msgstr "Nome categoria"
 
-#: upy/contrib/staticelement/models.py:75
-#: upy/contrib/staticpage/models.py:58
-msgid "Categories"
-msgstr "Categorie"
-
 #: upy/contrib/staticelement/views.py:20
 #, python-format
-msgid "The static element with the name '%s' don't have a g11n instance. Add it."
-msgstr "L' elemento statico con il nome '%s' non è stato trovato nel database. Aggiungilo."
+msgid ""
+"The static element with the name '%s' don't have a g11n instance. Add it."
+msgstr ""
+"L' elemento statico con il nome '%s' non è stato trovato nel database. "
+"Aggiungilo."
 
 #: upy/contrib/staticpage/models.py:16
 msgid "Choose a page."
 msgstr "Scegli una pagina"
 
-#: upy/contrib/staticpage/models.py:16
-#: upy/contrib/tree/models.py:92
-#: upy/contrib/tree/models.py:416
-#: upy/contrib/tree/models.py:476
+#: upy/contrib/staticpage/models.py:16 upy/contrib/tree/models.py:89
+#: upy/contrib/tree/models.py:379 upy/contrib/tree/models.py:411
 msgid "Page"
 msgstr "Pagina"
 
-#: upy/contrib/staticpage/models.py:28
-msgid "Static Page"
-msgstr "Pagina Statica"
-
-#: upy/contrib/staticpage/models.py:29
-msgid "Static Pages"
-msgstr "Pagine Statiche"
-
-#: upy/contrib/staticpage/models.py:36
+#: upy/contrib/staticpage/models.py:33
 msgid "Set the page's alias."
 msgstr "Imposta l'alias della pagina."
 
-#: upy/contrib/staticpage/models.py:38
-msgid "Choose a Static page to associate."
-msgstr "Scegli una Static Page da associare"
-
-#: upy/contrib/staticpage/models.py:38
-msgid "Static page"
-msgstr "Pagina statica"
-
-#: upy/contrib/staticpage/models.py:44
-msgid "Static Page G11n Content"
-msgstr "Traduzione della Pagina Statica"
-
-#: upy/contrib/staticpage/models.py:45
-msgid "Static Page G11n Contents"
-msgstr "Traduzioni delle Pagine Statiche"
+#: upy/contrib/staticpage/models.py:46
+#, fuzzy
+msgid "Name."
+msgstr "Nome"
 
 #: upy/contrib/staticpage/views.py:22
 #, python-format
 msgid "Static page with the name '%s' not found in database. Add it."
-msgstr "La Static Page con il nome '%s' non è stata trovata nel database. Aggiungila."
+msgstr ""
+"La Static Page con il nome '%s' non è stata trovata nel database. "
+"Aggiungila."
 
-#: upy/contrib/tree/admin.py:82
+#: upy/contrib/tree/admin.py:60
 msgid "A node may not be made a child of itself."
 msgstr "Un nodo non puà essere figlio di se stesso"
 
-#: upy/contrib/tree/admin.py:88
+#: upy/contrib/tree/admin.py:72
 #, python-format
-msgid "You cannot use the same slug (/%s) in two different nodes of the same structure"
+msgid ""
+"You cannot use the same slug (/%s) in two different nodes of the same "
+"structure"
 msgstr "Non puoi usare due slug uguali (/%s) in nodi della stessa struttura"
 
-#: upy/contrib/tree/admin.py:90
+#: upy/contrib/tree/admin.py:74
 msgid "You can use page only in one node of the same structure"
 msgstr "Puoi usare la pagina solo in un nodo della stessa struttura"
 
-#: upy/contrib/tree/admin.py:104
+#: upy/contrib/tree/admin.py:88
 msgid "Info page"
 msgstr "Info pagina"
 
-#: upy/contrib/tree/admin.py:111
+#: upy/contrib/tree/admin.py:95
 msgid "Sitemap configuration"
 msgstr "Configurazione Sitemap"
 
-#: upy/contrib/tree/admin.py:112
+#: upy/contrib/tree/admin.py:96
 msgid "Robots configuration"
 msgstr "Configurazione Robot"
 
-#: upy/contrib/tree/admin.py:127
+#: upy/contrib/tree/admin.py:111
 msgid "Mark selected nodes as hidden"
 msgstr "Marca i nodi selezionati come nascosti"
 
-#: upy/contrib/tree/admin.py:134
+#: upy/contrib/tree/admin.py:118
 msgid "Mark selected nodes as protected"
 msgstr "Marca i nodi selezionati come protetti"
 
-#: upy/contrib/tree/admin.py:192
-msgid "Thera are some variables in regex with the same name. It's not permitted."
-msgstr "Ci sono alcune variabili nella regex con lo stesso nome. Non è permesso."
+#: upy/contrib/tree/admin.py:176
+msgid ""
+"Thera are some variables in regex with the same name. It's not permitted."
+msgstr ""
+"Ci sono alcune variabili nella regex con lo stesso nome. Non è permesso."
 
-#: upy/contrib/tree/admin.py:197
-msgid "Set the dictionary of static parameters of the page in a regular format: {\"param1\":\"value1\", \"param2\":\"value2\"}."
-msgstr "Imposta il dizionario di parametri statici della pagina nel seguente formato regolare: {\"param1\":\"value1\", \"param2\":\"value2\"}."
+#: upy/contrib/tree/admin.py:181
+msgid ""
+"Set the dictionary of static parameters of the page in a regular format: "
+"{\"param1\":\"value1\", \"param2\":\"value2\"}."
+msgstr ""
+"Imposta il dizionario di parametri statici della pagina nel seguente formato"
+" regolare: {\"param1\":\"value1\", \"param2\":\"value2\"}."
 
-#: upy/contrib/tree/admin.py:224
-#: upy/contrib/tree/models.py:519
+#: upy/contrib/tree/admin.py:208 upy/contrib/tree/models.py:454
 msgid "Set the variables required by template (separated with ,)."
 msgstr "Imposta le variabili richieste dal template (separate da virgola).."
 
-#: upy/contrib/tree/admin.py:262
+#: upy/contrib/tree/admin.py:233
 msgid "Set the func_name in a regular format."
 msgstr "Imposta il nome della funzione nel formato regolare."
 
-#: upy/contrib/tree/admin.py:263
-msgid "Set the dictionary of output variables of the view required by template in a regular format: {\"param1\":value1, \"param2\":value2}."
-msgstr "Imposta il dizionario di variabili di output della vista richieste dal template nel seguente formato regolare: {\"param1\":value1, \"param2\":value2}."
+#: upy/contrib/tree/admin.py:234
+msgid ""
+"Set the dictionary of output variables of the view required by template in a"
+" regular format: {\"param1\":value1, \"param2\":value2}."
+msgstr ""
+"Imposta il dizionario di variabili di output della vista richieste dal "
+"template nel seguente formato regolare: {\"param1\":value1, "
+"\"param2\":value2}."
 
-#: upy/contrib/tree/admin.py:264
+#: upy/contrib/tree/admin.py:235
 msgid "Set the input variables for the view (separated with ,)."
 msgstr "Imposta le variabili per la vista (separate da virgola).."
 
-#: upy/contrib/tree/admin.py:329
-#: upy/contrib/tree/models.py:871
+#: upy/contrib/tree/admin.py:271 upy/contrib/tree/models.py:619
 msgid "Identifying UrlAjax's url."
 msgstr "Url identificativo dell'UrlAjax."
 
-#: upy/contrib/tree/admin.py:330
-#: upy/contrib/tree/models.py:351
-msgid "Set the dictionary of static parameters of the page in a regular format: {\"param1\":value1, \"param2\":value2}."
-msgstr "Imposta il dizionario di parametri statici della pagina nel seguente formato regolare: {\"param1\":value1, \"param2\":value2}."
+#: upy/contrib/tree/admin.py:272 upy/contrib/tree/models.py:314
+msgid ""
+"Set the dictionary of static parameters of the page in a regular format: "
+"{\"param1\":value1, \"param2\":value2}."
+msgstr ""
+"Imposta il dizionario di parametri statici della pagina nel seguente formato"
+" regolare: {\"param1\":value1, \"param2\":value2}."
 
-#: upy/contrib/tree/models.py:27
+#: upy/contrib/tree/models.py:28
 msgid "Structure to use in the website."
 msgstr "Struttura da usare nel sito web."
 
-#: upy/contrib/tree/models.py:28
+#: upy/contrib/tree/models.py:29
 msgid "Tree structure"
 msgstr "Struttura"
 
-#: upy/contrib/tree/models.py:30
+#: upy/contrib/tree/models.py:31
 msgid "Default node/page to display if path/slug is Blank."
 msgstr "Nodo/Pagina da visualizzare se il path/slug è vuoto."
 
-#: upy/contrib/tree/models.py:53
+#: upy/contrib/tree/models.py:54
 msgid "Identifying structure's name."
 msgstr "Nome identificativo della struttura."
 
-#: upy/contrib/tree/models.py:55
+#: upy/contrib/tree/models.py:56
 msgid "Structure's description."
 msgstr "Desctizione della struttura."
 
-#: upy/contrib/tree/models.py:57
+#: upy/contrib/tree/models.py:58
 msgid "Set the root node for the referenced tree."
 msgstr "Imposta il nodo radice per l'albero associato."
 
-#: upy/contrib/tree/models.py:59
+#: upy/contrib/tree/models.py:60
 msgid "Tree root"
 msgstr "Radice albero"
 
-#: upy/contrib/tree/models.py:60
-#: upy/contrib/tree/models.py:521
-msgid "TreeStructure's css"
-msgstr "Css della Struttura"
-
-#: upy/contrib/tree/models.py:60
-#: upy/contrib/tree/models.py:521
-#: upy/contrib/tree/models.py:687
-#: upy/contrib/tree/models.py:717
-#: upy/contrib/tree/models.py:766
-#: upy/contrib/tree/models.py:767
-msgid "Css"
-msgstr "Css"
-
-#: upy/contrib/tree/models.py:62
-#: upy/contrib/tree/models.py:523
-msgid "TreeStructure's js"
-msgstr "Js della Struttura"
-
-#: upy/contrib/tree/models.py:62
-#: upy/contrib/tree/models.py:523
-#: upy/contrib/tree/models.py:773
-#: upy/contrib/tree/models.py:803
-#: upy/contrib/tree/models.py:861
-#: upy/contrib/tree/models.py:862
-#: upy/contrib/tree/models.py:882
-msgid "Js"
-msgstr "Js"
-
-#: upy/contrib/tree/models.py:81
+#: upy/contrib/tree/models.py:78
 msgid "Structure"
 msgstr "Struttura"
 
-#: upy/contrib/tree/models.py:82
+#: upy/contrib/tree/models.py:79
 msgid "Structures"
 msgstr "Strutture"
 
-#: upy/contrib/tree/models.py:89
+#: upy/contrib/tree/models.py:86
 msgid "Identifying name of the associated page."
 msgstr "Nome identificativo della pagina associata."
 
-#: upy/contrib/tree/models.py:91
+#: upy/contrib/tree/models.py:88
 msgid "Set the page for the referenced node."
 msgstr "Imposta la pagina per il nodo referenziato."
 
-#: upy/contrib/tree/models.py:94
+#: upy/contrib/tree/models.py:91
 msgid "Set the parent node for this node if it isn't root."
 msgstr "Imposta il nodo genitore per questo nodo se non è una radice."
 
-#: upy/contrib/tree/models.py:95
+#: upy/contrib/tree/models.py:92
 msgid "Parent"
 msgstr "Parent"
 
-#: upy/contrib/tree/models.py:97
+#: upy/contrib/tree/models.py:94
 msgid "Check it to hide the page in this node in the navigation."
 msgstr "Spunta per nascondere la pagina in navigazione."
 
-#: upy/contrib/tree/models.py:98
+#: upy/contrib/tree/models.py:95
 msgid "Hide in navigation"
 msgstr "Nascondi nella navigazione"
 
-#: upy/contrib/tree/models.py:99
+#: upy/contrib/tree/models.py:96
 msgid "Check it to hide the node in url path (only if node hasn't a page)."
-msgstr "Spunta per nascondere il nodo nell'url (solo se il nodo non ha una pagina)."
+msgstr ""
+"Spunta per nascondere il nodo nell'url (solo se il nodo non ha una pagina)."
 
-#: upy/contrib/tree/models.py:100
+#: upy/contrib/tree/models.py:97
 msgid "Hide in url"
 msgstr "Nascondi nell'url"
 
-#: upy/contrib/tree/models.py:101
-msgid "Check it if the page related to this node should be protected from unauthorized access."
-msgstr "Spunta se la pagina dovrebbe essere protetta da accessi non autorizzati."
+#: upy/contrib/tree/models.py:98
+msgid ""
+"Check it if the page related to this node should be protected from "
+"unauthorized access."
+msgstr ""
+"Spunta se la pagina dovrebbe essere protetta da accessi non autorizzati."
 
-#: upy/contrib/tree/models.py:102
+#: upy/contrib/tree/models.py:99
 msgid "Protected"
 msgstr "Protetto"
 
-#: upy/contrib/tree/models.py:104
+#: upy/contrib/tree/models.py:101
 msgid "Check it if this node must be showed only for logged user or group."
-msgstr "Spunta la casella se questo nodo deve essere mostrato nei menu solo ad utenti loggati appartenenti a gruppi"
+msgstr ""
+"Spunta la casella se questo nodo deve essere mostrato nei menu solo ad "
+"utenti loggati appartenenti a gruppi"
 
-#: upy/contrib/tree/models.py:105
+#: upy/contrib/tree/models.py:102
 msgid "Show if logged"
 msgstr "Mostra se loggato"
 
-#: upy/contrib/tree/models.py:106
+#: upy/contrib/tree/models.py:103
 msgid "List of groups to use with 'show if logged' parameter."
 msgstr "Lista di grouppi da usare con il parametro 'Mostra se loggato'"
 
-#: upy/contrib/tree/models.py:107
+#: upy/contrib/tree/models.py:104
 msgid "Groups"
 msgstr "Gruppi"
 
-#: upy/contrib/tree/models.py:110
+#: upy/contrib/tree/models.py:107
 msgid "Set the value to respect the regex of the associated page."
-msgstr "Imposta il valore che deve rispettare la regex della pagina associata."
+msgstr ""
+"Imposta il valore che deve rispettare la regex della pagina associata."
 
-#: upy/contrib/tree/models.py:111
+#: upy/contrib/tree/models.py:108
 msgid "Value regex"
 msgstr "Valore regex"
 
-#: upy/contrib/tree/models.py:119
+#: upy/contrib/tree/models.py:116
 msgid "The chengefreq attribute for sitemap.xml"
 msgstr "L'attributo changefreq per il sitemap.xml"
 
-#: upy/contrib/tree/models.py:120
+#: upy/contrib/tree/models.py:117
 msgid "Changefreq"
 msgstr "Changefreq"
 
-#: upy/contrib/tree/models.py:132
+#: upy/contrib/tree/models.py:129
 msgid "The priority attribute for sitemap.xml"
 msgstr "L'attributo priority per il sitemap.xml"
 
-#: upy/contrib/tree/models.py:134
+#: upy/contrib/tree/models.py:131
 msgid "List of robots to communicate that this node is disallowed."
 msgstr "Lista di robot per comunicare che questo nodo è disallowed."
 
-#: upy/contrib/tree/models.py:136
+#: upy/contrib/tree/models.py:133
 msgid "Check it to disallow the page in this node in the file robots.txt."
 msgstr "Spunta per rendere disallow questa pagina nel file robots.txt."
 
-#: upy/contrib/tree/models.py:137
+#: upy/contrib/tree/models.py:134
 msgid "Disallow"
 msgstr "Disallow"
 
-#: upy/contrib/tree/models.py:269
-#: upy/contrib/tree/models.py:317
+#: upy/contrib/tree/models.py:266 upy/contrib/tree/models.py:279
 msgid "Node"
 msgstr "Nodo"
 
-#: upy/contrib/tree/models.py:270
+#: upy/contrib/tree/models.py:267
 msgid "Nodes"
 msgstr "Nodi"
 
-#: upy/contrib/tree/models.py:312
+#: upy/contrib/tree/models.py:274
 msgid "Set the node's display name."
 msgstr "Imposta il nome visualizzato del nodo."
 
-#: upy/contrib/tree/models.py:314
+#: upy/contrib/tree/models.py:276
 msgid "Set the node's title (in <a> tag)."
 msgstr "Imposta il titolo del nodo (tra i tag <a></a>)"
 
-#: upy/contrib/tree/models.py:316
+#: upy/contrib/tree/models.py:278
 msgid "Set the node to associate with the Node's Meta Content."
 msgstr "Imposta il nodo da associare al Node Meta Content."
 
-#: upy/contrib/tree/models.py:335
+#: upy/contrib/tree/models.py:297
 msgid "Node's G11n Content"
 msgstr "Traduzione del Nodo"
 
-#: upy/contrib/tree/models.py:336
+#: upy/contrib/tree/models.py:298
 msgid "Node's G11n Contents"
 msgstr "Traduzioni del Nodo"
 
-#: upy/contrib/tree/models.py:344
+#: upy/contrib/tree/models.py:306
 msgid "Identifying page's name."
 msgstr "Nome identificativo della pagina."
 
-#: upy/contrib/tree/models.py:346
+#: upy/contrib/tree/models.py:308
 msgid "Identifying page's url."
 msgstr "Url identificativo della pagina."
 
-#: upy/contrib/tree/models.py:347
-#: upy/contrib/tree/models.py:872
+#: upy/contrib/tree/models.py:309 upy/contrib/tree/models.py:620
 #: upy/contrib/tree/templates/page_info.html:7
 msgid "Slug"
 msgstr "Slug"
 
-#: upy/contrib/tree/models.py:348
-#: upy/contrib/tree/models.py:873
-msgid "Set the regular expression that completes the url (e.g. \"(?P<element_id>\\d+)\")."
-msgstr "Imposta l'espressione regolare che completa l'url (e.g. \"(?P<element_id>\\d+)\").."
+#: upy/contrib/tree/models.py:310 upy/contrib/tree/models.py:621
+msgid ""
+"Set the regular expression that completes the url (e.g. "
+"\"(?P<element_id>\\d+)\")."
+msgstr ""
+"Imposta l'espressione regolare che completa l'url (e.g. "
+"\"(?P<element_id>\\d+)\").."
 
-#: upy/contrib/tree/models.py:349
-#: upy/contrib/tree/models.py:874
+#: upy/contrib/tree/models.py:311 upy/contrib/tree/models.py:622
 #: upy/contrib/tree/templates/page_info.html:11
 msgid "Regex"
 msgstr "Regex"
 
-#: upy/contrib/tree/models.py:352
-#: upy/contrib/tree/models.py:877
+#: upy/contrib/tree/models.py:312
+msgid "Show regex"
+msgstr "Mostra la regex"
+
+#: upy/contrib/tree/models.py:312
+#, fuzzy
+msgid "If it's checked the regex will be shown in urlpattern"
+msgstr "Se è spuntato la regex non sarà mostrata nell'urlpattern"
+
+#: upy/contrib/tree/models.py:315 upy/contrib/tree/models.py:625
 msgid "Static vars"
 msgstr "Variabili statiche"
 
-#: upy/contrib/tree/models.py:354
-#: upy/contrib/tree/models.py:879
+#: upy/contrib/tree/models.py:317 upy/contrib/tree/models.py:627
 msgid "Set the unique name to associate the view of a callback url."
-msgstr "Imposta il nome univoco da associare alla vista che si riferisce ad una certa url."
+msgstr ""
+"Imposta il nome univoco da associare alla vista che si riferisce ad una "
+"certa url."
 
-#: upy/contrib/tree/models.py:355
-#: upy/contrib/tree/models.py:880
+#: upy/contrib/tree/models.py:318 upy/contrib/tree/models.py:628
 msgid "Scheme name"
 msgstr "Scheme name"
 
-#: upy/contrib/tree/models.py:356
+#: upy/contrib/tree/models.py:319
 msgid "Set the template to associate with the page."
 msgstr "Imposta il template da associare con la pagina."
 
-#: upy/contrib/tree/models.py:357
-#: upy/contrib/tree/models.py:563
-#: upy/contrib/tree/models.py:688
-#: upy/contrib/tree/models.py:774
+#: upy/contrib/tree/models.py:320 upy/contrib/tree/models.py:494
 #: upy/contrib/tree/templates/page_info.html:20
 msgid "Template"
 msgstr "Template"
 
-#: upy/contrib/tree/models.py:358
+#: upy/contrib/tree/models.py:321
 msgid "Set the view to associate with the page."
 msgstr "Imposta la view da associare con la pagina."
 
-#: upy/contrib/tree/models.py:359
-#: upy/contrib/tree/models.py:648
-#: upy/contrib/tree/models.py:884
-#: upy/contrib/tree/templates/page_info.html:24
+#: upy/contrib/tree/models.py:322 upy/contrib/tree/models.py:579
+#: upy/contrib/tree/models.py:630 upy/contrib/tree/templates/page_info.html:24
 msgid "View"
 msgstr "Vista"
 
-#: upy/contrib/tree/models.py:361
+#: upy/contrib/tree/models.py:324
 msgid "Select the presentation type."
 msgstr "Imposta il tipo di presentazione della pagina."
 
-#: upy/contrib/tree/models.py:362
+#: upy/contrib/tree/models.py:325
 msgid "Presentation type"
 msgstr "Tipo Presentazione"
 
-#: upy/contrib/tree/models.py:417
+#: upy/contrib/tree/models.py:380
 msgid "Pages"
 msgstr "Pagine"
 
-#: upy/contrib/tree/models.py:452
+#: upy/contrib/tree/models.py:387
 msgid "Set the page's title."
 msgstr "Imposta il titolo della pagina."
 
-#: upy/contrib/tree/models.py:457
-msgid "Set the list of page's keywords. Don't use more than 10 words approximately."
-msgstr "Imposta la lista delle parole chiave della pagina. Non usare più di 10 parole approssimativamente."
+#: upy/contrib/tree/models.py:392
+msgid ""
+"Set the list of page's keywords. Don't use more than 10 words approximately."
+msgstr ""
+"Imposta la lista delle parole chiave della pagina. Non usare più di 10 "
+"parole approssimativamente."
 
-#: upy/contrib/tree/models.py:459
+#: upy/contrib/tree/models.py:394
 msgid "Set the page's author."
 msgstr "Imposta l'autore della pagina."
 
-#: upy/contrib/tree/models.py:461
+#: upy/contrib/tree/models.py:396
 msgid "Set the page's content type."
 msgstr "Imposta il content type della pagina."
 
-#: upy/contrib/tree/models.py:463
+#: upy/contrib/tree/models.py:397
+msgid "Content type"
+msgstr "Content type"
+
+#: upy/contrib/tree/models.py:398
 msgid "Uncheck it to disable the page."
 msgstr "Togli il segno di spunta per disabilitare la pagina."
 
-#: upy/contrib/tree/models.py:465
+#: upy/contrib/tree/models.py:400
 msgid "Text or html code to use if the page is disabled."
 msgstr "Testo o codice html da usare se la pagina è disabilitata."
 
-#: upy/contrib/tree/models.py:475
+#: upy/contrib/tree/models.py:410
 msgid "Set the page to associate with the Page's Meta Content."
 msgstr "Imposta la pagina da associare al Page Meta Content."
 
-#: upy/contrib/tree/models.py:498
+#: upy/contrib/tree/models.py:433
 msgid "Page's G11n Content"
 msgstr "Traduzione della Pagina"
 
-#: upy/contrib/tree/models.py:499
+#: upy/contrib/tree/models.py:434
 msgid "Page's G11n Contents"
 msgstr "Traduzioni della Pagina"
 
-#: upy/contrib/tree/models.py:515
+#: upy/contrib/tree/models.py:450
 msgid "Set the template's name."
 msgstr "Imposta il nome del template."
 
-#: upy/contrib/tree/models.py:516
-#: upy/contrib/tree/models.py:573
+#: upy/contrib/tree/models.py:451 upy/contrib/tree/models.py:504
 msgid "Set the application's name of the view."
 msgstr "Imposta il nome dell'applicazione della view."
 
-#: upy/contrib/tree/models.py:517
-#: upy/contrib/tree/models.py:574
+#: upy/contrib/tree/models.py:452 upy/contrib/tree/models.py:505
 msgid "App name"
 msgstr "Nome applicazione"
 
-#: upy/contrib/tree/models.py:518
+#: upy/contrib/tree/models.py:453
 msgid "Set the template's file name."
 msgstr "Imposta il nome del file del template."
 
-#: upy/contrib/tree/models.py:518
-#: upy/contrib/tree/models.py:747
-#: upy/contrib/tree/models.py:836
+#: upy/contrib/tree/models.py:453
 msgid "File name"
 msgstr "Nome file"
 
-#: upy/contrib/tree/models.py:520
-#: upy/contrib/tree/models.py:578
+#: upy/contrib/tree/models.py:455 upy/contrib/tree/models.py:509
 msgid "Input vars"
 msgstr "Variabili di input"
 
-#: upy/contrib/tree/models.py:564
+#: upy/contrib/tree/models.py:495
 msgid "Templates"
 msgstr "Template"
 
-#: upy/contrib/tree/models.py:572
+#: upy/contrib/tree/models.py:503
 msgid "Set the view's name."
 msgstr "Imposta il nome della view."
 
-#: upy/contrib/tree/models.py:575
+#: upy/contrib/tree/models.py:506
 msgid "Set the view's function name."
 msgstr "Imposta il nome della funzione della view."
 
-#: upy/contrib/tree/models.py:576
+#: upy/contrib/tree/models.py:507
 msgid "Func name"
 msgstr "Nome della funzione"
 
-#: upy/contrib/tree/models.py:577
+#: upy/contrib/tree/models.py:508
 msgid "Set the input variables required by view."
 msgstr "Imposta le variabili in input richieste dalla view."
 
-#: upy/contrib/tree/models.py:580
+#: upy/contrib/tree/models.py:511
 msgid "Set the json list of output variables required by template."
-msgstr "Imposta la lista JSON delle variabili in output richieste dal template."
+msgstr ""
+"Imposta la lista JSON delle variabili in output richieste dal template."
 
-#: upy/contrib/tree/models.py:581
+#: upy/contrib/tree/models.py:512
 msgid "Output vars"
 msgstr "Variabili di output"
 
-#: upy/contrib/tree/models.py:645
-#: upy/contrib/tree/models.py:657
+#: upy/contrib/tree/models.py:576 upy/contrib/tree/models.py:588
 msgid "Set the module's name of the view."
 msgstr "Imposta il nome del modulo della view."
 
-#: upy/contrib/tree/models.py:646
-#: upy/contrib/tree/models.py:658
+#: upy/contrib/tree/models.py:577 upy/contrib/tree/models.py:589
 msgid "Module name"
 msgstr "Nome modulo"
 
-#: upy/contrib/tree/models.py:649
+#: upy/contrib/tree/models.py:580
 msgid "Views"
 msgstr "Viste"
 
-#: upy/contrib/tree/models.py:660
-#: upy/contrib/tree/models.py:661
+#: upy/contrib/tree/models.py:591 upy/contrib/tree/models.py:592
 msgid "ViewAjax"
 msgstr "VistaAjax"
 
-#: upy/contrib/tree/models.py:669
-msgid "Short name for the robot. Check the robots' list at <a target='_blank' href='http://www.robotstxt.org/db.html'>All Robots</a>"
-msgstr "Breve nome per il robot. Controlla la lista: <a target='_blank' href='http://www.robotstxt.org/db.html'>Tutti i Robot</a>"
+#: upy/contrib/tree/models.py:600
+msgid ""
+"Short name for the robot. Check the robots' list at <a target='_blank' "
+"href='http://www.robotstxt.org/db.html'>All Robots</a>"
+msgstr ""
+"Breve nome per il robot. Controlla la lista: <a target='_blank' "
+"href='http://www.robotstxt.org/db.html'>Tutti i Robot</a>"
 
-#: upy/contrib/tree/models.py:670
+#: upy/contrib/tree/models.py:601
 msgid "Name id"
 msgstr "Name id"
 
-#: upy/contrib/tree/models.py:671
+#: upy/contrib/tree/models.py:602
 msgid "Full name for the robot"
 msgstr "Nome completo per il robot"
 
-#: upy/contrib/tree/models.py:678
+#: upy/contrib/tree/models.py:609
 msgid "Robot"
 msgstr "Robot"
 
-#: upy/contrib/tree/models.py:687
-#: upy/contrib/tree/models.py:717
-msgid "Css associated"
-msgstr "Css associato"
-
-#: upy/contrib/tree/models.py:688
-#: upy/contrib/tree/models.py:774
-msgid "Template associated"
-msgstr "Imposta il template associato."
-
-#: upy/contrib/tree/models.py:710
-msgid "Css/Template Position"
-msgstr "Posizione Css/Template"
-
-#: upy/contrib/tree/models.py:711
-msgid "Css/Template Positions"
-msgstr "Posizioni Css/Template"
-
-#: upy/contrib/tree/models.py:718
-#: upy/contrib/tree/models.py:804
-msgid "TreeStructure associated"
-msgstr "Struttura associata"
-
-#: upy/contrib/tree/models.py:718
-#: upy/contrib/tree/models.py:804
-msgid "TreeStructure"
-msgstr "Struttura"
-
-#: upy/contrib/tree/models.py:737
-msgid "Css/TreeStructure Position"
-msgstr "Posizione Css/Struttura"
-
-#: upy/contrib/tree/models.py:738
-msgid "Css/TreeStructure Positions"
-msgstr "Posizioni Css/Struttura"
-
-#: upy/contrib/tree/models.py:744
-msgid "Set the css's name."
-msgstr "Imposta il nome del css."
-
-#: upy/contrib/tree/models.py:745
-msgid "Set the css's description."
-msgstr "Imposta la descrizione del css."
-
-#: upy/contrib/tree/models.py:747
-msgid "Set the css's file name."
-msgstr "Imposta il nome del file del css."
-
-#: upy/contrib/tree/models.py:773
-#: upy/contrib/tree/models.py:803
-msgid "Js associated"
-msgstr "Imposta il Js associato."
-
-#: upy/contrib/tree/models.py:796
-msgid "Js/Template Position"
-msgstr "Posizione Js/Template"
-
-#: upy/contrib/tree/models.py:797
-msgid "Js/Template Positions"
-msgstr "Posizioni Js/Template"
-
-#: upy/contrib/tree/models.py:826
-msgid "Js/TreeStructure Position"
-msgstr "Posizione Js/Struttura"
-
-#: upy/contrib/tree/models.py:827
-msgid "Js/TreeStructure Positions"
-msgstr "Posizioni Js/Struttura"
-
-#: upy/contrib/tree/models.py:833
-msgid "Set the js's name."
-msgstr "Imposta il nome del js."
-
-#: upy/contrib/tree/models.py:834
-msgid "Set the js's description."
-msgstr "Imposta la descrizione del js."
-
-#: upy/contrib/tree/models.py:836
-msgid "Set the js's file name."
-msgstr "Imposta il nome del file del js."
-
-#: upy/contrib/tree/models.py:841
-msgid "Select the position in the html file."
-msgstr "Imposta la posizione di stampa nel file html."
-
-#: upy/contrib/tree/models.py:842
-msgid "Html position"
-msgstr "Posizione HTML"
-
-#: upy/contrib/tree/models.py:869
+#: upy/contrib/tree/models.py:617
 msgid "Identifying UrlAjax's name."
 msgstr "Nome identificativo dell'UrlAjax."
 
-#: upy/contrib/tree/models.py:876
-msgid "Set the dictionary of static parameters of the UrlAjax in a regular format: {\"param1\":value1, \"param2\":value2}."
-msgstr "Imposta il dizionario di parametri statici dell'UrlAjax nel seguente formato regolare: {\"param1\":value1, \"param2\":value2}."
+#: upy/contrib/tree/models.py:624
+msgid ""
+"Set the dictionary of static parameters of the UrlAjax in a regular format: "
+"{\"param1\":value1, \"param2\":value2}."
+msgstr ""
+"Imposta il dizionario di parametri statici dell'UrlAjax nel seguente formato"
+" regolare: {\"param1\":value1, \"param2\":value2}."
 
-#: upy/contrib/tree/models.py:881
-msgid "Set the Js to associate with the UrlAjax."
-msgstr "Imposta il Js da associare con l'UrlAjax."
-
-#: upy/contrib/tree/models.py:883
+#: upy/contrib/tree/models.py:629
 msgid "Set the view to associate with the UrlAjax."
 msgstr "Imposta la vista da associare con l'UrlAjax."
 
-#: upy/contrib/tree/models.py:916
-#: upy/contrib/tree/models.py:917
+#: upy/contrib/tree/models.py:663 upy/contrib/tree/models.py:664
 msgid "UrlAjax"
 msgstr "UrlAjax"
 
-#: upy/contrib/tree/tree_admin.py:210
+#: upy/contrib/tree/tree_admin.py:209
 msgid "title"
 msgstr "titolo"
 
-#: upy/contrib/tree/tree_admin.py:388
+#: upy/contrib/tree/tree_admin.py:387
 #, python-format
 msgid "%s has been moved to a new position."
 msgstr "%s è stato spostato in una nuova posizione"
 
-#: upy/contrib/tree/tree_admin.py:392
+#: upy/contrib/tree/tree_admin.py:391
 msgid "Did not understand moving instruction."
 msgstr "Istruzioni di movimento non valide."
 
-#: upy/contrib/tree/tree_admin.py:401
+#: upy/contrib/tree/tree_admin.py:400
 msgid "actions"
 msgstr "azioni"
 
@@ -2926,10 +2938,14 @@ msgstr "Modelli disponibili nell'applicazione %(name)s "
 #: upy/templates/admin/app_index.html:11
 #: upy/templates/admin/use_app_icons.html:6
 #: upy/templates/admin/use_app_icons.html:7
-#: upy/templates/admin/use_app_icons.html:16
-#: upy/templates/admin/use_app_icons.html:17
+#: upy/templates/admin/use_app_icons.html:14
+#: upy/templates/admin/use_app_icons.html:15
 #: upy/templates/admin/use_custom_app.html:8
 #: upy/templates/admin/use_model_icons.html:9
+#: upy/templates/admin/use_model_icons.html:55
+#: upy/templates/admin/use_model_icons.html:56
+#: upy/templates/admin/use_total_model_icons.html:56
+#: upy/templates/admin/use_total_model_icons.html:57
 #, python-format
 msgid "%(name)s"
 msgstr "%(name)s"
@@ -2950,13 +2966,6 @@ msgstr "Aggiungi"
 #: upy/templates/admin/use_total_model_icons.html:36
 msgid "Change"
 msgstr "Cambia"
-
-#: upy/templates/admin/app_index.html:8
-#: upy/templates/admin/base.html:70
-#: upy/templates/admin/change_form.html:21
-#: upy/templates/admin/change_list.html:43
-msgid "Home"
-msgstr "Home"
 
 #: upy/templates/admin/base.html:35
 msgid "Welcome,"
@@ -2990,16 +2999,16 @@ msgstr "Homepage Sito Web"
 msgid "Admin home"
 msgstr "Homepage Amministrazione"
 
-#: upy/templates/admin/change_form.html:48
+#: upy/templates/admin/change_form.html:49
 msgid "History"
 msgstr "Storico"
 
-#: upy/templates/admin/change_form.html:49
+#: upy/templates/admin/change_form.html:50
 #: upy/templates/admin/g11n_tabs_stacked.html:9
 msgid "View on site"
 msgstr "View on site"
 
-#: upy/templates/admin/change_form.html:60
+#: upy/templates/admin/change_form.html:62
 #: upy/templates/admin/change_list.html:69
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
@@ -3040,6 +3049,14 @@ msgstr "Aggiungi un'altro %(verbose_name)s"
 msgid "Remove"
 msgstr "Rimuovi"
 
+#: upy/templates/admin/use_model_icons.html:50
+#: upy/templates/admin/use_model_icons.html:51
+#: upy/templates/admin/use_total_model_icons.html:51
+#: upy/templates/admin/use_total_model_icons.html:52
+#, fuzzy
+msgid "Other links"
+msgstr "Netherlands"
+
 #: upy/templates/admin/upy/tree_editor.html:28
 msgid "Shortcuts"
 msgstr "Shortcuts"
@@ -3052,10 +3069,146 @@ msgstr "Riduci l'albero"
 msgid "Expand tree"
 msgstr "Espandi l'albero"
 
+#~ msgid "Set the website's content type."
+#~ msgstr "Imposta il content-type del sito."
+
+#~ msgid "Image size out of range. Actual size: %(width)spx X %(height)spx"
+#~ msgstr ""
+#~ "Le dimensioni dell'immagine superano quelle consentite. Dimensione attuale:"
+#~ "  %(width)spx X %(height)spx"
+
+#~ msgid "Image mode not in RGB or RGBa."
+#~ msgstr "Il modo dell'immagine non è RGB o RGBa"
+
+#~ msgid "Set the date you want to display for this image."
+#~ msgstr "Imposta la data da visualizzare per questa immagine"
+
+#~ msgid "Thumbnail Display"
+#~ msgstr "Miniatura"
+
+#~ msgid "Image description."
+#~ msgstr "Descrizione immagine"
+
+#~ msgid "Choose an Image Repository element to associate."
+#~ msgstr "Scegli un'immagine dall'archivio da associare."
+
+#~ msgid "Image Repository element"
+#~ msgstr "Elemento immagine archivio"
+
+#~ msgid "Static Element"
+#~ msgstr "Elemento statico"
+
+#~ msgid "Static Elements"
+#~ msgstr "Elementi Statici"
+
+#~ msgid "Choose a Static element to associate."
+#~ msgstr "Scegli un Elemento statico da associare"
+
+#~ msgid "Static element"
+#~ msgstr "Elemento statico"
+
+#~ msgid "Static Element G11n"
+#~ msgstr "Traduzione elemento statico"
+
+#~ msgid "Categories"
+#~ msgstr "Categorie"
+
+#~ msgid "Static Page"
+#~ msgstr "Pagina Statica"
+
+#~ msgid "Static Pages"
+#~ msgstr "Pagine Statiche"
+
+#~ msgid "Choose a Static page to associate."
+#~ msgstr "Scegli una Static Page da associare"
+
+#~ msgid "Static page"
+#~ msgstr "Pagina statica"
+
+#~ msgid "Static Page G11n Content"
+#~ msgstr "Traduzione della Pagina Statica"
+
+#~ msgid "Static Page G11n Contents"
+#~ msgstr "Traduzioni delle Pagine Statiche"
+
+#~ msgid "TreeStructure's css"
+#~ msgstr "Css della Struttura"
+
+#~ msgid "Css"
+#~ msgstr "Css"
+
+#~ msgid "TreeStructure's js"
+#~ msgstr "Js della Struttura"
+
+#~ msgid "Js"
+#~ msgstr "Js"
+
+#~ msgid "Css associated"
+#~ msgstr "Css associato"
+
+#~ msgid "Template associated"
+#~ msgstr "Imposta il template associato."
+
+#~ msgid "Css/Template Position"
+#~ msgstr "Posizione Css/Template"
+
+#~ msgid "Css/Template Positions"
+#~ msgstr "Posizioni Css/Template"
+
+#~ msgid "TreeStructure associated"
+#~ msgstr "Struttura associata"
+
+#~ msgid "TreeStructure"
+#~ msgstr "Struttura"
+
+#~ msgid "Css/TreeStructure Position"
+#~ msgstr "Posizione Css/Struttura"
+
+#~ msgid "Css/TreeStructure Positions"
+#~ msgstr "Posizioni Css/Struttura"
+
+#~ msgid "Set the css's name."
+#~ msgstr "Imposta il nome del css."
+
+#~ msgid "Set the css's description."
+#~ msgstr "Imposta la descrizione del css."
+
+#~ msgid "Set the css's file name."
+#~ msgstr "Imposta il nome del file del css."
+
+#~ msgid "Js associated"
+#~ msgstr "Imposta il Js associato."
+
+#~ msgid "Js/Template Position"
+#~ msgstr "Posizione Js/Template"
+
+#~ msgid "Js/Template Positions"
+#~ msgstr "Posizioni Js/Template"
+
+#~ msgid "Js/TreeStructure Position"
+#~ msgstr "Posizione Js/Struttura"
+
+#~ msgid "Js/TreeStructure Positions"
+#~ msgstr "Posizioni Js/Struttura"
+
+#~ msgid "Set the js's name."
+#~ msgstr "Imposta il nome del js."
+
+#~ msgid "Set the js's description."
+#~ msgstr "Imposta la descrizione del js."
+
+#~ msgid "Set the js's file name."
+#~ msgstr "Imposta il nome del file del js."
+
+#~ msgid "Select the position in the html file."
+#~ msgstr "Imposta la posizione di stampa nel file html."
+
+#~ msgid "Set the Js to associate with the UrlAjax."
+#~ msgstr "Imposta il Js da associare con l'UrlAjax."
+
 #~ msgid "use_app_icons"
 #~ msgstr "use_app_icons"
 
-#, fuzzy
 #~ msgid "UPCODE.it / upy-admin"
 #~ msgstr "Upcode.it / upy-admin"
 
@@ -3068,11 +3221,9 @@ msgstr "Espandi l'albero"
 #~ msgid "Info"
 #~ msgstr "Info"
 
-#, fuzzy
 #~ msgid "Testo"
 #~ msgstr "TestNode"
 
-#, fuzzy
 #~ msgid "Pubblica"
 #~ msgstr "Pubblicazione"
 
@@ -3107,228 +3258,171 @@ msgstr "Espandi l'albero"
 #~ msgid "Save"
 #~ msgstr "Salva"
 
-#, fuzzy
 #~ msgid "Password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Delete?"
 #~ msgstr "cancellata"
 
-#, fuzzy
 #~ msgid "Log in again"
 #~ msgstr "Nascondi nella navigazione"
 
-#, fuzzy
 #~ msgid "Old password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "New password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Change my password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Enter new password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "New password:"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Confirm password:"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Reset my password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Documentation bookmarklets"
 #~ msgstr "Documentazione"
 
-#, fuzzy
 #~ msgid "Documentation for this page"
 #~ msgstr "Documentazione"
 
-#, fuzzy
 #~ msgid "Change password: %s"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "Username"
 #~ msgstr "Cognome"
 
-#, fuzzy
 #~ msgid "Password confirmation"
 #~ msgstr "Configurazione Robot"
 
-#, fuzzy
 #~ msgid "New password confirmation"
 #~ msgstr "Configurazione Sitemap"
 
-#, fuzzy
 #~ msgid "Your old password was entered incorrectly. Please enter it again."
-#~ msgstr ""
-#~ "Il tuo username e la tua password non coincidono. Per favore riprova."
+#~ msgstr "Il tuo username e la tua password non coincidono. Per favore riprova."
 
-#, fuzzy
 #~ msgid "name"
 #~ msgstr "Cognome"
 
-#, fuzzy
 #~ msgid "codename"
 #~ msgstr "Nome modulo"
 
-#, fuzzy
 #~ msgid "username"
 #~ msgstr "Cognome"
 
-#, fuzzy
 #~ msgid "first name"
 #~ msgstr "Nome file"
 
-#, fuzzy
 #~ msgid "last name"
 #~ msgstr "Nome file"
 
-#, fuzzy
 #~ msgid "password"
 #~ msgstr "Cambia password"
 
-#, fuzzy
 #~ msgid "staff status"
 #~ msgstr "Imposta lo stato"
 
-#, fuzzy
 #~ msgid "active"
 #~ msgstr "azioni"
 
-#, fuzzy
 #~ msgid "superuser status"
 #~ msgstr "Imposta lo stato"
 
-#, fuzzy
 #~ msgid "Logged out"
 #~ msgstr "Scollegati"
 
-#, fuzzy
 #~ msgid "content type"
 #~ msgstr "Content type"
 
-#, fuzzy
 #~ msgid "user's name"
 #~ msgstr "Nome file"
 
-#, fuzzy
 #~ msgid "comments"
 #~ msgstr "Allegati"
 
-#, fuzzy
 #~ msgid "date"
 #~ msgstr "Data spedizione"
 
-#, fuzzy
 #~ msgid "content types"
 #~ msgstr "Content type"
 
-#, fuzzy
 #~ msgid "Advanced options"
 #~ msgstr "azioni"
 
-#, fuzzy
 #~ msgid "content"
 #~ msgstr "Contenuto sconosciuto"
 
-#, fuzzy
 #~ msgid "template name"
 #~ msgstr "Imposta il nome del template."
 
-#, fuzzy
 #~ msgid "flat pages"
 #~ msgstr "Pagina statica"
 
-#, fuzzy
 #~ msgid "st"
 #~ msgstr "Lista"
 
-#, fuzzy
 #~ msgid "Geneva"
 #~ msgstr "Generator"
 
-#, fuzzy
 #~ msgid "Uri"
 #~ msgstr "Url"
 
-#, fuzzy
 #~ msgid "South Bohemian Region"
 #~ msgstr "Imposta la descrizione del js."
 
-#, fuzzy
 #~ msgid "Dublin"
 #~ msgstr "Pubblicazioni"
 
-#, fuzzy
 #~ msgid "Drenthe"
 #~ msgstr "Parent"
 
-#, fuzzy
 #~ msgid "Lublin"
 #~ msgstr "Pubblicazioni"
 
-#, fuzzy
 #~ msgid "Blekinge"
 #~ msgstr "Controlli"
 
-#, fuzzy
 #~ msgid "Namestovo"
 #~ msgstr "Nome"
 
-#, fuzzy
 #~ msgid "Nitra region"
 #~ msgstr "Imposta la descrizione del js."
 
-#, fuzzy
 #~ msgid "lazy message"
 #~ msgstr "Messaggio di disabilitazione"
 
-#, fuzzy
 #~ msgid "session data"
 #~ msgstr "Data creazione"
 
-#, fuzzy
 #~ msgid "expire date"
 #~ msgstr "Data spedizione"
 
-#, fuzzy
 #~ msgid "domain name"
 #~ msgstr "Nome modulo"
 
-#, fuzzy
 #~ msgid "E-mail address"
 #~ msgstr "E-mail"
 
-#, fuzzy
 #~ msgid "File path"
 #~ msgstr "Nome file"
 
-#, fuzzy
 #~ msgid "Ensure that there are no more than %s digits in total."
 #~ msgstr "Imposta il nodo genitore per questo nodo se non è una radice."
 
-#, fuzzy
 #~ msgid "Sat"
 #~ msgstr "Stato"
 
-#, fuzzy
 #~ msgid "Sun"
 #~ msgstr "Cognome"
 
-#, fuzzy
 #~ msgid "oct"
 #~ msgstr "Contatto"
 
@@ -3341,274 +3435,207 @@ msgstr "Espandi l'albero"
 #~ msgid "ThedusK / django-admin"
 #~ msgstr "ThedusK / django-admin"
 
-#, fuzzy
 #~ msgid "Album's description."
 #~ msgstr "Descrizione del documento"
 
 #~ msgid "Document's description."
 #~ msgstr "Descrizione del documento"
 
-#, fuzzy
 #~ msgid "Category Meta Content"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Category Meta Contents"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Album name."
 #~ msgstr "Nome applicazione"
 
-#, fuzzy
 #~ msgid "Album Meta Content"
 #~ msgstr "Meta Content del quiz"
 
-#, fuzzy
 #~ msgid "Album Meta Contents"
 #~ msgstr "Meta Content del quiz"
 
-#, fuzzy
 #~ msgid "Set the media's title."
 #~ msgstr "Imposta il titolo della pagina."
 
-#, fuzzy
 #~ msgid "Media's description."
 #~ msgstr "Descrizione della registrazione."
 
-#, fuzzy
 #~ msgid "Video script"
 #~ msgstr "Descrizione"
 
-#, fuzzy
 #~ msgid "Video Meta Content"
 #~ msgstr "Meta Content del Nodo"
 
-#, fuzzy
 #~ msgid "Video Meta Contents"
 #~ msgstr "Meta Content del Nodo"
 
-#, fuzzy
 #~ msgid "Set the URL param"
 #~ msgstr "Imposta il nome del js."
 
-#, fuzzy
 #~ msgid "Banner Meta Content"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Banner Meta Contents"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Set the acronym"
 #~ msgstr "Imposta il nome del css."
 
-#, fuzzy
 #~ msgid "Publish or unpublish this gallery on the website."
 #~ msgstr "Elenco di lingue disponibili per il sito web."
 
-#, fuzzy
 #~ msgid "Set the article's image alternative text."
 #~ msgstr "Imposta il content type della pagina."
 
-#, fuzzy
 #~ msgid "Set the abstract for the preview."
 #~ msgstr "Imposta il nome del modulo della view."
 
-#, fuzzy
 #~ msgid "Bulletin associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Bulletin Meta Content"
 #~ msgstr "Meta Content della sezione"
 
-#, fuzzy
 #~ msgid "Bulletin Meta Contents"
 #~ msgstr "Meta Content della sezione"
 
-#, fuzzy
 #~ msgid "Notice associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Notice Meta Content"
 #~ msgstr "Meta Content del Nodo"
 
-#, fuzzy
 #~ msgid "Notice Meta Contents"
 #~ msgstr "Meta Content del Nodo"
 
-#, fuzzy
 #~ msgid "News associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "News Meta Content"
 #~ msgstr "Meta Content del Nodo"
 
-#, fuzzy
 #~ msgid "Event associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Event Meta Content"
 #~ msgstr "Meta Content del documento"
 
-#, fuzzy
 #~ msgid "Event Meta Contents"
 #~ msgstr "Meta Content del documento"
 
-#, fuzzy
 #~ msgid "Company associated"
 #~ msgstr "Imposta il template associato."
 
-#, fuzzy
 #~ msgid "PrivateCommunications"
 #~ msgstr "Pubblicazioni"
 
-#, fuzzy
 #~ msgid "Private Communication Meta Content"
 #~ msgstr "Meta Content della Pubblicazione"
 
-#, fuzzy
 #~ msgid "Private Communication Meta Contents"
 #~ msgstr "Meta Content della Pubblicazione"
 
-#, fuzzy
 #~ msgid "Album associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Album/Notice Positions"
 #~ msgstr "Posizioni Js/Template"
 
-#, fuzzy
 #~ msgid "Album/Event Position"
 #~ msgstr "Posizione Js/Template"
 
-#, fuzzy
 #~ msgid "Album/Event Positions"
 #~ msgstr "Posizioni Js/Template"
 
-#, fuzzy
 #~ msgid "Logo associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Set the level"
 #~ msgstr "Imposta il nome del file del js."
 
-#, fuzzy
 #~ msgid "Set the partner's name."
 #~ msgstr "Imposta il nome del template."
 
-#, fuzzy
 #~ msgid "Write here the description."
 #~ msgstr "Una breve descrizione"
 
-#, fuzzy
 #~ msgid "Set the partner's title to include in image logo."
 #~ msgstr "Imposta il titolo del nodo (tra i tag <a></a>)"
 
-#, fuzzy
 #~ msgid "Sponsor associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Sponsor Meta Content"
 #~ msgstr "Meta Content della sezione"
 
-#, fuzzy
 #~ msgid "Sponsor Meta Contents"
 #~ msgstr "Meta Content della sezione"
 
-#, fuzzy
 #~ msgid "Patronage associated"
 #~ msgstr "Imposta il template associato."
 
-#, fuzzy
 #~ msgid "Patronage Meta Content"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Patronage Meta Contents"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "Set the image's name."
 #~ msgstr "Imposta il nome della view."
 
-#, fuzzy
 #~ msgid "Ipload the image."
 #~ msgstr "Carica il file template."
 
-#, fuzzy
 #~ msgid "Set document's date"
 #~ msgstr "Carica il file del documento."
 
-#, fuzzy
 #~ msgid "ExhibitorDoc associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "ExhibitorDoc Meta Content"
 #~ msgstr "Meta Content del gruppo"
 
-#, fuzzy
 #~ msgid "ExhibitorDoc Meta Contents"
 #~ msgstr "Meta Content del gruppo"
 
-#, fuzzy
 #~ msgid "CompanyDoc associated"
 #~ msgstr "Imposta il template associato."
 
-#, fuzzy
 #~ msgid "CompanyDoc Meta Content"
 #~ msgstr "Meta Content del gruppo"
 
-#, fuzzy
 #~ msgid "CompanyDoc Meta Contents"
 #~ msgstr "Meta Content del gruppo"
 
-#, fuzzy
 #~ msgid "PressDoc associated"
 #~ msgstr "Css associato"
 
-#, fuzzy
 #~ msgid "PressDoc Meta Content"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "PressDoc Meta Contents"
 #~ msgstr "Meta Content della Pagina"
 
-#, fuzzy
 #~ msgid "RepositoryDoc associated"
 #~ msgstr "Imposta il template associato."
 
-#, fuzzy
 #~ msgid "RepositoryDoc Meta Contents"
 #~ msgstr "Meta Content del TestNode"
 
-#, fuzzy
 #~ msgid "Set the business name"
 #~ msgstr "Imposta il nome del css."
 
-#, fuzzy
 #~ msgid "Qualification"
 #~ msgstr "Pubblicazione"
 
-#, fuzzy
 #~ msgid "Exhibitor associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Banner associated"
 #~ msgstr "Imposta il Js associato."
 
-#, fuzzy
 #~ msgid "Video associated"
 #~ msgstr "Imposta il Js associato."
 

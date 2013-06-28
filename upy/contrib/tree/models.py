@@ -309,7 +309,7 @@ class Page(G11nBase):
                             verbose_name = _(u"Slug"))
     regex = models.CharField(max_length = 150, null = True, blank = True, help_text = _(u"Set the regular expression that completes the url (e.g. \"(?P<element_id>\d+)\")."),
                              verbose_name = _(u"Regex"))
-    show_regex = models.BooleanField(_(u'Show regex'),default=True,help_text=_(u'If it\'s checked the regex will not be shown in urlpattern'))
+    show_regex = models.BooleanField(_(u'Show regex'),default=True,help_text=_(u'If it\'s checked the regex will be shown in urlpattern'))
     static_vars = models.TextField(null = True, blank = True, 
                                    help_text = _(u"Set the dictionary of static parameters of the page in a regular format: {\"param1\":value1, \"param2\":value2}."),
                                    verbose_name = _(u"Static vars"))

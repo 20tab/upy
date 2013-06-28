@@ -5,6 +5,7 @@ from django.conf import settings
 
 
 class G11nBaseAdmin(admin.ModelAdmin):
+    exclude = ('g11n_default_unicode',)
     def queryset(self, request):
         qs = self.model.g11nobjects.all()
         ordering = self.get_ordering(request)

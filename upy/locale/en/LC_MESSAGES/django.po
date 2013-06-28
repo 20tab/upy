@@ -16,7 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: upy/fields.py:35 upy/fields.py:294
 msgid "Africa"
@@ -1537,7 +1536,7 @@ msgstr ""
 #: upy/contrib/g11n/models.py:317 upy/contrib/tree/models.py:277
 #: upy/contrib/tree/models.py:388
 msgid "Title"
-msgstr "Titulo"
+msgstr ""
 
 #: upy/contrib/g11n/models.py:318 upy/contrib/tree/models.py:389
 msgid "Set the website's description."
