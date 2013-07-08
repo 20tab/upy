@@ -15,17 +15,15 @@ class G11nBaseCurrentManager(models.Manager):
     with current language and publication
     """
     def get_query_set(self):
-        try:
-            g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
-            db_table = g11nmodel._meta.db_table
-            select_dict = dict([(field.column,"%s.%s" % (db_table,field.column)) for field in g11nmodel._meta.fields if field.name not in ['id',self.model.G11nMeta.fieldname]])
-            filter_dict = {"%s__language__code__iexact" % self.model.G11nMeta.g11n.lower():translation.get_language(), 
-                           "%s__publication" % self.model.G11nMeta.g11n.lower(): get_publication()}
-            if hasattr(self.model.G11nMeta,'ordering'):
-                return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict).order_by(*self.model.G11nMeta.ordering)
-            return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict)
-        except:
-            raise
+        g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
+        db_table = g11nmodel._meta.db_table
+        select_dict = dict([(field.column,"%s.%s" % (db_table,field.column)) for field in g11nmodel._meta.fields if field.name not in ['id',self.model.G11nMeta.fieldname]])
+        filter_dict = {"%s__language__code__iexact" % self.model.G11nMeta.g11n.lower():translation.get_language(), 
+                       "%s__publication" % self.model.G11nMeta.g11n.lower(): get_publication()}
+        if hasattr(self.model.G11nMeta,'ordering'):
+            return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict).order_by(*self.model.G11nMeta.ordering)
+        return super(G11nBaseCurrentManager, self).get_query_set().extra(select=select_dict,tables=('%s' % (db_table),)).filter(**filter_dict)
+
         
     def _make_kwargs(self,**kwargs):
         g11nmodel = models.get_model(self.model._meta.app_label,self.model.G11nMeta.g11n)
@@ -147,25 +145,19 @@ class G11nBaseManager(models.Manager):
             
         except Exception, e:
             raise ValueError("Raised in %s. Error in %s.%s: %s" % (os.path.dirname(__file__),self.__module__,self.__class__.__name__,e))
-
-class G11nOptions(type):
-    """
-    Options class for G11nModelBase.
-    """
-    class Schema:
-        def __getattr__(self, attr):
-            t_model = getattr(self, self.G11nMeta.tradmodel)
-            return getattr(self, attr, getattr(t_model, attr))
+        
 
 class G11nModelBase(ModelBase):
     """
     G11n metaclass. This metaclass parses G11nOptions.
     """
     def __new__(cls, name, bases, attrs):
-        new = super(G11nModelBase, cls).__new__(cls, name, bases, attrs)
-        g11n_opts = attrs.pop('G11nMeta', None)
-        setattr(new, '_g11n_meta', G11nOptions(g11n_opts))
-        return new
+        class G11nMeta:
+            g11n = u"%sLit" % name
+            fieldname = u"%s" % name.lower()
+        attrs['G11nMeta'] = G11nMeta
+        return super(G11nModelBase, cls).__new__(cls, name, bases, attrs)
+
 
 class G11nBase(models.Model):
     """

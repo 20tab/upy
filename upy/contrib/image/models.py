@@ -5,24 +5,18 @@ from pilkit.processors import SmartResize, Adjust
 from upy.contrib.g11n.models import G11nModel
 from django.db.models.base import ModelBase
 
-class UPYImageOptions(type):
-    """
-    Options class for UPYImageBase.
-    """
-    class Schema:
-        def __getattr__(self, attr):
-            t_model = getattr(self, self.UPYImageMeta.tradmodel)
-            return getattr(self, attr, getattr(t_model, attr))
 
 class UPYImageBase(ModelBase):
     """
     UPYImage metaclass. This metaclass parses UPYImageOptions.
     """
     def __new__(cls, name, bases, attrs):
-        new = super(UPYImageBase, cls).__new__(cls, name, bases, attrs)
-        g11n_opts = attrs.pop('UPYImageMeta', None)
-        setattr(new, '_upyimage_meta', UPYImageOptions(g11n_opts))
-        return new
+        class UPYImageMeta:
+            label = _(u"Original image")
+            required = False
+        attrs['UPYImageMeta'] = UPYImageMeta
+        return super(UPYImageBase, cls).__new__(cls, name, bases, attrs)
+
 
 class UPYImage(models.Model):
     """
