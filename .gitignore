@@ -6,3 +6,4 @@ local_settings.py
 fabfile.py
 .pydevproject
 .project
+.idea
