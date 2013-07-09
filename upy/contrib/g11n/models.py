@@ -153,7 +153,7 @@ class G11nModelBase(ModelBase):
     """
     def __new__(cls, name, bases, attrs):
         class G11nMeta:
-            g11n = u"%sLit" % name
+            g11n = u"%sG11n" % name
             fieldname = u"%s" % name.lower()
         attrs['G11nMeta'] = G11nMeta
         return super(G11nModelBase, cls).__new__(cls, name, bases, attrs)
