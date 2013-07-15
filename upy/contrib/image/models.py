@@ -24,7 +24,7 @@ class UPYImage(models.Model):
     admin_thumbnail_view function. Inherit this class in you models.py and import imagekit ImageSpec
     to create other thumbnail or display field with any processor you need.
     """
-    original_image = ProcessedImageField(null = True, blank = True, upload_to='upyimage')
+    original_image = models.ImageField(null = True, blank = True, upload_to='upyimage')
     admin_thumbnail = ImageSpecField([Adjust(contrast=1.2, sharpness=1.1),
             SmartResize(25, 25)], source='original_image', options={'quality': 90}) 
 
