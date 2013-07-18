@@ -33,7 +33,7 @@ urlpatterns = patterns('',
     (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'admin/login.html'}),
     (r'^accounts/logout/$','django.contrib.auth.views.logout', {'template_name': 'logout.html'}),
     (r'^i18n/', include('django.conf.urls.i18n')),
-    (r'', include('upy.contrib.ckeditor.urls')),
+    (r'^cked/', include('upy.contrib.cked.urls')),
     (r'', include('upy.contrib.inspect.urls')),
     (r'', include('project.custom_urls')),
 )

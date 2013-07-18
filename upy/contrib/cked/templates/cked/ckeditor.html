@@ -1,0 +1,8 @@
+<style>
+  label[for={{ id }}] { float: none; margin-bottom: 10px; }
+</style>
+
+<textarea{{ final_attrs|safe }}>{{ value }}</textarea>
+<script type="text/javascript">
+    CKEDITOR.replace("{{ id }}", {{ options|safe }});
+</script>

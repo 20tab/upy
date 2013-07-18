@@ -12,7 +12,8 @@ recursive-include upy/upy_static *
 recursive-include upy/contrib/customadmin/templates *
 recursive-include upy/contrib/colors/templates *
 recursive-include upy/bin *
-recursive-include upy/contrib/ckeditor/templates *
+recursive-include upy/contrib/cked/static *
+recursive-include upy/contrib/cked/templates *
 recursive-include upy/contrib/staticelement/templates *
 recursive-include upy/contrib/tree/templates *
 recursive-include upy/contrib/rosetta/locale *

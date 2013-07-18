@@ -166,6 +166,8 @@ CONFIG CKEditor
 if not os.path.exists(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)):
     os.makedirs(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)) 
 
-CKEDITOR_MEDIA_URL = '/%s' % STATIC_ROOT_NAME
-CKEDITOR_MEDIA_PREFIX = '/ckeditor/'
-CKEDITOR_UPLOAD_PATH = os.path.join(STATIC_ROOT, 'uploads')
+
+ELFINDER_OPTIONS = {
+    'root': os.path.join(STATIC_ROOT, CKEDITOR_UPLOADS),
+    'URL': '/%s/%s/' % (STATIC_ROOT_NAME, CKEDITOR_UPLOADS),
+}
