@@ -4,7 +4,7 @@ If it's in installed app then StaticPage has e G11n model related.
 """
 from upy.contrib.g11n.models import G11nBase,G11nModel 
 from django.db import models
-from upy.contrib.ckeditor.fields import RichTextField
+from upy.contrib.cked.fields import RichTextField
 from upy.contrib.tree.models import Page
 from django.utils.translation import ugettext_lazy as _
 

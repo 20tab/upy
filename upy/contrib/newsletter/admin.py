@@ -3,7 +3,7 @@ from upy.contrib.newsletter.models import Dispatcher, Contact, Newsletter, List,
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from datetime import datetime
-from upy.contrib.ckeditor.widgets import CKEditorWidget
+from upy.contrib.cked.widgets import CKEditorWidget
 
 class SendDateForm(forms.ModelForm):
     """

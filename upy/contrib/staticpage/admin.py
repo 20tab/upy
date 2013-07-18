@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf import settings
 from upy.contrib.g11n.admin import G11nAdmin,G11nStackedInlineAdmin
-from upy.contrib.ckeditor.widgets import CKEditorWidget
+from upy.contrib.cked.widgets import CKEditorWidget
 from django import forms
 
 STATICPAGE_CKE_CONFIG = None

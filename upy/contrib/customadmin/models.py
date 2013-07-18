@@ -22,7 +22,7 @@ def verifyApp(app):
                         'imagekit',
                         'upy',
                         'south',
-                        'upy.contrib.ckeditor',
+                        'upy.contrib.cked',
                         'upy.contrib.colors',
                         'upy.contrib.language',
                         'upy.contrib.rosetta']

@@ -3,7 +3,7 @@ staticelement contrib depends by g11n module.
 If it's in installed app then StaticElement has e G11n model related.
 """
 from django.db import models
-from upy.contrib.ckeditor.fields import RichTextField
+from upy.contrib.cked.fields import RichTextField
 from upy.contrib.tree.models import _
 from upy.contrib.g11n.models import G11nBase,G11nModel 
     
