@@ -1,5 +1,7 @@
 include LICENSE
-include upy/contrib/ckeditor/LICENSE.markdown
+include upy/contrib/cked/AUTHORS
+include upy/contrib/cked/LICENSE
+include upy/contrib/cked/README.rst
 include upy/contrib/colors/LICENSE
 include upy/contrib/rosetta/LICENSE
 recursive-include upy/locale *
