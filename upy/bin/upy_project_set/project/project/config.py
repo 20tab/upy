@@ -40,6 +40,8 @@ HANDLER_404 = None
 """ The name of the view for handler404 """
 HANDLER_500 = None 
 """ The name of the view for handler500 """
+USE_MODELTRANSLATION = False
+""" True if you want install django-modeltranslation """
 USE_UPY_G11N = True 
 """ True if you want install G11n in your project and use Globalization """
 DEFAULT_LANGUAGES = [('it', 'Italian')]

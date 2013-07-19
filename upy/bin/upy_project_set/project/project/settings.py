@@ -121,7 +121,13 @@ if USE_CUSTOM_ADMIN:
     INSTALLED_APPS.append('upy.contrib.customadmin')
 
 if USE_UPY_ROSETTA:
-    INSTALLED_APPS.append('upy.contrib.rosetta')  
+    INSTALLED_APPS.append('upy.contrib.rosetta')
+
+if USE_MODELTRANSLATION:
+    INSTALLED_APPS.extend(
+        ['modeltranslation','upy.contrib.tabbed_translation']
+    )
+
     
 INSTALLED_APPS.extend(
     PROJECT_APPS

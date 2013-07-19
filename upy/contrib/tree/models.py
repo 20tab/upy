@@ -232,7 +232,7 @@ class Node(G11nBase,MPTTModel):
             elif self.is_leaf_node() and self.page.regex:
                 return u'%s%s/%s' % (parent_pattern,self.page.slug,self.page.regex)
             else:
-                return u'%s%s' % (parent_pattern,self.page.slug)
+                return u'%s%s/' % (parent_pattern,self.page.slug)
     
     def get_absolute_url(self):
         """

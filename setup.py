@@ -25,6 +25,7 @@ setup(name='UPY',
         'Django >=1.5',
         'django_mptt >=0.5.5',
         'django_imagekit >=3',
+        'django-modeltranslation >=0.6'
     ],
     requires=[
         'PIL (>1.1.7)',
