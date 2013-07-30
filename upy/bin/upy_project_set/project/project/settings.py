@@ -95,7 +95,7 @@ INSTALLED_APPS = [
     'mptt',  
     'imagekit',
     'upy',
-    'upy.contrib.ckeditor',
+    'upy.contrib.cked',
     'upy.contrib.inspect',
 ]
 if USE_UPY_G11N:
