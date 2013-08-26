@@ -44,9 +44,6 @@ def validate_config(config):
         if config.USE_UPY_ROUTING:
             print "UPY improperly configured: you can't set USE_UPY_ROUTING = True if USE_UPY_TREE is False"
             sys.exit()
-        if config.USE_STATIC_PAGE:
-            print "UPY improperly configured: you can't set USE_STATIC_PAGE = True if USE_UPY_TREE is False"
-            sys.exit()
     if config.MULTI_DOMAIN and not config.MULTI_PUBLICATION:
         print "UPY improperly configured: If MULTI_DOMAIN is True, MULTI_PUBLICATION must be necessarily True"
         sys.exit()
