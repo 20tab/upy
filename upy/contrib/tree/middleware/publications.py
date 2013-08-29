@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 import re
 from project import urls as my_urls
 from django.conf import settings 
-from django.template.defaultfilters import slugify            
+from django.template.defaultfilters import slugify
 
 class EnabledMiddleware(object):
     """

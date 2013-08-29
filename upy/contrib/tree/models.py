@@ -212,7 +212,7 @@ class Node(G11nBase,MPTTModel):
     
     def get_publication_pattern(self):
         if not settings.MULTI_DOMAIN and settings.MULTI_PUBLICATION:
-            return u"%s/" % PublicationExtended.objects.get(tree_structure = TreeStructure.objects.get(tree_root= self.get_root())).publication.url
+            return u"%s" % PublicationExtended.objects.get(tree_structure = TreeStructure.objects.get(tree_root= self.get_root())).publication.url
         return ""
 
     def get_pattern(self):
@@ -224,16 +224,22 @@ class Node(G11nBase,MPTTModel):
         else:
             parent_pattern= self.parent.get_pattern()
             if parent_pattern != "":
-                parent_pattern = u"%s/" % parent_pattern
-            if not self.page and not self.hide_in_url:
-                return u'%s%s' % (parent_pattern,self.name)     
-            elif self.page.regex and self.page.show_regex:
-                return u'%s%s/%s' % (parent_pattern,self.page.slug,self.page.regex)
-            elif self.is_leaf_node() and self.page.regex:
-                return u'%s%s/%s' % (parent_pattern,self.page.slug,self.page.regex)
+                parent_pattern = u"%s" % parent_pattern
+            if not self.page and not self.is_leaf_node():
+                if self.hide_in_url:
+                    return u'%s' % (parent_pattern)
+                else:
+                    return u'%s%s' % (parent_pattern,self.name)
             else:
-                return u'%s%s/' % (parent_pattern,self.page.slug)
-    
+                if self.is_leaf_node() and self.page.regex and self.page.show_regex:
+                    return u'%s%s/%s' % (parent_pattern,self.page.slug,self.page.regex)
+                elif self.is_leaf_node() and (not self.page.regex or not self.page.show_regex):
+                    return u'%s%s/' % (parent_pattern,self.page.slug)
+                elif not self.is_leaf_node() and self.page.regex and self.page.show_regex:
+                    return u'%s%s/%s/' % (parent_pattern,self.page.slug,self.page.regex)
+                else:
+                    return u'%s%s/' % (parent_pattern,self.page.slug)
+
     def get_absolute_url(self):
         """
         It returns simply a link as string
