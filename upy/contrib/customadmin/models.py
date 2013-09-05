@@ -29,6 +29,7 @@ def verifyApp(app):
                         'upy.contrib.colors',
                         'upy.contrib.language',
                         'upy.contrib.rosetta']
+
         
 def all_apps():
     """
