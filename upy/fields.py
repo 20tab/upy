@@ -581,11 +581,9 @@ class ContinentCountryField(models.CharField):
     """
     Is a CharField with the complete list of countries as choices.
     """
-    
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('max_length', 2)
         kwargs.setdefault('choices', CONTINENT_COUNTRIES)
-        
         super(ContinentCountryField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):

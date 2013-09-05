@@ -10,11 +10,11 @@ from django.utils.encoding import force_text
 from django.utils.html import format_html
 from itertools import chain
 
+
 class CountrySelect(forms.Select):
     allow_multiple_selected = False
-    
+
     def render(self, name, value, attrs=None, choices=()):
-        print "\n\nRENDERRRR"
         if value is None: value = ''
         final_attrs = self.build_attrs(attrs, name=name)
         output = [format_html('<select{0}>', flatatt(final_attrs))]
@@ -29,10 +29,15 @@ class CountrySelect(forms.Select):
         # Normalize to strings.
         selected_choices = set(force_text(v) for v in selected_choices)
         output = []
-        
         for option_value, option_label in chain(self.choices, choices):
             if isinstance(option_label, (list, tuple)):
-                output.append(format_html('<optgroup label="{0}" class="{1}">', force_text(option_value),force_text(option_value.replace(" ","-").lower())))
+                opt_val = ""
+                from upy.fields import CONTINENTS
+                for el in CONTINENTS:
+                    if option_value == u"{}".format(el[1]):
+                        opt_val = el[0]
+                output.append(format_html('<optgroup label="{0}" class="{1}">',
+                                          force_text(option_value),force_text(opt_val)))
                 for option in option_label:
                     output.append(self.render_option(selected_choices, *option))
                 output.append('</optgroup>')
