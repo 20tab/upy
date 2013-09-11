@@ -25,7 +25,7 @@ class CountrySelect(forms.Select):
         return mark_safe('\n'.join(output))
 
     def render_options(self, choices, selected_choices):
-        
+
         # Normalize to strings.
         selected_choices = set(force_text(v) for v in selected_choices)
         output = []
@@ -44,7 +44,8 @@ class CountrySelect(forms.Select):
             else:
                 output.append(self.render_option(selected_choices, option_value, option_label))
         return '\n'.join(output)
-    
+
+
 class NullCheckboxWidget(forms.CheckboxInput):
     
     def render(self, name, value, attrs=None):
@@ -76,6 +77,7 @@ class NullCheckboxWidget(forms.CheckboxInput):
         # Sometimes data or initial could be None or u'' which should be the
         # same thing as False.
         return bool(initial) != bool(data)
+
 
 class SubFKWidget(forms.Select):
     """

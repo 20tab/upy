@@ -1,7 +1,8 @@
 from django.template import Library
-from upy.contrib.customadmin.models import CustomApp,CustomModel,CustomAdmin
+from upy.contrib.customadmin.models import CustomApp, CustomModel, CustomAdmin
 
 register = Library()
+
 
 @register.filter
 def add_app_icons(app_list, autocomplete):
@@ -9,7 +10,6 @@ def add_app_icons(app_list, autocomplete):
     It returns a list of applications to view in admin's interface (index.html). 
     This filter is called only if you want view icons mode.
     """
-
     try:
         customadmin = CustomAdmin.objects.get(default=True)
         def_app_img = None
@@ -78,6 +78,7 @@ def custom_app_list(app_list, autocomplete):
         app_list_ok.extend(app_out_list)
        
     return app_list_ok
+
 
 @register.filter
 def add_model_icons(app_list,custom_admin):

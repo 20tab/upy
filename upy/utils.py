@@ -1,7 +1,8 @@
 """
 Contains many common functions
 """
-import os,time,re,datetime
+import os, time, re
+
 
 def truncate(string, chars_number):
     """
@@ -9,11 +10,13 @@ def truncate(string, chars_number):
     """
     return string[:chars_number] + '..' if len(string) > chars_number else string
 
+
 def datetimeToUnix(date):
     """
     Transform a datetime in unix format with milliseconds
     """
     return int(time.mktime(date.timetuple())*1000)
+
 
 def datetimeToUnixSec(date):
     """
@@ -21,12 +24,14 @@ def datetimeToUnixSec(date):
     """
     return int(time.mktime(date.timetuple()))
 
+
 def upy_re_match(regex,value):
     """
     Checks if value match with regex
     """
     reg = re.compile(regex)
     return reg.match(value)  
+
 
 def compare_dicts(dict1, dict2):
     """
@@ -37,6 +42,7 @@ def compare_dicts(dict1, dict2):
             return False
     return True
 
+
 def filter_files(path, string):
     """
     This function filter all files that contains the string passed as parameter in the name
@@ -46,7 +52,8 @@ def filter_files(path, string):
         return [f for f in listing if string in f]
     except:
         raise ValueError("Error in upy.contrib.tree.menu @ filter_files()")
-    
+
+
 def clean_cache(path, string_in_filename = None):
     """
     Cleans files contain string_in_filename from path 
@@ -58,12 +65,14 @@ def clean_cache(path, string_in_filename = None):
         for tmpfile in os.listdir(path):
             os.unlink("%s%s" % (path,tmpfile))
             
+
 def clean_path(source):
     """
     Replace backslashes from source.file_name with a slash 
     """
     source.file_name = source.file_name.replace('\\','/')
     return source
+
 
 def getAccentedVocal(vocal,acc_type="g"):
     """
@@ -75,6 +84,7 @@ def getAccentedVocal(vocal,acc_type="g"):
               'o':{'g':u'\xf2','a':u'\xf3'},
               'u':{'g':u'\xf9','a':u'\xfa'}}
     return vocals[vocal][acc_type]
+
 
 def _av(vocal,acc_type="g"):
     """

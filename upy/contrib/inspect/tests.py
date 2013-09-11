@@ -44,10 +44,10 @@ class ModelToInspect(models.Model):
     foreign = models.ForeignKey(OtherModel, blank=True, null=True)
     many = models.ManyToManyField(OtherModel, related_name='many')
     one = models.OneToOneField(
-            OtherModel,
-            related_name='one',
-            blank=True,
-            null=True)
+        OtherModel,
+        related_name='one',
+        blank=True,
+        null=True)
 
     # class attributes
     attribute = 'foo'
@@ -80,7 +80,6 @@ class ManyRelatedModel(models.Model):
 
 
 class ModelInspectTest(TestCase):
-
     def setUp(self):
         self.om = OtherModel.objects.create()
         self.mti = ModelToInspect.objects.create(foreign=self.om, one=self.om)

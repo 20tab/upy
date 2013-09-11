@@ -2,7 +2,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from imagekit.models import ImageSpecField
 from pilkit.processors import SmartResize, Adjust
-from upy.contrib.g11n.models import G11nModel
 from django.db.models.base import ModelBase
 
 
@@ -72,18 +71,4 @@ class PositionImage(UPYImage):
 
     class Meta:
         ordering = [u'position', ]
-        abstract = True
-
-
-class UPYImageG11n(G11nModel):
-    """
-    Abstract class for G11nModel to inherit if you need localized contents for your UPYImage model
-    """
-    title = models.CharField(max_length=150, help_text=_(u"Set the image title."))
-    alt = models.CharField(max_length=150, help_text=_(u"Set the image alternative field."))
-
-    def __unicode__(self):
-        return u"%s" % self.language
-
-    class Meta:
         abstract = True

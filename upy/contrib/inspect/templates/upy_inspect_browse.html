@@ -5,13 +5,13 @@
 {% block extrastyle %}
 	{{block.super}}
 	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSSLIB}}" />
-	<link rel="stylesheet" type="text/css" href="/upy_static/inspect/css/inspect.css" />
+	<link rel="stylesheet" type="text/css" href="/static/inspect/css/inspect.css" />
 {% endblock %}
 {% block extrahead %}
 	{{block.super}}
 	<script type="text/javascript" src="{{JQUERY_LIB}}"></script>
 	<script type="text/javascript" src="{{JQUERYUI_LIB}}"></script>
-	<script type="text/javascript" src="/upy_static/inspect/js/inspect.js"></script>
+	<script type="text/javascript" src="/static/inspect/js/inspect.js"></script>
 	
 {% endblock %}
 
@@ -52,12 +52,7 @@
 </div>
 {% if model %}
 <div class="inspect-container">
-	{% if g11n_model %}
-	<h1>
-		{{model.model_name}} {% trans "has g11n model associated. See also" %} <a class="g11n-model" href="{{app}}.{{g11n_model}}">{{g11n_model}}</a>
-	</h1>
-	{% endif %}
-	
+
 	<div class="tabs"{% if display_as == "tabs" %} id="tabs"{% endif %}>
 		
 		{% if display_as == "tabs" %}

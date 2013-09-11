@@ -10,7 +10,7 @@ jQuery(function(){
 				$(this).attr('id','inline-related-'+count);
 			}
 			orderables.push('#inline-related-'+count);
-			$(this).find('.field-position').addClass('inline-orderable-item');
+			$(this).find('.field-position').addClass('inline-sortable-item');
 			count++;
 		}
 	});
@@ -19,7 +19,7 @@ jQuery(function(){
 		if($(this).find('.inline-related fieldset.module .field-position').length > 0){
 			orderables.push("#"+$(this).attr('id'));
 		}
-		$(this).find('.inline-related').addClass('inline-orderable-item');
+		$(this).find('.inline-related').addClass('inline-sortable-item');
 	});
 	
 	var temp_html_top = "";

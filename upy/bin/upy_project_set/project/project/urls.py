@@ -2,22 +2,10 @@ from django.conf.urls import *
 from django.conf import settings
 from project import config
 from django.contrib import admin as contrib_admin
-if config.USE_UPY_TREE:
-    from upy.contrib.tree.urls import LOGIN_REQUIRED_URLS
 contrib_admin.autodiscover()
 from django.contrib.admin.sites import site
 if settings.USE_UPY_ADMIN and settings.USE_CUSTOM_ADMIN:
     site.index_template = "admin/custom_index.html"
-    
-from upy.contrib.tree.utility import *
-
-if config.USE_UPY_G11N:
-    from upy.contrib.g11n.utility import getLanguageList,getDefaultLanguage
-    settings.LANGUAGES = getLanguageList()
-    language = getDefaultLanguage()
-    if language:
-        settings.DEFAULT_LANGUAGES = [(language.code,language.name)]
-        settings.LANGUAGE_CODE = language.code
 
 if not settings.HANDLER_404:
     handler404 = 'upy.contrib.tree.views.view_404'

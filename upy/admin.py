@@ -20,7 +20,8 @@ class ButtonLink(object):
         self.link = link
         self.css_id = css_id
         self.css_class = css_class
-        
+
+
 class ButtonForm(object):
     """
     It defines a button that you can locate near the history button in change_form.html as a form
@@ -40,7 +41,8 @@ class ButtonForm(object):
         self.form_method = form_method
         self.input_dict = input_dict  #{'name':'value',}
         self.css_class = css_class
-        
+
+
 class ButtonableModelAdmin(admin.ModelAdmin):
     """
     Use this admin only if you want apply custom button on the change_form template in admin panel.
@@ -60,7 +62,8 @@ class ButtonableModelAdmin(admin.ModelAdmin):
         extra_context['buttons_form']=self.buttons_form
         extra_context['button_object_id']=object_id  
         return super(ButtonableModelAdmin, self).change_view(request, object_id, form_url,extra_context)
-    
+
+
 class HiddenModelAdmin(admin.ModelAdmin):
     def get_model_perms(self, *args, **kwargs):
         perms = admin.ModelAdmin.get_model_perms(self, *args, **kwargs)

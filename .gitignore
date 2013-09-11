@@ -8,3 +8,4 @@ fabfile.py
 .project
 .idea
 .settings
+.DS_Store

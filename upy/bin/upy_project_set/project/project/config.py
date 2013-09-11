@@ -42,21 +42,18 @@ HANDLER_500 = None
 """ The name of the view for handler500 """
 USE_MODELTRANSLATION = False
 """ True if you want install django-modeltranslation """
-USE_UPY_G11N = True 
-""" True if you want install G11n in your project and use Globalization """
-DEFAULT_LANGUAGES = [('it', 'Italian')]
-""" Set default language. It's important if you don't use G11n """
+TIME_ZONE = 'Europe/Rome'
+""" See the TIME_ZONE's details on django settings documentation """
+LANGUAGE_CODE = 'it'
+""" See the LANGUAGE_CODE's details on django settings documentation """
+LANGUAGES = []
+""" Languages list for translations """
 USE_UPY_TREE = True 
 """ True if you want install tree and manage node's structure. IT NEEDS USE_UPY_G11N = True """
-MULTI_DOMAIN = False 
-""" True if the application is mapped by many different domains (host). False if only a domain (host) uses this application. """
-MULTI_PUBLICATION = False  
-""" If MULTI_DOMAIN is True, this variable must be necessarily True otherwise it's jerk. """
+USE_UPY_SEO = True
+""" True if you want install seo and manage meta informations IT NEEDS USE_UPY_TREE = True """
 USE_UPY_ADMIN = True  
 """ If True, upy admin templates will be used """
-#USE_UPY_ROUTING non funziona. Guardare bene upy.contrib.tree.views.render_page
-USE_UPY_ROUTING = False 
-""" TODO: It needs USE_UPY_TREE = True. This is a useful option to create dynamic routing without server restarting """ 
 USE_CUSTOM_ADMIN = True
 """ If True CustomAdmin app will be installed and you can customize your admin """
 USE_UPY_COLOR = True
@@ -79,21 +76,13 @@ USE_UPY_CSS_RESET = True
 """ If True standard upy css reset will be included in base template """
 USE_GLOBAL_TEMPLATES_DIR = True
 """ If True upy.contrib.tree.Template saves templates in the global directory else in the application templates directory """
-USE_UPY_CACHE = False
-""" If True Breadrumb and Menu use upy cached files to make menu and breadcrumbs """
-TIME_ZONE = 'Europe/Rome'
-""" See the TIME_ZONE's details on django settings documentation """
-LANGUAGE_CODE = 'it-it'
-""" See the LANGUAGE_CODE's details on django settings documentation """
-LANGUAGE_DEFAULT_NAME = 'italian'
-""" upy init_db command needs this information to create a default language """
-LANGUAGE_DEFAULT_ALIAS = 'IT'
-""" upy init_db command needs this information to create a default language """
 SECRET_KEY = 'secret_key_example'
 """ Make this unique, and don't share it with anybody. """
 PROJ_LOCALE_PATHS = [
 ]
 """ List of directory for your translations """
+DISALLOW_ALL_ROBOTS = False
+""" If """
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -144,41 +133,6 @@ else:
     """ smtp account's password """
     EMAIL_USE_TLS = False
     """ If True account uses tls """
-    
-######################################################################################################################################   
-STATICPAGE_CKE_CONFIG = {
-    'height': 300,
-    'width': 800,
-    'forcePasteAsPlainText' : True,
-    #'contentsCss':'/static/example_layout.css'
-    # others parameters
-}
-"""
-STATICPAGE CKEditor configuration (for all parameters, look at http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html)
-STATICPAGE_CKE_CONFIG = {
-    'height': 300,
-    'width': 800,
-    #'contentsCss':'/static/example_layout.css'
-    # others parameters
-}
-"""
-
-STATICELEMENT_CKE_CONFIG = {
-    'height': 300,
-    'width': 800,
-    'forcePasteAsPlainText' : True,
-    #'contentsCss':'/static/example_layout.css'
-    # others parameters
-}
-"""
-STATICELEMENT CKEditor configuration (for all parameters, look at http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html)
-STATICELEMENT_CKE_CONFIG = {
-    'height': 300,
-    'width': 800,
-    #'contentsCss':'/static/example_layout.css'
-    # others parameters
-}
-"""
 
 CKEDITOR_UPLOADS = 'uploads' 
 """ Must be the only name of directory where you want upload file through ckeditor, without slash """

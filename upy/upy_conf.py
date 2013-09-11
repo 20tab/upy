@@ -36,17 +36,10 @@ def validate_config(config):
     Validates config.py before launching some manage's functions
     """
     check_uwsgi_config(config)
-    if not config.USE_UPY_G11N:
-        if config.USE_UPY_TREE:
-            print "UPY improperly configured: you can't set USE_UPY_TREE = True if USE_UPY_G11N is False"
-            sys.exit()
     if not config.USE_UPY_TREE:
-        if config.USE_UPY_ROUTING:
-            print "UPY improperly configured: you can't set USE_UPY_ROUTING = True if USE_UPY_TREE is False"
+        if config.USE_UPY_SEO:
+            print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
             sys.exit()
-    if config.MULTI_DOMAIN and not config.MULTI_PUBLICATION:
-        print "UPY improperly configured: If MULTI_DOMAIN is True, MULTI_PUBLICATION must be necessarily True"
-        sys.exit()
     if not config.CKEDITOR_UPLOADS or config.CKEDITOR_UPLOADS == '':
         print "UPY improperly configured: you have to set CKEDITOR_UPLOADS variable"
         sys.exit()
@@ -64,9 +57,6 @@ def check_uwsgi_config(config):
     Validates the uwsgi configuration before launching some manage's functions
     """
     if config.USE_UPY_NEWSLETTER:
-        if not config.USE_UPY_G11N:   
-            print "UPY improperly configured: you can't set USE_UPY_NEWSLETTER = True if USE_UPY_G11N is False"
-            sys.exit()
         if not config.UWSGI_INI:
             print "UPY improperly configured: you can't set USE_UPY_NEWSLETTER = True without uwsgi configuration file."
             sys.exit()

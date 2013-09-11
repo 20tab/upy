@@ -13,9 +13,6 @@ MANAGERS = ADMINS
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
-LANGUAGES = []
-if not USE_UPY_G11N:
-    LANGUAGES = DEFAULT_LANGUAGES
     
 STATIC_ROOT_NAME = 'static'
 STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, STATIC_ROOT_NAME))
@@ -39,11 +36,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware', # per i18n
 ]
-if USE_UPY_G11N:
-    MIDDLEWARE_CLASSES.append('upy.contrib.g11n.middleware.publications.SetCurrentPublicationMiddleware')
-if USE_UPY_TREE:
-    MIDDLEWARE_CLASSES.append('upy.contrib.tree.middleware.publications.EnabledMiddleware')
-    MIDDLEWARE_CLASSES.append('upy.contrib.tree.middleware.publications.RequireLoginMiddleware')
 
 MIDDLEWARE_CLASSES.extend(
     PROJ_MIDDLEWARE_CLASSES
@@ -58,7 +50,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.contrib.messages.context_processors.messages",
 ]
 if USE_UPY_TREE:
-    TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.tree.template_context.context_processors.g11n")
+    TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.tree.template_context.context_processors.set_meta")
 if USE_CUSTOM_ADMIN:
     TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.customadmin.template_context.context_processors.customadmin_context")
 if USE_UPY_ADMIN:
@@ -98,11 +90,10 @@ INSTALLED_APPS = [
     'upy.contrib.cked',
     'upy.contrib.inspect',
 ]
-if USE_UPY_G11N:
-    INSTALLED_APPS.append('upy.contrib.g11n')
-    if USE_UPY_TREE:
-        INSTALLED_APPS.append('upy.contrib.tree')
-    INSTALLED_APPS.append('upy.contrib.language')
+if USE_UPY_TREE:
+    INSTALLED_APPS.append('upy.contrib.tree')
+    if USE_UPY_SEO:
+        INSTALLED_APPS.append('upy.contrib.seo')
 
 if USE_FULLHD_SUPPORT:
     PIL_IMAGEFILE_MAXBLOCK = 256 * 2 ** 13 # 2MB
@@ -128,7 +119,6 @@ if USE_MODELTRANSLATION:
         ['modeltranslation','upy.contrib.tabbed_translation']
     )
 
-    
 INSTALLED_APPS.extend(
     PROJECT_APPS
 )
@@ -159,12 +149,6 @@ UPY_ADMIN_MEDIA_LOCATION = upy_static()
 
 UPY_TREE_EDITOR_INCLUDE_ANCESTORS = False
 UPY_TREE_EDITOR_OBJECT_PERMISSIONS = False
-
-UPYCACHE_DIR = u'%s/upycache/' % (STATIC_ROOT)
-UPYCACHE_SIZE_LIMIT = 2 # SIZE LIMIT IN MB
-
-if not os.path.exists(UPYCACHE_DIR):
-    os.makedirs(UPYCACHE_DIR) 
 
 """
 CONFIG CKEditor
