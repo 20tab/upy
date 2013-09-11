@@ -36,7 +36,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware', # per i18n
 ]
-
+if USE_UPY_TREE:
+    MIDDLEWARE_CLASSES.append('upy.contrib.tree.middleware.upy_context.SetUpyContextMiddleware')
 MIDDLEWARE_CLASSES.extend(
     PROJ_MIDDLEWARE_CLASSES
 )
@@ -51,6 +52,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 if USE_UPY_TREE:
     TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.tree.template_context.context_processors.set_meta")
+    if USE_UPY_SEO:
+        TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.seo.template_context.context_processors.set_meta")
 if USE_CUSTOM_ADMIN:
     TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.customadmin.template_context.context_processors.customadmin_context")
 if USE_UPY_ADMIN:

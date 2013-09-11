@@ -41,7 +41,7 @@ class TransSite(UpyModel):
         return [(field.name, field.value_to_string(self)) for field in TransSite._meta.fields]
 
     def __unicode__(self):
-        return self.publication.name
+        return self.title
 
     class Meta:
         verbose_name = _(u"Site's translation")

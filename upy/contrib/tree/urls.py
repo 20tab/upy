@@ -12,5 +12,4 @@ upy_urls, tree_urls = getUrlList()
 
 for app_url in upy_urls:
     urlpatterns += patterns('', app_url)
-
 TREE_URLS = tree_urls

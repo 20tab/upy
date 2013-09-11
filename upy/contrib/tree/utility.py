@@ -35,9 +35,7 @@ def getUrlList():
                 page = node.page
                 view = page.view
                 regex = r'^{0}$'.format(node.get_absolute_url())
-                print "REGEX: ", regex
                 regex_path = '{0}'.format(node.get_pattern())
-
                 view = u'{0}.{1}.{2}'.format(view.app_name, view.module_name, view.func_name)
                 """
                 check_static_vars add UPY_CONTEXT to page
@@ -52,7 +50,6 @@ def getUrlList():
                     app_url = url(regex, view, page.static_vars, page.scheme_name)
                     set_to_return.append(app_url)
                     set_url.append(regex_path)
-
     return set_to_return, set_url
 
 
@@ -111,7 +108,6 @@ class UPYRobotTXT():
     def _do_robotstxt(self):
         set_robot = {}
         disallow_all = settings.DIDALLOW_ALL_ROBOTS
-        struct_tmp = []
         if not disallow_all:
             for root in Node.objects.filter(parent__isnull=True):
                 for node in root.get_descendants():
