@@ -34,7 +34,7 @@ def getUrlList():
             if node.page:
                 page = node.page
                 view = page.view
-                regex = r'^{0}$'.format(node.get_absolute_url())
+                regex = r'^{0}$'.format(node.get_pattern())
                 regex_path = '{0}'.format(node.get_pattern())
                 view = u'{0}.{1}.{2}'.format(view.app_name, view.module_name, view.func_name)
                 """
