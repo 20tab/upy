@@ -1,9 +1,13 @@
 from django.contrib import admin
-from upy.contrib.seo.models import TransSite, TransNode, TransPage
-from upy.contrib.tabbed_translation.admin import TransAdmin
+from upy.contrib.seo.models import MetaSite, MetaNode, MetaPage
+from django.conf import settings
+if settings.USE_UPY_SEO and len(settings.LANGUAGES) > 1:
+    from upy.contrib.tabbed_translation.admin import TransAdmin as MetaAdmin
+else:
+    MetaAdmin = admin.ModelAdmin
 
 
-class TransSiteAdmin(TransAdmin):
+class MetaSiteAdmin(MetaAdmin):
     """
     This is the option class for PublicationG11n Admin
     """
@@ -20,7 +24,7 @@ class TransSiteAdmin(TransAdmin):
     )
 
 
-class TransNodeAdmin(TransAdmin):
+class MetaNodeAdmin(MetaAdmin):
     """
     This is the option class for NodeG11n Admin
     """
@@ -37,7 +41,7 @@ class TransNodeAdmin(TransAdmin):
     save_on_top = True
 
 
-class TransPageAdmin(TransAdmin):
+class MetaPageAdmin(MetaAdmin):
     """
     This is the option class for PageG11n Admin
     """
@@ -51,6 +55,6 @@ class TransPageAdmin(TransAdmin):
     save_on_top = True
 
 
-admin.site.register(TransSite, TransSiteAdmin)
-admin.site.register(TransNode, TransNodeAdmin)
-admin.site.register(TransPage, TransPageAdmin)
+admin.site.register(MetaSite, MetaSiteAdmin)
+admin.site.register(MetaNode, MetaNodeAdmin)
+admin.site.register(MetaPage, MetaPageAdmin)

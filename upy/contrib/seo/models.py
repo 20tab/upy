@@ -5,7 +5,7 @@ from upy.models import UpyModel
 from upy.fields import NullTrueField
 
 
-class TransSite(UpyModel):
+class MetaSite(UpyModel):
     """
     This is the class that defines meta informations of the website.
     """
@@ -38,17 +38,17 @@ class TransSite(UpyModel):
         """
         It returns all fields of this model
         """
-        return [(field.name, field.value_to_string(self)) for field in TransSite._meta.fields]
+        return [(field.name, field.value_to_string(self)) for field in MetaSite._meta.fields]
 
     def __unicode__(self):
         return self.title
 
     class Meta:
-        verbose_name = _(u"Site's translation")
-        verbose_name_plural = _(u"Site's translations")
+        verbose_name = _(u"Site information")
+        verbose_name_plural = _(u"Site information")
 
 
-class TransNode(UpyModel):
+class MetaNode(UpyModel):
     """
     This is the class that defines static contents of a page of the structure.
     """
@@ -56,19 +56,18 @@ class TransNode(UpyModel):
                              verbose_name=_(u"Alias"))
     title = models.CharField(max_length=150, null=True, blank=True, help_text=_(u"Set the node's title (in <a> tag)."),
                              verbose_name=_(u"Title"))
-    node = models.OneToOneField(Node, help_text=_(u"Set the node to associate with the Node's Meta Content."),
-                                verbose_name=_(u"Node"))
+    node = models.OneToOneField(Node, verbose_name=_(u"Node"))
 
     def __unicode__(self):
         return u"%s - %s" % (self.alias, self.node.name)
 
     class Meta:
-        verbose_name = _(u"Node's translation")
-        verbose_name_plural = _(u"Node's translations")
+        verbose_name = _(u"Node information")
+        verbose_name_plural = _(u"Node informations")
         ordering = ['node']
 
 
-class TransPage(UpyModel):
+class MetaPage(UpyModel):
     """
     This is the class that defines static contents of a page of the structure.
     """
@@ -92,19 +91,18 @@ class TransPage(UpyModel):
     ),
                               help_text=_(u"Select the value of meta tag robots if you want set it."),
                               verbose_name=_(u"Robots"))
-    page = models.OneToOneField(Page, help_text=_(u"Set the page to associate with the Page's Meta Content."),
-                                verbose_name=_(u"Page"))
+    page = models.OneToOneField(Page, verbose_name=_(u"Page"))
 
     def get_fields(self):
         """
         It returns all fields as key, value in a dictionary
         """
-        return [(field.name, field.value_to_string(self)) for field in TransPage._meta.fields]
+        return [(field.name, field.value_to_string(self)) for field in MetaPage._meta.fields]
 
     def __unicode__(self):
         return u"{0}".format(self.page.name)
 
     class Meta:
-        verbose_name = _(u"Page's translation")
-        verbose_name_plural = _(u"Page's translations")
+        verbose_name = _(u"Page information")
+        verbose_name_plural = _(u"Page informations")
         ordering = ['page']

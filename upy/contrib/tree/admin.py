@@ -17,8 +17,9 @@ class NodeForm(forms.ModelForm):
         model = Node
 
     def clean(self):
-        page = self.cleaned_data['page']
-        parent = self.cleaned_data['parent']
+        cleaned_data = super(NodeForm, self).clean()
+        page = cleaned_data['page']
+        parent = cleaned_data['parent']
         slug = None
         if self.instance == parent:
             raise forms.ValidationError(_("A node may not be made a child of itself."))
@@ -38,7 +39,7 @@ class NodeForm(forms.ModelForm):
                                 slug)))
                     if node.page and node.page == page and node.pk != self.instance.pk:
                         raise forms.ValidationError(_("You can use page only in one node of the same structure"))
-        return self.cleaned_data
+        return cleaned_data
 
 
 class NodeAdmin(TreeEditor):

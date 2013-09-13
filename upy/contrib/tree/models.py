@@ -21,7 +21,7 @@ class Node(MPTTModel, UpyModel):
                             help_text=_(u"Set the parent node for this node if it isn't root."),
                             verbose_name=_(u"Parent"))
     position = models.PositiveSmallIntegerField(u'Position', default=0)
-    is_index = NullTrueField(_('Is index node?'), default=None, unique=True)
+    is_index = NullTrueField(_('Is index node?'), unique=True)
     hide_in_navigation = models.BooleanField(help_text=_(u"Check it to hide the page in this node in the navigation."),
                                              verbose_name=_(u"Hide in navigation"))
     hide_in_url = models.BooleanField(

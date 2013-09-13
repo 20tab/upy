@@ -1,4 +1,6 @@
 import os
+gettext = lambda s: s
+
 
 IN_PRODUCTION = False
 """True if application is in production, False if it's in development"""
@@ -46,7 +48,7 @@ TIME_ZONE = 'Europe/Rome'
 """ See the TIME_ZONE's details on django settings documentation """
 LANGUAGE_CODE = 'it'
 """ See the LANGUAGE_CODE's details on django settings documentation """
-LANGUAGES = []
+LANGUAGES = [('it',gettext('Italian')),]
 """ Languages list for translations """
 USE_UPY_TREE = True 
 """ True if you want install tree and manage node's structure. IT NEEDS USE_UPY_G11N = True """

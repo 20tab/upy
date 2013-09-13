@@ -92,8 +92,8 @@ class CustomAdmin(models.Model):
                                           match="\.jpg|\.jpeg|.png|\.gif", recursive=True,
                                           help_text=_(u"Set brand's image."),
                                           verbose_name=_(u"Branding image"))
-    default = NullTrueField(_(u"Default"), help_text=_(u"Select it if you want use this as default customization."))
-
+    default = NullTrueField(_(u"Default"), help_text=_(u"Select it if you want use this as default customization."),
+                            unique=True)
     default_app_image = ProcessedImageField(verbose_name=_(u"Default app image"),
                                             help_text=_(u"Insert a default application image"), null=True, blank=True,
                                             upload_to='customadmin')

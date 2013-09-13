@@ -41,9 +41,16 @@ def validate_config(config):
     Validates config.py before launching some manage's functions
     """
     check_uwsgi_config(config)
-    if not config.USE_UPY_TREE and config.USE_UPY_SEO:
-        print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
-        sys.exit()
+    if config.USE_UPY_SEO:
+        if not config.USE_UPY_TREE:
+            print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
+            sys.exit()
+        if not hasattr(config,"LANGUAGES") or not config.LANGUAGES:
+            print "UPY improperly configured: you can't set USE_UPY_SEO = True without LANGUAGES"
+            sys.exit()
+        if not config.USE_MODELTRANSLATION:
+            print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_MODELTRANSLATION is False"
+            sys.exit()
     if not config.CKEDITOR_UPLOADS or config.CKEDITOR_UPLOADS == '':
         print "UPY improperly configured: you have to set CKEDITOR_UPLOADS variable"
         sys.exit()

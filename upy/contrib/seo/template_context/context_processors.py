@@ -1,4 +1,4 @@
-from upy.contrib.seo.models import TransPage, TransSite
+from upy.contrib.seo.models import MetaPage, MetaSite
 
 
 class MetaContent(object):
@@ -65,12 +65,12 @@ def set_meta(request):
     context_extras = {}
     if not request.is_ajax() and hasattr(request, 'upy_context') and request.upy_context['PAGE']:
         try:
-            site = TransSite.objects.get(default=True)
-        except TransSite.DoesNotExist:
+            site = MetaSite.objects.get(default=True)
+        except MetaSite.DoesNotExist:
             site = None
         try:
-            page = TransPage.objects.get(page=request.upy_context['PAGE'])
-        except TransPage.DoesNotExist:
+            page = MetaPage.objects.get(page=request.upy_context['PAGE'])
+        except MetaPage.DoesNotExist:
             page = None
         meta_temp = MetaContent()
         attr_list = ('title', 'description', 'keywords', 'author', 'content_type', 'robots', 'generator',)

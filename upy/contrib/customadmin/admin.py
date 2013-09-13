@@ -34,9 +34,10 @@ class CustomAdminForm(forms.ModelForm):
     It ovverrides CustomAdmin modelform
     """
     def clean(self): 
-        view_mode = self.cleaned_data['view_mode']
-        autocomplete_app_list = self.cleaned_data['autocomplete_app_list']
-        autocomplete_models_list = self.cleaned_data['autocomplete_models_list']
+        cleaned_data = super(CustomAdminForm, self).clean()
+        view_mode = cleaned_data['view_mode']
+        autocomplete_app_list = cleaned_data['autocomplete_app_list']
+        autocomplete_models_list = cleaned_data['autocomplete_models_list']
         if view_mode and not autocomplete_app_list:
             try:
                 CustomApp.objects.get(application__iexact="Customadmin")
@@ -47,8 +48,8 @@ class CustomAdminForm(forms.ModelForm):
                 self._errors["autocomplete_app_list"] = self.error_class([msg_autocomplete_app_list])
                 # These fields are no longer valid. Remove them from the
                 # cleaned data.
-                del self.cleaned_data["view_mode"]
-                del self.cleaned_data["autocomplete_app_list"]
+                del cleaned_data["view_mode"]
+                del cleaned_data["autocomplete_app_list"]
                 #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
                 #if you use a custom view_mode without autocomplete_app_list"))  
         elif view_mode and not autocomplete_models_list:
@@ -61,8 +62,8 @@ class CustomAdminForm(forms.ModelForm):
                 self._errors["autocomplete_models_list"] = self.error_class([msg_autocomplete_models_list])
                 # These fields are no longer valid. Remove them from the
                 # cleaned data.
-                del self.cleaned_data["view_mode"]
-                del self.cleaned_data["autocomplete_models_list"]
+                del cleaned_data["view_mode"]
+                del cleaned_data["autocomplete_models_list"]
                 #raise forms.ValidationError(_("You have to define Customadmin in your CustomApp 
                 #if you use a custom view_mode without autocomplete_app_list"))
         self, chk = cleaning_color_picker(self, ['bg_header','table_title_bg',
@@ -71,7 +72,7 @@ class CustomAdminForm(forms.ModelForm):
                                                  'link_hover_color'])
         if not chk:
             raise forms.ValidationError(_("Some values are not hexadecimal string"))
-        return self.cleaned_data 
+        return cleaned_data
 
 class CustomAdminAdmin(admin.ModelAdmin):
     """
