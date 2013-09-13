@@ -1,45 +1,49 @@
 """
 Contains come utilities used by settings.py to configure a upy project
 """
-import os,sys
+import os, sys
+
 
 def upy_static():
     """
     Returns upy_static path
     """
-    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__)) 
+    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
     return os.path.join(PROJECT_PATH, 'upy_static')
+
 
 def upy_templates():
     """
     Returns upy templates path
     """
-    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__)) 
+    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
     return os.path.join(PROJECT_PATH, 'templates')
+
 
 def upy_tpl():
     """
     Returns upy.contrib.tree templates path
     """
-    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__)) 
+    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
     return os.path.join(PROJECT_PATH, 'contrib/tree/tpl')
+
 
 def upy_locale():
     """
     Returns upy locale path
     """
-    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__)) 
+    PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
     return os.path.join(PROJECT_PATH, 'locale')
+
 
 def validate_config(config):
     """
     Validates config.py before launching some manage's functions
     """
     check_uwsgi_config(config)
-    if not config.USE_UPY_TREE:
-        if config.USE_UPY_SEO:
-            print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
-            sys.exit()
+    if not config.USE_UPY_TREE and config.USE_UPY_SEO:
+        print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
+        sys.exit()
     if not config.CKEDITOR_UPLOADS or config.CKEDITOR_UPLOADS == '':
         print "UPY improperly configured: you have to set CKEDITOR_UPLOADS variable"
         sys.exit()
@@ -50,7 +54,7 @@ def validate_config(config):
         if "_" in host:
             print "UPY improperly configured: you can't set ALLOWED_HOSTS with some \"_\""
             sys.exit()
-        
+
 
 def check_uwsgi_config(config):
     """

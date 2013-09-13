@@ -41,7 +41,7 @@ function googleMapAdmin() {
             if (existinglocation) {
                 lat = existinglocation[0];
                 lng = existinglocation[1];
-                zoom = 18;
+                zoom = 6;
             }
 
             var latlng = new google.maps.LatLng(lat,lng);
@@ -82,7 +82,7 @@ function googleMapAdmin() {
                 if (status == google.maps.GeocoderStatus.OK) {
                     var latlng = results[0].geometry.location;
                     map.setCenter(latlng);
-                    map.setZoom(18);
+                    map.setZoom(6);
 
                     self.setMarker(latlng);
                     self.updateGeolocation(latlng);

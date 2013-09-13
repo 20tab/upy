@@ -82,7 +82,7 @@ PROJ_LOCALE_PATHS = [
 ]
 """ List of directory for your translations """
 DISALLOW_ALL_ROBOTS = False
-""" If """
+""" If True the directive: \"User-agent: * Disallow: /\" will be added in robots.txt """
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.

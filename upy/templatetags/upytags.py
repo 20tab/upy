@@ -4,6 +4,7 @@ Contains some common filter as utilities
 from django.template import Library
 register = Library()
 
+
 @register.filter
 def euro(value):
     """
@@ -15,6 +16,7 @@ def euro(value):
         return u''
     return val.replace('.', ',')
 
+
 @register.filter
 def comma2dot(value):
     """
@@ -24,6 +26,7 @@ def comma2dot(value):
     if not val:
         return value
     return val[0].replace(',', '.')
+
 
 @register.filter
 def uRange(value):

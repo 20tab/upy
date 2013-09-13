@@ -2,9 +2,11 @@
 """
 Contains the script that create a upy project 
 """
-import os,shutil,upy
+import os, shutil, upy
 from optparse import OptionParser
-UPY_LOCATION = "%s/%s" % (os.path.dirname(upy.__file__),"bin/upy_project_set")
+
+UPY_LOCATION = "%s/%s" % (os.path.dirname(upy.__file__), "bin/upy_project_set")
+
 
 def overwrite_proj():
     """
@@ -19,24 +21,25 @@ def overwrite_proj():
         print "Tap y or n"
         return overwrite_proj()
 
-def create_project(name = None):
+
+def create_project(name=None):
     """
     It creates upy project
     """
     listing = []
     if os.path.exists(UPY_LOCATION):
         listing = os.listdir(UPY_LOCATION)
-    
+
     create_proj = False
     if name:
-        if os.path.exists("%s" %(name)):
+        if os.path.exists("%s" % (name)):
             print "Project already exists!"
             if overwrite_proj():
                 for f in listing:
-                    if os.path.isdir("%s/%s" % (name,f)):
-                        shutil.rmtree("%s/%s" % (name,f))
+                    if os.path.isdir("%s/%s" % (name, f)):
+                        shutil.rmtree("%s/%s" % (name, f))
                     else:
-                        os.remove("%s/%s" % (name,f))
+                        os.remove("%s/%s" % (name, f))
                 create_proj = True
         else:
             os.mkdir(name)
@@ -54,16 +57,17 @@ def create_project(name = None):
             print "Copying files: "
             print listing
             for f in listing:
-                if os.path.isdir("%s/%s" % (UPY_LOCATION,f)):
-                    shutil.copytree("%s/%s" % (UPY_LOCATION,f),'%s/%s' % (name,f))
+                if os.path.isdir("%s/%s" % (UPY_LOCATION, f)):
+                    shutil.copytree("%s/%s" % (UPY_LOCATION, f), '%s/%s' % (name, f))
                 elif f[-3:] != "pyc" or f[-3:] != "svn":
-                    shutil.copy2('%s/%s' % (UPY_LOCATION,f), '%s/%s' % (name,f))
+                    shutil.copy2('%s/%s' % (UPY_LOCATION, f), '%s/%s' % (name, f))
         except Exception, e:
             print e
             print "Something is going wrong!"
-        
+
         else:
-            print "Project configured!"  
+            print "Project configured!"
+
 
 def main():
     parser = OptionParser(usage="usage: %prog startproject [options]",
@@ -77,7 +81,8 @@ def main():
                       action="store",
                       dest="name",
                       default="",
-                      help="If it isn't empty create a directory in which it creates the project, else the projects will be created in the current directory",)
+                      help="""If it isn't empty create a directory in which it creates the project,
+                              else the projects will be created in the current directory""", )
     (options, args) = parser.parse_args()
 
     if len(args) != 1:
@@ -85,6 +90,7 @@ def main():
     if args and args[0] != "startproject":
         parser.error("use startproject command as first argument")
     create_project(options.name)
-    
+
+
 if __name__ == '__main__':
     main()

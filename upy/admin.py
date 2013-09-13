@@ -8,6 +8,7 @@ class ButtonLink(object):
     """
     It defines a button that you can locate near the history button in change_form.html as a link
     """
+
     def __init__(self, short_description, link, css_id=None, css_class=None):
         """
         Use it to create a ButtonableLink. It takes following parameters:
@@ -26,6 +27,7 @@ class ButtonForm(object):
     """
     It defines a button that you can locate near the history button in change_form.html as a form
     """
+
     def __init__(self, name, submit_value, form_action, input_dict, form_method="post", css_class=None):
         """
         Use it to create a ButtonableForm. It takes following parameters:
@@ -47,21 +49,23 @@ class ButtonableModelAdmin(admin.ModelAdmin):
     """
     Use this admin only if you want apply custom button on the change_form template in admin panel.
     """
-    buttons_link=[]
-    buttons_form=[]
+    buttons_link = []
+    buttons_form = []
+
     def add_view(self, request, form_url='', extra_context={}):
-        extra_context['buttons_link']=self.buttons_link
-        extra_context['buttons_form']=self.buttons_form 
-        extra_context['button_object_id']=''
-        return super(ButtonableModelAdmin, self).add_view(request, form_url,extra_context)
-    def change_view(self, request, object_id, form_url = '',extra_context={}): 
+        extra_context['buttons_link'] = self.buttons_link
+        extra_context['buttons_form'] = self.buttons_form
+        extra_context['button_object_id'] = ''
+        return super(ButtonableModelAdmin, self).add_view(request, form_url, extra_context)
+
+    def change_view(self, request, object_id, form_url='', extra_context={}):
         """
         It adds ButtonLinks and ButtonForms to extra_context used in the change_form template
         """
-        extra_context['buttons_link']=self.buttons_link
-        extra_context['buttons_form']=self.buttons_form
-        extra_context['button_object_id']=object_id  
-        return super(ButtonableModelAdmin, self).change_view(request, object_id, form_url,extra_context)
+        extra_context['buttons_link'] = self.buttons_link
+        extra_context['buttons_form'] = self.buttons_form
+        extra_context['button_object_id'] = object_id
+        return super(ButtonableModelAdmin, self).change_view(request, object_id, form_url, extra_context)
 
 
 class HiddenModelAdmin(admin.ModelAdmin):
