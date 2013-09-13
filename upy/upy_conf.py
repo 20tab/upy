@@ -40,7 +40,6 @@ def validate_config(config):
     """
     Validates config.py before launching some manage's functions
     """
-    check_uwsgi_config(config)
     if config.USE_UPY_SEO:
         if not config.USE_UPY_TREE:
             print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
@@ -61,27 +60,3 @@ def validate_config(config):
         if "_" in host:
             print "UPY improperly configured: you can't set ALLOWED_HOSTS with some \"_\""
             sys.exit()
-
-
-def check_uwsgi_config(config):
-    """
-    Validates the uwsgi configuration before launching some manage's functions
-    """
-    if config.USE_UPY_NEWSLETTER:
-        if not config.UWSGI_INI:
-            print "UPY improperly configured: you can't set USE_UPY_NEWSLETTER = True without uwsgi configuration file."
-            sys.exit()
-        else:
-            if not os.path.exists(config.UWSGI_INI):
-                print "UPY improperly configured: %s doesn't exists." % config.UWSGI_INI
-                sys.exit()
-            spooler = False
-            spooler_chdir = False
-            for line in open(config.UWSGI_INI):
-                if line[:7] == "spooler" and (line[7:8] == " " or line[7:8] == "="):
-                    spooler = True
-                if line[:13] == "spooler-chdir":
-                    spooler_chdir = True
-            if not spooler or not spooler_chdir:
-                print "UPY improperly configured: spooler or spooler-chdir not defined in %s" % config.UWSGI_INI
-                sys.exit()

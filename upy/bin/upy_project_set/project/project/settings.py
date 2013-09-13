@@ -105,9 +105,6 @@ if USE_FULLHD_SUPPORT:
 else:
     PIL_IMAGEFILE_MAXBLOCK = 256 * 2 ** 10 # 260KB
     UPYIMAGE_LIMIT_AREA = 1049188 # 1366*768px +
-            
-if USE_UPY_NEWSLETTER:
-    INSTALLED_APPS.append('upy.contrib.newsletter')
 
 if USE_UPY_COLOR:
     INSTALLED_APPS.append('upy.contrib.colors')

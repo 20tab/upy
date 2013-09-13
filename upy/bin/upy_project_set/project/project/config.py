@@ -68,8 +68,6 @@ USE_FULLHD_SUPPORT = False
 """ If True allow big size image (1920x1080px) """
 RGBA_FILTER = True 
 """ Allow only RGB and RGBa images' modes """
-USE_UPY_NEWSLETTER = False 
-""" If True upy newsletter module will be installed. It needs USE_UPY_G11N = True """
 USE_UPY_JQUERY_LIB = True
 """ If True standard upy jquery library will be included in base template """
 USE_UPY_JQUERYUI_LIB = False
@@ -109,11 +107,6 @@ DATABASES = {
 }
 """
 
-######################## Newsletter configuration #########################
-UPY_NEWSLETTER_SPOOLER_TIMEOUT = 300 
-""" Frequency of recovery spooler in seconds """
-UPY_SECRET_KEY = "test_secret_key"
-""" It contributes to hashing contact secret key """
 USE_LOCAL_SMTP_SERVER = True
 """ If True there is no need to set smtp parameters """
 EMAIL_USER = "info@email.com"
@@ -121,21 +114,6 @@ EMAIL_USER = "info@email.com"
 SERVER_EMAIL = EMAIL_USER
 """ Default server's e-mail """ 
 DEFAULT_FROM_EMAIL = "info@email.com"
-""" Default sender's e-mail """ 
-if USE_LOCAL_SMTP_SERVER:
-    EMAIL_HOST_USER = EMAIL_USER
-    """ Should be like EMAIL_USER. So you shouldn't set this parameters """ 
-else:
-    EMAIL_HOST = "localhost" # or "smtp.myexamplesite.it"
-    """ smtp host """
-    EMAIL_PORT = 25
-    """ smtp port """
-    EMAIL_HOST_USER = EMAIL_USER
-    EMAIL_HOST_PASSWORD = "pswd"
-    """ smtp account's password """
-    EMAIL_USE_TLS = False
-    """ If True account uses tls """
-
+""" Default sender's e-mail """
 CKEDITOR_UPLOADS = 'uploads' 
 """ Must be the only name of directory where you want upload file through ckeditor, without slash """
-#######################################################################################################################################
