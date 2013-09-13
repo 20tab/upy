@@ -1,0 +1,5 @@
+{% if thumbnail %}
+<a href="{{ model.image.url }}" class="upy_colorbox" title="{{model}}">
+    <img src="{{thumbnail.url}}" class="upy_admin_thumb" alt="{{model}}"/>
+</a>
+{% endif %}

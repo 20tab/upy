@@ -24,7 +24,7 @@ def add_app_icons(app_list, autocomplete):
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
             app_temp['image'] = def_app_img
             if appicon.image != None:
-                app_temp['image'] = appicon.image
+                app_temp['image'] = appicon.thumb
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
@@ -106,7 +106,7 @@ def add_model_icons(app_list,custom_admin):
                 model_temp = [x for x in models_list if u"%s" % x['name'].lower() == u"%s" % m.model.lower()][0]
                 model_temp['image'] = def_model_img
                 if m.image:
-                    model_temp['image'] = m.image
+                    model_temp['image'] = m.thumb
                 models_temp.append(model_temp)
             except IndexError:
                 pass
@@ -116,7 +116,6 @@ def add_model_icons(app_list,custom_admin):
                 if m['name'].lower() not in names:
                     m['image'] = def_model_img
                     models_temp.append(m)
-        
 
         if models_temp:
             app['models'] = models_temp

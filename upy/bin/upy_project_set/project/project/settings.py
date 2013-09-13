@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'upy',
     'upy.contrib.cked',
     'upy.contrib.inspect',
+    'upy.contrib.image',
 ]
 if USE_UPY_TREE:
     INSTALLED_APPS.append('upy.contrib.tree')
@@ -145,6 +146,8 @@ JQUERY_LIB = "/upy_static/js/lib/jquery-1.9.0.js"
 JQUERYUI_LIB = "/upy_static/js/lib/jquery-ui-1.10.0.custom.min.js"
 
 JQUERYUI_CSSLIB = "/upy_static/css/jqueryui/jquery-ui-1.10.0.custom.css"
+
+ADMIN_THUMBNAIL_DEFAULT_TEMPLATE = "admin/default_thumbnail.html"
 
 #This variables are necessary for treenode template
 UPY_ADMIN_MEDIA = '/upy_static/'

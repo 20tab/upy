@@ -10,6 +10,8 @@ class MetaSite(UpyModel):
     This is the class that defines meta informations of the website.
     """
     default = NullTrueField(unique=True, verbose_name=_(u"Default"))
+    favicon = models.FileField(null=True, blank=True, upload_to="favicon",
+                               help_text=_(u"Upload the favicon file. (25x25 px / .ico extension)"))
     title = models.CharField(max_length=150, help_text=_(u"Set the website's title."),
                              verbose_name=_(u"Title"))
     description = models.CharField(max_length=250, null=True, blank=True,
@@ -33,6 +35,9 @@ class MetaSite(UpyModel):
                               verbose_name=_(u"Robots"))
     generator = models.CharField(max_length=250, null=True, blank=True, help_text=_(u"Set the website's generator."),
                                  verbose_name=_(u"Generator"))
+    html_head = models.TextField(null=True, blank=True,
+                                 help_text=_(u"Set other html code to put in HEAD section. "),
+                                 verbose_name=_(u"Html head"))
 
     def get_fields(self):
         """
@@ -92,6 +97,9 @@ class MetaPage(UpyModel):
                               help_text=_(u"Select the value of meta tag robots if you want set it."),
                               verbose_name=_(u"Robots"))
     page = models.OneToOneField(Page, verbose_name=_(u"Page"))
+    html_head = models.TextField(null=True, blank=True,
+                                 help_text=_(u"Set other html code to put in HEAD section. "),
+                                 verbose_name=_(u"Html head"))
 
     def get_fields(self):
         """

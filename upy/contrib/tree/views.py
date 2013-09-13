@@ -53,7 +53,8 @@ def favicon(request):
     """
     favicon = "/upy_static/images/favicon.ico"
     try:
-
-        return HttpResponseRedirect(favicon)
+        from upy.contrib.seo.models import MetaSite
+        site = MetaSite.objects.get(default=True)
+        return HttpResponseRedirect(site.favicon.url)
     except:
         return HttpResponseRedirect(favicon)

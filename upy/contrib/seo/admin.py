@@ -1,6 +1,7 @@
 from django.contrib import admin
 from upy.contrib.seo.models import MetaSite, MetaNode, MetaPage
 from django.conf import settings
+
 if settings.USE_UPY_SEO and len(settings.LANGUAGES) > 1:
     from upy.contrib.tabbed_translation.admin import TransAdmin as MetaAdmin
 else:
@@ -15,11 +16,11 @@ class MetaSiteAdmin(MetaAdmin):
     list_filter = ('author',)
     save_on_top = True
     fieldsets = (
-        ('', {'fields': ('default',)}),
+        ('', {'fields': ('default', 'favicon')}),
         ('', {'fields': (
             ('title', 'description'), ('keywords', 'author'),
-            ('content_type','robots'),
-            ('generator', ),),
+            ('content_type', 'robots'),
+            ('generator', ), ('html_head',)),
             'classes': ('trans-fieldset',)},),
     )
 
@@ -50,7 +51,7 @@ class MetaPageAdmin(MetaAdmin):
     fieldsets = (('', {'fields': ('page',)}), ('', {
         'fields': (
             ('title', 'description'), ('keywords', 'author'),
-            ('content_type', 'robots'),),
+            ('content_type', 'robots'), ('html_head',)),
         'classes': ('trans-fieldset',), }))
     save_on_top = True
 

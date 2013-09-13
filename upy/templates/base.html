@@ -9,6 +9,7 @@
 <meta name="generator" content="{% block generator %}{% if META.generator %}{{ META.generator }}{% else %}UPY {{UPY_VERSION}} - upyproject.com{% endif %}{% endblock generator %}" />
 {% if META.author %}<meta name="author" content="{{META.author}}" />{% endif %}
 {% if META.robots %}<meta name="robots" content="{{ META.robots }}" />{% endif %}
+{% if META.html_head %}{{ META.html_head|safe }}{% endif %}
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 {% endblock head_meta %}
 {% if USE_UPY_CSS_RESET %}<link rel="stylesheet" type="text/css" href="/upy_static/css/reset.css" />{% endif %}

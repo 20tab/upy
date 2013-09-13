@@ -1,28 +1,30 @@
 from django.conf import settings
 from django.contrib import admin
-from django import forms
+from imagekit.admin import AdminThumbnail as IKAdminThumbnail
+from upy.contrib.sortable.admin import PositionAdmin
 
 
-class UPYImageForm(forms.ModelForm):
+class AdminThumbnail(IKAdminThumbnail):
     """
-    Abstract form to use for UPYImage
+    A convenience utility for adding thumbnails to Django's admin change list.
     """
+    def __init__(self, image_field, template=None):
+        """
+        :param image_field: The name of the ImageField or ImageSpecField on the
+            model to use for the thumbnail.
+        :param template: The template with which to render the thumbnail
 
-    def __init__(self, *args, **kwargs):
-        super(UPYImageForm, self).__init__(*args, **kwargs)
-        if hasattr(self.instance.__class__.UPYImageMeta, 'label'):
-            self.fields['original_image'].label = self.instance.__class__.UPYImageMeta.label
-        if hasattr(self.instance.__class__.UPYImageMeta, 'required'):
-            self.fields['original_image'].required = self.instance.__class__.UPYImageMeta.required
+        """
+        self.image_field = image_field
+        self.template = template or getattr(settings,
+                                            "ADMIN_THUMBNAIL_DEFAULT_TEMPLATE",
+                                            "imagekit/admin/thumbnail.html")
 
 
-class UPYImageAdmin(admin.ModelAdmin):
+class ColorBoxAdmin(admin.ModelAdmin):
     """
-    Abstract admin option class for UPYImage
+    Abstract admin option class to add colorbox.js (jQuery plugin)
     """
-    list_display = ('original_image', 'admin_thumbnail_view',)
-    form = UPYImageForm
-
     class Media:
         css = {"all": ("/upy_static/colorbox/colorbox.css",)}
         js = (settings.JQUERY_LIB,
@@ -34,18 +36,17 @@ class UPYImageAdmin(admin.ModelAdmin):
         abstract = True
 
 
-class PositionImageAdmin(UPYImageAdmin):
+class ColorBoxPositionAdmin(admin.ModelAdmin):
     """
-    Abstract admin option class for PositionImage
+    Abstract admin option class to add colorbox.js (jQuery plugin)
     """
-    list_display = ('position', 'original_image', 'admin_thumbnail_view',)
-    list_editable = ['position', ]
-    list_display_links = ['original_image', ]
-    ordering = ('position',)
-    exclude = ('position',)
-
     class Media:
-        js = UPYImageAdmin.Media.js + ('/upy_static/js/admin-list-reorder.js',)
+        css = {"all": ("/upy_static/colorbox/colorbox.css",)}
+        js = (settings.JQUERY_LIB,
+              settings.JQUERYUI_LIB,
+              '/upy_static/js/admin-list-reorder.js',
+              '/upy_static/colorbox/jquery.colorbox-min.js',
+              '/upy_static/js/colorbox-init.js')
 
     class Meta:
         abstract = True

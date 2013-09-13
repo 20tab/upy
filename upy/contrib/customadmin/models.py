@@ -4,7 +4,7 @@ It contains customadmin's models. It's used to customize admin's interface
 from upy.contrib.tree.models import _
 from django.db import models
 from upy.contrib.colors.fields import ColorField
-from upy.contrib.image.models import PositionImage
+from upy.contrib.sortable.models import PositionModel
 from django.conf import settings
 from imagekit.models import ImageSpecField, ProcessedImageField
 from pilkit.processors import ResizeToFit
@@ -200,7 +200,7 @@ class CustomAdmin(models.Model):
         ordering = ['branding']
 
 
-class CustomApp(PositionImage):
+class CustomApp(PositionModel):
     """
     This object links the installed_apps with an icon to use if CustomAdmin.use_app_icons is True
     """
@@ -210,8 +210,9 @@ class CustomApp(PositionImage):
     verbose_app_name = models.CharField(max_length=250, unique=True,
                                         help_text=_(u"Write the verbose name to show"),
                                         verbose_name=_(u"Verbose app name"))
-    image = ImageSpecField([ResizeToFit(80, 80)],
-                           source='original_image',
+    image = models.ImageField(_(u'Image'), null=True, blank=True, upload_to='upyimage')
+    thumb = ImageSpecField([ResizeToFit(80, 80)],
+                           source='image',
                            format='png')
     show_models = models.BooleanField(
         default=True,
@@ -220,11 +221,7 @@ class CustomApp(PositionImage):
     )
 
     def __unicode__(self):
-        return u"%s" % (self.application)
-
-    class UPYImageMeta:
-        label = _(u"Image")
-        required = False
+        return self.application
 
     class Meta:
         verbose_name = _(u"Custom App")
@@ -232,7 +229,7 @@ class CustomApp(PositionImage):
         ordering = ['position']
 
 
-class CustomLink(PositionImage):
+class CustomLink(PositionModel):
     """
     This object links the installed_apps with an icon to use 
     if CustomAdmin.use_app_icons is True
@@ -243,15 +240,11 @@ class CustomLink(PositionImage):
     verbose_url_name = models.CharField(max_length=250, unique=True,
                                         help_text=_(u"Write the verbose name to show"),
                                         verbose_name=_(u"Verbose url name"))
-    image = ImageSpecField([ResizeToFit(80, 80)], source='original_image', format='png')
-
+    image = models.ImageField(_(u'Image'), null=True, blank=True, upload_to='upyimage')
+    thumb = ImageSpecField([ResizeToFit(80, 80)], source='image', format='png')
 
     def __unicode__(self):
-        return u"%s" % (self.link_url)
-
-    class UPYImageMeta:
-        label = _(u"Image")
-        required = False
+        return self.link_url
 
     class Meta:
         verbose_name = _(u"Custom Link")
@@ -259,7 +252,7 @@ class CustomLink(PositionImage):
         ordering = ['position']
 
 
-class CustomModel(PositionImage):
+class CustomModel(PositionModel):
     """
     This object links models in installed_apps with an icon to use
     if CustomAdmin.view_mode == "use_model_icons" or CustomAdmin.view_mode == "use_inner_model_icons"
@@ -270,16 +263,13 @@ class CustomModel(PositionImage):
     model = models.CharField(max_length=250,
                              help_text=_(u"Select a model"),
                              verbose_name=_(u"Model"))
-    image = ImageSpecField([ResizeToFit(50, 50)],
-                           source='original_image',
+    image = models.ImageField(_(u'Image'), null=True, blank=True, upload_to='upyimage')
+    thumb = ImageSpecField([ResizeToFit(50, 50)],
+                           source='image',
                            format='png')
 
     def __unicode__(self):
-        return u"%s" % (self.model)
-
-    class UPYImageMeta:
-        label = _(u"Image")
-        required = False
+        return self.model
 
     class Meta:
         verbose_name = _(u"Custom Model")

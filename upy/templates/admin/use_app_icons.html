@@ -11,7 +11,7 @@
 	{% if app_list|length > 1 %}
     {% for link in CUSTOM_LINK_LIST %}
      <div class="app_icon_box">
- 		<a href="{{ link.link_url }}" class="section"><img src="{% if link.image %}{{ link.image.url }}{% else %}/upy_static/images/default_app_icon.png{% endif %}" alt="{% blocktrans with link.verbose_url_name as name %}{{ name }}{% endblocktrans %}" /></a>
+ 		<a href="{{ link.link_url }}" class="section"><img src="{% if link.image %}{{ link.thumb.url }}{% else %}/upy_static/images/default_app_icon.png{% endif %}" alt="{% blocktrans with link.verbose_url_name as name %}{{ name }}{% endblocktrans %}" /></a>
         <p><a href="{{ link.link_url }}" class="section">{% blocktrans with link.verbose_url_name as name %}{{ name }}{% endblocktrans %}</a></p>
       </div> <!-- /module -->
     {% endfor %}

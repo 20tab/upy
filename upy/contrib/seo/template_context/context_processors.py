@@ -15,6 +15,7 @@ class MetaContent(object):
         self.content_type = ""
         self.robots = ""
         self.generator = ""
+        self.html_head = ""
 
     def fill_content(self, metaObject):
         """
@@ -26,6 +27,7 @@ class MetaContent(object):
         self.author = metaObject.author
         self.content_type = metaObject.content_type
         self.robots = metaObject.robots
+        self.html_head = metaObject.html_head
         try:#perche' Page non ha generator
             self.generator = metaObject.generator
         except:
@@ -73,14 +75,14 @@ def set_meta(request):
         except MetaPage.DoesNotExist:
             page = None
         meta_temp = MetaContent()
-        attr_list = ('title', 'description', 'keywords', 'author', 'content_type', 'robots', 'generator',)
-        if page :
+        attr_list = ('title', 'description', 'keywords', 'author', 'content_type', 'robots', 'generator', 'html_head')
+        if page:
             for item in attr_list:
                 if hasattr(page, item):
-                    setattr(meta_temp, item, getattr(page, item))
+                    setattr(meta_temp, item, getattr(page, item, ""))
         if site:
             for item in attr_list:
                 if hasattr(site, item) and not meta_temp.check_attr(item):
-                    setattr(meta_temp, item, getattr(site, item))
+                    setattr(meta_temp, item, getattr(site, item, ""))
         context_extras['META'] = meta_temp
     return context_extras
