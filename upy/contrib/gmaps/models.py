@@ -21,7 +21,7 @@ class GmapsModel(models.Model):
     area = models.CharField(_(u"Area"), blank=True, max_length=250)
     city = models.CharField(_(u'City'), blank=True, max_length=250)
     address = models.CharField(_(u"Address"), blank=True, max_length=250)
-    zip_code  = models.CharField(_(u"Zip code"), blank=True, max_length=50)
+    zip_code = models.CharField(_(u"Zip code"), blank=True, max_length=50)
     geoaddress = map_fields.AddressField(_(u"Geo Address"), blank=True, max_length=250)
     geolocation = map_fields.GeoLocationField(_(u"Geo Location"), blank=True, max_length=250)
       

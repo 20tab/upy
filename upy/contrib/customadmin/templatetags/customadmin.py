@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.template import Library
 from upy.contrib.customadmin.models import CustomApp, CustomModel, CustomAdmin
 
@@ -23,8 +25,9 @@ def add_app_icons(app_list, autocomplete):
         try:
             app_temp = [x for x in app_list if x.get('name').lower() == appicon.application.lower()][0]
             app_temp['image'] = def_app_img
-            if appicon.image != None:
-                app_temp['image'] = appicon.thumb
+            if appicon.image is not None:
+                if os.path.exists("{}/{}".format(settings.PROJECT_PATH, appicon.image.url)):
+                    app_temp['image'] = appicon.thumb
             app_temp['verbose_app_name'] = appicon.verbose_app_name
             app_list_ok.append(app_temp)
             #app_list_ok.extend([x for x in app_list if x.get('name') == appicon.application])
@@ -106,7 +109,8 @@ def add_model_icons(app_list,custom_admin):
                 model_temp = [x for x in models_list if u"%s" % x['name'].lower() == u"%s" % m.model.lower()][0]
                 model_temp['image'] = def_model_img
                 if m.image:
-                    model_temp['image'] = m.thumb
+                    if os.path.exists("{}/{}".format(settings.PROJECT_PATH, m.image.url)):
+                        model_temp['image'] = m.thumb
                 models_temp.append(model_temp)
             except IndexError:
                 pass
