@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.admin import TabularInline, StackedInline
 
+
 class PositionAdmin(admin.ModelAdmin):
     """
     Abstract admin option class for PositionModel
@@ -20,10 +21,12 @@ class PositionAdmin(admin.ModelAdmin):
     class Meta:
         abstract = True
 
-class OrderableStackedInline(StackedInline):
+
+class SortableStackedInline(StackedInline):
     
     """Adds necessary media files to regular Django StackedInline"""
     extra = 0
+
     class Media:
         css = {"all" : ("/upy_static/css/inline-reorder.css",)}
         js = (settings.JQUERY_LIB,
@@ -31,10 +34,11 @@ class OrderableStackedInline(StackedInline):
               '/upy_static/js/inline-reorder.js',)
 
 
-class OrderableTabularInline(TabularInline):
+class SortableTabularInline(TabularInline):
     
     """Adds necessary media files to regular Django TabularInline"""
     extra = 0
+
     class Media:
         css = {"all" : ("/upy_static/css/inline-reorder.css",)}
         js = (settings.JQUERY_LIB,
