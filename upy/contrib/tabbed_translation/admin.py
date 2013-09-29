@@ -5,9 +5,8 @@ from django.contrib.admin.options import InlineModelAdmin
 
 
 class TransAdmin(TranslationAdmin):
-
     def __init__(self, *args, **kwargs):
-        super(TransAdmin,self).__init__(*args, **kwargs)
+        super(TransAdmin, self).__init__(*args, **kwargs)
         self.tab_patch_fieldsets()
         self._patch_prepopulated_fields()
 
@@ -22,14 +21,14 @@ class TransAdmin(TranslationAdmin):
                         fields = []
                         for f in fs[1]['fields']:
                             if len(f) == 1:
-                                fields.append(tuple(["%s_%s" % (f[0],lang[0].replace("-", "_"))]))
+                                fields.append(tuple(["%s_%s" % (f[0], lang[0].replace("-", "_"))]))
                             else:
                                 group = []
                                 for ff in list(f):
-                                    group.append("%s_%s" % (ff,lang[0].replace("-", "_")))
+                                    group.append("%s_%s" % (ff, lang[0].replace("-", "_")))
                                 fields.append(tuple(group))
-                        fieldset.append({'fields':fields,
-                                         'classes':('translatable',)})
+                        fieldset.append({'fields': fields,
+                                         'classes': ('translatable',)})
                         fieldsets.append(fieldset)
                 else:
                     fieldsets.append(fs)
@@ -40,24 +39,24 @@ class TransAdmin(TranslationAdmin):
         for dest, sources in self.prepopulated_fields.items():
             if dest in self.trans_opts.fields:
                 for lang in settings.LANGUAGES:
-                    key = "%s_%s" % (dest,lang[0].replace("-", "_"))
+                    key = "%s_%s" % (dest, lang[0].replace("-", "_"))
                     values = []
                     for source in sources:
                         if source in self.trans_opts.fields:
-                            values.append("%s_%s" % (source,lang[0].replace("-", "_")))
+                            values.append("%s_%s" % (source, lang[0].replace("-", "_")))
                         else:
                             values.append(source)
                     prepopulated_fields[key] = values
             else:
                 key = dest
                 values = []
-                if hasattr(settings,"MODELTRANSLATION_DEFAULT_LANGUAGE"):
+                if hasattr(settings, "MODELTRANSLATION_DEFAULT_LANGUAGE"):
                     lang = settings.MODELTRANSLATION_DEFAULT_LANGUAGE
                 else:
                     lang = settings.LANGUAGES[0][0]
                 for source in sources:
                     if source in self.trans_opts.fields:
-                        values.append("%s_%s" % (source,lang))
+                        values.append("%s_%s" % (source, lang))
                     else:
                         values.append(source)
                 prepopulated_fields[key] = values
@@ -75,14 +74,13 @@ class TransAdmin(TranslationAdmin):
                 settings.JQUERYUI_CSSLIB,
             ),
         }
-        
+
 
 class TransInlineModelAdmin(TranslationBaseModelAdmin, InlineModelAdmin):
-    
-    def __init__(self,*args,**kwargs):
-        super(TransInlineModelAdmin,self).__init__(*args,**kwargs)
+    def __init__(self, *args, **kwargs):
+        super(TransInlineModelAdmin, self).__init__(*args, **kwargs)
         self.tab_patch_fieldsets()
-    
+
     def get_formset(self, request, obj=None, **kwargs):
         kwargs = self._do_get_form_or_formset(request, obj, **kwargs)
         return super(TransInlineModelAdmin, self).get_formset(request, obj, **kwargs)
@@ -105,14 +103,14 @@ class TransInlineModelAdmin(TranslationBaseModelAdmin, InlineModelAdmin):
                         fields = []
                         for f in fs[1]['fields']:
                             if len(f) == 1:
-                                fields.append(tuple(["%s_%s" % (f[0],lang[0].replace("-", "_"))]))
+                                fields.append(tuple(["%s_%s" % (f[0], lang[0].replace("-", "_"))]))
                             else:
                                 group = []
                                 for ff in list(f):
-                                    group.append("%s_%s" % (ff,lang[0].replace("-", "_")))
+                                    group.append("%s_%s" % (ff, lang[0].replace("-", "_")))
                                 fields.append(tuple(group))
-                        fieldset.append({'fields':fields,
-                                         'classes':('translatable',)})
+                        fieldset.append({'fields': fields,
+                                         'classes': ('translatable',)})
                         fieldsets.append(fieldset)
                 else:
                     fieldsets.append(fs)
