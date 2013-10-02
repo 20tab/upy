@@ -21,7 +21,7 @@ class GmapsAdmin(admin.ModelAdmin):
     list_filter = ('continent',)
     search_fields = ('geoaddress', 'continent', 'country', 'city', 'address', 'zip_code')
     fieldsets = (
-        ('Cane', {
+        ('', {
             'fields': (
                 ('continent', 'country'), ('area', 'city',),
                 ('address', 'zip_code'), ('geoaddress',), ('geolocation',)

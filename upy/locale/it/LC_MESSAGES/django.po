@@ -37,7 +37,7 @@ msgstr "South Africa"
 
 #: upy/fields.py:40 upy/fields.py:508
 msgid "Oceania"
-msgstr "Oceani"
+msgstr "Oceania"
 
 #: upy/fields.py:41 upy/fields.py:536
 #, fuzzy

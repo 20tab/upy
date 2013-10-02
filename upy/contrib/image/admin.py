@@ -33,7 +33,6 @@ class AdminThumbnail(IKAdminThumbnail):
 
         try:
             original_image = getattr(obj, self.original_image, None)
-            print original_image
         except:
             original_image = None
         if not original_image:
