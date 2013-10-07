@@ -22,7 +22,9 @@ jQuery(function(){
 		//restore the original contries list
 		$('#id_'+id_center+'country').html(all_countries_html);
 		//remove all the continent and countries other than the detected one
-		$('#id_'+id_center+'country').children().not('.'+new_continent).remove('optgroup');		
+		if(new_continent != ""){
+			$('#id_'+id_center+'country').children().not('.'+new_continent).remove('optgroup');
+		}
 	});
 
 });
