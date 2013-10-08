@@ -20,4 +20,6 @@ class GoogleMapsAddressWidget(widgets.TextInput):
         if value != '':
             # Only add the 'value' attribute if a value is non-empty.
             final_attrs['value'] = force_unicode(self._format_value(value))
-        return mark_safe(u'<input%s /><div class="map_canvas_wrapper"><div id="map_canvas"></div></div>' % flatatt(final_attrs))
+        map_id = final_attrs['id'].replace("id_", "")
+        map_id = map_id.replace("geoaddress", "")
+        return mark_safe(u'<input%s /><div class="map_canvas_wrapper"><div id="map_%s_canvas" class="map_canvas"></div></div>' % (flatatt(final_attrs), map_id))
