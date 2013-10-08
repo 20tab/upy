@@ -24,12 +24,10 @@ This script expects:
 
 */
 
-function googleMapAdmin() {
-
+function googleMapAdmin(thisid) {
     var geocoder = new google.maps.Geocoder();
     var map;
     var marker;
-
     var self = {
         initialize: function() {
             var lat = 41; //0
@@ -41,16 +39,16 @@ function googleMapAdmin() {
             if (existinglocation) {
                 lat = existinglocation[0];
                 lng = existinglocation[1];
-                zoom = 6;
+                zoom = 12;
             }
 
             var latlng = new google.maps.LatLng(lat,lng);
             var myOptions = {
               zoom: zoom,
-              center: latlng,
-              mapTypeId: google.maps.MapTypeId.HYBRID
+              center: latlng
+              //mapTypeId: google.maps.MapTypeId.TERRAIN
             };
-            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            map = new google.maps.Map(document.getElementById("map_"+thisid+"_canvas"), myOptions);
             if (existinglocation) {
                 self.setMarker(latlng);
             }
@@ -64,25 +62,25 @@ function googleMapAdmin() {
             	$("#gmap_search").css("border", "4px green solid");
             	alert("change");
             });*/
-            $("#gmap_search").click(function() {
+            $("#gmap_"+thisid+"_search").click(function() {
             	self.codeAddress();
             });
         },
 
         getExistingLocation: function() {
-            var geolocation = $("#id_geolocation").val();
+            var geolocation = $("#id_"+thisid+"geolocation").val();
             if (geolocation) {
                 return geolocation.split(',');
             }
         },
 
         codeAddress: function() {
-            var address = $("#id_geoaddress").val();
+            var address = $("#id_"+thisid+"geoaddress").val();
             geocoder.geocode({'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     var latlng = results[0].geometry.location;
                     map.setCenter(latlng);
-                    map.setZoom(6);
+                    map.setZoom(14);
 
                     self.setMarker(latlng);
                     self.updateGeolocation(latlng);
@@ -124,28 +122,58 @@ function googleMapAdmin() {
         },
 
         updateGeolocation: function(latlng) {
-            $("#id_geolocation").val(latlng.lat() + "," + latlng.lng());
+            $("#id_"+thisid+"geolocation").val(latlng.lat() + "," + latlng.lng());
         }
     }
 
     return self;
 }
 jQuery(function() {
-    var init_upy_map = function(){
-        if($("#id_geoaddress").siblings('#gmap_search').attr('id') == undefined){
-            $("#id_geoaddress").css("width","400px");
-            $("#id_geoaddress").after("<img id='gmap_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
-            var googlemap = googleMapAdmin();
+    var init_upy_map = function(elem){
+        if (elem != '') {
+            var thisid = elem.replace('id_','').replace('geoaddress','');
+            if($('#'+elem).siblings('#gmap_'+thisid+'_search').attr('id') == undefined){
+            	$('#'+elem).css("width","400px");
+            	$('#'+elem).after("<img id='gmap_"+thisid+"_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
+        	}
+            var googlemap = googleMapAdmin(thisid);
             googlemap.initialize();
+        } else {
+            $("[id^='id_'][id$='geoaddress']").each(function(){
+                var thisid = $(this).attr('id').replace('id_','').replace('geoaddress','');
+                if($(this).siblings('#gmap_'+thisid+'_search').attr('id') == undefined){
+                    $(this).css("width","400px");
+                    $(this).after("<img id='gmap_"+thisid+"_search' src='/static/admin/img/icon_searchbox.png' alt='Search' style='cursor:pointer;'>");
+                    var googlemap = googleMapAdmin(thisid);
+                    googlemap.initialize();
+                }
+
+            });
         }
     }
-
-    if($("#id_geoaddress").parents('fieldset').find('h2>a').length > 0){
-        $("#id_geoaddress").parents('fieldset').find('h2>a').on('click',function(){
-            init_upy_map();
-        });
-    }
-    else{
-        init_upy_map();
-    }
+	$("[id^='id_'][id$='geoaddress']").each(function(){
+		if ($(this).attr('id').search('__prefix__') == -1){
+		    if($(this).parents('fieldset').find('h2>a').length > 0){
+        		$(this).parents('fieldset').find('h2>a').on('click',function(){
+        	    	init_upy_map('');
+    	    	});
+	    	} else {
+        		init_upy_map('');
+    		}
+    	}
+    });
+    $(".add-row a").click(function(){
+    	var total = $("[id^='id_'][id$='geoaddress']").length;
+    	$("[id^='id_'][id$='geoaddress']").each(function(index){
+			if (index === total - 2) {
+		    	if($(this).parents('fieldset').find('h2>a').length > 0){
+        			$(this).parents('fieldset').find('h2>a').on('click',function(){
+        	    		init_upy_map($(this).attr('id'));
+		        	});
+	    		} else {
+        			init_upy_map($(this).attr('id'));
+	    		}
+	    	}
+    	});
+    });
 });

@@ -11,7 +11,7 @@ jQuery(function(){
 	});
 
 	//saves the complete countries list for restoring
-	var all_countries_html = $('#id_country').html();
+	var all_countries_html = $('[id^="id_"][id$="country"]').html();
 
 	//append the 'on' event to all the continent select boxes (live)
 	$('body').on('change', '[id^="id_"][id$="continent"]', function(){
@@ -23,7 +23,7 @@ jQuery(function(){
 		$('#id_'+id_center+'country').html(all_countries_html);
 		//remove all the continent and countries other than the detected one
 		if(new_continent != ""){
-			$('#id_'+id_center+'country').children().not('.'+new_continent).remove('optgroup');
+			$('#id_'+id_center+'country').children().not('.'+new_continent).remove('optgroup');		
 		}
 	});
 
