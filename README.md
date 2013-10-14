@@ -17,4 +17,4 @@ upy installation adds to your bin path the upy bin scripts. You can launch it wi
 
 ## Documentation
 
-This is an alpha version and still no documentation.
+This is an alpha version and there is still no documentation.

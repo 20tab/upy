@@ -15,11 +15,12 @@ USE_I18N = True
 USE_L10N = True
     
 STATIC_ROOT_NAME = 'static'
+MEDIA_ROOT_NAME = 'media'
 STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, STATIC_ROOT_NAME))
 RELATIVE_STATIC_ROOT = '../%s/' % STATIC_ROOT_NAME
-MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, STATIC_ROOT_NAME))
+MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, MEDIA_ROOT_NAME))
 STATIC_URL = '/%s/' % STATIC_ROOT_NAME
-MEDIA_URL = STATIC_URL
+MEDIA_URL = '/%s/' % MEDIA_ROOT_NAME
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',

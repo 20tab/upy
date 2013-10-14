@@ -54,6 +54,8 @@ def create_project(name=None):
                 os.makedirs("%s/templates/admin" % name)
             if not os.path.exists("%s/static" % name):
                 os.makedirs("%s/static" % name)
+            if not os.path.exists("%s/media" % name):
+                os.makedirs("%s/media" % name)
             print "Copying files: "
             print listing
             for f in listing:
@@ -63,7 +65,7 @@ def create_project(name=None):
                     shutil.copy2('%s/%s' % (UPY_LOCATION, f), '%s/%s' % (name, f))
         except Exception, e:
             print e
-            print "Something is going wrong!"
+            print "Something went wrong!"
 
         else:
             print "Project configured!"
@@ -81,7 +83,7 @@ def main():
                       action="store",
                       dest="name",
                       default="",
-                      help="""If it isn't empty create a directory in which it creates the project,
+                      help="""If it isn't empty it will create a directory in which it will start the project,
                               else the projects will be created in the current directory""", )
     (options, args) = parser.parse_args()
 

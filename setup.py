@@ -29,7 +29,7 @@ setup(name='UPY',
           'django-modeltranslation >=0.6'
       ],
       requires=[
-          'PIL (>1.1.7)',
+          'Pillow',
       ],
       packages=find_packages(),
       include_package_data=True,
