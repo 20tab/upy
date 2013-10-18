@@ -146,3 +146,75 @@ class SubFKWidget(forms.Select):
         js = (settings.JQUERY_LIB,
               '/upy_static/js/sub_foreignkey.js',)
         css = {"all": ("/upy_static/css/sub_foreignkey.css",)}
+
+
+class SelectAutocomplete(forms.Select):
+    """
+    jQuery Plugin documentation: http://ivaynberg.github.io/select2/
+    """
+    allow_multiple_selected = False
+
+    def __init__(self,  attrs=None, choices=(), plugin_options={}):
+        super(SelectAutocomplete, self).__init__(attrs, choices)
+        self.plugin_options = plugin_options
+
+    def render(self, name, value, attrs=None, choices=()):
+        res = super(SelectAutocomplete, self).render(name, value, attrs, choices)
+        options = ""
+        if self.plugin_options:
+            list_options = []
+            for k, v in self.plugin_options.items():
+                list_options.append(u'{0}: "{1}"'.format(k, v))
+            options = u"{" + ", ".join(list_options) + "}"
+        res = mark_safe(
+            """
+            <script type="text/javascript">
+                jQuery(function(){
+                    $("#%s").select2(%s);
+                });
+            </script>
+            %s
+            """ % (attrs['id'], options, res)
+        )
+        return res
+
+    class Media:
+        js = (settings.JQUERY_LIB,
+              '/upy_static/select2-3.4.3/select2.min.js',)
+        css = {"all": ("/upy_static/select2-3.4.3/select2.css",)}
+
+
+class SelectMultipleAutocomplete(forms.SelectMultiple):
+    """
+    jQuery Plugin documentation: http://ivaynberg.github.io/select2/
+    """
+    allow_multiple_selected = True
+
+    def __init__(self, attrs=None, choices=(), plugin_options={}):
+        super(SelectMultipleAutocomplete, self).__init__(attrs, choices)
+        self.plugin_options = plugin_options
+
+    def render(self, name, value, attrs=None, choices=()):
+        res = super(SelectMultipleAutocomplete, self).render(name, value, attrs, choices)
+        options = ""
+        if self.plugin_options:
+            list_options = []
+            for k, v in self.plugin_options.items():
+                list_options.append(u'{0}: "{1}"'.format(k, v))
+            options = u"{" + ", ".join(list_options) + "}"
+        res = mark_safe(
+            """
+            <script type="text/javascript">
+                jQuery(function(){
+                    $("#%s").select2(%s);
+                });
+            </script>
+            %s
+            """ % (attrs['id'], options, res)
+        )
+        return res
+
+    class Media:
+        js = (settings.JQUERY_LIB,
+              '/upy_static/select2-3.4.3/select2.min.js',)
+        css = {"all": ("/upy_static/select2-3.4.3/select2.css",)}
