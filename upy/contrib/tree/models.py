@@ -361,7 +361,7 @@ class AbsView(UpyModel):
             upy_context_string = ", upy_context"
             if self.__class__.__name__ == "ViewAjax":
                 upy_context_string = ""
-            str_to_write = u"\ndef %s(request%s" % (self.func_name, upy_context_string)
+            str_to_write = u"\n\ndef %s(request%s" % (self.func_name, upy_context_string)
             if self.input_vars != "" and self.input_vars:
                 if self.input_vars[0:1] == ",":
                     self.input_vars = self.input_vars[1:]
@@ -379,7 +379,7 @@ class AbsView(UpyModel):
             if self.output_vars != "" and self.output_vars:
                 str_to_write += ", {0}".format(self.output_vars)
             else:
-                str_to_write += ",{}"
+                str_to_write += ", {}"
             str_to_write += ")\n"
             file_view.write(str_to_write)
             file_view.close()

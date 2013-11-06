@@ -40,11 +40,18 @@ def validate_config(config):
     """
     Validates config.py before launching some manage's functions
     """
+    try:
+        if not os.environ['PRODUCTION_SERVER'] in ['True', 'False']:
+            print "uWSGI improperly configured: only True or False values are permitted for PRODUCTION_SERVER parameter"
+            sys.exit()
+    except KeyError:
+        print "uWSGI improperly configured: you must define PRODUCTION_SERVER in environment variables"
+        sys.exit()
     if config.USE_UPY_SEO:
         if not config.USE_UPY_TREE:
             print "UPY improperly configured: you can't set USE_UPY_SEO = True if USE_UPY_TREE is False"
             sys.exit()
-        if not hasattr(config,"LANGUAGES") or not config.LANGUAGES:
+        if not hasattr(config, "LANGUAGES") or not config.LANGUAGES:
             print "UPY improperly configured: you can't set USE_UPY_SEO = True without LANGUAGES"
             sys.exit()
         if not config.USE_MODELTRANSLATION:

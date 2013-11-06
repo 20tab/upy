@@ -84,7 +84,15 @@ PROJ_LOCALE_PATHS = [
 DISALLOW_ALL_ROBOTS = False
 """ If True the directive: \"User-agent: * Disallow: /\" will be added in robots.txt """
 DATABASES = {
-    'default': {
+    'local': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
+    },
+    'remote': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
@@ -93,6 +101,12 @@ DATABASES = {
         'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
     },
 }
+
+if os.environ['PRODUCTION_SERVER'] == "False":
+    DATABASES['default'] = DATABASES['local']
+else:
+    DATABASES['default'] = DATABASES['remote']
+
 """ 
 Databases configuration like as:
 DATABASES = {
