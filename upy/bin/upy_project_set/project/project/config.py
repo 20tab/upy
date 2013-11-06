@@ -2,9 +2,9 @@ import os
 gettext = lambda s: s
 
 
-IN_PRODUCTION = False
+REMOTE_SERVER = False
 """True if application is in production, False if it's in development"""
-if IN_PRODUCTION:
+if REMOTE_SERVER:
     ALLOWED_HOSTS = ('mysite.com',)
     """A list of strings representing the host/domain names that this Django site can serve."""
     UWSGI_INI = "../uwsgi_unbit.ini" 
@@ -22,8 +22,33 @@ else:
 PROJECT_APPS = [
 ]
 """ It defines list of additional applications for your project """
-PROJECT_APP_DEFAULT = "" 
+PROJECT_APP_DEFAULT = ""
 """ Must be the name of your default app. It is used to autocomplete application name in tree.template and tree.views """
+
+DATABASES = {
+    'remote': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
+    },
+    'local': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
+    },
+}
+
+if REMOTE_SERVER:
+    DATABASES['default'] = DATABASES['remote']
+else:
+    DATABASES['default'] = DATABASES['local']
+
 PROJ_MIDDLEWARE_CLASSES = [
 ]
 """ It defines list of additional middleware for your project """
@@ -83,44 +108,6 @@ PROJ_LOCALE_PATHS = [
 """ List of directory for your translations """
 DISALLOW_ALL_ROBOTS = False
 """ If True the directive: \"User-agent: * Disallow: /\" will be added in robots.txt """
-DATABASES = {
-    'local': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
-    },
-    'remote': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.dirname(__file__) + "/../dev.db",#'/path/example.db'. Path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
-    },
-}
-
-if os.environ['PRODUCTION_SERVER'] == "False":
-    DATABASES['default'] = DATABASES['local']
-else:
-    DATABASES['default'] = DATABASES['remote']
-
-""" 
-Databases configuration like as:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.abspath('dev.db'),#'/path/example.db'. Path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
-    },
-}
-"""
-
 USE_LOCAL_SMTP_SERVER = True
 """ If True there is no need to set smtp parameters """
 EMAIL_USER = "info@email.com"
