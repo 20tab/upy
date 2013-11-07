@@ -17,6 +17,10 @@ def alias(name):
             virtualenv = line[10:].replace("=", "").replace(" ", "")
             if "%d" in virtualenv:
                 virtualenv = virtualenv.replace("%d", "%s/" % os.path.dirname(os.path.abspath(config.UWSGI_INI)))
+            if "%c" in virtualenv:
+                virtualenv = virtualenv.replace(
+                    "%c", "%s" % os.path.basename(os.path.dirname(os.path.abspath(config.UWSGI_INI)))
+                )
             if virtualenv[-1:] == "/":
                 virtualenv = virtualenv[:-1]
     command = 'alias %s="PYTHONPATH=%s %s/bin/python"' % (name, pil_lib, virtualenv)
