@@ -67,11 +67,20 @@ def send_mail(subject, text_content, from_email, to, html_content=None, attachme
     msg.send()
 
 
-def send_rendered_mail(subject, text_content, template_name, context_dict, from_email, to, attachments=None):
+def send_rendered_mail(subject, template_name, context_dict, from_email, to, attachments=None):
     """
-    It sends mail after rendering html content
+    It sends mail after rendering html content and normal text using two different template (.html, .txt) with
+    the same name.
+
+    :param subject:
+    :param template_name: without file extension
+    :param context_dict:
+    :param from_email:
+    :param to:
+    :param attachments:
     """
-    rendered = render_to_string(template_name, context_dict)
+    rendered = render_to_string(u"{}.html".format(template_name), context_dict)
+    text_content = render_to_string(u"{}.txt".format(template_name), context_dict)
     return send_mail(subject, text_content, from_email, to, rendered, attachments)
 
 
