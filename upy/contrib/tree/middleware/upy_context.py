@@ -2,6 +2,7 @@ from django.core.urlresolvers import resolve, Resolver404
 from django.conf.urls import handler404
 from django.utils.importlib import import_module
 
+
 class SetUpyContextMiddleware(object):
     """
     This middleware activates current publication in current thread.

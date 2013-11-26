@@ -255,7 +255,7 @@ class UrlAjaxAdmin(admin.ModelAdmin):
     """
     This is the option class for UrlAjax Admin
     """
-    list_display = ('name', 'slug', 'view')
+    list_display = ('name', 'slug', 'regex', 'view', 'function_name')
     list_editable = ('slug', 'view')
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ('name', 'view__name')

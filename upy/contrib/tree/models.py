@@ -474,8 +474,12 @@ class UrlAjax(UpyModel):
         else:
             return "%s" % self.scheme_name
 
+    @property
+    def function_name(self):
+        return self.view.view_path
+
     def __unicode__(self):
-        return u"%s" % (self.name)
+        return u"{0}".format(self.name)
 
     class Meta:
         verbose_name = _(u"UrlAjax")
