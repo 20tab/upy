@@ -160,27 +160,25 @@ class SelectAutocomplete(forms.Select):
 
     def render(self, name, value, attrs=None, choices=()):
         res = super(SelectAutocomplete, self).render(name, value, attrs, choices)
-        options = ""
+        opts = u""
         if self.plugin_options:
-            list_options = []
             for k, v in self.plugin_options.items():
-                list_options.append(u'{0}: "{1}"'.format(k, v))
-            options = u"{" + ", ".join(list_options) + "}"
+                opts += u' data-{}="{}"'.format(k, v)
+
         res = mark_safe(
             """
-            <script type="text/javascript">
-                jQuery(function(){
-                    $("#%s").select2(%s);
-                });
-            </script>
+            <span class="select2-init" id="select2-init-%s"%s></span>
             %s
-            """ % (attrs['id'], options, res)
+            """ % (attrs['id'], opts, res)
         )
         return res
 
     class Media:
-        js = (settings.JQUERY_LIB,
-              '/upy_static/select2-3.4.3/select2.min.js',)
+        js = (
+            settings.JQUERY_LIB,
+            '/upy_static/select2-3.4.3/select2.min.js',
+            '/upy_static/select2-3.4.3/select2__init.js',
+        )
         css = {"all": ("/upy_static/select2-3.4.3/select2.css",)}
 
 
@@ -196,25 +194,22 @@ class SelectMultipleAutocomplete(forms.SelectMultiple):
 
     def render(self, name, value, attrs=None, choices=()):
         res = super(SelectMultipleAutocomplete, self).render(name, value, attrs, choices)
-        options = ""
+        opts = ""
         if self.plugin_options:
-            list_options = []
             for k, v in self.plugin_options.items():
-                list_options.append(u'{0}: "{1}"'.format(k, v))
-            options = u"{" + ", ".join(list_options) + "}"
+                opts += u' data-{}="{}"'.format(k, v)
         res = mark_safe(
             """
-            <script type="text/javascript">
-                jQuery(function(){
-                    $("#%s").select2(%s);
-                });
-            </script>
+            <span class="select2-init" id="select2-init-%s"%s></span>
             %s
-            """ % (attrs['id'], options, res)
+            """ % (attrs['id'], opts, res)
         )
         return res
 
     class Media:
-        js = (settings.JQUERY_LIB,
-              '/upy_static/select2-3.4.3/select2.min.js',)
+        js = (
+            settings.JQUERY_LIB,
+            '/upy_static/select2-3.4.3/select2.min.js',
+            '/upy_static/select2-3.4.3/select2__init.js',
+        )
         css = {"all": ("/upy_static/select2-3.4.3/select2.css",)}

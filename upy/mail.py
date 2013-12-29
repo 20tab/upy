@@ -44,12 +44,12 @@ def umail(request, template, subject, sender, to, context={}, bcc=[], attachment
     email.send()
 
 
-def send_mail(subject, text_content, from_email, to, html_content=None, attachments=None, publication=""):
+def send_mail(subject, text_content, from_email, to, html_content=None, attachments=None, cc=[], bcc=[]):
     """
     This function sends mail using EmailMultiAlternatives and attachs all attachments
     passed as parameters
     """
-    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+    msg = EmailMultiAlternatives(subject, text_content, from_email, to, cc=cc, bcc=bcc)
     if html_content:
         msg.attach_alternative(html_content, "text/html")
     if attachments:
@@ -64,10 +64,10 @@ def send_mail(subject, text_content, from_email, to, html_content=None, attachme
                         print e
                 else:
                     msg.attach_file("%s" % (att.attached_file.url[1:]))
-    msg.send()
+    return msg.send()
 
 
-def send_rendered_mail(subject, template_name, context_dict, from_email, to, attachments=None):
+def send_rendered_mail(subject, template_name, context_dict, from_email, to, attachments=None, cc=[], bcc=[]):
     """
     It sends mail after rendering html content and normal text using two different template (.html, .txt) with
     the same name.
@@ -81,7 +81,7 @@ def send_rendered_mail(subject, template_name, context_dict, from_email, to, att
     """
     rendered = render_to_string(u"{}.html".format(template_name), context_dict)
     text_content = render_to_string(u"{}.txt".format(template_name), context_dict)
-    return send_mail(subject, text_content, from_email, to, rendered, attachments)
+    return send_mail(subject, text_content, from_email, to, rendered, attachments, cc=cc, bcc=bcc)
 
 
 def email_embed_image(email, img_content_id, img_data):
