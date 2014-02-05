@@ -1,6 +1,5 @@
 from django.conf.urls import *
 from django.conf import settings
-from project import config
 from django.contrib import admin as contrib_admin
 contrib_admin.autodiscover()
 from django.contrib.admin.sites import site
@@ -25,15 +24,15 @@ urlpatterns = patterns('',
     (r'', include('upy.contrib.inspect.urls')),
     (r'', include('project.custom_urls')),
 )
-if config.USE_UPY_TREE:
+if USE_UPY_TREE:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.tree.urls'))
     )
-if config.USE_CUSTOM_ADMIN:
+if USE_CUSTOM_ADMIN:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.customadmin.urls')),
     )
-if config.USE_UPY_ROSETTA:
+if USE_UPY_ROSETTA:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.rosetta.urls')),
     )

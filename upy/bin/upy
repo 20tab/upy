@@ -2,7 +2,9 @@
 """
 Contains the script that create a upy project 
 """
-import os, shutil, upy
+import os
+import shutil
+import upy
 from optparse import OptionParser
 
 UPY_LOCATION = "%s/%s" % (os.path.dirname(upy.__file__), "bin/upy_project_set")
@@ -52,8 +54,8 @@ def create_project(name=None):
             print "Configuring project!"
             if not os.path.exists("%s/templates/admin" % name):
                 os.makedirs("%s/templates/admin" % name)
-            if not os.path.exists("%s/static" % name):
-                os.makedirs("%s/static" % name)
+            #if not os.path.exists("%s/static" % name):
+            #    os.makedirs("%s/static" % name)
             if not os.path.exists("%s/media" % name):
                 os.makedirs("%s/media" % name)
             print "Copying files: "

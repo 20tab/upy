@@ -17,4 +17,10 @@ jQuery(function(){
         select2_init();
         return true
     });
+/*
+    $('.select2-offscreen').bind("DOMSubtreeModified", function(){
+        //It capture html change event and it should select the selected item.
+        //Doesn't work yet
+    });
+*/
 });

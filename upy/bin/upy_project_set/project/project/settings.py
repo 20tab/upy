@@ -1,15 +1,11 @@
 # Django settings for UPY project.
-from project.config import *
-import project
-from upy.upy_conf import upy_static, upy_templates,upy_tpl, validate_config, upy_locale
-
-validate_config(project.config)
+#import project
+import os
+from upy.upy_conf import upy_static
 
 PROJECT_PATH = os.path.realpath(os.path.dirname("../"))
 
-TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = "project.urls"
-MANAGERS = ADMINS
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
@@ -25,7 +21,6 @@ MEDIA_URL = '/%s/' % MEDIA_ROOT_NAME
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = [
@@ -37,12 +32,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware', # per i18n
 ]
-if USE_UPY_TREE:
-    MIDDLEWARE_CLASSES.append('upy.contrib.tree.middleware.upy_context.SetUpyContextMiddleware')
-MIDDLEWARE_CLASSES.extend(
-    PROJ_MIDDLEWARE_CLASSES
-)
-
 TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
@@ -51,36 +40,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
     "django.contrib.messages.context_processors.messages",
 ]
-if USE_UPY_TREE:
-    TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.tree.template_context.context_processors.set_meta")
-    if USE_UPY_SEO:
-        TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.seo.template_context.context_processors.set_meta")
-if USE_CUSTOM_ADMIN:
-    TEMPLATE_CONTEXT_PROCESSORS.append("upy.contrib.customadmin.template_context.context_processors.customadmin_context")
-if USE_UPY_ADMIN:
-    TEMPLATE_CONTEXT_PROCESSORS.append("upy.template_context.context_processors.use_upy_admin")
 
-TEMPLATE_CONTEXT_PROCESSORS.extend(
-    PROJ_TEMPLATE_CONTEXT_PROCESSORS
-)
-GLOBAL_TEMPLATES_DIR = '../templates'
-TEMPLATE_DIRS = [GLOBAL_TEMPLATES_DIR]
-if USE_GLOBAL_TEMPLATES_DIR:
-    list_dirs = [ "%s/%s" % (GLOBAL_TEMPLATES_DIR,tdir) for tdir in os.listdir(GLOBAL_TEMPLATES_DIR)]
-    if list_dirs:
-        TEMPLATE_DIRS.extend(list_dirs)
-if USE_UPY_ADMIN:
-    TEMPLATE_DIRS.extend(
-        [upy_templates(),upy_tpl(),]
-    )
-TEMPLATE_DIRS.extend(
-    PROJ_TEMPLATE_DIRS
-)
-LOCALE_PATHS = []
-LOCALE_PATHS.extend(
-        [upy_locale()]
-    )
-LOCALE_PATHS.extend(PROJ_LOCALE_PATHS)
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,35 +55,7 @@ INSTALLED_APPS = [
     'upy.contrib.inspect',
     'upy.contrib.image',
 ]
-if USE_UPY_TREE:
-    INSTALLED_APPS.append('upy.contrib.tree')
-    if USE_UPY_SEO:
-        INSTALLED_APPS.append('upy.contrib.seo')
 
-if USE_FULLHD_SUPPORT:
-    PIL_IMAGEFILE_MAXBLOCK = 256 * 2 ** 13 # 2MB
-    UPYIMAGE_LIMIT_AREA = 2073700 # 1920*1080px +
-else:
-    PIL_IMAGEFILE_MAXBLOCK = 256 * 2 ** 10 # 260KB
-    UPYIMAGE_LIMIT_AREA = 1049188 # 1366*768px +
-
-if USE_UPY_COLOR:
-    INSTALLED_APPS.append('upy.contrib.colors')
-
-if USE_CUSTOM_ADMIN:
-    INSTALLED_APPS.append('upy.contrib.customadmin')
-
-if USE_UPY_ROSETTA:
-    INSTALLED_APPS.append('upy.contrib.rosetta')
-
-if USE_MODELTRANSLATION:
-    INSTALLED_APPS.extend(
-        ['modeltranslation','upy.contrib.tabbed_translation']
-    )
-
-INSTALLED_APPS.extend(
-    PROJECT_APPS
-)
     
 # file size ---------
 FILE_UPLOAD_MAX_MEMORY_SIZE = 32000000 #32 MB
@@ -157,8 +89,9 @@ UPY_TREE_EDITOR_OBJECT_PERMISSIONS = False
 """
 CONFIG CKEditor
 """
+CKEDITOR_UPLOADS = 'uploads'
 if not os.path.exists(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)):
-    os.makedirs(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS)) 
+    os.makedirs(u'%s/%s/' % (STATIC_ROOT,CKEDITOR_UPLOADS))
 
 
 ELFINDER_OPTIONS = {

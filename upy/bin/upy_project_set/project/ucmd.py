@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-from project import config
+from project import local_settings as config
 from optparse import OptionParser
 
 
