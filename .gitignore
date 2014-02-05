@@ -2,7 +2,6 @@
 *.pot
 *.pyc
 *.swp
-local_settings.py
 fabfile.py
 .pydevproject
 .project
