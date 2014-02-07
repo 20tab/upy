@@ -24,15 +24,15 @@ urlpatterns = patterns('',
     (r'', include('upy.contrib.inspect.urls')),
     (r'', include('project.custom_urls')),
 )
-if USE_UPY_TREE:
+if settings.USE_UPY_TREE:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.tree.urls'))
     )
-if USE_CUSTOM_ADMIN:
+if settings.USE_CUSTOM_ADMIN:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.customadmin.urls')),
     )
-if USE_UPY_ROSETTA:
+if settings.USE_UPY_ROSETTA:
     urlpatterns += patterns('',
         (r'', include('upy.contrib.rosetta.urls')),
     )

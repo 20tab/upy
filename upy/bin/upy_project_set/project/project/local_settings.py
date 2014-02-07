@@ -20,8 +20,9 @@ else:
     DEBUG = True
     """ True only in development to debug your application"""
 
-INSTALLED_APPS.extend([
-])
+PROJECT_APPS = [
+]
+INSTALLED_APPS.extend(PROJECT_APPS)
 """ It defines list of additional applications for your project """
 PROJECT_APP_DEFAULT = ""
 """ Must be the name of your default app. It is used to autocomplete application name in tree.template and tree.views """

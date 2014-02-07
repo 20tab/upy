@@ -8,3 +8,4 @@ fabfile.py
 .idea
 .settings
 .DS_Store
+mk_manifest.py

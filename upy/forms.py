@@ -1,5 +1,5 @@
 from django import forms
-from upy.widgets import NullCheckboxWidget, SelectAutocomplete
+from upy.widgets import NullCheckboxWidget
 
 
 class NullTrueField(forms.NullBooleanField):
