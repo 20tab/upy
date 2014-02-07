@@ -133,6 +133,7 @@ class CustomAppForm(forms.ModelForm):
 
     class Meta:
         model = CustomApp
+        exclude = ()
 
 
 class CustomAppAdmin(ColorBoxPositionAdmin):
@@ -195,6 +196,7 @@ class CustomModelForm(forms.ModelForm):
 
     class Meta:
         model = CustomModel
+        exclude = ()
 
 
 class CustomModelAdmin(ColorBoxPositionAdmin):

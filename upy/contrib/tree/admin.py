@@ -15,6 +15,7 @@ class NodeForm(forms.ModelForm):
 
     class Meta:
         model = Node
+        exclude = ()
 
     def clean(self):
         cleaned_data = super(NodeForm, self).clean()
@@ -115,6 +116,7 @@ class PageAdminForm(forms.ModelForm):
 
     class Meta:
         model = Page
+        exclude = ()
 
     static_vars = forms.RegexField(
         required=False, widget=forms.Textarea(attrs={"cols": '80', "rows": '4'}),
@@ -158,6 +160,7 @@ class TemplateAdminForm(forms.ModelForm):
 
     class Meta:
         model = Template
+        exclude = ()
 
 
 class TemplateAdmin(admin.ModelAdmin):
@@ -198,6 +201,7 @@ class ViewAdminForm(forms.ModelForm):
 
     class Meta:
         model = View
+        exclude = ()
 
 
 class ViewAdmin(admin.ModelAdmin):
@@ -236,10 +240,6 @@ class UrlAjaxAdminForm(forms.ModelForm):
     """
     Admin's form for UrlAjax model
     """
-
-    class Meta:
-        model = UrlAjax
-
     slug = forms.RegexField(required=True, regex='^[-\w/]+$', help_text=_(u"Identifying UrlAjax's url."))
     static_vars = forms.RegexField(
         required=False, widget=forms.Textarea(attrs={"cols": '80', "rows": '4'}),
@@ -249,6 +249,10 @@ class UrlAjaxAdminForm(forms.ModelForm):
             {\"param1\":value1, \"param2\":value2}."""
         )
     )
+
+    class Meta:
+        model = UrlAjax
+        exclude = ()
 
 
 class UrlAjaxAdmin(admin.ModelAdmin):

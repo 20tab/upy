@@ -98,3 +98,5 @@ ELFINDER_OPTIONS = {
     'root': os.path.join(STATIC_ROOT, CKEDITOR_UPLOADS),
     'URL': '/%s/%s/' % (STATIC_ROOT_NAME, CKEDITOR_UPLOADS),
 }
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'

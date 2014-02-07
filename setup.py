@@ -23,13 +23,11 @@ setup(name='UPY',
           'Topic :: Software Development :: Libraries :: Application Frameworks',
       ],
       install_requires=[
-          'Django >=1.5',
-          'django_mptt >=0.5.5',
+          'Django >=1.6',
+          'Pillow >=2.3'
+          'django_mptt >=0.6',
           'django_imagekit >=3',
-          'django-modeltranslation >=0.6'
-      ],
-      requires=[
-          'Pillow',
+          'django-modeltranslation >=0.7'
       ],
       packages=find_packages(),
       include_package_data=True,

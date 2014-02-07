@@ -143,7 +143,7 @@ class CustomAdmin(models.Model):
                                 help_text=_(u"Set the css code. "),
                                 verbose_name=_(u"Css code"))
     use_css_code = models.BooleanField(help_text=_(u"Check it if you want use css code to extends style."),
-                                       verbose_name=_(u"Use css code"))
+                                       verbose_name=_(u"Use css code"), default=False)
     use_log_sidebar = models.BooleanField(default=False,
                                           help_text=_(u"Check it if you want use log sidebar in index template."),
                                           verbose_name=_(u"Use log sidebar"))

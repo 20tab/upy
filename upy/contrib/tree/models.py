@@ -23,13 +23,14 @@ class Node(MPTTModel, UpyModel):
     position = models.PositiveSmallIntegerField(u'Position', default=0)
     is_index = NullTrueField(_('Is index node?'), unique=True)
     hide_in_navigation = models.BooleanField(help_text=_(u"Check it to hide the page in this node in the navigation."),
-                                             verbose_name=_(u"Hide in navigation"))
+                                             verbose_name=_(u"Hide in navigation"), default=False)
     hide_in_url = models.BooleanField(
-        _(u'Hide in url'),
+        _(u'Hide in url'), default=False,
         help_text=_(u"Check it to hide the node in url path (only if node hasn't a page)."))
     show_if_logged = models.BooleanField(
         help_text=_(u"Check it if this node must be showed only for logged user or group."),
-        verbose_name=_(u"Show if logged"))
+        verbose_name=_(u"Show if logged"), default=False
+    )
     groups = models.ManyToManyField(Group, null=True, blank=True,
                                     help_text=_(u"List of groups to use with 'show if logged' parameter."),
                                     verbose_name=_(u"Groups"), related_name='node_groups')
@@ -62,7 +63,7 @@ class Node(MPTTModel, UpyModel):
                                     help_text=_(u"List of robots to communicate that this node is disallowed."),
                                     verbose_name=_(u"Robots"))
     disallow = models.BooleanField(help_text=_(u"Check it to disallow the page in this node in the file robots.txt."),
-                                   verbose_name=_(u"Disallow"))
+                                   verbose_name=_(u"Disallow"), default=False)
 
     @property
     def page_name(self):

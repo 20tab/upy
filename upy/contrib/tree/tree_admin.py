@@ -120,8 +120,8 @@ class ChangeList(main.ChangeList):
         self.user = request.user
         super(ChangeList, self).__init__(request, *args, **kwargs)
 
-    def get_query_set(self,request = None):
-        return super(ChangeList, self).get_query_set(request).order_by('tree_id', 'lft')
+    def get_queryset(self,request = None):
+        return super(ChangeList, self).get_queryset(request).order_by('tree_id', 'lft')
 
     def get_results(self, request):
         if settings.UPY_TREE_EDITOR_INCLUDE_ANCESTORS:
