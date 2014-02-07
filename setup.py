@@ -24,7 +24,7 @@ setup(name='UPY',
       ],
       install_requires=[
           'Django >=1.6',
-          'Pillow >=2.3'
+          'Pillow >=2.3',
           'django_mptt >=0.6',
           'django_imagekit >=3',
           'django-modeltranslation >=0.7'
